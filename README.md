@@ -37,7 +37,8 @@ compétences dans `~/cadrer-x` s'y voit tout de suite.
 
 Les compétences ne servent que dans le dossier où tu les installes : une session lancée dans un
 sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans le projet
-lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`.
+lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-les pour tous tes projets :
+`~/cadrer-x/install.sh --global`.
 
 ## Les étapes
 
