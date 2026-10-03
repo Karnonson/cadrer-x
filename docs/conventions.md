@@ -25,7 +25,7 @@ docs/adr/NNNN-<slug>.md
 docs/features/NNNN-<slug>/
   idee.md  decisions.md  spec.md  a-trancher.md  taches.md
   maquette/  passation.md  textes.md
-  audit.md  livraison.md  pr.md  captures/
+  verification.md  audit.md  livraison.md  pr.md  captures/
 .worktrees/<branch>/
 ```
 
