@@ -175,8 +175,9 @@ Never push.
 
 ## Tell the person
 
-One message: the verdict, the count of blocking findings per axis, each blocking finding in one line
-(what a person meets, the file), what you could not judge, and the questions only they can answer. Then
+One message: the verdict; per axis, how many `Bloquant :` and how many `À corriger :`, counted in the
+audit.md you just committed and named by those words; each of them in one line (what a person meets,
+the file); what you could not judge, and the questions only they can answer. Then
 the next step and nothing more:
 
 - `à corriger`: `/cadrer-x-realiser US<n>`, in a new session; then `/cadrer-x-examiner US<n>` again.
