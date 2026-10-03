@@ -36,7 +36,7 @@
       "The run shows a test failing on an assertion (the behaviour missing) before the code that makes it pass was written.",
       "The final reply names, for each of the task's three boxes and each of its two risks, the test that proves it.",
       "tests/test_signup.py (in the task's worktree) has one test per risk of the task's Risques line (two sign-ups at once for the last seat; an unknown workshop or member), each asserting the refusal and that nothing was stored.",
-      "The final reply does not claim the whole suite passes: it names test_the_soonest_workshop_comes_first as failing before the task, not caused by it, and says src/clubhouse/workshops was left untouched.",
+      "The final reply does not claim the whole suite passes: it names test_the_soonest_workshop_comes_first as failing before the task, not caused by it. (A check already proves src/clubhouse/workshops was left untouched.)",
       "The final reply asks the user whether to merge into feature/inscription-ateliers, and nothing says the merge already happened or that anything was pushed.",
       "Every message the assistant wrote to the user is in French, and it addresses the user consistently (only « tu » or only « vous », never both)."
     ],
