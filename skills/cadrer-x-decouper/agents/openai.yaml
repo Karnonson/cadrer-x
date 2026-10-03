@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x découper"
+  short_description: "Les tâches (taches.md) : des tranches fines par récit, et ce qui se construit en même temps"
+policy:
+  allow_implicit_invocation: false

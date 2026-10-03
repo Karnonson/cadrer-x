@@ -102,6 +102,12 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 3. Après US1 : la plus petite version qui vaut d'être montrée. On peut s'arrêter là et la montrer.
 4. Un récit ajouté ne casse jamais ceux d'avant : leurs tests restent verts.
 
+<!-- Les vagues : chaque vague, les tâches dont l'`Après :` est couvert par les vagues d'avant. Autant de sessions en même temps que de tâches dans une vague. -->
+
+- Vague 1 : T01
+- Vague 2 : T02, T03
+- Vague 3 : T04
+
 ## À surveiller
 
 <!--

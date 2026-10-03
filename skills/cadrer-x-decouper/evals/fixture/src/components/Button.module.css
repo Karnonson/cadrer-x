@@ -1,0 +1,4 @@
+.btn { min-height: var(--tap); padding: 0 var(--sp-4); border-radius: var(--r-md); border: 1px solid transparent; font: 600 var(--fs-md) var(--sans); cursor: pointer; }
+.primary { background: var(--brand); color: var(--paper); }
+.primary:hover { background: var(--brand-strong); }
+.ghost { background: transparent; color: var(--brand); border-color: var(--line); }

@@ -137,7 +137,7 @@ The template is `skills/cadrer-x-decouper/templates/taches.md`, adapted from spe
 | — | `Exigences :` (the spec's `EF<n>` the task makes true) |
 | spec-kit Phase 1–2: Setup, Foundational | `## Fondations` |
 | spec-kit Phase 3+: User Story N | `## US1 — <titre> (Priorité : P1)`, with `**But**`, `**Test seul**`, `**Point d'étape**` |
-| spec-kit Implementation Strategy | `## Ordre` |
+| spec-kit Implementation Strategy | `## Ordre`, ending on the waves: `- Vague 1 : T01`, `- Vague 2 : T02, T03` (each wave the tasks the earlier waves unblock) |
 | `## Review focus` | `## À surveiller` |
 | `## Coverage` | `## Couverts` (rows: `US<n>`, `EF<n>`, constitution rules `M<n>`) |
 | `MUSTs to own:` | dropped: each constitution rule a task handles is its own `M<n>` row under `## Couverts` |
@@ -146,6 +146,10 @@ The template is `skills/cadrer-x-decouper/templates/taches.md`, adapted from spe
 `[P]`: the task can be built at the same time as the one before it — its `Après :` does not name it and
 they share no file. Dropped from spec-kit: separate test tasks (each task writes its test first) and the
 Polish phase (docs are `rendre`'s; anything else belongs to a story).
+
+`skills/cadrer-x-decouper/scripts/lint.py taches <path>` checks the form and the plan's links: ids, each task's
+lines, its stories, exigences and screens against `spec.md` and `passation.md`, `[P]`, one owner per shared file,
+the files a task never touches, and `Couverts`.
 
 ### passation.md (design handoff)
 

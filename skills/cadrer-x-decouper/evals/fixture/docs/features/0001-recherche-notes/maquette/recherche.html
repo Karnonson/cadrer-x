@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chercher dans mes notes — Carnet</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .snippet { margin: 0 0 var(--space-1); }
+  .snippet mark { background: var(--color-accent-soft); color: inherit; padding: 0 2px; border-radius: var(--radius-sm); }
+</style>
+</head>
+<body>
+<nav class="maquette-etats" aria-label="États de la maquette">
+  <a href="#avant">avant</a> · <a href="#resultats">résultats</a> · <a href="#aucun">aucun résultat</a> · <a href="#erreur">erreur</a></nav>
+<header class="nav"><a class="nav-brand" href="#">Carnet</a><span class="nav-meta">Marie</span></header>
+<main class="page">
+  <h1>Chercher dans mes notes</h1>
+  <form class="row" role="search" data-goto="resultats">
+    <div class="field">
+      <label class="label" for="q">Un mot de ta note</label>
+      <input class="input" id="q" name="q" type="search" value="jardin" maxlength="100">
+    </div>
+    <button class="btn btn-primary" type="submit">Chercher</button>
+  </form>
+  <section data-state="avant">
+    <p class="empty">Tape un mot dont tu te souviens. On cherche dans toutes tes notes.</p>
+  </section>
+  <section data-state="resultats">
+    <p class="card-meta" aria-live="polite">3 notes contiennent « jardin »</p>
+    <ul class="list">
+      <li><a class="card" href="note.html"><p class="card-title">Le Jardin secret · p. 112</p>
+        <p class="snippet">… et le <mark>jardin</mark> reprenait vie sous la pluie de mars …</p>
+        <p class="card-meta">12 septembre 2026</p></a></li>
+      <li><a class="card" href="note.html"><p class="card-title">Candide</p>
+        <p class="snippet">… il faut cultiver notre <mark>jardin</mark>.</p>
+        <p class="card-meta">3 août 2026</p></a></li>
+      <li><a class="card" href="note.html"><p class="card-title">Les Belles-sœurs · p. 40</p>
+        <p class="snippet">… la chaise du <mark>jardin</mark>, celle que personne ne prend …</p>
+        <p class="card-meta">18 juin 2026</p></a></li>
+    </ul>
+  </section>
+  <section data-state="aucun">
+    <p class="empty">Aucune note ne contient « jardin ». Essaie un autre mot.</p>
+  </section>
+  <section data-state="erreur">
+    <div class="alert alert-error" role="alert">La recherche n'a pas pu se faire. Réessaie dans un instant.</div>
+  </section>
+</main>
+<script src="maquette.js"></script>
+</body>
+</html>

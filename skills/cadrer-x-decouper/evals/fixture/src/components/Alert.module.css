@@ -1,0 +1,3 @@
+.alert { padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md); font-family: var(--sans); }
+.error { background: var(--danger-wash); color: var(--danger); }
+.info { background: var(--info-wash); color: var(--ink); }

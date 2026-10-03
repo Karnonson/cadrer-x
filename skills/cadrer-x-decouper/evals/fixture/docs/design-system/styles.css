@@ -1,0 +1,69 @@
+/* Carnet — design system. Every colour, font, size and space is a token below; every part is a
+   class further down. Never a raw value elsewhere. */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f7f5f2;
+  --color-text: #1d1d1f;
+  --color-text-muted: #5f5f66;       /* AA on bg and surface */
+  --color-accent: #a4471c;           /* terracotta: links, the primary button */
+  --color-accent-strong: #7f3615;    /* hover, focus ring */
+  --color-accent-soft: #fbeee6;      /* a light wash: selected rows, marked text */
+  --color-danger: #b3261e;
+  --color-danger-soft: #fdecea;
+  --color-info-soft: #eef3fb;
+  --color-divider: #e4e1dc;
+
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-sm: 0 1px 2px rgb(29 29 31 / 8%);
+  --tap: 44px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font: var(--text-md)/1.5 var(--font-body); }
+a { color: var(--color-accent); }
+:focus-visible { outline: 2px solid var(--color-accent-strong); outline-offset: 2px; }
+h1 { font: 700 var(--text-xl)/1.2 var(--font-ui); margin: 0 0 var(--space-4); }
+
+.page { max-width: 720px; margin: 0 auto; padding: var(--space-4); }
+.row { display: flex; gap: var(--space-2); align-items: flex-end; flex-wrap: wrap; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-3); }
+
+.nav { display: flex; justify-content: space-between; align-items: center; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-divider); font-family: var(--font-ui); }
+.nav-brand { font-weight: 700; color: var(--color-text); text-decoration: none; }
+.nav-meta { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+.btn { min-height: var(--tap); padding: 0 var(--space-4); border-radius: var(--radius-md); border: 1px solid transparent; font: 600 var(--text-md) var(--font-ui); cursor: pointer; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-strong); }
+.btn-ghost { background: transparent; color: var(--color-accent); border-color: var(--color-divider); }
+
+.field { display: grid; gap: var(--space-1); flex: 1 1 200px; }
+.label { font: 600 var(--text-sm) var(--font-ui); }
+.input { min-height: var(--tap); padding: 0 var(--space-3); border: 1px solid var(--color-divider); border-radius: var(--radius-sm); font: var(--text-md) var(--font-ui); width: 100%; }
+.field-hint { font-size: var(--text-sm); color: var(--color-text-muted); }
+.field-error { font-size: var(--text-sm); color: var(--color-danger); }
+
+.card { display: block; padding: var(--space-4); background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); color: inherit; text-decoration: none; }
+.card-title { font: 600 var(--text-md) var(--font-ui); margin: 0 0 var(--space-1); }
+.card-meta { font: var(--text-sm) var(--font-ui); color: var(--color-text-muted); margin: 0; }
+
+.alert { padding: var(--space-3) var(--space-4); border-radius: var(--radius-md); font-family: var(--font-ui); }
+.alert-error { background: var(--color-danger-soft); color: var(--color-danger); }
+.alert-info { background: var(--color-info-soft); color: var(--color-text); }
+
+.empty { color: var(--color-text-muted); font-family: var(--font-ui); text-align: center; padding: var(--space-8) var(--space-4); }
+.back { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--font-ui); }
