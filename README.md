@@ -10,10 +10,11 @@ titres restent fixes, en français, pour que chaque étape retrouve le travail d
 
 ## Installer
 
-Une fois, récupère cadrer-x :
+Une fois, récupère cadrer-x (le dépôt est privé : il faut y avoir accès, et [`gh`](https://cli.github.com)
+connecté) :
 
 ```sh
-git clone https://github.com/Karnonson/cadrer-x.git ~/cadrer-x
+gh repo clone Karnonson/cadrer-x ~/cadrer-x
 ```
 
 Puis, dans le dossier de ton projet (par défaut : seulement ce projet) :
