@@ -1,6 +1,6 @@
 # cadrer-x conventions
 
-Draft, 2026-10-03. The fixed names every cadrer-x skill writes and reads. A skill finds another skill's
+2026-10-03. The fixed names every cadrer-x skill writes and reads. A skill finds another skill's
 section by its exact heading, so these names never change once released, and they are never translated per
 person. Later, fleet parses the same names.
 
@@ -13,7 +13,6 @@ person. Later, fleet parses the same names.
 - **Ids stay ids.** `US1` (story), `SC1` (screen), `T01` (task), `Q1` (question), `EF1` (requirement), `CS1` (success criterion), `D1` (decision), `M4` (a rule of the constitution), `[P]` (a task that can be built at the same time as the one before it)
   are ids, not words: they are not translated.
 - **Accents are part of the name.** `À surveiller`, not `A surveiller`.
-- Marked **?**: a proposal still to confirm.
 
 ## Layout
 
@@ -296,7 +295,7 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-Proposal: 21 Proa skills become 7 skills and 5 helpers. `init` comes first, once per project; the
+21 Proa skills became 7 skills, 1 optional check and 5 helpers. `init` comes first, once per project; the
 next six spell CADRER, in order. A skill holding two steps checks which one's file is missing and runs
 that one. A helper is loaded by the skills that need it, never run on its own.
 
