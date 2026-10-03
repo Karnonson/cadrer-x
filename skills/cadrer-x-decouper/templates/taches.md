@@ -115,8 +115,10 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 ## Couverts
 
 <!--
-  La vérification finale du découpage : chaque récit, chaque exigence de la spec, chaque règle de la
-  constitution que la fonctionnalité doit porter, avec les tâches qui les couvrent.
+  La vérification finale du découpage : chaque récit, chaque exigence de la spec, et chaque règle de
+  la constitution qui demande à cette fonctionnalité un test ou un outil (`M<n>`), avec les tâches qui
+  les couvrent. Une règle que la spec oblige à enfreindre va sous Règles en conflit, avec sa question
+  dans `a-trancher.md`.
 -->
 
 | Quoi | Tâches |
@@ -128,5 +130,4 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 | EF3 | T04 |
 | M4 | T01 |
 
-- Règles à porter : M4
 - Règles en conflit : aucune

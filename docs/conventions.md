@@ -136,7 +136,7 @@ The template is `skills/cadrer-x-decouper/templates/taches.md`, adapted from spe
 | spec-kit Implementation Strategy | `## Ordre` |
 | `## Review focus` | `## À surveiller` |
 | `## Coverage` | `## Couverts` (rows: `US<n>`, `EF<n>`, constitution rules `M<n>`) |
-| `MUSTs to own:` | `Règles à porter :` (constitution rules) |
+| `MUSTs to own:` | dropped: each constitution rule a task handles is its own `M<n>` row under `## Couverts` |
 | `MUST conflicts:` | `Règles en conflit :` |
 
 `[P]`: the task can be built at the same time as the one before it — its `Après :` does not name it and
