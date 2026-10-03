@@ -72,6 +72,10 @@ gap is typed:
 - **contraire**: the code does otherwise than the scenario says;
 - **non demandé**: the story's code does something no scenario, `EF<n>` or decision asks for.
 
+Then the other way round: list each public function, route, page and table the story's files add, and
+match each to the scenario, `EF<n>` or decision that asks for it. One that matches none is `non demandé`
+(`À corriger :`, removed or asked about), whatever else is wrong with it too.
+
 **Would the test fail?** A test that passes whatever the code does proves nothing. For each box, read
 its test: does it assert the spec's own value, at the boundary the scenario names (the last seat, the
 exact hour, the empty list), through the module's entry? For the scenarios that matter most (an
