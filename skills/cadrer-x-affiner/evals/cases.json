@@ -1,0 +1,51 @@
+{
+  "invocation": "user",
+  "triggers": [
+    {
+      "prompt": "Écris les récits utilisateur de l'inscription aux ateliers à partir de l'idée et des décisions.",
+      "fires": false
+    },
+    {
+      "prompt": "Fais-moi une maquette cliquable de l'écran d'inscription avant qu'on code quoi que ce soit.",
+      "fires": false
+    },
+    {
+      "prompt": "Dans docs/features/0001-inscription-ateliers/decisions.md, quelle décision coûterait le plus à changer après le lancement ? Réponds en trois lignes, sans écrire de fichier.",
+      "fires": false
+    }
+  ],
+  "behaviour": {
+    "prompt": "inscription-ateliers : on passe à la spec.",
+    "fixture": "fixture",
+    "base": "feature/inscription-ateliers",
+    "checks": [
+      "test -s \"$OUT\"",
+      "test -f docs/features/0001-inscription-ateliers/spec.md",
+      "python3 \"$(ls -d .claude/skills/cadrer-x-affiner .agents/skills/cadrer-x-affiner 2>/dev/null | head -1)/scripts/lint.py\" spec docs/features/0001-inscription-ateliers/spec.md",
+      "grep -q '^\\*\\*Statut\\*\\* : brouillon' docs/features/0001-inscription-ateliers/spec.md",
+      "grep -qiE 'conjoint|quelqu.un d.autre|sans compte' docs/features/0001-inscription-ateliers/a-trancher.md",
+      "[ \"$(grep -c '^## Q' docs/features/0001-inscription-ateliers/a-trancher.md)\" -le \"$(grep -c '^- Conseil : ' docs/features/0001-inscription-ateliers/a-trancher.md)\" ]",
+      "test \"$(git rev-list --count HEAD)\" = 1",
+      "test ! -e .worktrees",
+      "! git status --porcelain --untracked-files=all | sed 's/^...//' | grep -vE '^\\.(agents|claude)/' | grep -vqE '^docs/features/0001-inscription-ateliers/(spec|a-trancher)\\.md$'"
+    ],
+    "judge": [
+      "In the turn (every message the assistant wrote, the final reply included), exactly one question is left open for the user; the same question asked again, or pointed back to, counts once.",
+      "The open question carries the assistant's recommended answer, which a plain « oui » would accept.",
+      "The final reply says the spec draft is written and lists its user stories, one short line each.",
+      "Every scenario in spec.md is something a member or an organizer (animateur) does and then sees, in plain words, with no technical term (no file format, database, module or server).",
+      "No story in spec.md asks for something idee.md and decisions.md do not ask for (no invented feature such as a history page or a data clean-up job); anything tempting is under « Pas encore ».",
+      "Whether a member may sign up someone else, such as a spouse with no account (idee.md, Ouvert), is put to the user as a question with options and a recommendation, or recorded in a-trancher.md with a Conseil; it is never decided silently.",
+      "The constitution (M3) lets organizers see the sign-ups of « leurs ateliers », and nothing in the repo says who runs a workshop: spec.md does not settle that silently as « every organizer sees every workshop » under Supposé; it is a question to the user or in a-trancher.md, or the spec keeps each organizer to the workshops they run.",
+      "Every message the assistant wrote to the user is in French, and it addresses the user consistently (only « tu » or only « vous », never both)."
+    ],
+    "context": [
+      "docs/features/0001-inscription-ateliers/idee.md",
+      "docs/features/0001-inscription-ateliers/decisions.md",
+      "docs/features/0001-inscription-ateliers/spec.md",
+      "docs/features/0001-inscription-ateliers/a-trancher.md",
+      "docs/constitution.md"
+    ],
+    "timeout": 900
+  }
+}

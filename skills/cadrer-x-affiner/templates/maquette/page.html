@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>SC1 <nom> — maquette</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Les Nouveautés seulement, faites avec les tokens du design system : var(--…), jamais une valeur brute. */
+  </style>
+</head>
+<body>
+  <nav class="maquette-etats" aria-label="États de la maquette">
+    <a href="#avant">avant</a> <a href="#resultat">résultat</a> <a href="#erreur">erreur</a>
+  </nav>
+
+  <main>
+    <section data-state="avant">
+      <h1><titre de l'écran></h1>
+      <!-- un contrôle qui change d'état : <button type="button" data-goto="resultat">…</button> -->
+    </section>
+
+    <section data-state="resultat" aria-live="polite">
+      <!-- … -->
+    </section>
+
+    <section data-state="erreur">
+      <p role="alert"><message d'erreur></p>
+    </section>
+  </main>
+
+  <script src="maquette.js"></script>
+</body>
+</html>

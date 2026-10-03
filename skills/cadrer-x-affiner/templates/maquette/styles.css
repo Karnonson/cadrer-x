@@ -1,0 +1,79 @@
+/* Style neutre de la maquette, quand le projet n'a pas encore de design system : lisible, accessible,
+   sans marque. Copié tel quel dans maquette/ ; les pages n'utilisent que ces tokens et ces parties. */
+:root {
+  --couleur-fond: #ffffff;
+  --couleur-surface: #f5f5f4;
+  --couleur-texte: #1c1917;
+  --couleur-discret: #57534e;
+  --couleur-bord: #d6d3d1;
+  --couleur-accent: #1d4ed8;
+  --couleur-accent-texte: #ffffff;
+  --couleur-erreur: #b91c1c;
+  --couleur-succes: #15803d;
+  --police: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --taille-texte: 1rem;
+  --taille-petit: 0.875rem;
+  --taille-titre: 1.5rem;
+  --espace-1: 0.25rem;
+  --espace-2: 0.5rem;
+  --espace-3: 1rem;
+  --espace-4: 1.5rem;
+  --espace-5: 2.5rem;
+  --rayon: 0.5rem;
+  --cible: 44px;
+  --largeur: 720px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --couleur-fond: #1c1917;
+    --couleur-surface: #292524;
+    --couleur-texte: #f5f5f4;
+    --couleur-discret: #a8a29e;
+    --couleur-bord: #44403c;
+    --couleur-accent: #93c5fd;
+    --couleur-accent-texte: #1c1917;
+    --couleur-erreur: #fca5a5;
+    --couleur-succes: #86efac;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--couleur-fond); color: var(--couleur-texte); font: var(--taille-texte)/1.5 var(--police); }
+main { max-width: var(--largeur); margin: 0 auto; padding: var(--espace-4) var(--espace-3); }
+h1 { font-size: var(--taille-titre); line-height: 1.2; margin: 0 0 var(--espace-3); }
+h2 { font-size: var(--taille-texte); margin: var(--espace-4) 0 var(--espace-2); }
+p { margin: 0 0 var(--espace-3); }
+a { color: var(--couleur-accent); }
+:focus-visible { outline: 3px solid var(--couleur-accent); outline-offset: 2px; }
+.discret { color: var(--couleur-discret); font-size: var(--taille-petit); }
+
+/* Parties */
+.champ { display: flex; flex-direction: column; gap: var(--espace-1); margin-bottom: var(--espace-3); }
+.champ label { font-weight: 600; }
+.champ input, .champ select, .champ textarea {
+  min-height: var(--cible); padding: var(--espace-2) var(--espace-3); font: inherit; color: inherit;
+  background: var(--couleur-fond); border: 1px solid var(--couleur-bord); border-radius: var(--rayon);
+}
+.champ .aide { color: var(--couleur-discret); font-size: var(--taille-petit); }
+.champ .erreur { color: var(--couleur-erreur); font-size: var(--taille-petit); }
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; min-height: var(--cible);
+  padding: var(--espace-2) var(--espace-4); font: inherit; font-weight: 600; border-radius: var(--rayon);
+  border: 1px solid var(--couleur-accent); background: var(--couleur-accent); color: var(--couleur-accent-texte);
+  cursor: pointer; text-decoration: none;
+}
+.bouton.secondaire { background: transparent; color: var(--couleur-accent); }
+.carte { background: var(--couleur-surface); border: 1px solid var(--couleur-bord); border-radius: var(--rayon); padding: var(--espace-3); margin-bottom: var(--espace-3); }
+.liste { list-style: none; margin: 0; padding: 0; }
+.vide { text-align: center; color: var(--couleur-discret); padding: var(--espace-5) var(--espace-3); }
+.alerte { border-radius: var(--rayon); padding: var(--espace-3); margin-bottom: var(--espace-3); border: 1px solid currentColor; }
+.alerte.erreur { color: var(--couleur-erreur); }
+.alerte.succes { color: var(--couleur-succes); }
+.rangee { display: flex; flex-wrap: wrap; gap: var(--espace-2); align-items: center; }
+
+/* La barre des états : propre à la maquette, jamais du code produit. */
+.maquette-etats {
+  display: flex; flex-wrap: wrap; gap: var(--espace-2); padding: var(--espace-2) var(--espace-3);
+  font-size: var(--taille-petit); background: var(--couleur-surface); border-bottom: 1px dashed var(--couleur-bord);
+}
+.maquette-etats::before { content: "maquette ·"; color: var(--couleur-discret); }
+.maquette-etats a[aria-current] { font-weight: 700; text-decoration: none; }

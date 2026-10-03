@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x affiner"
+  short_description: "La spec (spec.md), puis la maquette cliquable quand il y a des écrans"
+policy:
+  allow_implicit_invocation: false

@@ -103,6 +103,9 @@ The template is `skills/cadrer-x-affiner/templates/spec.md`, adapted from spec-k
 | — (spec-kit) Assumptions | `## Supposé` |
 | Not yet | Pas encore |
 | Requirements checklist | Vérifs (written by affiner itself; cadrer-x-verifier is the second, independent look) |
+| — | `**Statut** : brouillon` while the person reads it, `validée` on their yes |
+
+`skills/cadrer-x-affiner/scripts/lint.py spec|passation <path>` checks the form of both files.
 
 ### a-trancher.md (and Rulings / Noticed wherever they appear)
 
@@ -148,14 +151,25 @@ Polish phase (docs are `rendre`'s; anything else belongs to a story).
 
 | Proa | cadrer-x |
 |---|---|
-| Prototype | Maquette |
+| Prototype | Maquette (`- Lien :`, `- Style :`) |
 | Screens | Écrans |
 | `### SC1 <name>` | `### SC1 <nom>` |
+| `Stories:` / `File:` / `Parts:` / `States:` / `Widths:` / `Copy:` | `Récits :` / `Fichier :` / `Parties :` / `États :` / `Largeurs :` / `Textes :` (one line each, in that order) |
 | New parts | Nouveautés |
 | Accessibility | Accessibilité |
 | Open | Ouvert |
-| `Title:` / `Link:` / `States:` / `Stories:` | `Titre :` / `Lien :` / `États :` / `Récits :` |
-| `Widths:` | `Largeurs :` |
+| the design-handoff checklist | `## Contrôle` (ticked before the save) |
+
+Template: `skills/cadrer-x-affiner/templates/passation.md`. The pages: `maquette/<page>.html`, one per
+screen, each state a `<section data-state="<état>">` reached at `<page>.html#<état>`; `maquette/styles.css`
+(the design system's, copied unedited, or the template's neutral one); `maquette/maquette.js` (the
+template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
+
+### textes.md
+
+`# <Titre> — textes`, then `## SC1 <nom>`, `### <état>`, and `- <Clé> : <texte>` (Titre, Message,
+Bouton…; `{mot}` for what varies). Proa kept it as `prototype/copy.md`; cadrer-x keeps it beside
+`passation.md`. Template: `skills/cadrer-x-affiner/templates/textes.md`.
 
 ### audit.md (one review per user story)
 
@@ -198,6 +212,7 @@ One section per story, the latest on top: `## US1 <titre>`, and under it:
 | Pour lancer | Lancer |
 | Trajet | Trajet |
 | Écarté (cadrer) | Écarté |
+| Words (Proa) | Mots (the product's own terms; a spec uses them, never a synonym) |
 
 Template: `skills/cadrer-x-init/templates/architecture.md`.
 

@@ -150,6 +150,8 @@ them first, one question per message:
 3. Follow one action of the product through the chosen parts in plain words ("tu cliques sur Envoyer
    → <part> le reçoit → <part> le garde → tu vois…") and ask what surprises them.
 Each part, secret and chore lands in its section; the setups not chosen go under **Écarté**.
+**Mots**, in both cases: the product's own terms, from the README, the screens and their answers
+(« Inscription : jamais réservation »), so every spec and screen uses the same word.
 
 ### 4. `{docs}/constitution.md`, `AGENTS.md`
 
