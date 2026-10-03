@@ -196,6 +196,25 @@ One section per story, the latest on top: `## US1 <titre>`, and under it:
 | En local | En local |
 | Pour lancer | Lancer |
 | Trajet | Trajet |
+| Écarté (cadrer) | Écarté |
+
+Template: `skills/cadrer-x-init/templates/architecture.md`.
+
+### docs/constitution.md
+
+Written by `cadrer-x-init` (step 2) from `skills/cadrer-x-init/templates/constitution.md`, each rule
+approved by the person; changed only through an ADR they approve, which `cadrer-x-rendre` writes.
+
+| Heading / column | cadrer-x |
+|---|---|
+| title | `# <Produit> — constitution` |
+| table | `# | Règle | Vérifiée par | Quand`, rows `M1`… |
+| exceptions | `## Exceptions` |
+
+### AGENTS.md, CLAUDE.md
+
+`AGENTS.md` is for the agents: where the docs are, the commands, a pointer to the constitution, never
+its rules. `CLAUDE.md` holds `@AGENTS.md`, so both engines read one file.
 
 ### ADR and CHANGELOG
 
@@ -212,7 +231,7 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 
 | | Skill | Its steps (Proa skills merged) | Writes |
 |---|---|---|---|
-| — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level) | `docs/vision.md` · `proa.yml`, `docs/architecture.md`, `AGENTS.md` |
+| — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `proa.yml`, `docs/architecture.md`, `AGENTS.md` |
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea) · 2. decisions (proa-decide, proa-stack for a feature's new service) | `idee.md` · `decisions.md` |
 | **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `textes.md`, `passation.md` |
 | **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list) | `taches.md` |

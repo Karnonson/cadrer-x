@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x init"
+  short_description: "Préparer le projet : la vision, puis l'organisation"
+policy:
+  allow_implicit_invocation: false

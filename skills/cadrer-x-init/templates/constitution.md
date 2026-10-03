@@ -1,0 +1,19 @@
+# <Produit> — constitution
+
+Les règles que chaque changement respecte. Une règle ne change que par un ADR approuvé
+(`docs/adr/`). Chaque tâche qui demande du travail pour une règle la cite sous Couverts (`| M3 | T02 |`),
+et chaque relecture vérifie le code contre elle.
+
+| # | Règle | Vérifiée par | Quand |
+|---|---|---|---|
+| M1 | Aucun secret dans le dépôt, un commit ou une sortie affichée | la relecture ; un scan des secrets s'il y en a un | chaque tâche ; la relecture |
+| M2 | Chaque saisie d'une personne est vérifiée avant d'être utilisée (type, taille, format) | les tests de la tâche ; la relecture | construction ; relecture |
+| M3 | Chacun ne voit et ne change que ses propres données ; un rôle de plus est dit dans la spec | des tests d'abus (sans connexion, les données d'un autre) ; la relecture | construction ; relecture |
+| M4 | Chaque donnée personnelle est listée dans `docs/security/data-inventory.md`, avec sa base légale et sa durée, avant d'être gardée | le découpage (Couverts) ; la livraison | découpage ; livraison |
+| M5 | Une nouvelle dépendance est nommée dans `decisions.md` avec pourquoi ; une qui change la stack demande un ADR | la relecture | relecture |
+| M6 | Un module n'en utilise un autre que par son point d'entrée (voir Modules dans `architecture.md`) | la relecture | relecture |
+| M7 | Les vérifs de `proa.yml` passent avant toute fusion | la construction ; la relecture | chaque tâche ; la relecture |
+
+## Exceptions
+
+aucune

@@ -1,0 +1,38 @@
+{
+  "invocation": "user",
+  "triggers": [
+    {
+      "prompt": "Je veux lancer une petite appli pour mon club de lecture : par où commencer ?",
+      "fires": false
+    },
+    {
+      "prompt": "Range les docs de ce dépôt et ajoute un fichier de règles pour les agents.",
+      "fires": false
+    },
+    {
+      "prompt": "Avant de construire quoi que ce soit, aide-moi à dire pour qui est ce produit et s'il ne vaut pas mieux prendre un outil existant.",
+      "fires": false
+    }
+  ],
+  "behaviour": {
+    "prompt": "Une appli où les 30 membres du club votent chaque mois pour le prochain livre, et où on voit l'historique des livres lus.",
+    "fixture": "fixture",
+    "checks": [
+      "test -s \"$OUT\"",
+      "test -z \"$(git status --porcelain -- . ':(exclude).agents' ':(exclude).claude')\"",
+      "test -z \"$(git branch --list 'chore/*')\"",
+      "test ! -e .worktrees"
+    ],
+    "judge": [
+      "In the turn (every message the assistant wrote, the final reply included), exactly one question is left open for the user; the same question asked again, or pointed back to, counts once.",
+      "The open question, as asked in the turn, carries the assistant's own guess at the answer and a confidence (a percentage, or a word such as faible or moyenne).",
+      "In the turn, the assistant says it is checking what already exists (products, no-code tools, a spreadsheet) and that using one of them instead of building would be a good ending.",
+      "In the turn, no file, branch, stack or rule is proposed or written yet: the turn is about who the product is for, the problem, success or whether to build.",
+      "Every message the assistant wrote to the user is in French."
+    ],
+    "context": [
+      "README.md"
+    ],
+    "timeout": 600
+  }
+}
