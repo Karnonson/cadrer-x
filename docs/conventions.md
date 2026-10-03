@@ -132,13 +132,15 @@ docs/features/NNNN-<slug>/
 | `Title:` / `Link:` / `States:` / `Stories:` | `Titre :` / `Lien :` / `États :` / `Récits :` |
 | `Widths:` | `Largeurs :` |
 
-### audit.md (feature review)
+### audit.md (one review per user story)
+
+One section per story, the latest on top: `## US1 <titre>`, and under it:
 
 | Proa | cadrer-x |
 |---|---|
-| `## Spec` | `## Spec` |
-| `## Standards` | `## Règles` |
-| `## Declined to judge` | `## Non jugé` |
+| `## Spec` | `### Spec` |
+| `## Standards` | `### Règles` |
+| `## Declined to judge` | `### Non jugé` |
 | `### Fix round's diff` | `### Correctifs` |
 | `CHECKS:` / `SCREENS:` | `Vérifs :` / `Écrans :` |
 | Critical / Must / Nit / FYI / Fixed | Bloquant / À corriger / Détail / Info / Corrigé |
@@ -191,8 +193,8 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 | **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `textes.md`, `passation.md` |
 | **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list) | `taches.md` |
 | **R** | `cadrer-x-realiser` | one task per run, in `taches.md` order (proa-build) | code, the task's branch in `.worktrees/` |
-| **E** | `cadrer-x-examiner` | the whole feature, once its last task is built (proa-review, design-review) | `audit.md` |
-| **R** | `cadrer-x-rendre` | release and going online (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
+| **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
+| **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 
 | Helper | Merges | Loaded by |
 |---|---|---|
@@ -203,7 +205,10 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 | `cadrer-x-textes` | french-copy | affiner, realiser, rendre |
 
 Kept apart, on purpose: affiner and decouper (the spec is the person's gate on *what*, before any *how*);
-realiser and examiner (the one who built a task does not judge it).
+realiser and examiner. realiser proves its own task works: a failing test first, then the code, then the
+checks run fresh. examiner asks what those tests cannot: whether the story is what the spec asked for, and
+whether its tests would fail if the behaviour broke. The builder's tests carry the builder's reading of the
+spec, so a misreading passes them.
 
 ## Later, for fleet
 
