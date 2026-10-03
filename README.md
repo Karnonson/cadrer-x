@@ -10,17 +10,29 @@ titres restent fixes, en français, pour que chaque étape retrouve le travail d
 
 ## Installer
 
-Dans le dossier de ton projet (par défaut : seulement ce projet) :
+Une fois, récupère cadrer-x :
 
 ```sh
-/chemin/vers/cadrer-x/install.sh
+git clone https://github.com/Karnonson/cadrer-x.git ~/cadrer-x
+```
+
+Puis, dans le dossier de ton projet (par défaut : seulement ce projet) :
+
+```sh
+~/cadrer-x/install.sh
 ```
 
 Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à committer,
-pour que tout le monde sur le projet ait la même version.
+pour que tout le monde sur le projet ait la même version. Pour les mettre à jour : `git -C ~/cadrer-x pull`,
+puis relance `install.sh`.
 
-Pour tous tes projets à la fois : `install.sh --global`. Options : `--engine claude` ou `--engine codex` pour
-un seul des deux, `--link` pour suivre ce dépôt en direct, `--remove` pour les retirer.
+Ailleurs que dans le dossier courant : `~/cadrer-x/install.sh <dossier>`. Pour tous tes projets à la fois :
+`~/cadrer-x/install.sh --global`. Options : `--engine claude` ou `--engine codex` pour un seul des deux,
+`--link` pour suivre ta copie de cadrer-x en direct, `--remove` pour les retirer.
+
+Pour essayer sans toucher un vrai projet, installe-les dans un dossier d'essai, en lien :
+`~/cadrer-x/install.sh --link ~/essais`. Lance tes sessions depuis ce dossier ; une modification des
+compétences dans `~/cadrer-x` s'y voit tout de suite.
 
 ## Les étapes
 
@@ -68,3 +80,6 @@ Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conv
 
 Chaque compétence a ses cas dans `skills/<nom>/evals/` : un projet d'exemple, la demande, et ce qu'une
 bonne réponse doit faire. `baseline.md` y note ce que le modèle faisait sans la compétence.
+
+Les résultats sur Claude et codex, la commande pour les relancer et ce que chaque échec a changé :
+[`docs/evals.md`](docs/evals.md).
