@@ -133,7 +133,8 @@ commands:
 `root:` only when the app lives in a subfolder; `dev:` only when the app has screens. Tell them the
 checks run after every task, so a check that fails today fails every task: run each once now, and
 drop or fix a failing one with them. No code yet: `checks: []` and no `dev:`, and say the first
-feature's foundation task fills them.
+feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each environment (`url`, `deploy`,
+`rollback`) the first time it puts the product online.
 
 ### 3. `{docs}/architecture.md`
 

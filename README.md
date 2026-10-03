@@ -3,7 +3,7 @@
 Des compétences pour Claude Code et codex qui mènent un projet de l'idée à la mise en ligne, une étape à
 la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper, **R**éaliser, **E**xaminer, **R**endre.
 
-En cours de construction : de `init` à `examiner`, les étapes sont prêtes ; `rendre` arrive.
+Les sept étapes sont prêtes ; l'étape facultative `verifier` et les aides arrivent.
 
 ## Installer
 

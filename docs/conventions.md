@@ -214,15 +214,35 @@ the form and that each verdict follows from its findings.
 
 | Proa release.md | cadrer livraison.md | cadrer-x |
 |---|---|---|
-| Version | — | Version |
-| Where | En ligne | En ligne |
-| What shipped | — | Livré |
+| Version | — | Version (the version alone on its first line) |
+| What shipped | — | Livré (one line per story, then « Plus tard : … ») |
+| Where | En ligne | En ligne (`pas encore`, `aucun — <pourquoi>`, or the address, date, commit) |
 | — | Mise en ligne | Mise en ligne |
 | Evidence | Vérifié en ligne | Vérifié |
 | How to roll back | Si ça casse | En cas de problème |
-| Merge danger | — | Risque de fusion |
-| Summary | — | Résumé |
-| — | Reste à faire | À faire |
+| — | Reste à faire | À faire (each line *à la main*, or the skill that turns it into work) |
+
+A later release of the feature puts its section on top. Template: `skills/cadrer-x-rendre/templates/livraison.md`.
+
+### pr.md (the pull request's body)
+
+| Proa pr.md | cadrer-x |
+|---|---|
+| Summary | Résumé |
+| Evidence | Preuves (`- Vérifs : …`, each story's review tour, captures as `![…](<repo path>)`) |
+| Merge danger | Risque de fusion |
+| `**Door:** one-way \| two-way` | `**Porte** : aller simple` \| `aller-retour` |
+| `**Blast radius:**` | `**Portée** :` |
+
+`skills/cadrer-x-rendre/scripts/lint.py livraison|pr <path>` checks both. rendre commits them with the
+docs as `livraison — <Titre> <version>` on the person's yes; the merge has its own yes (a push and a PR
+from `pr.md` with a remote, `git merge --no-ff` without). Step 2 commits `livraison — <adresse>` on the main
+branch, and writes the commands that worked into `cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`).
+
+### docs/security/
+
+The data list (`donnees.md`, or the file the constitution names) and the threats (`menaces.md`), folded in
+by `rendre` at release; no task touches them.
 
 ### docs/architecture.md
 
@@ -263,6 +283,8 @@ its rules. `CLAUDE.md` holds `@AGENTS.md`, so both engines read one file.
 | Proa | cadrer-x |
 |---|---|
 | Context / Decision / Options considered / Why | Contexte / Décision / Options / Pourquoi |
+
+ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**Fonctionnalité** :`, `**Remplace** :`).
 | Added / Changed / Fixed / Security | Ajouté / Modifié / Corrigé / Sécurité (Keep a Changelog's French version) |
 
 ## Skills

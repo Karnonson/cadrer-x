@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x rendre"
+  short_description: "Le dossier de livraison, la fusion sur un oui, puis la mise en ligne"
+policy:
+  allow_implicit_invocation: false
