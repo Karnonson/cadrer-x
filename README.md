@@ -35,6 +35,10 @@ Pour essayer sans toucher un vrai projet, installe-les dans un dossier d'essai, 
 `~/cadrer-x/install.sh --link ~/essais`. Lance tes sessions depuis ce dossier ; une modification des
 compétences dans `~/cadrer-x` s'y voit tout de suite.
 
+Les compétences ne servent que dans le dossier où tu les installes : une session lancée dans un
+sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans le projet
+lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`.
+
 ## Les étapes
 
 ```
