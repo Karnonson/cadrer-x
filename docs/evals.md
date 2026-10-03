@@ -18,13 +18,19 @@ Claude: Opus, effort high. Codex: gpt-6-sol, effort high. The last run of each, 
 | Skill | Checks | Judge lines | Claude | Codex | Baseline (no skill) |
 |---|---|---|---|---|---|
 | init | 4 | 5 | pass | pass | fail |
-| choisir | 4 | 6 | CHOISIR_CLAUDE | pass | — |
+| choisir | 4 | 6 | pass | pass | — |
 | affiner | 9 | 8 | pass | pass | fail |
 | decouper | 10 | 7 | pass | pass | fail |
-| realiser | 12 | 6 | pass | REALISER_CODEX | fail |
-| examiner | 10 | 6 | pass | EXAMINER_CODEX | fail |
+| realiser | 13 | 6 | fail (an English note) | pass | fail |
+| examiner | 10 | 6 | pass | pass | fail |
 | rendre | 13 | 6 | pass | pass | fail |
 | verifier | 7 | 6 | pass | pass | fail |
+
+`realiser` was cut from 2,044 to 1,056 words, its test rules moved to `cadrer-x-tdd`. Its case now
+places its helpers (`"with"`) and adds a mutation check: `evals/mutants.py` flips each comparison and
+turns each refusal into a silent return in the new `signup/api.py`, runs the task's tests on each, and
+passes when at least 80% fail. The new version: 5/6 caught on Claude, 6/7 on codex. Its Claude run
+failed only on one progress note written in English, a failure the old version also had twice.
 
 The helpers (`securite`, `debug`, `modules`, `design-system`, `textes`) have no case of their own. The
 eval installs only the skill under test, so a helper is absent there; a run with every skill installed
@@ -40,6 +46,7 @@ showed `examiner` opening `cadrer-x-securite` and `cadrer-x-modules` by path.
 | examiner, codex | the border finding did not name the function to call instead | a border finding names the other module's entry function |
 | examiner, codex | the reply counted every finding to fix as `Bloquant` | the reply counts `Bloquant :` and `À corriger :` apart, from the committed audit |
 | examiner, all skills | helpers never loaded ("load … when installed" was ignored) | each skill opens `../cadrer-x-<name>/SKILL.md` by path, at the step that needs it |
+| realiser, both | test rules spread through a 2,044-word skill | `cadrer-x-tdd` (after Matt Pocock's `tdd`): through the entry, no tautology, one test at a time, mocks at the edges |
 | decouper, claude | the judge called a task's rate limit an unrequested feature | judge line: a protection on a task's `Risques :` line is not out of scope |
 
 ## Harness notes
