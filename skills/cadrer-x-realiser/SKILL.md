@@ -133,7 +133,8 @@ from them, never from how such screens usually look.
 5. Tick your task `[x]` (its line and its boxes) in `taches.md`, and commit everything on the task
    branch: `T<nn> — <titre>`, with the `Choix :` lines and any file outside `Fichiers :` in the body.
 
-Then, in one message: each box and each risk with the test that proves it, the red run you saw, the
+Then, in one message: each box and each risk with the test that proves it, and for each the red run you
+saw before its code (the failing assertion line, trimmed: the person never saw your terminal), the
 last whole-suite run, the choices, what you noticed, and one question: merge into `feature/<slug>` now?
 
 ## Merge — only after the yes
