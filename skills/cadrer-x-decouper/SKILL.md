@@ -90,7 +90,8 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
 ## Each task's risks
 
 One `Risques :` line per task: `<domaine> — <menace> → <protection>`, `;` between them. Threats only:
-someone, or a bot, doing what they shouldn't. Each becomes one abuse test. Walk each task through:
+someone, or a bot, doing what they shouldn't. Each becomes one abuse test. Load `cadrer-x-securite`
+when it is installed. Walk each task through:
 
 | Domaine | Ask | Usual protection |
 |---|---|---|

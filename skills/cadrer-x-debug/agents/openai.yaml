@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x débogage"
+  short_description: "Un test rouge qui reproduit le bug, la cause, puis la correction"
+policy:
+  allow_implicit_invocation: true

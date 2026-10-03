@@ -48,7 +48,7 @@ for engine in $engines; do
       ln -s "${skill%/}" "$target"
     else
       mkdir -p "$target"
-      (cd "$skill" && tar --exclude=./evals -cf - .) | (cd "$target" && tar -xf -)
+      (cd "$skill" && tar --exclude=./evals --exclude=__pycache__ --exclude="*.pyc" -cf - .) | (cd "$target" && tar -xf -)
     fi
     echo "$([ "$link" = 1 ] && echo linked || echo copied)   $target"
   done

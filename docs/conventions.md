@@ -318,11 +318,15 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 
 | Helper | Merges | Loaded by |
 |---|---|---|
-| `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory | choisir, affiner, realiser, examiner, rendre |
+| `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory | choisir, affiner, decouper, realiser, examiner, rendre |
 | `cadrer-x-debug` | proa-debug | realiser, examiner, any failing test |
-| `cadrer-x-design-system` | design-system | init, affiner, realiser |
+| `cadrer-x-design-system` | design-system | init, affiner, realiser, examiner |
 | `cadrer-x-modules` | module-borders | decouper, realiser, examiner |
-| `cadrer-x-textes` | french-copy | affiner, realiser, rendre |
+| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, examiner, rendre |
+
+A helper has `user-invocable: false` (Claude Code keeps it out of the `/` menu) and
+`allow_implicit_invocation: true` in its `agents/openai.yaml` (codex may load it on its own). The
+project's own copy rules live in `{docs}/textes.md`; `cadrer-x-textes` reads them before its defaults.
 
 Kept apart, on purpose: affiner and decouper (the spec is the person's gate on *what*, before any *how*);
 realiser and examiner. realiser proves its own task works: a failing test first, then the code, then the

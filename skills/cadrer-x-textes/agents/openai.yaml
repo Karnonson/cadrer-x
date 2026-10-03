@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x textes"
+  short_description: "Les règles des textes en français, puis leur vérification"
+policy:
+  allow_implicit_invocation: true

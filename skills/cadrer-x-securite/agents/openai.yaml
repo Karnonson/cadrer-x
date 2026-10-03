@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x sécurité"
+  short_description: "Les règles de sécurité par défaut, les tests d'abus et la liste des données personnelles"
+policy:
+  allow_implicit_invocation: true

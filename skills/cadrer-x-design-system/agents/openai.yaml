@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x design system"
+  short_description: "Trouver le design system, le lire, ne jamais le modifier"
+policy:
+  allow_implicit_invocation: true
