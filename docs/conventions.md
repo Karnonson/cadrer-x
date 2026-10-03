@@ -10,7 +10,7 @@ person. Later, fleet parses the same names.
   What it says and the prose it writes: the person's language. File names, headings and labels below:
   French, as written here, for everyone.
 - **Short.** A heading is one or two words. A label ends with ` :` (`Fichiers :`).
-- **Ids stay ids.** `US1` (story), `SC1` (screen), `T01` (task), `Q1` (question), `[P]` (a task that can be built at the same time as the one before it)
+- **Ids stay ids.** `US1` (story), `SC1` (screen), `T01` (task), `Q1` (question), `EF1` (requirement), `CS1` (success criterion), `D1` (decision), `M4` (a rule of the constitution), `[P]` (a task that can be built at the same time as the one before it)
   are ids, not words: they are not translated.
 - **Accents are part of the name.** `À surveiller`, not `A surveiller`.
 - Marked **?**: a proposal still to confirm.
@@ -80,15 +80,26 @@ docs/features/NNNN-<slug>/
 | Stack choices | Stack |
 | Architecture impact | Impact archi |
 | Data and risks | Données et risques |
+| — | À faire (what the person sets up by hand, each marked avant la construction or avant la livraison) |
 
 ### spec.md
+
+The template is `skills/cadrer-x-affiner/templates/spec.md`, adapted from spec-kit's (MIT).
+
 
 | Proa | cadrer-x |
 |---|---|
 | User stories | Récits |
-| `### US1 <title>` | `### US1 <titre>` |
+| `### US1 <title>` | `### US1 — <titre> (Priorité : P1)` |
 | As a … I want … so that | En tant que … je veux … afin de |
-| Success criteria | Critères |
+| — (spec-kit) Why this priority / Independent Test / Acceptance Scenarios | Pourquoi cette priorité / Test seul / Scénarios |
+| — (spec-kit) Given / When / Then | Étant donné / quand / alors |
+| — (spec-kit) Edge Cases | `### Cas limites` |
+| — (spec-kit) Functional Requirements, `FR-001` | `## Exigences`, `EF1` |
+| — (spec-kit) Key Entities | `### Données clés` |
+| — (spec-kit) `[NEEDS CLARIFICATION: …]` | `[À PRÉCISER : … → Q<n>]`, its question in `a-trancher.md` |
+| Success criteria, `SC-001` (spec-kit) | `## Critères`, `CS1` (not `SC`: that is a screen) |
+| — (spec-kit) Assumptions | `## Supposé` |
 | Not yet | Pas encore |
 | Requirements checklist | Vérifs (written by affiner itself; cadrer-x-verifier is the second, independent look) |
 
@@ -107,17 +118,30 @@ docs/features/NNNN-<slug>/
 
 ### taches.md
 
-| Proa | cadrer-x |
+The template is `skills/cadrer-x-decouper/templates/taches.md`, adapted from spec-kit's tasks template
+(MIT): tasks grouped by story, each story ending on a checkpoint where `examiner` reviews it.
+
+| Proa / spec-kit | cadrer-x |
 |---|---|
-| `## Review focus` | `## À surveiller` |
-| `## Coverage` | `## Couverts` |
+| `- [ ] S01 [P] [US1] <verb> <title>` / `T001` | `- [ ] T01 [P] [US1] <verbe> <titre>` |
+| a done-when box | `- [ ] <fait quand>` (one spec scenario) |
 | `Files:` | `Fichiers :` |
-| `After:` | `Après :` (the tasks it builds on; with `[P]` on its line when it needs none of the tasks still open before it) |
+| `After:` | `Après :` (the tasks it builds on, or `aucune`) |
 | `Screens:` | `Écrans :` |
 | `Risks:` | `Risques :` |
-| `MUSTs to own:` | `Exigences :` |
-| — (cadrer) `Fait quand :` | `Fait quand :` |
-| — (cadrer) `Audit :` | `Audit :` |
+| `Size:` | `Taille :` |
+| — | `Exigences :` (the spec's `EF<n>` the task makes true) |
+| spec-kit Phase 1–2: Setup, Foundational | `## Fondations` |
+| spec-kit Phase 3+: User Story N | `## US1 — <titre> (Priorité : P1)`, with `**But**`, `**Test seul**`, `**Point d'étape**` |
+| spec-kit Implementation Strategy | `## Ordre` |
+| `## Review focus` | `## À surveiller` |
+| `## Coverage` | `## Couverts` (rows: `US<n>`, `EF<n>`, constitution rules `M<n>`) |
+| `MUSTs to own:` | `Règles à porter :` (constitution rules) |
+| `MUST conflicts:` | `Règles en conflit :` |
+
+`[P]`: the task can be built at the same time as the one before it — its `Après :` does not name it and
+they share no file. Dropped from spec-kit: separate test tasks (each task writes its test first) and the
+Polish phase (docs are `rendre`'s; anything else belongs to a story).
 
 ### passation.md (design handoff)
 
@@ -192,7 +216,7 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea) · 2. decisions (proa-decide, proa-stack for a feature's new service) | `idee.md` · `decisions.md` |
 | **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `textes.md`, `passation.md` |
 | **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list) | `taches.md` |
-| **R** | `cadrer-x-realiser` | one task per run, in `taches.md` order (proa-build) | code, the task's branch in `.worktrees/` |
+| **R** | `cadrer-x-realiser` | one task per session; `[P]` tasks run in parallel sessions, each in its own worktree branched from the feature (proa-build) | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
 | **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
 | **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 

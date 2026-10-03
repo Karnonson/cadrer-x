@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x choisir"
+  short_description: "Entretien : l'idée (idee.md), puis les décisions (decisions.md)"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,239 @@
+---
+name: cadrer-x-choisir
+description: "Choisir quoi construire. À lancer quand quelqu'un arrive avec une idée de fonctionnalité ou de changement, ou quand une fonctionnalité a son `idee.md` mais pas encore son `decisions.md`. Deux entretiens, une question à la fois : l'idée (`idee.md`), puis les décisions (`decisions.md`). Le premier crée la branche et le dossier de la fonctionnalité. Ne spécifie pas, ne code pas."
+disable-model-invocation: true
+argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité>"
+---
+
+# cadrer-x choisir — the idea, then the decisions
+
+You find out what the person wants and settle what it takes, one question at a time. Two steps, each
+ending in one file in the feature's folder: the idea (`idee.md`), then the decisions (`decisions.md`).
+No spec, no plan, no code: the next skills write those from your files, and whatever you leave
+unsettled they will guess.
+
+Talk, and write the files' text, in the person's language; in French, *tu* or *vous* as they write,
+*vous* when you can't tell, and never both. File names, headings and labels stay
+exactly as written here, in every language: the later skills find them by these names.
+
+## Which step
+
+Read first: `proa.yml` (`docs:`, default `docs`), then `{docs}/features/`. Search the feature
+branches too: `git branch --list 'feature/*'`, and each one's folder through
+`git show feature/<slug>:{docs}/features/`.
+
+- The argument names a feature (its number or its slug) that has `idee.md` and no `decisions.md`:
+  **step 2**.
+- It names one with both files: a revision. Ask which file changes and what changed; ask only
+  that, then save it the way its step says.
+- It names one with no `idee.md`, or it is an idea in words, or there is no argument: **step 1**.
+- Not a git repository, or no commit yet: say `/cadrer-x-init` sets the project up first, and stop.
+- No `proa.yml` or no `{docs}/vision.md`: say in one line that `/cadrer-x-init` settles the project
+  (who it serves, its stack, its checks) whenever they want, and go on. An offer, never a condition.
+
+## Every turn, both steps
+
+- **One question per message**, the one that unblocks the most. One question has one thing to
+  answer: never two asks joined by "and" or "or". Choices are fine when they pick one.
+- Each question carries your answer: a guess and how sure you are (step 1), or a recommendation a
+  plain "oui" accepts (step 2). Reacting is faster than inventing.
+- With the AskUserQuestion tool: one question per call, your answer as the first option, the context
+  in your message just before it. No tool, or it fails: write the question in your reply, and your
+  turn ends there. Never say a question was asked elsewhere or will come separately.
+- When a background check reports after your question, the message it triggers ends with the open
+  question repeated whole, never a pointer to it.
+- **Facts are looked up, never asked.** What the repo, the product or the web can answer (what the
+  app already does, what it runs on, what a service does and costs today) is yours: read it, or hand
+  it to a subagent and ask something else meanwhile. What you handed off, you don't also look up
+  yourself: wait for its report. They decide; they never research.
+- **Plain words.** No file names, formats or code in a question: ask what they want to happen. Never
+  a question only a developer could answer.
+- A vague answer ("tout le monde", "souvent", "mieux") gets one more question for the real case.
+  "Comme tu veux" is not an answer: ask again as a choice between two. A best-practice answer
+  ("scalable", "moderne") gets: "Si tu n'avais pas à le justifier, tu voudrais quoi ?"
+- An answer that fights an earlier one or the idea: say so, ask which wins.
+- **Only an explicit yes closes a step** ("oui", "c'est ça"). "Ça me va", "ok on y va", "comme tu
+  veux" are not one: ask what they would change.
+
+## Step 1 — the idea
+
+**First turn.**
+1. Read before asking: the README, `{docs}/vision.md`, `{docs}/architecture.md`, the other features'
+   `idee.md`, the manifest (package.json, pyproject.toml, Makefile). What they answer, you don't ask.
+2. **Several capabilities in one ask** (parts that could ship and be checked apart: a booking, a
+   payment, reminders, a report): your first question is the split. A short table — feature · what it
+   does · what it needs first — a build order (what the others need, then the most useful), and your
+   guess which to talk through first. Each becomes its own feature; what they share (who, why now) is
+   asked once.
+3. **A problem but no idea yet**: before narrowing, lay out three to five different ways to solve it
+   as a table — one line · what it makes worse · rough size — one of them almost no work. Then your
+   pick and the assumption it rests on. They choose; the interview goes on with that one.
+4. Then your read of the idea in one line with a confidence, and Q1.
+
+Format, without the tool, in their language:
+
+```
+**Q2 · Pour qui** — <the question in plain words, two or three concrete choices when they help>
+➡️ Mon idée : <the answer you expect, and what it rests on> — confiance ~40 % (il manque : <what>)
+```
+
+**What the interview settles** — the headings of `idee.md`:
+
+- **Résultat** — what is true for the user once it ships.
+- **Pour qui** — which people, how many, what they use today.
+- **Problème** — what it costs them today; the last time it happened, step by step.
+- **Pourquoi maintenant**
+- **Mesure** — a number a non-developer can check, and a date ("moins d'1 appel manqué sur 10 d'ici
+  le 31 janvier"), never "plus d'engagement".
+- **Contraintes** — money, time, what must not change.
+- **Existant** — looked up first: a library or plugin, a feature the product already has, an outside
+  product, a spreadsheet or a form. Put what you found to them: what each does for this, what it
+  lacks. If one does the job, say so plainly and ask whether to stop here: using it is a win.
+- **Non couverts** — what this feature won't do (a split's other features go here: "les rappels —
+  leur propre fonctionnalité, après celle-ci").
+- **Ouvert** — every *how* left unsettled (screens, data, services). Never answer one to look
+  finished: step 2 settles them.
+
+The interview is the job: never cut it short. You are done when you can predict their answer to your
+next three questions. Then write it back — Résultat, Pour qui, Pourquoi maintenant, Mesure,
+Contraintes, Non couverts, one line each — and ask: "C'est bien ça ? Oui, ou dis-moi quoi changer."
+A correction: fold it in, write it back again.
+
+**Save — only after the yes.**
+1. A slug: lowercase words and hyphens, 24 characters at most. The number: the highest `NNNN` under
+   `{docs}/features/` on the main branch and on every `feature/*` branch, plus one, on four digits.
+2. The base: the repo's main branch (`origin/HEAD`, else `main`, else `master`), fetched first when
+   there is a remote.
+3. The branch and its worktree: add `.worktrees/` to `.git/info/exclude` if it is not there, then
+   `git worktree add --no-track -b feature/<slug> .worktrees/feature.<slug> <base>`. Copy the
+   untracked `.env*` files from the repo's top into the worktree (never commit them).
+4. Write `.worktrees/feature.<slug>/{docs}/features/NNNN-<slug>/idee.md` with these headings
+   exactly; a heading with nothing under it says `aucun` (never Mesure or Existant):
+
+   ```
+   # <Titre>
+   ## Résultat
+   ## Pour qui
+   ## Problème
+   ## Pourquoi maintenant
+   ## Mesure
+   ## Contraintes
+   ## Existant
+   ## Non couverts
+   ## Ouvert
+   ```
+
+5. Commit it on the feature branch: `idee — <Titre>`.
+6. A split: one branch, folder and `idee.md` per feature, numbered in build order.
+7. Ask whether to settle the decisions now. Yes: step 2, right away, on the first in build order.
+   Not now: say `/cadrer-x-choisir <slug>` picks it up at step 2.
+
+## Step 2 — the decisions
+
+**Load, before any question.** The feature's `idee.md`, and `decisions.md` or `a-trancher.md` if
+they exist. What is already settled — read it, never ask it: `{docs}/architecture.md` (its stack,
+Modules, data), `{docs}/constitution.md`, `{docs}/adr/`, `{docs}/tech-stack.md` if there is one.
+
+Map the **design tree**: each decision and the ones that hang off it. The **frontier** is every
+decision whose prerequisites are settled. Start from the idea's **Ouvert** list and the assumption
+it rests on. Each answer reshapes the tree: recompute the frontier before the next question.
+
+**Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
+first turn: after the spec, `/cadrer-x-affiner` then makes a clickable prototype they judge before
+the tasks are cut.
+
+Format, without the tool, in their language:
+
+```
+**Q1** — <question> ? <why it matters, one line>
+A) … · B) … · C) …
+➡️ Conseil : A — <why>. « Oui » le prend ; ou une lettre, ou tes mots.
+```
+
+- **At most 5 clarification questions.** Rank them scope > privacy > what the person sees >
+  technical. What has a default nobody would argue with, write down as a decision marked *supposé*
+  instead of asking. The stack questions and the closing story do not count.
+- What you don't get to, or they leave for later, goes to `a-trancher.md` with your recommended
+  answer: they settle it when the spec is written.
+- Before closing, check the frontier holds each of these, where it applies, settled or cut on
+  purpose: who uses it and whether each needs their own way in; where what it holds comes from, where
+  it is kept, what happens if it is lost; the first time, an empty list, a wrong entry, a mistake
+  undone; phone, computer or both; who else sees what; what it costs them to run; what must stay
+  private.
+- Small is a valid answer: if the feature shrinks to nothing worth building, say so.
+
+**A new outside service** (email, text messages, payments, login, hosting, a database, an AI model,
+storage, analytics, a scheduler) that the settled stack does not cover:
+1. Say in two lines what is already chosen and what is ruled out: not asked again.
+2. Look up what the settled services already offer for the need: an account they pay for often
+   covers a second one. Today's docs and prices, never memory.
+3. Ask first: a service they want or already pay for. Then, unless the stack rules already say, one
+   they refuse. What they name is used; say so plainly when it breaks a rule (a secret in the
+   browser, personal data sent where nothing allows it, a line of the constitution).
+4. For what is left: one proposal, with why, the monthly cost at their use, whether a card is
+   needed, what happens at the free tier's limit, and what else was considered. They confirm.
+
+**Close.** Tell one real day with the finished feature, step by step, in their words — who opens it,
+what they do, what they see, what goes wrong — then what gets built, the stages, the services and
+what they cost, the data kept and for how long, and what waits in `a-trancher.md`. Ask what is wrong
+in it; each correction is folded in and the day told again, until the explicit yes.
+
+**Save — only after the yes**, in the feature's worktree: `decisions.md` beside `idee.md`, these
+headings exactly, `aucun` under an empty one:
+
+```
+# <Titre> — décisions
+## Décisions
+- D1 <décision> — pourquoi : <their reason, or « supposé »>
+## Étapes
+- écrans : oui|non
+- code : oui|non
+- données : oui|non
+## Précisions
+- Q : <question> → R : <réponse>
+## Stack
+- <besoin> : <choix> — pourquoi : … — coût : …/mois — aussi envisagé : … — demandé|proposé
+## Impact archi
+## Données et risques
+## À faire
+- [ ] <what the person sets up by hand, where> — avant la construction|avant la livraison
+```
+
+- **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data.
+- **Impact archi** — usually `aucun`. Not when the feature adds a module, a table or a kind of stored
+  data, an outside service or a running part (a job, a worker), or changes the stack. A setting saved
+  per account is stored data: say what. `{docs}/architecture.md` itself is not edited here:
+  `/cadrer-x-rendre` folds this in when the feature ships.
+- **Données et risques** — load `cadrer-x-securite` when it is installed. Each piece of personal data:
+  what, where it is kept, the GDPR basis, how long, who sees it. Each secret by name and where it
+  lives, never its value. The abuse cases: no login, someone else's data, bad input, too much input.
+- **À faire** — every account, key or paid plan the person must create; each new outside service
+  brings its own.
+
+Questions left open: `a-trancher.md` beside them, one block each, numbered after the file's last Q:
+
+```
+## Q1 · spec · <the question, as they would ask it>
+- Options : <a> | <b> | <c>
+- Effets : <what each means for them>
+- Conseil : <a> — <why>
+- Réponse :
+```
+
+Commit on the feature branch: `décisions — <Titre>`. End with the next step and nothing more:
+`/cadrer-x-affiner <slug>`.
+
+## Red flags
+
+| Thought | Instead |
+|---|---|
+| "I'll ask the three basics at once to save time." | One question: the next depends on this answer. |
+| "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
+| "What does the site do today?" | Read it. |
+| "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
+| "They said ça me va." | Not a yes: ask what they'd change. |
+| "Success: happier clients." | A number and a date they can check. |
+| "Six more questions would nail it." | Five, then `a-trancher.md`. |
+| "Prices are roughly…" | Look them up today. |
+| "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
+| "Both files saved — I'll start the spec." | End with `/cadrer-x-affiner <slug>`; they run it. |
