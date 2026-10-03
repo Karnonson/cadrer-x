@@ -260,6 +260,13 @@ checks run fresh. examiner asks what those tests cannot: whether the story is wh
 whether its tests would fail if the behaviour broke. The builder's tests carry the builder's reading of the
 spec, so a misreading passes them.
 
+## Install
+
+`install.sh` copies each skill (without its `evals/`) into the project by default: `.claude/skills` and
+`.agents/skills`, committed with the project so everyone on it has the same version. `--global` puts
+them in `~/.claude/skills` and `~/.agents/skills` instead. `--link` symlinks to the checkout, to try
+changes live; `--remove` takes them out.
+
 ## Later, for fleet
 
 Fleet's parsers read the English names today (`claude/scripts/fleetlib/slices.py`, `handoff.py`, `lint.py`,
