@@ -25,6 +25,7 @@
       "test \"$(git rev-list --count feature/inscription-ateliers)\" = 1",
       "test \"$(git rev-list --count feature/inscription-ateliers..tache/inscription-ateliers-t01)\" -ge 1",
       "cd .worktrees/tache.inscription-ateliers-t01 && PYTHONPATH=src python3 -m unittest tests.test_signup -q",
+      "python3 \"$FLEET_SKILLS_SRC/cadrer-x-realiser/evals/mutants.py\" .worktrees/tache.inscription-ateliers-t01",
       "cd .worktrees/tache.inscription-ateliers-t01 && ! PYTHONPATH=src python3 -m unittest discover -s tests 2>&1 | grep -E '^(FAIL|ERROR):' | grep -vq test_the_soonest_workshop_comes_first",
       "! git diff --name-only feature/inscription-ateliers tache/inscription-ateliers-t01 | grep -vqE '^(db/migrations/0002_inscriptions\\.sql|src/clubhouse/signup/__init__\\.py|src/clubhouse/signup/api\\.py|tests/test_signup\\.py|docs/features/0001-inscription-ateliers/taches\\.md)$'",
       "git diff --quiet feature/inscription-ateliers tache/inscription-ateliers-t01 -- src/clubhouse/workshops tests/test_workshops.py docs/features/0001-inscription-ateliers/spec.md",
@@ -45,6 +46,12 @@
       "tests/test_workshops.py",
       ".worktrees/tache.inscription-ateliers-t01/tests/test_signup.py"
     ],
-    "timeout": 900
+    "timeout": 900,
+    "with": [
+      "cadrer-x-tdd",
+      "cadrer-x-securite",
+      "cadrer-x-modules",
+      "cadrer-x-debug"
+    ]
   }
 }

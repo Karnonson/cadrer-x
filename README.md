@@ -39,7 +39,7 @@ Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec et les tâ
 Chaque étape te dit la suivante en finissant. Une étape en deux temps (choisir, affiner, rendre) reprend
 là où le fichier manque : relance-la, elle sait où elle en est.
 
-Cinq aides se chargent seules quand une étape en a besoin : `cadrer-x-securite`, `cadrer-x-debug`,
+Six aides se chargent seules quand une étape en a besoin : `cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`,
 `cadrer-x-modules`, `cadrer-x-design-system`, `cadrer-x-textes`.
 
 ## Où vont les fichiers

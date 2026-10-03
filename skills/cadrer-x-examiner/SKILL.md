@@ -47,7 +47,7 @@ The order is part of the job: you form your own view before reading anyone's acc
 2. `{feature}/taches.md`: the story's tasks, their boxes, `Risques :`, `Fichiers :`, the **À
    surveiller** lines pinned to them, the story's rows of **Couverts**.
 3. `{feature}/decisions.md`, `{feature}/a-trancher.md` (an answered question is settled),
-   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-securite` and `cadrer-x-modules`.
+   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-securite`, `cadrer-x-modules` and `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its pages in
    `maquette/`, `{feature}/textes.md`. Read `cadrer-x-design-system` and `cadrer-x-textes`.
 5. The code and the tests: each file on the story's tasks' `Fichiers :`, as the feature branch has it

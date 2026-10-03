@@ -55,7 +55,7 @@ For every way in, prove the code refuses the four misuses, and write one test pe
 
 - No cap yet: set one that fits the field (a label: 100 characters), enforce it at the edge, test just
   past it, and write it as a `Choix :` line.
-- Each test asserts the refusal **and** that nothing changed: read the record or the store again.
+- Each test asserts the refusal **and** that nothing changed: read it back through the module's entry (`cadrer-x-tdd`).
 - One test per risk, named after it (`test_risk_forged_signature_is_refused`). A guard you can't reach
   from a test (the real provider): test the part you own (the signature check with a wrong signature, the
   same idempotency key twice), and say what stays untested.

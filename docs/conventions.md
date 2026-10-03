@@ -295,7 +295,7 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-21 Proa skills became 7 skills, 1 optional check and 5 helpers. `init` comes first, once per project; the
+21 Proa skills became 7 skills, 1 optional check and 6 helpers. `init` comes first, once per project; the
 next six spell CADRER, in order. A skill holding two steps checks which one's file is missing and runs
 that one. A helper is loaded by the skills that need it, never run on its own.
 
@@ -318,6 +318,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | Helper | Merges | Loaded by |
 |---|---|---|
 | `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory | choisir, affiner, decouper, realiser, examiner, rendre |
+| `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, examiner |
 | `cadrer-x-debug` | proa-debug | realiser, examiner, any failing test |
 | `cadrer-x-design-system` | design-system | init, affiner, realiser, examiner |
 | `cadrer-x-modules` | module-borders | decouper, realiser, examiner |
