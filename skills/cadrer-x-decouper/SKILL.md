@@ -30,6 +30,9 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
   `{docs}/features/NNNN-<slug>/` there.
 - No `spec.md`, or its **Statut** is not `validée`: say `/cadrer-x-affiner <slug>` comes first, and stop.
 - `écrans : oui` in `decisions.md` and no `passation.md`: the same, for the prototype.
+- An old cadrer `tranches.md` there and no `taches.md`: the build started under cadrer. Its ticked slices
+  are built: read their code, and write each scenario it already proves as a ticked `[x]` task under its
+  story (its files those that hold it, `Risques :` as the code guards them); cut only what is left.
 - `taches.md` already there: a revision. Ask what changed (usually the spec); keep every task already
   ticked `[x]` as it is, with its id, and cut what changed as new tasks numbered after the last one.
 

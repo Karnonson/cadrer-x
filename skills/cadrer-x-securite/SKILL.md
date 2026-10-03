@@ -82,7 +82,7 @@ Each piece of personal data gets five answers: **what**, **where it is kept**, *
 Where it goes: `choisir` writes the lines under `decisions.md` → **Données et risques**; `affiner` turns a
 gap (a datum a story keeps with no basis or duration) into a question in `a-trancher.md` with your
 recommended answer; `decouper` puts each threat on a task's `Risques :`; `rendre` folds the lines into the
-data list under `{docs}/security/` (the file the constitution names, else `donnees.md`). A duration the
+data list under `{docs}/security/` (`data-inventory.md`, or the file the constitution names). A duration the
 code does not enforce is never written as done.
 
 ## Red flags

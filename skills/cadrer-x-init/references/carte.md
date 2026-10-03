@@ -10,6 +10,7 @@ doc is placed by what it holds; its name is only a first guess.
 | The rules every change keeps | `{docs}/constitution.md` | constitution, principles, conventions, guidelines, engineering-rules |
 | One decision each, never edited, only superseded | `{docs}/adr/NNNN-<slug>.md` | adr/, adrs/, decisions/, decision-records/ |
 | One folder per feature: idea, decisions, spec, tasks | `{docs}/features/NNNN-<slug>/` | specs/, rfcs/, prd/, proposals/, features/ |
+| An old cadrer build: `idee.md`, `decisions.md`, `spec.md`, `tranches.md`, `audits/`, `livraison.md` | `{docs}/features/NNNN-<slug>/` (`builds/01-x` → `features/0001-x`, its files moved as they are) | builds/<NN>-<slug>/ |
 | How to deploy, restart, restore | `{docs}/runbook.md` | runbook, operations, ops, deploy, deployment |
 | Threats and their guards | `{docs}/security/threat-model.md` | threat-model, threats |
 | Personal data: what, where, basis, retention | `{docs}/security/data-inventory.md` | data-inventory, privacy, gdpr, personal-data |
@@ -29,3 +30,8 @@ Stay where they are, always:
   change of its own, the person's call, later.
 - A `.env.sample` whose values look real (a live key, a production host): tell the person before
   anything else.
+
+An old cadrer build's own `architecture.md` is not moved with its folder: the latest build's is folded
+into `{docs}/architecture.md` (its **Comptes et secrets** becomes **Secrets**, **À faire à la main** becomes
+**À faire**, **Pour lancer** becomes **Lancer**), the older ones stay in their feature folder as history. A build in progress keeps its `tranches.md`
+until `/cadrer-x-decouper` cuts what is left into `taches.md`: say so in the plan.

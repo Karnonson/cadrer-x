@@ -76,10 +76,12 @@ Check each, and stop at the first that fails, naming the step that fixes it:
   copies), **Secrets** (by name), **Coût**, **Lancer**, **Mots** (a word the spec settled). The file stays
   the product's shape, never a log.
 - **Personal data**: each piece the feature keeps or sends gets its line in the data list under
-  `{docs}/security/` (the file the constitution names, else `donnees.md`): what, where it is kept, its
+  `{docs}/security/` (`data-inventory.md`, or the file the constitution names): what, where it is kept, its
   GDPR basis, how long and then what, who sees it, from **Données et risques**.
 - **Threats**: each task's `Risques :` line, with its protection and the test that proves it, in
-  `{docs}/security/` (the project's file, else `menaces.md`). Secrets by name only, never a value.
+  `{docs}/security/threat-model.md` (or the project's own file). Secrets by name only, never a value.
+- **`{docs}/runbook.md`**, when it exists and the feature changes how the product is run: a table the
+  copies must cover, a duration to enforce, a step to go back. Nothing changed: leave it.
 
 Every file keeps its own format: headings, columns, numbering, language. A file the project lacks is
 made only when the feature gives it something to hold.

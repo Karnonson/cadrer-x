@@ -241,7 +241,7 @@ branch, and writes the commands that worked into `cadrer-x.yml` → `envs` (`<en
 
 ### docs/security/
 
-The data list (`donnees.md`, or the file the constitution names) and the threats (`menaces.md`), folded in
+The data list (`data-inventory.md`, or the file the constitution names) and the threats (`threat-model.md`), folded in
 by `rendre` at release; no task touches them.
 
 ### verification.md (cadrer-x-verifier)
