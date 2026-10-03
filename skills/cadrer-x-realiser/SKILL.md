@@ -128,7 +128,7 @@ from them, never from how such screens usually look.
 1. The whole check command of `cadrer-x.yml`, in this worktree, not only your test file. Read the exit
    code.
 2. Each box and each risk: the test that proves it, green in this run.
-3. A failure you did not cause: never fixed outside your files; named, with one line on why it is
+3. A failure you did not cause: never fixed outside your files; named by the test's exact name, with one line on why it is
    not yours and the folder it lives in, which you left untouched.
 4. Claim only what this run shows, pasted and trimmed ("Ran 14 tests … OK"), never "should pass".
 5. Tick your task `[x]` (its line and its boxes) in `taches.md`, and commit everything on the task
