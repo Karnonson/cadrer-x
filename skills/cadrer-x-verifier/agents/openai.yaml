@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x vérifier"
+  short_description: "Un second regard sur la spec et les tâches, avant le code"
+policy:
+  allow_implicit_invocation: false

@@ -244,6 +244,13 @@ branch, and writes the commands that worked into `cadrer-x.yml` → `envs` (`<en
 The data list (`donnees.md`, or the file the constitution names) and the threats (`menaces.md`), folded in
 by `rendre` at release; no task touches them.
 
+### verification.md (cadrer-x-verifier)
+
+`# <Titre> — vérification`, then `**Date** :`, `**Portée** :` (`spec` | `spec et tâches`), `**Verdict** :`
+(`à reprendre` | `prête`), `## Constats` (`- À reprendre : <file:line> — … ; → /cadrer-x-affiner`, or
+`- Remarque : …`, each ending on the step that fixes it), `## Vérifié`. Committed alone as `vérification —
+<Titre>`. Template and lint: `skills/cadrer-x-verifier/templates/verification.md`, `scripts/lint.py verification`.
+
 ### docs/architecture.md
 
 | Proa / cadrer | cadrer-x |

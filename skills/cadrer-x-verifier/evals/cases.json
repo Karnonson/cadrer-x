@@ -1,0 +1,45 @@
+{
+  "invocation": "user",
+  "triggers": [
+    {
+      "prompt": "Relis la spec et les tâches de l'inscription aux ateliers avant qu'on code.",
+      "fires": false
+    },
+    {
+      "prompt": "Est-ce que taches.md couvre bien toute la spec ?",
+      "fires": false
+    },
+    {
+      "prompt": "Combien de tâches a l'inscription aux ateliers ? Réponds en une ligne, sans rien changer.",
+      "fires": false
+    }
+  ],
+  "behaviour": {
+    "prompt": "inscription-ateliers, un second regard avant de coder ?",
+    "fixture": "fixture",
+    "base": "feature/inscription-ateliers",
+    "checks": [
+      "test -s \"$OUT\"",
+      "git show feature/inscription-ateliers:docs/features/0001-inscription-ateliers/verification.md | grep -q '^\\*\\*Verdict\\*\\* : à reprendre'",
+      "git show feature/inscription-ateliers:docs/features/0001-inscription-ateliers/verification.md | grep -q '^\\*\\*Portée\\*\\* : spec et tâches'",
+      "git log -1 --format=%s feature/inscription-ateliers | grep -q '^vérification — '",
+      "! git diff --name-only main feature/inscription-ateliers | grep -vqx 'docs/features/0001-inscription-ateliers/verification.md'",
+      "python3 \"$(ls -d .claude/skills/cadrer-x-verifier .agents/skills/cadrer-x-verifier 2>/dev/null | head -1)/scripts/lint.py\" verification docs/features/0001-inscription-ateliers/verification.md",
+      "test -z \"$(git status --porcelain -- . ':(exclude).agents' ':(exclude).claude')\""
+    ],
+    "judge": [
+      "verification.md has an À reprendre finding that « elle s'affiche rapidement » (US3, and its box in T03) cannot be checked without a measure, sent to /cadrer-x-affiner.",
+      "verification.md has an À reprendre finding that T02's box says « moins de 48 heures » where the spec's scenario says 24 hours, quoting or naming both, sent to /cadrer-x-decouper.",
+      "verification.md flags that T02's Risques line is « aucun » although decisions.md names a member cancelling another member's sign-up as an abuse (À reprendre, to /cadrer-x-decouper).",
+      "verification.md flags that EF4 (« seuls les animateurs ») lets any organizer see any workshop's list while the constitution's M3 says organizers see those of « leurs ateliers ».",
+      "verification.md or the reply flags « réservation » in US2 as a synonym the architecture's Mots forbids (« Inscription … Jamais réservation »).",
+      "The final reply gives the verdict, each À reprendre in about one line with the step that fixes it, and the next step; nothing says spec.md or taches.md was changed. Every message is in French, addressing the user consistently (only « tu » or only « vous »)."
+    ],
+    "context": [
+      "docs/features/0001-inscription-ateliers/verification.md",
+      "docs/features/0001-inscription-ateliers/spec.md",
+      "docs/features/0001-inscription-ateliers/taches.md"
+    ],
+    "timeout": 900
+  }
+}
