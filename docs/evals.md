@@ -32,9 +32,10 @@ turns each refusal into a silent return in the new `signup/api.py`, runs the tas
 passes when at least 80% fail. The new version: 5/6 caught on Claude, 6/7 on codex. Its Claude run
 failed only on one progress note written in English, a failure the old version also had twice.
 
-The helpers (`securite`, `debug`, `modules`, `design-system`, `textes`) have no case of their own. The
-eval installs only the skill under test, so a helper is absent there; a run with every skill installed
-showed `examiner` opening `cadrer-x-securite` and `cadrer-x-modules` by path.
+The helpers (`tdd`, `securite`, `debug`, `modules`, `design-system`, `textes`) have no case of their
+own. A case places the ones it needs with `"with"` (only `realiser` does so far); without it, a helper
+is absent. A run with every skill installed showed `examiner` opening `cadrer-x-securite` and
+`cadrer-x-modules` by path.
 
 ## What the runs changed
 
