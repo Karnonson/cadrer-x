@@ -17,6 +17,9 @@ Talk, and write the file's text, in the person's language, every message include
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the template, in every language: the later skills find them by these names.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which feature, and where
 
 Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git worktree list`,
@@ -43,8 +46,7 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 2. `{feature}/a-trancher.md`: an answered question is settled; plan on it.
 3. `{feature}/decisions.md`: **Impact archi**, **Données et risques**, **Stack**.
 4. `{docs}/constitution.md`: the numbered rules `M<n>`.
-5. `{docs}/architecture.md` → **Modules**: each module, what it owns, its paths. Load
-   `cadrer-x-modules` when it is installed. Then open the code it points to, so every path you name
+5. `{docs}/architecture.md` → **Modules**: each module, what it owns, its paths. Read `cadrer-x-modules`. Then open the code it points to, so every path you name
    is real, or sits where the map puts that module's new files.
 6. `{feature}/passation.md`, with screens: each `SC<n>`, its stories, its page, its states.
 7. The tests the project already has, and how `cadrer-x.yml` runs them.
@@ -93,8 +95,7 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
 ## Each task's risks
 
 One `Risques :` line per task: `<domaine> — <menace> → <protection>`, `;` between them. Threats only:
-someone, or a bot, doing what they shouldn't. Each becomes one abuse test. Load `cadrer-x-securite`
-when it is installed. Walk each task through:
+someone, or a bot, doing what they shouldn't. Each becomes one abuse test. Read `cadrer-x-securite`. Walk each task through:
 
 | Domaine | Ask | Usual protection |
 |---|---|---|

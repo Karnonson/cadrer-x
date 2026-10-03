@@ -17,6 +17,9 @@ Talk, and write the files' text, in the person's language, every message include
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the templates, in every language: the later skills find them by these names.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which step
 
 Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git branch --list 'feature/*'`.
@@ -69,8 +72,7 @@ rest of the architecture only tells you what exists; none of it goes into the sp
   encore** with why. A data rule (how long it is kept, who may see it) is a scenario or an exigence
   of the story it touches, never a story of its own.
 - **Every decision lands.** Each D<n> and each précision shows up in a story, an exigence, or Pas encore.
-- **Personal data.** Where a story collects, keeps, shows or sends it, load `cadrer-x-securite` when
-  it is installed. Who may see, change or download each piece is a scenario of that story; each
+- **Personal data.** Where a story collects, keeps, shows or sends it, read `cadrer-x-securite`. Who may see, change or download each piece is a scenario of that story; each
   piece that **Données et risques** lacks, or lists without a basis or a duration, is a question.
 - **The constitution is not yours to read loosely.** A story that needs a rule bent, or a reading of
   a rule's words the repo does not settle ("leurs ateliers" when nothing says who runs a workshop),
@@ -138,10 +140,8 @@ The builders build from it later, without you: `passation.md` tells them what ea
 **Read:** `{feature}/spec.md` (each story a person sees is a screen, or a state of one; its scenarios
 are what the screen must let them do and see), `{feature}/decisions.md`, `{docs}/constitution.md`.
 **The look**, the first that answers: `cadrer-x.yml` → `design_system:` (a path), `{docs}/design-system/`,
-then the app's own tokens file and components when it has screens already. Load
-`cadrer-x-design-system` when it is installed. None: `templates/maquette/styles.css`, a plain
-neutral one, and say once that the look is the prototype's, not a brand. **The words:** load
-`cadrer-x-textes` when it is installed; in French, at least: the product's *tu* or *vous*, its own
+then the app's own tokens file and components when it has screens already. Read `cadrer-x-design-system`. None: `templates/maquette/styles.css`, a plain
+neutral one, and say once that the look is the prototype's, not a brand. **The words:** read `cadrer-x-textes`; in French, at least: the product's *tu* or *vous*, its own
 words, a space before `: ; ! ?` and inside `« »`.
 
 **The pages, in `{feature}/maquette/`:**

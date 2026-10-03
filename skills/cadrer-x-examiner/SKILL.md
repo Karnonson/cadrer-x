@@ -18,6 +18,9 @@ between steps too); in French, *tu* or *vous* as they write, *vous* when you can
 Headings, labels, prefixes and ids stay exactly as written here and in the template: realiser and
 rendre find them by these names.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which story, and where
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.
@@ -44,10 +47,9 @@ The order is part of the job: you form your own view before reading anyone's acc
 2. `{feature}/taches.md`: the story's tasks, their boxes, `Risques :`, `Fichiers :`, the **À
    surveiller** lines pinned to them, the story's rows of **Couverts**.
 3. `{feature}/decisions.md`, `{feature}/a-trancher.md` (an answered question is settled),
-   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Load
-   `cadrer-x-securite` and `cadrer-x-modules` when they are installed.
+   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-securite` and `cadrer-x-modules`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its pages in
-   `maquette/`, `{feature}/textes.md`. Load `cadrer-x-design-system` and `cadrer-x-textes` when installed.
+   `maquette/`, `{feature}/textes.md`. Read `cadrer-x-design-system` and `cadrer-x-textes`.
 5. The code and the tests: each file on the story's tasks' `Fichiers :`, as the feature branch has it
    now, and whatever they call. How it got there: `git log --oneline <main>..feature/<slug>`, then
    `git log -p` of the story's commits (`T<nn> — …`): a test strict in one commit and loosened in a

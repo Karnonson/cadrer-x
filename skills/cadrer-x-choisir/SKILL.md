@@ -16,6 +16,9 @@ Talk, and write the files' text, in the person's language, every message include
 *vous* when you can't tell, and never both. File names, headings and labels stay
 exactly as written here, in every language: the later skills find them by these names.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which step
 
 Read first: `cadrer-x.yml` (`docs:`, default `docs`), then `{docs}/features/`. Search the feature
@@ -204,7 +207,7 @@ headings exactly, `aucun` under an empty one:
   data, an outside service or a running part (a job, a worker), or changes the stack. A setting saved
   per account is stored data: say what. `{docs}/architecture.md` itself is not edited here:
   `/cadrer-x-rendre` folds this in when the feature ships.
-- **Données et risques** — load `cadrer-x-securite` when it is installed. Each piece of personal data:
+- **Données et risques** — read `cadrer-x-securite`. Each piece of personal data:
   what, where it is kept, the GDPR basis, how long, who sees it. Each secret by name and where it
   lives, never its value. The abuse cases: no login, someone else's data, bad input, too much input.
 - **À faire** — every account, key or paid plan the person must create; each new outside service

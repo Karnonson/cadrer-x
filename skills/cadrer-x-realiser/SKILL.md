@@ -16,6 +16,9 @@ another session: whoever built a task never judges it.
 Talk in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell,
 never both. Commit messages, file names and labels stay as written here.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which task, and where
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.
@@ -36,8 +39,7 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git bran
 
 1. Read the task's block in `taches.md`, its story in `{feature}/spec.md` (the scenarios are the
    truth; the boxes quote them), the **À surveiller** lines pinned to it, `{docs}/constitution.md`,
-   and `{docs}/architecture.md` → **Modules** and **Mots**. Load `cadrer-x-modules` and
-   `cadrer-x-securite` when they are installed.
+   and `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-modules` and `cadrer-x-securite`.
 2. With an `Écrans :` line: the screen's section of `{feature}/passation.md`, its page in
    `{feature}/maquette/`, `{feature}/textes.md` (section "A task with screens").
 3. Run the whole check command of `cadrer-x.yml` once, now, in the task's worktree. A failure before your first change is not
@@ -65,8 +67,7 @@ No production code without a failing test first.
   | too much input | one past the cap (no cap yet: set one that fits, and say so) | refused as invalid, nothing stored |
 
   A misuse the code allows is a bug in your task: fix the code, never the test.
-- **A bug met on the way**, yours or not, starts with a red test that reproduces it; load
-  `cadrer-x-debug` when it is installed. Find the cause before changing code.
+- **A bug met on the way**, yours or not, starts with a red test that reproduces it; read `cadrer-x-debug`. Find the cause before changing code.
 - **Never lower a bar to get green**: no loosened assertion, no skip, no `try` around the thing
   tested, no moved threshold, no silenced checker. A test that "flakes" is a bug to find.
 
@@ -110,7 +111,7 @@ from them, never from how such screens usually look.
 
 - **Read the page as text**: each `data-state` section is a state; the state bar and `maquette.js`
   are the prototype's own, never product code.
-- **The project's own components and tokens** (load `cadrer-x-design-system` when it is installed),
+- **The project's own components and tokens** (read `cadrer-x-design-system`),
   by the app's names; never the prototype's classes or a copy of its stylesheet. A Nouveauté of
   `passation.md` is built from tokens in the task's module.
 - **The words as `textes.md` has them**, each form of a varying text. A text it lacks (a server

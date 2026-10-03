@@ -17,6 +17,9 @@ Talk, and write the files' text, in the person's language, every message include
 between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
 File names, headings, labels and commit messages stay exactly as written here and in the templates.
 
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+
 ## Which step
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `git branch --list
@@ -57,8 +60,7 @@ Check each, and stop at the first that fails, naming the step that fixes it:
    built, each task's `Risques :`), `a-trancher.md`, `audit.md`, the list of `{feature}/captures/`.
 2. The project's docs you will update: `{docs}/architecture.md`, `{docs}/adr/` (their numbering and
    headings), `{docs}/security/`, and `{docs}/constitution.md`, read only: a rule that says what is
-   checked at release (personal data listed before it is kept) is yours to meet. Load
-   `cadrer-x-securite` when it is installed.
+   checked at release (personal data listed before it is kept) is yours to meet. Read `cadrer-x-securite`.
 3. `CHANGELOG.md`, the version file (the first of `package.json`, `pyproject.toml`, `Cargo.toml`,
    `VERSION` at the top), the commits of the feature (`git log --oneline <main>..feature/<slug>`).
 4. The code each sentence you write is about. Write only what the branch shows: a protection with no
