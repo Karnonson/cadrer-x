@@ -34,7 +34,7 @@
 
 ## Lancer
 
-<!-- Les commandes de proa.yml, et ce qu'elles font. -->
+<!-- Les commandes de cadrer-x.yml, et ce qu'elles font. -->
 
 ## Trajet
 

@@ -7,7 +7,7 @@ Ce projet suit cadrer-x. Avant de travailler, lire :
 - `docs/constitution.md` — les règles que chaque changement respecte
 - `docs/adr/` — une décision par fichier, jamais modifiée, seulement remplacée
 - `docs/features/NNNN-<slug>/` — un dossier par fonctionnalité : idee, decisions, spec, taches, audit, livraison
-- `proa.yml` — où est le code, comment l'installer, et les vérifs qui doivent passer
+- `cadrer-x.yml` — où est le code, comment l'installer, et les vérifs qui doivent passer
 
-Le code reste dans son module (Modules dans `docs/architecture.md`), et les vérifs de `proa.yml`
+Le code reste dans son module (Modules dans `docs/architecture.md`), et les vérifs de `cadrer-x.yml`
 tournent après chaque changement. Les secrets ne passent jamais par une conversation ni un fichier suivi.

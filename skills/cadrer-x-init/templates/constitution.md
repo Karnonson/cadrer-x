@@ -12,7 +12,7 @@ et chaque relecture vérifie le code contre elle.
 | M4 | Chaque donnée personnelle est listée dans `docs/security/data-inventory.md`, avec sa base légale et sa durée, avant d'être gardée | le découpage (Couverts) ; la livraison | découpage ; livraison |
 | M5 | Une nouvelle dépendance est nommée dans `decisions.md` avec pourquoi ; une qui change la stack demande un ADR | la relecture | relecture |
 | M6 | Un module n'en utilise un autre que par son point d'entrée (voir Modules dans `architecture.md`) | la relecture | relecture |
-| M7 | Les vérifs de `proa.yml` passent avant toute fusion | la construction ; la relecture | chaque tâche ; la relecture |
+| M7 | Les vérifs de `cadrer-x.yml` passent avant toute fusion | la construction ; la relecture | chaque tâche ; la relecture |
 
 ## Exceptions
 

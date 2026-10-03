@@ -18,7 +18,7 @@ exactly as written here, in every language: the later skills find them by these 
 
 ## Which step
 
-Read first: `proa.yml` (`docs:`, default `docs`), then `{docs}/features/`. Search the feature
+Read first: `cadrer-x.yml` (`docs:`, default `docs`), then `{docs}/features/`. Search the feature
 branches too: `git branch --list 'feature/*'`, and each one's folder through
 `git show feature/<slug>:{docs}/features/`.
 
@@ -28,7 +28,7 @@ branches too: `git branch --list 'feature/*'`, and each one's folder through
   that, then save it the way its step says.
 - It names one with no `idee.md`, or it is an idea in words, or there is no argument: **step 1**.
 - Not a git repository, or no commit yet: say `/cadrer-x-init` sets the project up first, and stop.
-- No `proa.yml` or no `{docs}/vision.md`: say in one line that `/cadrer-x-init` settles the project
+- No `cadrer-x.yml` or no `{docs}/vision.md`: say in one line that `/cadrer-x-init` settles the project
   (who it serves, its stack, its checks) whenever they want, and go on. An offer, never a condition.
 
 ## Every turn, both steps

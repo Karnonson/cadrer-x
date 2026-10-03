@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-init
-description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision (pour qui, le problème, le succès, faire ou prendre un outil qui existe), puis l'organisation (`proa.yml`, `docs/architecture.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
+description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision (pour qui, le problème, le succès, faire ou louer un outil qui existe), puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
 disable-model-invocation: true
 argument-hint: "[le produit en une phrase]"
 ---
@@ -8,7 +8,7 @@ argument-hint: "[le produit en une phrase]"
 # cadrer-x init — the vision, then the layout
 
 You set the project up with the person, once, before its first feature. Two steps, each ending in
-files on one branch: the vision (`{docs}/vision.md`), then the layout (`proa.yml`,
+files on one branch: the vision (`{docs}/vision.md`), then the layout (`cadrer-x.yml`,
 `{docs}/architecture.md`, `{docs}/constitution.md`, `AGENTS.md`, and the docs already there moved to
 their place). No feature, no code: the first task of the first feature sets up whatever code needs.
 
@@ -18,11 +18,11 @@ here, in every language: the later skills find them by these names.
 
 ## Which step
 
-Read first: the README, the manifest (package.json, pyproject.toml, Makefile…), `proa.yml` (`docs:`,
+Read first: the README, the manifest (package.json, pyproject.toml, Makefile…), `cadrer-x.yml` (`docs:`,
 default `docs`), `{docs}/`, `git log --oneline | head`, `git branch --list 'chore/cadrer-x-init'`.
 
 - No `{docs}/vision.md`, on the main branch or on `chore/cadrer-x-init`: **step 1**.
-- A vision and no `proa.yml`, `{docs}/architecture.md`, `{docs}/constitution.md` or `AGENTS.md`:
+- A vision and no `cadrer-x.yml`, `{docs}/architecture.md`, `{docs}/constitution.md` or `AGENTS.md`:
   **step 2**, for what is missing.
 - Everything there: a revision. Ask which file changes and what changed; ask only that. A change to
   `{docs}/constitution.md` is never made here: it goes through an ADR (see step 2).
@@ -75,15 +75,15 @@ Format, without the tool, in their language:
 - **Problème** — what it costs them today, with the last real case.
 - **Succès** — a number a non-developer can check, and a date. Theirs, not yours: ask for it; a figure
   you invent is a guess to put to them.
-- **Faire ou prendre** — the alternatives (what each does, costs, lacks) and the verdict.
+- **Faire ou louer** — the alternatives (what each does, costs, lacks) and the verdict.
 
-**Faire ou prendre.** When the research is back, show it as a short table (option · fait · coûte ·
+**Faire ou louer.** When the research is back, show it as a short table (option · fait · coûte ·
 manque), then one question: build, or use one of these? Recommend honestly: if a 10 €-a-month product
-or a spreadsheet covers most of it, recommend it. "Prendre X" ends here: `vision.md` records that
+or a spreadsheet covers most of it, recommend it. "Louer X" ends here: `vision.md` records that
 verdict, nothing gets built, step 2 does not follow — say it is a win (no code to keep alive). A build
 verdict names what every option lacks that matters to them.
 
-**Save — only after the yes.** Write back four lines (Pour qui · Problème · Succès · Faire ou prendre)
+**Save — only after the yes.** Write back four lines (Pour qui · Problème · Succès · Faire ou louer)
 and ask: "C'est bien ça ?" On the explicit yes, write `{docs}/vision.md` in the branch's worktree:
 
 ```
@@ -91,7 +91,7 @@ and ask: "C'est bien ça ?" On the explicit yes, write `{docs}/vision.md` in the
 ## Pour qui
 ## Problème
 ## Succès
-## Faire ou prendre
+## Faire ou louer
 ```
 
 Commit it: `vision — <Produit>`. Then ask whether to do the layout now. Yes: step 2, right away. Not
@@ -114,7 +114,7 @@ don't ask.
   to a moved file (`git grep` the old path), and commit `docs: ranger les docs à leur place`.
 - **No code yet**: nothing moves. The stack is settled in part 3.
 
-### 2. `proa.yml`
+### 2. `cadrer-x.yml`
 
 The commands the repo defines, never invented: the manifest's scripts and the lockfile's manager
 (`pnpm-lock.yaml` → `pnpm install --frozen-lockfile`), pyproject.toml, the Makefile.
@@ -182,7 +182,7 @@ and `git branch -d chore/cadrer-x-init`. Never push. Then the next step and noth
 | Thought | Instead |
 |---|---|
 | "The idea is clear enough to draft the vision." | Ask: who, the problem, success are theirs. |
-| "Alternatives would only discourage them." | Faire ou prendre comes first; using one is a win. |
+| "Alternatives would only discourage them." | Faire ou louer comes first; using one is a win. |
 | "Succès : moins de gaspillage." | Their number and their date. |
 | "HISTORY.md, so CHANGELOG.md." | Open it: the name guesses, the content decides. |
 | "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it where it is. |

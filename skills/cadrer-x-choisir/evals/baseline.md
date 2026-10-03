@@ -4,7 +4,7 @@ Engine: Claude (opus, effort high), 2026-10-03. One run, `fleet skills eval cadr
 claude --baseline` with `FLEET_SKILLS_SRC` pointing at this repo's `skills/`.
 
 Fixture: `evals/fixture/`, a two-page Next.js studio site with a French README (pnpm scripts for lint,
-typecheck and test, a contact form sending through Brevo), no `proa.yml`, no `docs/`.
+typecheck and test, a contact form sending through Brevo), no `cadrer-x.yml`, no `docs/`.
 
 Prompt: « Les clients devraient pouvoir réserver un appel découverte depuis le site, payer un acompte de
 50 € en réservant, recevoir un rappel la veille, et je veux un rapport mensuel du nombre d'appels devenus

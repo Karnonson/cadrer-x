@@ -1,6 +1,6 @@
 # Where each doc goes
 
-Places are under `{docs}/` (`docs/` unless `proa.yml` says otherwise), except the top-level files. A
+Places are under `{docs}/` (`docs/` unless `cadrer-x.yml` says otherwise), except the top-level files. A
 doc is placed by what it holds; its name is only a first guess.
 
 | What it holds | Its place | Usual old names |
@@ -17,7 +17,7 @@ doc is placed by what it holds; its name is only a first guess.
 | Colours, type, spacing, components | `{docs}/design-system/` | design-system/, styleguide/ |
 | What changed in each version | `CHANGELOG.md` (top) | changelog, history, changes, releases, release-notes |
 | Instructions for the agents | `AGENTS.md` (top), `CLAUDE.md` → `@AGENTS.md` | AGENTS.md, CLAUDE.md, GEMINI.md |
-| How to run the project, the checks | `proa.yml` (top) | — |
+| How to run the project, the checks | `cadrer-x.yml` (top) | — |
 | The app's own env variables, no real values | `.env.example` (top) | .env.sample, .env.template, .env.dist |
 
 Stay where they are, always:

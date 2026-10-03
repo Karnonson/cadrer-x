@@ -18,7 +18,7 @@ person. Later, fleet parses the same names.
 ## Layout
 
 ```
-proa.yml                          project file: code, install, checks
+cadrer-x.yml                      project file: code, install, checks
 docs/architecture.md              stack, runtime, Modules
 docs/constitution.md
 docs/adr/NNNN-<slug>.md
@@ -31,6 +31,7 @@ docs/features/NNNN-<slug>/
 
 | Proa today | cadrer (old) | cadrer-x |
 |---|---|---|
+| `proa.yml` | — | `cadrer-x.yml` |
 | `docs/features/NNNN-<slug>/` | `builds/<NN>-<slug>/` | `docs/features/NNNN-<slug>/` |
 | `idea.md` | `idee.md` | `idee.md` |
 | `decisions.md` | `decisions.md` | `decisions.md` |
@@ -68,7 +69,7 @@ docs/features/NNNN-<slug>/
 | Who | Pour qui |
 | Problem | Problème |
 | Success | Succès |
-| Build or use | Faire ou prendre |
+| Build or use | Faire ou louer |
 
 ### decisions.md
 
@@ -231,7 +232,7 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 
 | | Skill | Its steps (Proa skills merged) | Writes |
 |---|---|---|---|
-| — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `proa.yml`, `docs/architecture.md`, `AGENTS.md` |
+| — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `cadrer-x.yml`, `docs/architecture.md`, `AGENTS.md` |
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea) · 2. decisions (proa-decide, proa-stack for a feature's new service) | `idee.md` · `decisions.md` |
 | **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `textes.md`, `passation.md` |
 | **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list) | `taches.md` |
