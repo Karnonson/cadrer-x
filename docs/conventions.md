@@ -264,5 +264,5 @@ spec, so a misreading passes them.
 
 Fleet's parsers read the English names today (`claude/scripts/fleetlib/slices.py`, `handoff.py`, `lint.py`,
 `review.py`, `gate.py`) and slice ids as `S01`. When fleet wraps cadrer-x, they switch to the names above
-and to `T01`. Sailor reports
+and to `T01`; and fleet reads the project file as `cadrer-x.yml` where it reads `proa.yml` today. Sailor reports
 (`STATUS:`, `SUMMARY:`, …) are fleet's own and stay out of cadrer-x.
