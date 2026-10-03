@@ -13,7 +13,7 @@ task's block is that builder's whole brief: its boxes are its done-when, its `Fi
 files it may touch. The reviewer reads **À surveiller**; `/cadrer-x-examiner` reviews a story once all
 its tasks are built. No code.
 
-Talk, and write the file's text, in the person's language; in French, *tu* or *vous* as they write,
+Talk, and write the file's text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the template, in every language: the later skills find them by these names.
 

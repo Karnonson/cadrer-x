@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x réaliser"
+  short_description: "Une tâche par session : test d'abord, toutes les vérifs, fusion sur un oui"
+policy:
+  allow_implicit_invocation: false

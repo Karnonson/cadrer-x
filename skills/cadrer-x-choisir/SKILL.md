@@ -12,7 +12,7 @@ ending in one file in the feature's folder: the idea (`idee.md`), then the decis
 No spec, no plan, no code: the next skills write those from your files, and whatever you leave
 unsettled they will guess.
 
-Talk, and write the files' text, in the person's language; in French, *tu* or *vous* as they write,
+Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings and labels stay
 exactly as written here, in every language: the later skills find them by these names.
 

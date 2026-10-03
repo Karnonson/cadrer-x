@@ -12,7 +12,7 @@ files on one branch: the vision (`{docs}/vision.md`), then the layout (`cadrer-x
 `{docs}/architecture.md`, `{docs}/constitution.md`, `AGENTS.md`, and the docs already there moved to
 their place). No feature, no code: the first task of the first feature sets up whatever code needs.
 
-Talk, and write the files' text, in the person's language; in French, *tu* or *vous* as they write,
+Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings and labels stay exactly as written
 here, in every language: the later skills find them by these names.
 

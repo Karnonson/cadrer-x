@@ -26,8 +26,22 @@ docs/features/NNNN-<slug>/
   idee.md  decisions.md  spec.md  a-trancher.md  taches.md
   maquette/  passation.md  textes.md
   verification.md  audit.md  livraison.md  pr.md  captures/
-.worktrees/<branch>/
+.worktrees/<branch with / as .>/
 ```
+
+Branches and worktrees:
+
+| What | Branch | Worktree | Merged into |
+|---|---|---|---|
+| project setup | `chore/cadrer-x-init` | `.worktrees/chore.cadrer-x-init` | the main branch, on the person's yes |
+| a feature | `feature/<slug>` | `.worktrees/feature.<slug>` | the main branch, by `rendre` |
+| a task | `tache/<slug>-t01` | `.worktrees/tache.<slug>-t01` | `feature/<slug>`, fast-forward, on the person's yes |
+| a story's fixes | `tache/<slug>-us1-correctifs` | `.worktrees/tache.<slug>-us1-correctifs` | `feature/<slug>`, on the person's yes |
+
+`.worktrees/` is in `.git/info/exclude`; untracked `.env*` files are copied into each worktree. A task's
+branch first merges in what the feature gained meanwhile and runs the checks again, so the feature only
+ever fast-forwards. A task commits as `T01 — <titre>`, with `Choix :` lines for what its builder decided
+alone, and ticks its own `[x]` in `taches.md` in that commit. No skill pushes but `rendre`, and only on the person's yes.
 
 | Proa today | cadrer (old) | cadrer-x |
 |---|---|---|

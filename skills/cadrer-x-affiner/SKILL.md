@@ -13,7 +13,7 @@ steps, each ending in files on the feature's branch: `spec.md` (with `a-trancher
 left to decide), then `maquette/`, `textes.md` and `passation.md`. No tasks, no code: `/cadrer-x-decouper`
 cuts the tasks from your files, and the builders build from them without you.
 
-Talk, and write the files' text, in the person's language; in French, *tu* or *vous* as they write,
+Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the templates, in every language: the later skills find them by these names.
 
