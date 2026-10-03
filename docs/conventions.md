@@ -90,7 +90,7 @@ docs/features/NNNN-<slug>/
 | As a … I want … so that | En tant que … je veux … afin de |
 | Success criteria | Critères |
 | Not yet | Pas encore |
-| Requirements checklist | Vérifs |
+| Requirements checklist | Vérifs (written by affiner itself; cadrer-x-verifier is the second, independent look) |
 
 ### a-trancher.md (and Rulings / Noticed wherever they appear)
 
@@ -195,6 +195,12 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 | **R** | `cadrer-x-realiser` | one task per run, in `taches.md` order (proa-build) | code, the task's branch in `.worktrees/` |
 | **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
 | **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
+
+Optional, outside the acronym, like spec-kit's `/analyze`:
+
+| | Skill | What it does | Writes |
+|---|---|---|---|
+| — | `cadrer-x-verifier` | Read-only, in a fresh session, after affiner or after decouper: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the skill that fixes it (affiner or decouper). | `verification.md` |
 
 | Helper | Merges | Loaded by |
 |---|---|---|
