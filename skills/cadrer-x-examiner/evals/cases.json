@@ -1,0 +1,48 @@
+{
+  "invocation": "user",
+  "triggers": [
+    {
+      "prompt": "Relis le code de l'inscription aux ateliers avant qu'on livre.",
+      "fires": false
+    },
+    {
+      "prompt": "Est-ce que l'US1 de l'inscription est bien faite ? Dis-moi ce qui cloche.",
+      "fires": false
+    },
+    {
+      "prompt": "Que fait seats_left dans src/clubhouse/signup/api.py ? Réponds en une ligne, sans rien changer.",
+      "fires": false
+    }
+  ],
+  "behaviour": {
+    "prompt": "US1 inscription-ateliers, tu peux relire ?",
+    "fixture": "fixture",
+    "base": "feature/inscription-ateliers",
+    "checks": [
+      "test -s \"$OUT\"",
+      "git show feature/inscription-ateliers:docs/features/0001-inscription-ateliers/audit.md | grep -q '^## US1 '",
+      "git log -1 --format=%s feature/inscription-ateliers | grep -q '^audit US1 — à corriger'",
+      "! git diff --name-only main feature/inscription-ateliers | grep -vqE '^docs/features/0001-inscription-ateliers/(audit\\.md|captures/)'",
+      "git diff --quiet main -- src tests db",
+      "python3 \"$(ls -d .claude/skills/cadrer-x-examiner .agents/skills/cadrer-x-examiner 2>/dev/null | head -1)/scripts/lint.py\" audit docs/features/0001-inscription-ateliers/audit.md",
+      "grep -q '^\\*\\*Verdict\\*\\* : à corriger' docs/features/0001-inscription-ateliers/audit.md",
+      "grep -q '^- Bloquant : .*signup/api\\.py' docs/features/0001-inscription-ateliers/audit.md",
+      "test \"$(git worktree list | wc -l)\" = 1",
+      "test -z \"$(git status --porcelain -- . ':(exclude).agents' ':(exclude).claude')\""
+    ],
+    "judge": [
+      "audit.md has a Bloquant finding on the Spec axis that `taken > w[\"seats\"]` in sign_up lets one more member sign up than the workshop has seats (EF1, the last seat), and says test_a_full_workshop_refuses_the_sign_up would not catch it because its setup already puts more sign-ups than seats.",
+      "audit.md flags that the seat count and the insert are not in one transaction, so two sign-ups at once for the last seat can both pass, and that test_two_sign_ups_for_the_last_seat signs up one after the other and so does not test the race of the Risques line (as Bloquant or À corriger).",
+      "audit.md flags `_member_exists` reading the members table directly as breaking M6 (a module uses another only through its api.py), with members' get_member as the fix.",
+      "audit.md treats my_sign_ups as non demandé (no scenario of US1 asks for it), and does not hold test_the_soonest_workshop_comes_first against US1 (at most an Info line saying it is the workshops module's).",
+      "The final reply gives the verdict « à corriger », each blocking finding in about one line, and the next step `/cadrer-x-realiser US1` in a new session; nothing in it says code was changed, fixed or pushed.",
+      "Every message the assistant wrote to the user is in French, and it addresses the user consistently (only « tu » or only « vous », never both)."
+    ],
+    "context": [
+      "docs/features/0001-inscription-ateliers/audit.md",
+      "src/clubhouse/signup/api.py",
+      "tests/test_signup.py"
+    ],
+    "timeout": 900
+  }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x examiner"
+  short_description: "La relecture d'un récit, par une autre session que celle qui l'a construit"
+policy:
+  allow_implicit_invocation: false

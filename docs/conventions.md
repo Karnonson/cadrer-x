@@ -191,7 +191,8 @@ Bouton…; `{mot}` for what varies). Proa kept it as `prototype/copy.md`; cadrer
 
 ### audit.md (one review per user story)
 
-One section per story, the latest on top: `## US1 <titre>`, and under it:
+One section per story, the latest on top: `## US1 <titre>`, then `**Tour** :`, `**Date** :`, `**Verdict** :`
+(`à corriger` while any `Bloquant :` or `À corriger :` is left, else `validé`), and under it:
 
 | Proa | cadrer-x |
 |---|---|
@@ -201,6 +202,13 @@ One section per story, the latest on top: `## US1 <titre>`, and under it:
 | `### Fix round's diff` | `### Correctifs` |
 | `CHECKS:` / `SCREENS:` | `Vérifs :` / `Écrans :` |
 | Critical / Must / Nit / FYI / Fixed | Bloquant / À corriger / Détail / Info / Corrigé |
+| missing / partial / contradicts / unrequested | manquant / partiel / contraire / non demandé |
+
+Each finding: `- <Préfixe> : <file:line> — <gap> : <what> ; <what a person meets> ; correction : <fix>`. A
+clean axis is `- aucun`. A new tour of a story replaces its section. Committed on the feature branch as
+`audit US1 — <verdict>`, with its screenshots in `captures/SC1-390.png`. Template:
+`skills/cadrer-x-examiner/templates/audit.md`; `skills/cadrer-x-examiner/scripts/lint.py audit <path>` checks
+the form and that each verdict follows from its findings.
 
 ### livraison.md (release + going online)
 
