@@ -32,6 +32,16 @@ turns each refusal into a silent return in the new `signup/api.py`, runs the tas
 passes when at least 80% fail. The new version: 5/6 caught on Claude, 6/7 on codex. Its Claude run
 failed only on one progress note written in English, a failure the old version also had twice.
 
+The old and the new `realiser`, same case, same checks, one run each:
+
+| Version | Claude | Codex |
+|---|---|---|
+| new, 1,056 words | fail (one English note), 5/6 caught | pass, 6/7 caught |
+| old, 2,044 words | pass, 7/8 caught | fail (a risk's test unnamed), 7/9 caught: below 80% |
+
+Half the words, no loss in how many bugs the tests catch. Every run missed the id range's edge
+(`1 <= id` flipped to `1 < id`).
+
 The helpers (`tdd`, `securite`, `debug`, `modules`, `design-system`, `textes`) have no case of their
 own. A case places the ones it needs with `"with"` (only `realiser` does so far); without it, a helper
 is absent. A run with every skill installed showed `examiner` opening `cadrer-x-securite` and
