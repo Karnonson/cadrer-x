@@ -104,7 +104,8 @@ Each finding quotes the line it is about.
   when the guard itself is missing).
 - **The constitution**: each `M<n>` the story touches. A rule broken is `Bloquant :`.
 - **Module borders**: a module reading another's tables, going past its entry, a call the map does not
-  list: quote the import or the query, and the **Modules** line it breaks. A module the map lacks,
+  list: quote the import or the query, the **Modules** line it breaks, and the other module's entry
+  function to call instead (`members.api.get_member`), read from its entry file. A module the map lacks,
   with no **Impact archi** line in `decisions.md`.
 - **A lowered bar**: a threshold moved, an assertion loosened, a test skipped or wrapped in a `try`, a
   checker silenced, a stub or a TODO left, a dependency the constitution or `decisions.md` does not
