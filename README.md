@@ -1,11 +1,11 @@
 # cadrer-x
 
-Des compétences pour Claude Code et codex qui mènent un projet de l'idée à la mise en ligne, une étape à
-la fois, avec toi aux moments qui comptent : `init`, puis **C**hoisir, **A**ffiner, **D**écouper,
-**R**éaliser, **E**xaminer, **R**endre.
+Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée à la mise en ligne, une
+étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper, **R**éaliser, **E**xaminer,
+**R**endre. Tu décides aux moments qui comptent.
 
-Chaque étape écrit un fichier que la suivante lit, et rien ne part sans ton oui : pas de commit de spec,
-pas de fusion, pas de mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
+Chaque étape écrit un fichier que la suivante lit. Rien ne part sans ton oui : ni la spec, ni la fusion,
+ni la mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
 titres restent fixes, en français, pour que chaque étape retrouve le travail de la précédente.
 
 ## Installer
