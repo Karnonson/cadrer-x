@@ -15,14 +15,14 @@ your taste.
 
 Read, each whole, before writing a word:
 
-1. **The project's**: `{docs}/textes.md` (the product's register, its words, its tone), and what it points
+1. **The project's**: `{docs}/regles-ecriture.md` (the product's register, its words, its tone), and what it points
    to (a brand voice). These win where they differ from the rest.
 2. **The product's words**: `{docs}/glossaire.md`: the same word for the same thing, every time.
 3. **The French the product already shows** (its pages, a feature's `contenu.md`), for the register and
    the words it uses.
 4. **These defaults**, below.
 
-No `{docs}/textes.md`: these defaults, the register the product already uses (*tu* or *vous*, never both),
+No `{docs}/regles-ecriture.md`: these defaults, the register the product already uses (*tu* or *vous*, never both),
 and say once that the project has no rules of its own.
 
 ## 2. Write
@@ -60,7 +60,7 @@ and say once that the project has no rules of its own.
 
 A correction of the words (a tone, a turn of phrase, a word they dislike) is a rule the next text will
 break again unless it is written down. Fix the text, then propose the rule in one line, worded as they
-said it; on their yes, add it to `{docs}/textes.md` (created when absent: `# Textes — règles`, one
+said it; on their yes, add it to `{docs}/regles-ecriture.md` (created when absent: `# Règles d'écriture`, one
 `- <règle>` per line), committed with the step's own files. The next feature starts from it.
 
 ## 5. Who writes what
@@ -78,4 +78,4 @@ builder's to invent: one question to the person, with the proposed text written 
 | "People will understand « utilisateur »." | The product's word. |
 | "An exclamation mark makes the error friendlier." | Say what to do next instead. |
 | "It's in the code, the check can't read it." | The words live in `contenu.md` too: check that. |
-| "Fixed what they said; on to the next text." | Propose the rule for `{docs}/textes.md`. |
+| "Fixed what they said; on to the next text." | Propose the rule for `{docs}/regles-ecriture.md`. |

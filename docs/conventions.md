@@ -347,7 +347,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 
 A helper has `user-invocable: false` (Claude Code keeps it out of the `/` menu) and
 `allow_implicit_invocation: true` in its `agents/openai.yaml` (codex may load it on its own). The
-project's own copy rules live in `{docs}/textes.md`; `cadrer-x-textes` reads them before its defaults.
+project's own copy rules live in `{docs}/regles-ecriture.md`; `cadrer-x-textes` reads them before its defaults.
 
 Kept apart, on purpose: affiner and decouper (the spec is the person's gate on *what*, before any *how*);
 realiser and examiner. realiser proves its own task works: a failing test first, then the code, then the
