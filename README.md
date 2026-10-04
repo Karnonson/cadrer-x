@@ -109,6 +109,10 @@ fusionne dans la branche principale et pousse, et seulement sur ton oui.
 
 Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conventions.md).
 
+## Feuille de route
+
+Ce qui vient, avant et après la v1 : [`docs/roadmap.md`](docs/roadmap.md).
+
 ## Tu viens de cadrer ?
 
 [`docs/migration-cadrer.md`](docs/migration-cadrer.md) : ce qui change, et comment passer un projet de
