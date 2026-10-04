@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-init
-description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision (pour qui, le problème, le succès, faire ou louer un outil qui existe), puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/glossaire.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
+description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision, sur le Product Vision Board de Roman Pichler (vision, pour qui, besoins, produit, objectifs), et faire ou louer un outil qui existe, puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/glossaire.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
 disable-model-invocation: true
 argument-hint: "[le produit en une phrase]"
 ---
@@ -23,6 +23,8 @@ default `docs`), `{docs}/`, `git log --oneline | head`, `git branch --list 'chor
 
 - No `{docs}/vision.md`, on the main branch or on `chore/cadrer-x-init`: **step 1**.
 - A vision whose **Faire ou louer** says *louer*: nothing more to set up; say so and go to **End** (the merge question only).
+- A vision with no `## Vision` (written before the board): **step 1**, for its missing sections only.
+  What is there stays; its **Problème** and **Succès** become **Besoins** and **Objectifs**.
 - A vision and no `cadrer-x.yml`, `{docs}/architecture.md`, `{docs}/glossaire.md`, `{docs}/constitution.md` or `AGENTS.md`:
   **step 2**, for what is missing.
 - Everything there: a revision. Ask which file changes and what changed; ask only that. A change to
@@ -62,9 +64,10 @@ when it exists). Commit each step there. The main branch is never written to wit
 background: the product in one sentence, who it is for, the problem as you understand it; for each
 kind of alternative (existing products, open-source tools, no-code such as forms, Airtable or Notion,
 a plain spreadsheet or a paper routine) what it does for this problem, its monthly cost at this size,
-what it lacks, with links. No way to run it in the background: do it yourself after their first
-answer. Then one message: one line saying you are checking what already exists and that using one of
-those instead of building is a good ending, then Q1.
+what it lacks, with links; for an existing product, also what moving to it would take (see below).
+No way to run it in the background: do it yourself after their first answer. Then one message: one
+line saying you are checking what already exists and that using one of those instead of building is a
+good ending (an existing product: that keeping it or switching is weighed with them), then Q1.
 
 Format, without the tool, in their language:
 
@@ -73,15 +76,38 @@ Format, without the tool, in their language:
 ➡️ Mon idée : <what you expect, and what it rests on> — confiance ~50 % (il manque : <what>)
 ```
 
-**The four sections of `vision.md`:**
+**The sections of `vision.md`** — Roman Pichler's Product Vision Board, in its order, then
+**Faire ou louer**:
 
-- **Pour qui** — the specific people: who, what they use today; how many only when it changes what
-  gets built.
-- **Problème** — what it costs them today, with the last real case.
-- **Succès** — a number a non-developer can check, and a date. Theirs, not yours: ask for it; a figure
-  you invent is a guess to put to them.
-- **Faire ou louer** — the verdict, and what every option lacks that matters to them. The table of
-  alternatives goes under **Écarté** in step 2.
+- **Vision** — why the product exists: the change it makes for its people, one short sentence or a
+  slogan, big enough to outlast the first version. No feature, no technology, no date.
+- **Pour qui** — one clear group: who uses it, who pays when that is someone else, what they use
+  today; how many only when it changes what gets built.
+- **Besoins** — the main problem it solves or the benefit it brings: what it costs them today, with
+  the last real case.
+- **Produit** — three to five things that make it stand out from what already exists. Never a
+  feature list: each feature's details go in its own spec.
+- **Objectifs** — why it is worth their time or money (earn, save time, cut a cost, learn), the most
+  important first, each with a number a non-developer can check and a date. Theirs, not yours: ask
+  for it; a figure you invent is a guess to put to them.
+- **Faire ou louer** — not on Pichler's board: the verdict, and what every option lacks that matters
+  to them. The table of alternatives goes under **Écarté** in step 2.
+
+**The order of the questions** is not the file's: Pour qui, then Besoins, the easy ones. Then the
+Vision, drafted from their words for them to correct — never asked cold, an empty "quelle est ta
+vision ?" stalls them. Faire ou louer once the research is back; on a build, Produit, then Objectifs.
+
+**An existing product** (code that runs, or people already using it): the repo answers part of the
+board before you ask. Read the README, the screens (the routes, or the app served with the manifest's
+dev command) and the data the code keeps, then draft **Pour qui**, **Besoins** and **Produit** from
+them: each question puts your draft to them to confirm or correct, more sure where the repo says it
+plainly. What the repo cannot tell (who pays, the last real case, the numbers of **Objectifs**) is
+still asked. **Faire ou louer** becomes keep or switch: for each option, the research also prices the
+move — the data to carry over, the people to bring along, what the product does today that they would
+lose — and the question is « continuer, ou passer à X ? ». Recommend a switch only when an option does
+what they use today and the move is worth it. A switch is recorded as `louer : <X>` with the move in
+one line, and ends here like any *louer*: cadrer-x does not do the move. Keeping it names what every
+option lacks: the first draft of **Produit**.
 
 **The voice.** `vision.md` is the owner's text: written as they would say it, active, the product as
 the subject (« Agendo montre… »), « je » rare, plain verbs (« prévoir », never « craindre » for a
@@ -90,17 +116,20 @@ plan).
 **Faire ou louer.** When the research is back, show it as a short table (option · fait · coûte ·
 manque), then one question: build, or use one of these? Recommend honestly: if a 10 €-a-month product
 or a spreadsheet covers most of it, recommend it. "Louer X" ends here: `vision.md` records that
-verdict, nothing gets built, step 2 does not follow — say it is a win (no code to keep alive). A build
-verdict names what every option lacks that matters to them.
+verdict, **Produit** and **Objectifs** say `aucun`, nothing gets built, step 2 does not follow — say it
+is a win (no code to keep alive). A build verdict names what every option lacks that matters to them:
+the first draft of **Produit**.
 
-**Save — only after the yes.** Write back four lines (Pour qui · Problème · Succès · Faire ou louer)
-and ask: "C'est bien ça ?" On a clear yes, write `{docs}/vision.md` in the branch's worktree:
+**Save — only after the yes.** Write back six lines (Vision · Pour qui · Besoins · Produit ·
+Objectifs · Faire ou louer) and ask: "C'est bien ça ?" On a clear yes, write `{docs}/vision.md` in the branch's worktree:
 
 ```
 # <Produit> — vision
+## Vision
 ## Pour qui
-## Problème
-## Succès
+## Besoins
+## Produit
+## Objectifs
 ## Faire ou louer
 ```
 
@@ -223,8 +252,11 @@ and `/cadrer-x-choisir` reminds them once.
 
 | Thought | Instead |
 |---|---|
-| "The idea is clear enough to draft the vision." | Ask: who, the problem, success are theirs. |
+| "The idea is clear enough to draft the vision." | Ask: Pour qui, Besoins, Objectifs are theirs. |
+| "Vision: an app that lets them book in two clicks." | That is Produit. The Vision says what changes for them. |
 | "Alternatives would only discourage them." | Faire ou louer comes first; using one is a win. |
+| "It's already built; Faire ou louer is moot." | Keep or switch, with the move priced. |
+| "I'll ask who it's for; the code is someone else's business." | Draft from the README, screens and data; ask what they can't tell. |
 | "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it and states the target; `/cadrer-x-ranger` moves it. |
 | "Their project is simple; index.html at the top is fine." | Projects grow: the layout of structure.md, stated. |
 | "This rule is in the way, I'll drop it." | Rules change through an ADR they approve. |

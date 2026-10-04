@@ -105,12 +105,16 @@ one line (the person can stop it); only the build, which is long, recommends a f
 
 ### vision (`docs/vision.md`)
 
-| Proa | cadrer-x |
-|---|---|
-| Who | Pour qui |
-| Problem | Problème |
-| Success | Succès |
-| Build or use | Faire ou louer |
+Roman Pichler's Product Vision Board, in its order, then the build-or-use verdict.
+
+| Proa | Product Vision Board | cadrer-x |
+|---|---|---|
+| — | Vision | Vision |
+| Who | Target Group | Pour qui |
+| Problem | Needs | Besoins |
+| — | Product | Produit |
+| Success | Business Goals | Objectifs |
+| Build or use | — | Faire ou louer |
 
 ### decisions.md
 

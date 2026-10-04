@@ -5,7 +5,7 @@ doc is placed by what it holds; its name is only a first guess.
 
 | What it holds | Its place | Usual old names |
 |---|---|---|
-| Who the product serves, the problem, success | `{docs}/vision.md` | vision, product, mission, product-vision |
+| Why the product exists, who it serves, their needs, what makes it stand out, its goals | `{docs}/vision.md` | vision, product, mission, product-vision, vision-board |
 | The stack, the parts, where they run, the modules | `{docs}/architecture.md` | architecture, arch, system-design |
 | The product's and its domain's words, each with its meaning | `{docs}/glossaire.md` | glossary, glossaire, terms, terminology, lexicon, vocabulary |
 | How the product writes: its register, its tone, the turns it avoids | `{docs}/regles-ecriture.md` | style-guide, voice, tone, writing, copy-guidelines, textes.md |

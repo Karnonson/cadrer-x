@@ -2,7 +2,7 @@
 
 Ce projet suit cadrer-x. Avant de travailler, lire :
 
-- `{docs}/vision.md` — pour qui, le problème, le succès
+- `{docs}/vision.md` — la vision, pour qui, les besoins, le produit, les objectifs
 - `{docs}/architecture.md` — les pièces, les modules et leurs chemins, les données, les secrets par leur nom
 - `{docs}/glossaire.md` — les mots du produit et de son domaine : toujours ceux-là, jamais un synonyme
 - `{docs}/constitution.md` — les règles que chaque changement respecte
