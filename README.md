@@ -144,11 +144,3 @@ uv run tools/token_estimate.py skills chemin/vers/fr/skills  # anglais contre fr
 ```
 
 `--detail o200k` détaille par compétence, `--only o200k` n'en charge qu'un, `--json` donne les chiffres.
-
-## Les tests des compétences
-
-Chaque compétence a ses cas dans `skills/<nom>/evals/` : un projet d'exemple, la demande, et ce qu'une
-bonne réponse doit faire. `baseline.md` y note ce que le modèle faisait sans la compétence.
-
-Les résultats sur Claude et codex, la commande pour les relancer et ce que chaque échec a changé :
-[`docs/evals.md`](docs/evals.md).

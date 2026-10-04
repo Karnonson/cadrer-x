@@ -1,5 +1,0 @@
-.field { display: grid; gap: var(--sp-1); flex: 1 1 200px; }
-.label { font: 600 var(--fs-sm) var(--sans); }
-.input { min-height: var(--tap); padding: 0 var(--sp-3); border: 1px solid var(--line); border-radius: var(--r-sm); font: var(--fs-md) var(--sans); width: 100%; }
-.hint { font-size: var(--fs-sm); color: var(--ink-muted); }
-.error { font-size: var(--fs-sm); color: var(--danger); }

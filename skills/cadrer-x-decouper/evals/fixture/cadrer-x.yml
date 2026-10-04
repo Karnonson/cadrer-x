@@ -1,9 +1,0 @@
-name: carnet
-docs: docs
-design_system: docs/design-system
-commands:
-  install: pnpm install
-  checks: [pnpm lint, pnpm exec tsc --noEmit, pnpm test]
-  dev:
-    run: pnpm dev
-    url: http://localhost:3000

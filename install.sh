@@ -7,7 +7,6 @@
 #
 # Options: --engine claude|codex (default: both) · --link (symlinks to this checkout instead of
 # copies, to try changes to the skills live) · --remove (take the cadrer-x skills out again).
-# Each skill's evals/ folder stays here: it is the skills' tests, not part of them.
 
 set -euo pipefail
 
@@ -20,7 +19,7 @@ while [ $# -gt 0 ]; do
     --engine) shift; case "${1:-}" in claude|codex) engines="$1" ;; *) echo "--engine is claude or codex" >&2; exit 2 ;; esac ;;
     --link) link=1 ;;
     --remove) remove=1 ;;
-    -h|--help) sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) echo "unknown option $1 (see --help)" >&2; exit 2 ;;
     *) dir="$1" ;;
   esac
@@ -48,7 +47,7 @@ for engine in $engines; do
       ln -s "${skill%/}" "$target"
     else
       mkdir -p "$target"
-      (cd "$skill" && tar --exclude=./evals --exclude=__pycache__ --exclude="*.pyc" -cf - .) | (cd "$target" && tar -xf -)
+      (cd "$skill" && tar --exclude=__pycache__ --exclude="*.pyc" -cf - .) | (cd "$target" && tar -xf -)
     fi
     echo "$([ "$link" = 1 ] && echo linked || echo copied)   $target"
   done

@@ -1,5 +1,0 @@
-name: clubhouse
-docs: docs
-commands:
-  install: "true"
-  checks: ["PYTHONPATH=src python3 -m unittest discover -s tests -q"]
