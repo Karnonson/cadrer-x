@@ -32,6 +32,10 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
 - **The scope**: no argument or the feature: every story. `US<n>`: that story; with `Bloquant :` or
   `À corriger :` findings in its latest section of `audit.md`, start with its fix round. `T<nn>`: that
   task alone (see *One task by hand*).
+- **The commands it runs.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) that
+  `.claude/settings.json` → `permissions.allow` lacks: add it as `Bash(<the command>)`, and say so in
+  your first message; a builder otherwise waits on a prompt for each run. The git commands are there
+  since `install.sh`.
 - **The state** is in the files, so a run that stopped picks up where it was: tasks `[x]` on the feature
   branch are built; a story with a `validé` section in `audit.md` is done; a `tache/<slug>-*` branch
   left over is a builder's unmerged work (merge it as below when its report said `fait` and its commit
@@ -72,9 +76,9 @@ while a reviewer is running: its merge waits until the audit is committed.
    another task's file: stop, and ask the person. Then the whole check command there; red: back to its
    builder.
 2. In the feature's worktree: `git merge --ff-only tache/<slug>-t<nn>`; refused: step 1 again.
-3. From the repo's top, never from inside it: `git worktree remove .worktrees/tache.<slug>-t<nn>`, then
-   `git -C .worktrees/feature.<slug> branch -d tache/<slug>-t<nn>` (the branch is merged there, not in
-   the main branch). Never push.
+3. From the repo's top, never from inside it: `git worktree remove .worktrees/tache.<slug>-t<nn>`; then
+   `git merge-base --is-ancestor tache/<slug>-t<nn> feature/<slug>` and, when it says yes, `git branch
+   -D tache/<slug>-t<nn>` (`-d` checks the main branch, where it is not merged yet). Never push.
 
 ## Reviews
 
@@ -124,4 +128,4 @@ session, then `/cadrer-x-realiser <slug>` again: it picks up from the files.
 | "Two screen tasks at once, it's faster." | One browser: one at a time. |
 | "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
 | "The Skill tool refused; I'll stop." | Builders and reviewers read the file, never the Skill tool. |
-| "`git branch -d` failed: not merged." | Run it in the feature's worktree, where it is merged. |
+| "`git branch -d` failed: not merged." | It checks the main branch: `merge-base --is-ancestor` on the feature, then `-D`. |

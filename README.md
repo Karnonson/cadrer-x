@@ -25,7 +25,10 @@ Puis, dans le dossier de ton projet (par défaut : seulement ce projet) :
 ```
 
 Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à committer,
-pour que tout le monde sur le projet ait la même version. Pour les mettre à jour : `git -C ~/cadrer-x pull`,
+pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise aussi les
+commandes git que les étapes lancent (worktrees, fusions, commits), pour que la construction ne te
+demande pas ton accord à chaque fusion ; `git push` te le demande toujours. `cadrer-x-init` y ajoute les
+commandes du projet (installer, vérifier, lancer). Pour les mettre à jour : `git -C ~/cadrer-x pull`,
 puis relance `install.sh`.
 
 Ailleurs que dans le dossier courant : `~/cadrer-x/install.sh <dossier>`. Pour tous tes projets à la fois :

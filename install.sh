@@ -7,6 +7,8 @@
 #
 # Options: --engine claude|codex (default: both) · --link (symlinks to this checkout instead of
 # copies, to try changes to the skills live) · --remove (take the cadrer-x skills out again).
+# For a project, Claude Code's .claude/settings.json also gets the git commands the steps run
+# (worktrees, merges, commits) allowed, and git push asked every time; --remove takes them out.
 
 set -euo pipefail
 
@@ -19,7 +21,7 @@ while [ $# -gt 0 ]; do
     --engine) shift; case "${1:-}" in claude|codex) engines="$1" ;; *) echo "--engine is claude or codex" >&2; exit 2 ;; esac ;;
     --link) link=1 ;;
     --remove) remove=1 ;;
-    -h|--help) sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) echo "unknown option $1 (see --help)" >&2; exit 2 ;;
     *) dir="$1" ;;
   esac
@@ -37,6 +39,7 @@ fi
 for engine in $engines; do
   case "$engine" in claude) dest="$base/.claude/skills" ;; codex) dest="$base/.agents/skills" ;; esac
   mkdir -p "$dest"
+  [ "$(cd "$dest" && pwd -P)" = "$(cd "$src" && pwd -P)" ] && { echo "$dest is this checkout's skills folder: nothing to do" >&2; continue; }
   for skill in "$src"/cadrer-x-*/; do
     name="$(basename "$skill")"
     [ -f "$skill/SKILL.md" ] || continue          # a folder that holds only templates so far
@@ -53,8 +56,33 @@ for engine in $engines; do
   done
 done
 
+# The git commands every step runs, so a build is not a prompt per merge. Pushing stays asked.
+if [ "$scope" = project ] && [[ " $engines " == *" claude "* ]]; then
+  python3 - "$base/.claude/settings.json" "$remove" <<'PY'
+import json, sys, pathlib
+path, remove = pathlib.Path(sys.argv[1]), sys.argv[2] == "1"
+allow = [f"Bash(git {c} *)" for c in ("status", "log", "diff", "show", "branch", "worktree", "merge",
+         "merge-base", "add", "commit", "mv", "rm", "grep", "rev-parse", "rev-list", "ls-files", "stash")]
+allow += [f"Bash(git {c})" for c in ("status", "log", "diff", "branch", "stash")]
+ask = ["Bash(git push *)", "Bash(git push)"]
+data = json.loads(path.read_text()) if path.exists() and path.read_text().strip() else {}
+perms = data.setdefault("permissions", {})
+for key, rules in (("allow", allow), ("ask", ask)):
+    have = perms.get(key, [])
+    perms[key] = [r for r in have if r not in rules] if remove else have + [r for r in rules if r not in have]
+    if not perms[key]:
+        del perms[key]
+if not perms:
+    del data["permissions"]
+if data or path.exists():
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+    print(f"{'cleaned' if remove else 'allowed'}  git commands in {path}")
+PY
+fi
+
 if [ "$scope" = project ] && [ "$remove" = 0 ]; then
   echo
-  echo "Installed for this project only. Commit .claude/skills and .agents/skills so everyone on it gets"
-  echo "the same version. For every project of yours instead: ./install.sh --global"
+  echo "Installed for this project only. Commit .claude/skills, .agents/skills and .claude/settings.json"
+  echo "so everyone on it gets the same version. For every project of yours instead: ./install.sh --global"
 fi

@@ -149,6 +149,10 @@ drop or fix a failing one with them. No code yet: `checks: []` and no `dev:`, an
 feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each environment (`url`, `deploy`,
 `rollback`) the first time it puts the product online.
 
+**`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
+`permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` put there, so a build
+is not a prompt per check. Nothing else; never `git push`. Committed with the rest.
+
 ### 3. `{docs}/architecture.md`
 
 From `templates/architecture.md`. **An existing repo**: fill each section from what the repo shows

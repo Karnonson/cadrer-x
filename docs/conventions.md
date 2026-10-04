@@ -358,7 +358,9 @@ spec, so a misreading passes them.
 ## Install
 
 `install.sh` copies each skill into the project by default: `.claude/skills` and
-`.agents/skills`, committed with the project so everyone on it has the same version. `--global` puts
+`.agents/skills`, committed with the project so everyone on it has the same version. It also merges into
+`.claude/settings.json` the git commands the steps run (`permissions.allow`) and `git push` under
+`ask`; `init` adds the commands of `cadrer-x.yml`, and `realiser` any it finds missing. `--global` puts
 them in `~/.claude/skills` and `~/.agents/skills` instead. `--link` symlinks to the checkout, to try
 changes live; `--remove` takes them out.
 
