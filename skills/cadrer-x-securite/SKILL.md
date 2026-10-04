@@ -1,13 +1,13 @@
 ---
 name: cadrer-x-securite
-description: "Aide cadrer-x, chargée par les autres étapes : les règles de sécurité par défaut (secrets, saisies, connexion, données d'un autre, erreurs), les tests d'abus, et la liste des données personnelles (base RGPD, durée, qui les voit). À charger quand du code ou une spec touche une connexion, une saisie, les données d'une autre personne, un paiement, un rôle, un secret, ou garde une donnée personnelle."
+description: "Aide cadrer-x, chargée par les autres étapes : les règles de sécurité par défaut (secrets, saisies, connexion, données d'un autre, erreurs), les tests d'abus, la liste des données personnelles (base RGPD, durée, qui les voit), et l'analyse avant une livraison. À charger quand du code ou une spec touche une connexion, une saisie, les données d'une autre personne, un paiement, un rôle, un secret, ou garde une donnée personnelle."
 user-invocable: false
 ---
 
 # cadrer-x sécurité — safe by default, proven by abuse tests, every personal datum listed
 
 Loaded by `choisir` and `affiner` (personal data), `decouper` (risks), `realiser` (defaults, tests),
-`examiner` (review) and `rendre` (the data list). The safe way is the default; anything else needs a
+`examiner` (review) and `rendre` (the data list, the scan before a release). The safe way is the default; anything else needs a
 written reason, on a `Choix :` line or in the step's own file.
 
 ## The defaults
@@ -60,6 +60,36 @@ For every way in, prove the code refuses the four misuses, and write one test pe
   from a test (the real provider): test the part you own (the signature check with a wrong signature, the
   same idempotency key twice), and say what stays untested.
 - A misuse the code allows is a bug: fix the code, never loosen the test.
+
+## Before a release: the scan
+
+`rendre` runs it on the feature branch before the merge, with the tools installed here; it installs
+nothing. One line per check goes in `pr.md` → **Preuves**: `- Sécurité : <check> — <result>`.
+
+1. **Secrets in the feature's commits.** `gitleaks git --redact --log-opts="<main>..feature/<slug>"`
+   (`gitleaks detect --redact …` on an older one). No gitleaks: search `git log -p
+   <main>..feature/<slug>` for what looks like a key (`sk_live_`, `AKIA`, `-----BEGIN`, a long random
+   string given to a name ending in `KEY`, `TOKEN` or `SECRET`), never printing the line. A hit is the
+   stop above.
+2. **Known flaws in the packages the product ships**, by the lockfile's own audit: `npm audit
+   --omit=dev --audit-level=high`, `pnpm audit --prod --audit-level high`, `pip-audit`; else
+   `osv-scanner` when installed. A high or critical flaw stops the release, and its repair is a task:
+   add it to `taches.md`, last in the section of the story that brought the package (else the last
+   story), before its **Point d'étape**, its id on that story's row of **Couverts** and in a last wave
+   of **Ordre**: `- [ ] T<next> [US<n>] Mettre à jour <paquet> vers <version corrigée>`, one box
+   `- [ ] <the audit command> ne signale plus <id de la faille>`, `Exigences : aucune`, `Risques :
+   dépendances — <id> → <version corrigée>`, `Fichiers :` the manifest, the lockfile and any code the
+   new version breaks, `Après : aucune`, `Taille : XS`. Run decouper's lint (`python3
+   ../cadrer-x-decouper/scripts/lint.py taches {feature}/taches.md`), commit `taches — <paquet>
+   <version corrigée>`, and name `/cadrer-x-realiser <slug>`: it builds the task and reviews the story
+   again, then `rendre` runs this scan again. No fixed version, or only one that changes what the
+   product does: a question to the person instead, your recommendation first (another package, or
+   shipping with it, written under **À faire**).
+3. **The host's own check**, when the stack has one (a database's security advisor, the platform's
+   scan before publishing): its findings count like the others.
+
+A check with no tool to run it: say which, and the tool to install; `pr.md` says what was not
+scanned, and the release goes on only on the person's yes.
 
 ## Personal data
 

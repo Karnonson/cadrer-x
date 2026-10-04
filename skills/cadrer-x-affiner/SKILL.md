@@ -34,8 +34,10 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
   `{docs}/features/NNNN-<slug>/` (`{feature}` from here on), and committed on that branch.
 - No `decisions.md`: say `/cadrer-x-choisir <slug>` settles the decisions first, and stop.
 - No `spec.md`, or one whose **Statut** is `brouillon`: **step 1** (a draft is picked up where it is).
-- A validated spec, `écrans : oui` in `decisions.md` → **Étapes**, and no `passation.md`: **step 2**.
-- A validated spec and `écrans : non`: nothing to do here; say the next step, `/cadrer-x-decouper <slug>`.
+- A validated spec, `écrans : oui` in `decisions.md` → **Étapes**, no `voie : courte`, and no
+  `passation.md`: **step 2**.
+- A validated spec, and `écrans : non` or `voie : courte`: nothing to do here; say the next step,
+  `/cadrer-x-decouper <slug>`.
 - Everything there: a revision. A `{feature}/verification.md` committed after the last commit of `spec.md` (`git log -1 --format=%ct -- <file>`): its findings for
   `/cadrer-x-affiner` are what changes, never asked again. Else ask what changes; ask only that. Then
   redo the part it touches the way its step says. A spec change that moves a screen changes the prototype too; once `taches.md`
@@ -64,8 +66,10 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 **Short path** (`voie : courte` under **Étapes** of `decisions.md`): one story, its scenarios, the
 **Cas limites** that are real, **Exigences** and **Critères** in one or two lines each, no question
 unless the three-part bar below is met, and no `Vérifs` ceremony beyond the lint. Show it in one
-message and ask for the yes as below. If writing it shows more than one story, a screen, or personal
-data: say the change is bigger than it looked, remove the `voie : courte` line from `decisions.md`
+message and ask for the yes as below. A change a person sees: its scenario names the page and what
+they see there, in their words. A bug (`bug : oui`): the first scenario is the report's steps, with
+what should happen. If writing it shows more than one story, a new screen or a new way through one,
+or personal data: say the change is bigger than it looked, remove the `voie : courte` line from `decisions.md`
 (commit it), and carry on with the full path.
 
 **Read, in this order:** `{feature}/idee.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
@@ -142,8 +146,8 @@ passes; a line is never deleted to pass.
 
 **Save — only after the yes.** **Statut** : `validée`. Run `python3 <this skill's folder>/scripts/lint.py
 spec {feature}/spec.md`, fix and rerun until it prints nothing. Commit `spec.md` and `a-trancher.md`:
-`spec — <Titre>`. Then, `écrans : oui`: step 2, right away, said in one line. `écrans : non`: the
-tasks, here: say in one line that you go on, open `../cadrer-x-decouper/SKILL.md`, read it whole and
+`spec — <Titre>`. Then, `écrans : oui` and no `voie : courte`: step 2, right away, said in one line.
+`écrans : non`, or `voie : courte`: the tasks, here: say in one line that you go on, open `../cadrer-x-decouper/SKILL.md`, read it whole and
 follow it for this feature. They stop you: the command to type later.
 
 ## Step 2 — the prototype

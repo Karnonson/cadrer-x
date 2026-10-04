@@ -36,7 +36,8 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   `install.sh` installed cadrer-x in the project; after a global install, say once that each git
   command will ask and that `./install.sh` run in the project allows them.
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
-  a story with a `validé` section in `audit.md` is done; a leftover `tache/<slug>-*` branch is a
+  a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (one
+  `rendre` added for a flaw in a package): that task is built, then the story reviewed again; a leftover `tache/<slug>-*` branch is a
   builder's unmerged work (merge it as below if its report said `fait` and its commit ticks the task,
   else restart it).
 

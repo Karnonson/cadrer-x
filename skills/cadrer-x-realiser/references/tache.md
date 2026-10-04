@@ -33,7 +33,7 @@ Read the task's block, its story in `{feature}/spec.md` (the scenarios are the t
 **À surveiller** lines pinned to it, the answered questions of `{feature}/a-trancher.md`,
 `{docs}/constitution.md`, `{docs}/architecture.md` → **Modules**, `{docs}/glossaire.md`. Read `cadrer-x-tdd`,
 `cadrer-x-modules`, and, when the task has a `Risques :` line or opens a way in, `cadrer-x-securite`.
-With an `Écrans :` line, read `cadrer-x-design-system`. With a text a person reads that `contenu.md`
+With an `Écrans :` line, or a box about what a page shows, read `cadrer-x-design-system`. With a text a person reads that `contenu.md`
 lacks, read `cadrer-x-textes`.
 
 Run the whole check command once. A failure now is not yours and not a stop: note the test's exact
@@ -43,7 +43,8 @@ name and build the task anyway.
 
 Follow `cadrer-x-tdd`: each box a test at the module's entry, named like the box, with the spec's
 values, watched failing on its assertion before its code. Then each risk of `Risques :` and the abuse
-tests of `cadrer-x-securite`. A bug met on the way: read `cadrer-x-debug`. Never lower a bar to get
+tests of `cadrer-x-securite`. A bug met on the way, or a feature that fixes one (`bug : oui` in `{feature}/decisions.md`): read
+`cadrer-x-debug`. Never lower a bar to get
 green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix the code.
 
 A task with screens: its section of `passation.md`, its page in `maquette/` and `contenu.md` are the
@@ -57,7 +58,7 @@ not opened, and never write a browser driver of your own.
   need to run cleanly (`"type": "module"` in `package.json`, the runner's config), and a test helper the
   task's own tests share. Any other file outside it the task truly needs: a question.
 - Never edit `spec.md`, `passation.md`, `maquette/`, `contenu.md`, `cadrer-x.yml`, `{docs}/` or a lock
-  file; in `taches.md`, only your task's `[ ]` → `[x]`. No dependency `decisions.md` or the
+  file your `Fichiers :` does not name; in `taches.md`, only your task's `[ ]` → `[x]`. No dependency `decisions.md` or the
   constitution does not allow.
 - Something worth fixing elsewhere, out of the task: leave it, put it under `À savoir`.
 

@@ -33,7 +33,8 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
   `.git/info/exclude` first, the untracked `.env*` files copied in). `{feature}` is
   `{docs}/features/NNNN-<slug>/` there.
 - No `spec.md`, or its **Statut** is not `validée`: say `/cadrer-x-affiner <slug>` comes first, and stop.
-- `écrans : oui` in `decisions.md` and no `passation.md`: the same, for the prototype.
+- `écrans : oui` in `decisions.md`, no `voie : courte`, and no `passation.md`: the same, for the
+  prototype.
 - An old cadrer `tranches.md` there and no `taches.md`: the build started under cadrer. Its ticked slices
   are built: read their code, and write each scenario it already proves as a ticked `[x]` task under its
   story (its files those that hold it, `Risques :` as the code guards them); cut only what is left.
@@ -79,6 +80,8 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
 - **A screen is still a tracer bullet**: the page with its real data and every state its `passation.md`
   section names, not the markup alone. Too big for one task: cut by state or by story, each naming it
   on `Écrans :`. Every screen is named by at least one task.
+- **A bug** (`bug : oui` in `decisions.md`): the first task's first box is the report's steps giving
+  what should happen, its test written first and seen failing on the code as it is.
 - **`Après :`** names only what a task really stands on: the earlier tasks whose code it cannot be
   built or tested without. Never "the one before" by habit: every needless link is a session that
   waits. `aucune` when nothing.
@@ -159,8 +162,10 @@ draft: nothing is built from it before the person's yes.
 **Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): skip the second
 look below, and the person's yes on the tasks: the spec already had theirs. Show the tasks in one
 message (id, title, `Fichiers :`, **À surveiller**), commit, and go on to `realiser` in the same
-session, said in one line: they can stop you. More than three tasks or a second story: the path was not
-short; remove the `voie : courte` line and take the full path.
+session, said in one line: they can stop you. A change a person sees has no `Écrans :` line (there is
+no `passation.md`): its box names the page and what it shows, and an **À surveiller** line pinned to
+the task says the review checks it on that page at 390 and 1280. More than three tasks or a second
+story: the path was not short; remove the `voie : courte` line and take the full path.
 
 **A second look, fresh.** When `cadrer-x-verifier` is installed beside this skill and you can start a
 subagent, start one with a fresh context and this prompt, and nothing of yours: « Read

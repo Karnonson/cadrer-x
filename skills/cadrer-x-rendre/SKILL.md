@@ -53,6 +53,9 @@ Check each, and stop at the first that fails, naming the step that fixes it:
   recommendation first, and write the answer; one that changes what gets built stops here.
 - The feature's worktree is clean, and the whole check command of `cadrer-x.yml` passes, run now, fresh:
   its output is `pr.md`'s evidence. A failure: stop, show it, name `/cadrer-x-realiser`.
+- The scan before a release passes, run now (read `cadrer-x-securite` → *Before a release*): its lines
+  are `pr.md`'s evidence too. A secret: that helper's stop. A flaw in a package: the task that helper
+  writes in `taches.md`, then stop and name `/cadrer-x-realiser <slug>`.
 
 ### Read, in this order
 
@@ -204,6 +207,7 @@ it; write a secret's value anywhere; put local test data online.
 |---|---|
 | "US2's review is still à corriger, but it's minor." | Every story `validé`, or `/cadrer-x-realiser US2`. |
 | "The review passed, so the tests surely still pass." | Run the checks now; that output is the evidence. |
+| "The review looked at security; no need to scan." | The scan runs now: secrets in the history, flawed packages. |
 | "A new table is no big change: no ADR." | **Impact archi** not `aucun` is an ADR. |
 | "The audit says the race is guarded." | Open the code; not found goes under **À faire**. |
 | "They said yes to the package: I'll push too." | The merge has its own yes. |

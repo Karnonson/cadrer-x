@@ -34,11 +34,29 @@ Last real case: to fill in.
 
 ## Objectifs
 
-1. A non-coder takes a feature from the idea to the release without touching code or making a
+1. An engaged francophone audience: people who use cadrer-x on a project of their own and come back
+   for the next one. Number and date: to set.
+2. A non-coder takes a feature from the idea to the release without touching code or making a
    technical decision. Number and date: to set.
-2. A small change stays quick. Number and date: to set.
+3. A small change or a bug stays quick. Number and date: to set.
 
 ## Faire ou louer
 
-Faire: cadrer-x is already being built. The comparison with what exists (spec-driven kits for coding
-agents, app builders for non-coders) is still to do.
+Faire. The repeatable path itself exists elsewhere; what is missing is that path for someone who
+doesn't code, in French (checked in October 2026):
+
+- Workflows for coding agents that reach the release: gstack (garrytan/gstack) runs from "is this
+  worth building" to a deploy with a revert and a check after it; GSD (open-gsd/gsd-core) has a mode
+  that rewords its questions for a non-technical owner. Both are in English and ask technical
+  questions; gstack is a menu of commands, GSD stops at the pull request.
+- Spec-driven workflows (GitHub Spec Kit, BMAD Method, OpenSpec, Superpowers, Kiro): repeatable, for
+  developers; most stop at the merge.
+- App builders (Lovable, Replit, Bolt): made for non-coders, with some guards (a security scan before
+  publishing, going back to a checkpoint), but the work is prompt after prompt: no written decisions,
+  no review by someone who did not build it, tied to their platform.
+- Skill packs for non-technical founders (solo-founder-skills, vibe-check): advice and checklists for
+  each stage, not steps that hand their work to the next one.
+
+What every option lacks: one path, in French, from the idea to the release, where the person is never
+asked a technical question and nothing ships without their yes. That gap is narrow and easy to copy:
+the audience and the community around it are what keeps it.

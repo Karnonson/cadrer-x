@@ -55,7 +55,8 @@ Order matters: form your own view before reading anyone's account.
    (each `M<n>`), `{docs}/architecture.md` → **Modules**, `{docs}/glossaire.md`. Read `cadrer-x-securite`,
    `cadrer-x-modules`, `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its
-   `maquette/` pages, `{feature}/contenu.md`. Read `cadrer-x-design-system`, `cadrer-x-textes`.
+   `maquette/` pages, `{feature}/contenu.md`. Read `cadrer-x-design-system`, `cadrer-x-textes`. On the
+   short path, no `passation.md`: the page a box names, as `references/ecrans.md` says.
 5. Code and tests: each file on the tasks' `Fichiers :` as the feature branch has it now, and what they
    call. How it got there: `git log --oneline <main>..feature/<slug>`, then `git log -p` of the story's
    commits (`T<nn> — …`): a test strict in one commit and loosened later is how a bar gets lowered.
@@ -120,9 +121,10 @@ Each finding quotes its line.
 
 ## Screens
 
-When `passation.md` gives the story a screen: read `references/ecrans.md` whole and follow it (the
-browser, the states, the widths, the captures, its findings). It feeds `Écrans :` in `### Non jugé`.
-No screen: skip it and write no `Écrans :` line.
+When `passation.md` gives the story a screen, or, on the short path (`voie : courte`), a box names a
+page the story changes: read `references/ecrans.md` whole and follow it (the browser, the states, the
+widths, the captures, its findings). It feeds `Écrans :` in `### Non jugé`; on the short path, an
+`Info :` line of `### Spec` instead. No screen and no page: skip it and write no `Écrans :` line.
 
 ## One prefix per finding
 

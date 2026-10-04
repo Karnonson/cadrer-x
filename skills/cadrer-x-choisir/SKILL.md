@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-choisir
-description: "Choisir quoi construire. À lancer quand quelqu'un arrive avec une idée de fonctionnalité ou de changement, ou quand une fonctionnalité a son `idee.md` mais pas encore son `decisions.md`. Deux entretiens, une question à la fois : l'idée (`idee.md`), puis les décisions (`decisions.md`). Le premier crée la branche et le dossier de la fonctionnalité. Ne spécifie pas, ne code pas."
+description: "Choisir quoi construire. À lancer quand quelqu'un arrive avec une idée de fonctionnalité ou de changement, ou un bug à corriger, ou quand une fonctionnalité a son `idee.md` mais pas encore son `decisions.md`. Deux entretiens, une question à la fois : l'idée (`idee.md`), puis les décisions (`decisions.md`). Le premier crée la branche et le dossier de la fonctionnalité. Ne spécifie pas, ne code pas."
 disable-model-invocation: true
 argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité>"
 ---
@@ -109,6 +109,22 @@ questions. Then write it back — Résultat, Pour qui, Pourquoi maintenant, Mesu
 Contraintes, Non couverts, one line each — and ask: "C'est bien ça ? Oui, ou dis-moi quoi changer."
 A correction: fold it in, write it back again.
 
+**A small change** (a word, a colour, a link, a default, on something the product already has): the
+interview shrinks to what is unclear, one question at most. **Résultat** and **Problème** from what
+they said; **Pour qui** and **Pourquoi maintenant** in one line each, from what they said or the
+product's own; **Mesure** what they will see once it is done (« le bouton dit "Envoyer" »);
+**Existant** `le produit lui-même`. Step 2 decides the short path.
+
+**A bug** (something that should work and doesn't, or worked and stopped): no idea to shape, a fault
+to pin. Ask only what they haven't said, one question at a time: what they did, what they saw, what
+they expected. Then try it yourself before asking more: the app from `commands.dev` with a browser
+tool, stopped when done, else the code the steps go through. What you find is a fact, never asked;
+you fix nothing here. In `idee.md`: the title starts with « Corriger : »; **Résultat** what should
+happen; **Problème** the steps, what they see, and `reproduit` or `pas reproduit — <what you tried>`;
+**Mesure** « les mêmes étapes donnent <what should happen> »; **Existant** where it breaks, or `à
+trouver à la construction`; **Pour qui** and **Pourquoi maintenant** in one line each. Step 2 writes
+`- bug : oui`.
+
 **Save — only after the yes.**
 1. A slug: lowercase words and hyphens, 24 characters at most. The number: the highest `NNNN` under
    `{docs}/features/` on the main branch and on every `feature/*` branch, plus one, on four digits.
@@ -149,16 +165,18 @@ Map the **design tree**: each decision and the ones that hang off it. The **fron
 decision whose prerequisites are settled. Start from the idea's **Ouvert** list and the assumption
 it rests on. Each answer reshapes the tree: recompute the frontier before the next question.
 
-**The short path, as soon as you can tell.** A small change does not need the whole ceremony: nothing a
-person sees changes, no personal data, no new service or stack choice, no rule of the constitution
-touched, and you can foresee one story and three tasks at most. Say it in one line (« Petit changement :
-je prends la voie courte. ») and add `- voie : courte` under **Étapes**. The decisions are then only the
-idea's **Ouvert** points: ask those, nothing more, and save. Any doubt, or the person asks for the full
-path: the full path. `affiner`, `decouper` and `realiser` read that line and lighten their steps.
+**The short path, as soon as you can tell.** A small change does not need the whole ceremony: no new
+screen and no new way through one (a change a person sees on a screen that exists is fine: a word, a
+colour, a link, a button that misbehaves), no personal data, no new service or stack choice, no rule
+of the constitution touched, and you can foresee one story and three tasks at most. A bug usually is
+one. Say it in one line (« Petit changement : je prends la voie courte. ») and add `- voie : courte`
+under **Étapes**. The decisions are then only the idea's **Ouvert** points: ask those, nothing more,
+and save. Any doubt, or the person asks for the full path: the full path. `affiner`, `decouper` and
+`realiser` read that line and lighten their steps.
 
 **Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
 first turn: after the spec, `/cadrer-x-affiner` then makes a clickable prototype they judge before
-the tasks are cut.
+the tasks are cut. On the short path, no prototype: the review checks the change on the real page.
 
 Format, without the tool, in their language:
 
@@ -208,6 +226,7 @@ headings exactly, `aucun` under an empty one:
 - code : oui|non
 - données : oui|non
 - voie : courte (only on the short path; else no line)
+- bug : oui (only for a bug; else no line)
 ## Précisions
 - Q : <question> → R : <réponse>
 ## Stack
@@ -218,7 +237,8 @@ headings exactly, `aucun` under an empty one:
 - [ ] <what the person sets up by hand, where> — avant la construction|avant la livraison
 ```
 
-- **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data.
+- **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data;
+  `bug : oui` is a reported bug: its first task reproduces it with a test that fails today.
 - **Impact archi** — usually `aucun`. Not when the feature adds a module, a table or a kind of stored
   data, an outside service or a running part (a job, a worker), or changes the stack. A setting saved
   per account is stored data: say what. `{docs}/architecture.md` itself is not edited here:
@@ -251,5 +271,6 @@ stop you: `/cadrer-x-affiner <slug>` picks it up.
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
 | "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
 | "Success: happier clients." | A number and a date they can check. |
+| "A bug report: I'll ask who it's for and how to measure it." | What they did, saw and expected; then try it yourself. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
 | "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |

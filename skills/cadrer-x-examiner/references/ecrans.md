@@ -1,6 +1,6 @@
 # examiner — judging a story's screens
 
-Read when `passation.md` gives the story a screen. Findings go on the `### Spec` and `### Règles` axes of `audit.md`, with the prefixes of `SKILL.md`.
+Read when `passation.md` gives the story a screen, or on the short path when a box names a page. Findings go on the `### Spec` and `### Règles` axes of `audit.md`, with the prefixes of `SKILL.md`.
 
 The browser tool already held (another session): say so in
 one line, judge from the code (below), write `Écrans : pas cliqués — navigateur occupé`. Never write
@@ -26,3 +26,10 @@ raw colour or size where a token holds it, a part neither the design system's no
 sideways scroll at 390: `À corriger :`; spacing changing nothing a person can do: `Détail :`. From the
 code, always, and all there is when screens could not be clicked: each `contenu.md` text in the code
 (`grep -rn`), each state its code path, the project's own components used.
+
+**The short path** (`voie : courte`, no `passation.md`): the page the box names, at 390 then 1280. Do
+the box's scenario there, check the rest of the page did not move and the console has no error, and
+save one screenshot per width, `{feature}/captures/page-<largeur>.png`. No `Écrans :` line in
+`audit.md`: what you saw goes in a `- Info :` line of `### Spec`, with the two captures' paths, a gap
+in a finding as above. The page not opened (the browser held, no tool, no `commands.dev`): that
+`Info :` line says so and why, never left out, and you judge from the code.

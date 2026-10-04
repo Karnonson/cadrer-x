@@ -12,6 +12,7 @@
 ## Preuves
 
 - Vérifs : `<la commande>` — <la ligne de résumé, « Ran 24 tests … OK »>
+- Sécurité : <l'analyse> — <son résultat, « aucun secret », « 0 faille haute ou critique »>
 - Relectures : US1 tour <n>, validé
 - ![SC1 à 390](docs/features/NNNN-<slug>/captures/SC1-390.png)
 

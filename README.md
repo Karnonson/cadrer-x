@@ -11,25 +11,21 @@ titres restent fixes, en français, pour que chaque étape retrouve le travail d
 
 ## Installer
 
-Une fois, récupère cadrer-x (le dépôt est privé : il faut y avoir accès, et [`gh`](https://cli.github.com)
-connecté) :
+Une commande, depuis le dossier de ton projet. Elle récupère cadrer-x dans `~/cadrer-x` (ou le met à
+jour), puis installe les compétences pour Claude Code, codex ou les deux, selon ce que ton ordinateur
+a. Le dépôt est privé : il faut y avoir accès, et [`gh`](https://cli.github.com) connecté.
 
 ```sh
-gh repo clone Karnonson/cadrer-x ~/cadrer-x
+gh api repos/Karnonson/cadrer-x/contents/install.sh -H "Accept: application/vnd.github.raw" | bash
 ```
 
-Puis, dans le dossier de ton projet (par défaut : seulement ce projet) :
-
-```sh
-~/cadrer-x/install.sh
-```
+Pour un seul des deux : `… | bash -s -- --engine codex`. Relancer la même commande met à jour.
 
 Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à committer,
 pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise aussi les
 commandes git que les étapes lancent (worktrees, fusions, commits), pour que la construction ne te
 demande pas ton accord à chaque fusion ; `git push` te le demande toujours. `cadrer-x-init` y ajoute les
-commandes du projet (installer, vérifier, lancer). Pour les mettre à jour : `git -C ~/cadrer-x pull`,
-puis relance `install.sh`.
+commandes du projet (installer, vérifier, lancer).
 
 Ailleurs que dans le dossier courant : `~/cadrer-x/install.sh <dossier>`. Pour tous tes projets à la fois :
 `~/cadrer-x/install.sh --global`. Options : `--engine claude` ou `--engine codex` pour un seul des deux,
@@ -67,6 +63,11 @@ fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait r
 agent neuf qui ne l'a pas construit, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
 ne s'arrête que pour tes questions et quand tout est relu. À la main, si tu préfères :
 `/cadrer-x-realiser T01` (une tâche), `/cadrer-x-examiner US1` (une relecture, dans une autre session).
+
+Un petit changement (un mot, une couleur, un bouton qui se comporte mal) ou un bug passe aussi par
+`/cadrer-x-choisir` : décris-le en une phrase (« le bouton Envoyer ne fait rien »). L'entretien se
+réduit à ce qui manque, l'agent essaie le bug lui-même, et la voie courte saute la maquette et les
+validations en trop. La relecture par un agent neuf, elle, reste.
 
 Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec seule, avant de découper.
 
