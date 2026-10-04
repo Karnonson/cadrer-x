@@ -10,11 +10,13 @@
 3. Les secrets déjà dans un projet existant : à l'initialisation, les chercher dans les fichiers et
    dans l'historique git (avec un outil d'analyse s'il y en a un), et dire à la personne quoi révoquer
    avant tout le reste.
-4. Essayer ces parcours dans le terrain d'essai : une nouvelle fonctionnalité, un petit changement
-   visible et un bug (la voie courte élargie et l'entrée des bugs, ajoutées le 2026-10-04), une mise
-   en ligne qui échoue et l'initialisation d'un projet existant. Relever les questions inutiles, les
-   décisions perdues, les étapes bloquantes et le travail technique laissé à la personne ; corriger
-   les compétences d'après ce qu'on y voit.
+4. Le parcours entier, de `init` à la mise en ligne, sur trois projets. Y passer aussi une nouvelle
+   fonctionnalité, un petit changement visible et un bug (la voie courte élargie et l'entrée des bugs,
+   ajoutées le 2026-10-04), une mise en ligne qui échoue et l'initialisation d'un projet existant.
+   Relever les questions inutiles, les décisions perdues, les étapes bloquantes et le travail
+   technique laissé à la personne ; corriger les compétences d'après ce qu'on y voit.
+5. La v1 : une fois les trois projets validés par le propriétaire, pousser `main` sur GitHub et y
+   publier la version `v1.0.0` (une release, avec ce qu'elle contient). D'ici là, rien n'est poussé.
 
 ## Après la v1
 
