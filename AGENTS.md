@@ -48,5 +48,5 @@ There is no test suite. Before a commit:
 
 - Work on a branch; `main` is what the one-command install fetches from GitHub, so a change reaches
   people only once it is merged and pushed.
-- Show the diff and wait for the owner's go before committing.
+- Commit on the branch freely; merge into `main` only on the owner's go.
 - Commit subjects: `<area>: <what changed>`, lowercase (`skills: …`, `install: …`, `docs: …`).
