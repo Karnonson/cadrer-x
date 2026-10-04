@@ -249,11 +249,7 @@ stop you: `/cadrer-x-affiner <slug>` picks it up.
 |---|---|
 | "I'll ask the three basics at once to save time." | Step 1: one question, the next depends on it. Step 2: a numbered batch only of decisions that hang on nothing open. |
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
-| "What does the site do today?" | Read it. |
 | "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
-| "They said ça me va." | A yes: say what you save, save it. |
 | "Success: happier clients." | A number and a date they can check. |
-| "Six more questions would nail it." | Five, then `a-trancher.md`. |
-| "Prices are roughly…" | Look them up today. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
 | "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |

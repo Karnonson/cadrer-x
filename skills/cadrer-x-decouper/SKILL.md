@@ -195,10 +195,7 @@ best in a fresh session (`/clear`, then the command); they say go on here: open
 | "T01 the table, T02 the routes, T03 the page." | Each task cuts through every layer it needs. |
 | "T03 comes after T02, to be safe." | `Après :` only what it stands on: each needless link is a session that waits. |
 | "The builder will add a test runner." | Tooling is a Fondations task; the others are `Après :` it. |
-| "A purge job would be tidy." | No scenario asks: out of scope. |
-| "I'll update the data inventory in T02." | `docs/security/` is rendre's. |
 | "Two tasks both edit the route index; fine." | One owner; the other is `Après :` it. |
-| "Risk: the time zone." | A bug: a box. Risks are someone misusing it. |
 | "This story is wrong; I'll fix the spec." | Never edit the spec: ask the person. Only the second look's one-answer drifts are fixed there. |
 | "They said: modules in src/. Noted in my head." | A `D<n>` in `decisions.md`, committed with the tasks. |
 | "The second look says T01–T08 nobody asked for; I'll recommend dropping them." | A decision asked for them: the second look missed it. Settled stays settled. |

@@ -217,13 +217,9 @@ feature. They stop you: `/cadrer-x-decouper <slug>` picks it up.
 
 | Thought | Instead |
 |---|---|
-| "I'll ask everything before drafting." | Draft around your recommendations; at most three questions. |
-| "They'll want a history page too." | Not asked: Pas encore, with why. |
 | "Le fichier CSV est généré à la demande." | What they see: « un fichier que mon tableur ouvre ». |
 | "Keep data 12 months: US5." | A scenario or an exigence of the story it touches. |
-| "A small default, I'll ask anyway." | Supposé: one line they can strike. |
 | "« Leurs ateliers » surely means all of them." | A reading of a rule is a question, never Supposé. |
-| "Ça me va — but is it a real yes?" | It is: say what you save, save it. |
 | "One page shows the main state; the rest is in passation.md." | Every state clickable: a section and an address. |
 | "The design system lacks this colour; I'll add it to styles.css." | The copy is never edited: a token, or a Nouveauté. |
 | "I'll open the page with `file://`." | Serve the folder on 127.0.0.1, then stop it. |

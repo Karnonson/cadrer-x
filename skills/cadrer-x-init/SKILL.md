@@ -225,13 +225,7 @@ and `/cadrer-x-choisir` reminds them once.
 |---|---|
 | "The idea is clear enough to draft the vision." | Ask: who, the problem, success are theirs. |
 | "Alternatives would only discourage them." | Faire ou louer comes first; using one is a win. |
-| "Succès : moins de gaspillage." | Their number and their date. |
-| "HISTORY.md, so CHANGELOG.md." | Open it: the name guesses, the content decides. |
 | "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it and states the target; `/cadrer-x-ranger` moves it. |
 | "Their project is simple; index.html at the top is fine." | Projects grow: the layout of structure.md, stated. |
-| "How would you like the code organised?" | structure.md answers; state it. |
-| "I'll add `pnpm test` to the checks, every project has it." | Only commands the repo defines, run once now. |
-| "Prices are roughly…" | Look them up today. |
-| "I'll paste the constitution into AGENTS.md." | A pointer: one file holds the rules. |
 | "This rule is in the way, I'll drop it." | Rules change through an ADR they approve. |
 | "Done, I'll merge into main." | Ask; merge on their yes, never push. |
