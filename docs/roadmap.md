@@ -20,6 +20,8 @@
 
 ## Après la v1
 
+- Un hook git avant chaque commit qui lance `tools/status_check.py`, si `STATUS.md` grossit malgré
+  ses règles pendant les essais.
 - Rendre le dépôt public : la même commande d'installation, avec `curl` au lieu de `gh`.
 - Les tests des compétences (evals), refaits sur les compétences de la v1.
 - Une compétence d'écriture en français, avec les tics de l'IA à éviter.

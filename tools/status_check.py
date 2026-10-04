@@ -5,6 +5,7 @@
 Prints one line per problem and exits 1, or prints nothing. The rules are in AGENTS.md.
 """
 
+import datetime
 import re
 import sys
 
@@ -17,8 +18,16 @@ def check(path):
     out = []
     if len(lines) > MAX_LINES:
         out.append(f"{path}: {len(lines)} lines, {MAX_LINES} at most: cut what is done or lives elsewhere")
-    if not any(re.match(r"^\*\*Updated\*\*: \d{4}-\d{2}-\d{2}$", l) for l in lines):
+    dates = [m.group(1) for l in lines if (m := re.match(r"^\*\*Updated\*\*: (\S+)$", l))]
+    if not dates:
         out.append(f"{path}: no `**Updated**: YYYY-MM-DD` line")
+    for d in dates:
+        try:
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+                raise ValueError
+            datetime.date.fromisoformat(d)
+        except ValueError:
+            out.append(f"{path}: `{d}` is not a date (YYYY-MM-DD)")
     got = [l[3:].strip() for l in lines if l.startswith("## ")]
     if got != SECTIONS:
         out.append(f"{path}: the sections are {', '.join(SECTIONS)}, in that order; found {', '.join(got) or 'none'}")
