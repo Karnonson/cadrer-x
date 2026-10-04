@@ -29,9 +29,10 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   several: ask which. Its worktree `.worktrees/feature.<slug>` (else `git worktree add` it,
   `.worktrees/` in `.git/info/exclude` first, the untracked `.env*` files copied in, `commands.install`
   run once). `{feature}` is its `{docs}/features/NNNN-<slug>/`.
-- **The scope**: no argument or the feature: every story. `US<n>`: that story; with `Bloquant :` or
-  `À corriger :` findings in its latest section of `audit.md`, start with its fix round. `T<nn>`: that
-  task alone (see *One task by hand*).
+- **The scope**: no argument or the feature: every story. `US<n>`: that story. In both, a story whose
+  latest section of `audit.md` is `à corriger` starts with its fix round, or, when a `correctifs US<n>`
+  commit already came after that section, with its next review. `T<nn>`: that task alone (see *One task
+  by hand*).
 - **The commands it runs.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) that
   `.claude/settings.json` → `permissions.allow` lacks: add it as `Bash(<the command>)`, and say so in
   your first message; a builder otherwise waits on a prompt for each run. The git commands are there
