@@ -26,7 +26,7 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`), `{docs}/architecture.md` (**Mo
 faire**), `{docs}/glossaire.md`, `git worktree list`, `git branch --list 'chore/ranger' 'feature/*'`.
 
 - **The branch.** `.worktrees/` in `.git/info/exclude`, then `git worktree add -b chore/ranger
-  .worktrees/chore.ranger <main branch>`, or reuse both. Everything below runs there.
+  .worktrees/chore.ranger <main branch>`, or reuse both. Copy the untracked `.env*` files from the repo's top (never commit them) and run `commands.install` there once, or the checks fail for the wrong reason. Everything below runs there.
 - **A plan already there** (`{docs}/rangement.md` on `chore/ranger`): pick up at its first unticked
   module, and say so in one line.
 - **Features in progress** (`feature/*` not merged into the main branch): each will have to take this
@@ -99,8 +99,7 @@ table, a column), a file the host serves by its name, an outside call. A move th
 question. The build script and the check command change only to find the files where they now are.
 
 Then the whole check command; red: fix the move (read `cadrer-x-debug`), never the test. Tick the
-module in `{docs}/rangement.md` and commit: `rangement — <module>`. A long session: say that
-`/cadrer-x-ranger` picks up at the next module, in a fresh session.
+module in `{docs}/rangement.md` and commit: `rangement — <module>`. Go on with the next module in the same session unless the person stops you; the ticks in `rangement.md` let `/cadrer-x-ranger` resume anywhere.
 
 ## 4. Nothing changed: the proof
 
@@ -113,7 +112,7 @@ module in `{docs}/rangement.md` and commit: `rangement — <module>`. A long ses
    It only moves code. Find each place where what the product does changed: a branch dropped in a move,
    a default or an order changed, an export lost, a handler no longer wired, a stored key, a URL or a
    served file renamed. Each with file:line and the old line. Change nothing; your last message is the
-   list, or `aucun`. » Each real finding is fixed, with a test that would have caught it.
+   list, or `aucun`. » Each real finding is fixed, with a test that would have caught it. No way to start a subagent: say so, and give the person this prompt to run in a fresh session before merging; do not merge on your own reading.
 4. `{docs}/architecture.md` → **Modules**: the new map, each module with what it owns and its paths;
    its **À faire** line ticked. Commit: `rangement — fait`.
 
@@ -122,7 +121,7 @@ module in `{docs}/rangement.md` and commit: `rangement — <module>`. A long ses
 One message: the modules now there, one line each; the tests before and after (how many, all green);
 the screens compared; what the second look found and what was fixed; the **Remarques**. Then ask
 whether to merge into the main branch. On their yes: from the main checkout, `git merge --ff-only
-chore/ranger` (a merge commit if it cannot fast-forward, on a second yes), then `git worktree remove
+chore/ranger` (if it cannot fast-forward, ask once more before a merge commit), then `git worktree remove
 .worktrees/chore.ranger` and `git branch -d chore/ranger`. Never push. Each feature in progress: say it
 takes this in with `git merge <main>` in its worktree. Then the next step: `/cadrer-x-choisir <idée>`.
 

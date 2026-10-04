@@ -1,12 +1,12 @@
 ---
 name: cadrer-x-tdd
-description: "Aide cadrer-x, chargée par les autres étapes : ce qu'est un bon test (un comportement, par l'entrée publique du module, avec les valeurs de la spec), où il va, les tests à éviter (collés au code, tautologiques, tous écrits d'avance), quand simuler, et la boucle rouge puis vert. À charger avant d'écrire ou de juger un test."
+description: "Aide cadrer-x, chargée par les autres étapes : ce qu'est un bon test (un comportement, par l'entrée publique du module, avec les valeurs de la spec), où il va, les tests à éviter (collés au code, tautologiques, tous écrits d'avance), quand simuler, et la boucle rouge puis vert. À charger avant d'écrire, corriger ou juger un test (TDD, test d'abord, mock, test qui passe trop facilement)."
 user-invocable: false
 ---
 
 # cadrer-x tests — a behaviour, through the entry, one at a time
 
-Loaded by `realiser` (writing tests) and `examiner` (judging them). Adapted from Matt Pocock's `tdd`
+Loaded by `realiser` (writing tests), `ranger` (the tests of today, before a move) and `examiner` (judging them). Adapted from Matt Pocock's `tdd`
 skill (MIT, github.com/mattpocock/skills).
 
 ## What a good test is
@@ -39,8 +39,8 @@ in `tests/modules/<module>/`.
 
 - **Stuck to the code**: mocks the project's own modules, tests a private function, or checks through
   a side door (a query on the table instead of the entry). The sign: it breaks on a refactor while the
-  behaviour did not change. To prove « nothing stored », read it back through the entry; the module
-  has no reader yet: a direct read is allowed, and say so.
+  behaviour did not change. To prove « nothing stored », read it back through the entry. If the module
+  has no reader yet, a direct read is allowed; say so once.
 - **Tautological**: the expected value is computed the way the code computes it
   (`assertEqual(total(items), sum(i.price for i in items))`), so it can never disagree. The expected
   value is a literal from the spec or a worked example: `assertEqual(total(items), 15)`.

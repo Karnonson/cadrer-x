@@ -59,6 +59,13 @@ alone, and ticks its own `[x]` in `taches.md` in that commit. Merging into `feat
 and taken back with one command, so it needs no yes; merging into the main branch, pushing and going
 online do. No skill pushes but `rendre`, and only on the person's yes.
 
+The short path: a change that shows no screen, holds no personal data, adds no service or stack choice, touches no
+constitution rule, and fits one story and three tasks, carries `- voie : courte` under **Étapes** in
+`decisions.md`. `choisir` asks only the idea's **Ouvert** points; `affiner` writes one small story;
+`decouper` skips the second look and the tasks' yes and goes on to `realiser`; `examiner` still reviews
+the story, since a fresh reader is what the shortcut does not give up. Any step that finds the change bigger
+drops the line and takes the full path.
+
 A clear yes closes a step: "oui", "ok", "ça va", "c'est bon", or a condition already met; a hedge or a
 change asked for keeps it open. A step ends by going on with the next one in the same session, said in
 one line (the person can stop it); only the build, which is long, recommends a fresh session.
@@ -339,7 +346,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | Helper | Merges | Loaded by |
 |---|---|---|
 | `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory | choisir, affiner, decouper, realiser, examiner, rendre |
-| `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, examiner |
+| `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, ranger, examiner |
 | `cadrer-x-debug` | proa-debug | realiser, ranger, any failing test |
 | `cadrer-x-design-system` | design-system | affiner, realiser, examiner |
 | `cadrer-x-modules` | module-borders | decouper, realiser, ranger, examiner |

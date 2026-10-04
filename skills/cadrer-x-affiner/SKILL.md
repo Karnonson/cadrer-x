@@ -36,7 +36,7 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 - No `spec.md`, or one whose **Statut** is `brouillon`: **step 1** (a draft is picked up where it is).
 - A validated spec, `écrans : oui` in `decisions.md` → **Étapes**, and no `passation.md`: **step 2**.
 - A validated spec and `écrans : non`: nothing to do here; say the next step, `/cadrer-x-decouper <slug>`.
-- Everything there: a revision. A `{feature}/verification.md` newer than the spec: its findings for
+- Everything there: a revision. A `{feature}/verification.md` committed after the last commit of `spec.md` (`git log -1 --format=%ct -- <file>`): its findings for
   `/cadrer-x-affiner` are what changes, never asked again. Else ask what changes; ask only that. Then
   redo the part it touches the way its step says. A spec change that moves a screen changes the prototype too; once `taches.md`
   exists, say `/cadrer-x-decouper <slug>` must cut the tasks again.
@@ -60,6 +60,13 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
   keeps it open: ask what they would change.
 
 ## Step 1 — the spec
+
+**Short path** (`voie : courte` under **Étapes** of `decisions.md`): one story, its scenarios, the
+**Cas limites** that are real, **Exigences** and **Critères** in one or two lines each, no question
+unless the three-part bar below is met, and no `Vérifs` ceremony beyond the lint. Show it in one
+message and ask for the yes as below. If writing it shows more than one story, a screen, or personal
+data: say the change is bigger than it looked, remove the `voie : courte` line from `decisions.md`
+(commit it), and carry on with the full path.
 
 **Read, in this order:** `{feature}/idee.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
 `{feature}/decisions.md` (Décisions, Étapes, **Précisions**, **Données et risques**),
@@ -204,7 +211,7 @@ themselves; what fails changes the pages or the file. Run `python3 <this skill's
 passation {feature}/passation.md` until it prints nothing. Commit `maquette/`, `contenu.md`,
 `passation.md` by their paths, never `git add -A`: `maquette — <Titre>`. Then the tasks, here: say
 in one line that you go on, open `../cadrer-x-decouper/SKILL.md`, read it whole and follow it for this
-feature. They stop you, or the session is long: `/cadrer-x-decouper <slug>`, in a new session.
+feature. They stop you: `/cadrer-x-decouper <slug>` picks it up.
 
 ## Red flags
 

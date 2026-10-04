@@ -12,7 +12,7 @@
 
 ## Constats
 
-- À reprendre : spec.md:42 — « <la ligne, citée> » : <ce qui ne va pas> ; <ce qu'un une personne rencontrerait> ; → /cadrer-x-affiner
+- À reprendre : spec.md:42 — « <la ligne, citée> » : <ce qui ne va pas> ; <ce qu'une personne rencontrerait> ; → /cadrer-x-affiner
 - Remarque : taches.md:30 — <ce qui mérite un regard> ; → /cadrer-x-decouper
 
 ## Vérifié

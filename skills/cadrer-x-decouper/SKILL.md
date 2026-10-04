@@ -37,7 +37,7 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 - An old cadrer `tranches.md` there and no `taches.md`: the build started under cadrer. Its ticked slices
   are built: read their code, and write each scenario it already proves as a ticked `[x]` task under its
   story (its files those that hold it, `Risques :` as the code guards them); cut only what is left.
-- `taches.md` already there: a revision. A `{feature}/verification.md` newer than the tasks: its
+- `taches.md` already there: a revision. A `{feature}/verification.md` committed after the last commit of `taches.md` (`git log -1 --format=%ct -- <file>`): its
   findings for `/cadrer-x-decouper` are what changes, never asked again; else ask what changed (usually
   the spec). Keep every task already ticked `[x]` as it is, with its id, and cut what changed as new
   tasks numbered after the last one.
@@ -45,7 +45,7 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 ## Read, in this order
 
 1. `{feature}/spec.md`: the stories, their scenarios, the exigences `EF<n>`. The person approved it:
-   never edit it; a story you think is wrong is a question to them.
+   never edit it (one exception: the one-fix drifts of **A second look**); a story you think is wrong is a question to them.
 2. `{feature}/a-trancher.md`: an answered question is settled; plan on it.
 3. `{feature}/decisions.md`: **Décisions**, **Impact archi**, **Données et risques**, **Stack**. What
    it settles stays settled: never asked again, never undone by an option you recommend.
@@ -147,7 +147,7 @@ task's lines, never in an essay.
 **What the person chooses here is written down.** A layout, a scope, a tool they settle while you cut
 (« le code dans src/, un module par fonctionnalité ») becomes the next `D<n>` of `decisions.md` →
 **Décisions**, with **Impact archi** when it moves the map, committed with `taches.md`. A choice left in
-the chat is lost to every later step: the check flags its tasks, and the next cut undoes it.
+the chat is lost to every later step: the second look flags its tasks, and the next cut undoes it.
 
 ## Show it, then save
 
@@ -155,6 +155,12 @@ Write `{feature}/taches.md`, comments removed, then run `python3 <this skill's f
 taches {feature}/taches.md`; fix and rerun until it prints nothing. Commit it (and `decisions.md`,
 `a-trancher.md` when you wrote to them) on the feature branch: `tâches — <Titre>`. The branch is the
 draft: nothing is built from it before the person's yes.
+
+**Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): skip the second
+look below, and the person's yes on the tasks: the spec already had theirs. Show the tasks in one
+message (id, title, `Fichiers :`, **À surveiller**), commit, and go on to `realiser` in the same
+session, said in one line: they can stop you. More than three tasks or a second story: the path was not
+short; remove the `voie : courte` line and take the full path.
 
 **A second look, fresh.** When `cadrer-x-verifier` is installed beside this skill and you can start a
 subagent, start one with a fresh context and this prompt, and nothing of yours: « Read
@@ -195,5 +201,5 @@ best in a fresh session (`/clear`, then the command); they say go on here: open
 | "Risk: the time zone." | A bug: a box. Risks are someone misusing it. |
 | "This story is wrong; I'll fix the spec." | Never edit the spec: ask the person. Only the second look's one-answer drifts are fixed there. |
 | "They said: modules in src/. Noted in my head." | A `D<n>` in `decisions.md`, committed with the tasks. |
-| "The check says T01–T08 nobody asked for; I'll recommend dropping them." | A decision asked for them: the check missed it. Settled stays settled. |
+| "The second look says T01–T08 nobody asked for; I'll recommend dropping them." | A decision asked for them: the second look missed it. Settled stays settled. |
 | "While we're here, T02 moves the old code into modules." | Moving old code is `/cadrer-x-ranger`'s. |

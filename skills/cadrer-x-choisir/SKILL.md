@@ -64,7 +64,7 @@ branches too: `git branch --list 'feature/*'`, and each one's folder through
 ## Step 1 — the idea
 
 **First turn.**
-1. Read before asking: the README, `{docs}/vision.md`, `{docs}/architecture.md`, the other features'
+1. Read before asking: the README, `{docs}/vision.md`, `{docs}/glossaire.md` (use its words, never a synonym), `{docs}/architecture.md`, the other features'
    `idee.md`, the manifest (package.json, pyproject.toml, Makefile). What they answer, you don't ask.
    What a memory or another project says about the person is a guess to put to them, never a line of
    `idee.md` on its own. **À faire** in `{docs}/architecture.md` says the code is still to be laid out
@@ -118,7 +118,7 @@ A correction: fold it in, write it back again.
    `git worktree add --no-track -b feature/<slug> .worktrees/feature.<slug> <base>`. Copy the
    untracked `.env*` files from the repo's top into the worktree (never commit them).
 4. Write `.worktrees/feature.<slug>/{docs}/features/NNNN-<slug>/idee.md` with these headings
-   exactly; a heading with nothing under it says `aucun` (never Mesure or Existant):
+   exactly; a heading with nothing under it says `aucun`; **Mesure** and **Existant** are never `aucun`: ask or look them up:
 
    ```
    # <Titre>
@@ -143,11 +143,18 @@ A correction: fold it in, write it back again.
 
 **Load, before any question.** The feature's `idee.md`, and `decisions.md` or `a-trancher.md` if
 they exist. What is already settled — read it, never ask it: `{docs}/architecture.md` (its stack,
-Modules, data), `{docs}/constitution.md`, `{docs}/adr/`, `{docs}/tech-stack.md` if there is one.
+Modules, data), `{docs}/constitution.md`, `{docs}/adr/`.
 
 Map the **design tree**: each decision and the ones that hang off it. The **frontier** is every
 decision whose prerequisites are settled. Start from the idea's **Ouvert** list and the assumption
 it rests on. Each answer reshapes the tree: recompute the frontier before the next question.
+
+**The short path, as soon as you can tell.** A small change does not need the whole ceremony: nothing a
+person sees changes, no personal data, no new service or stack choice, no rule of the constitution
+touched, and you can foresee one story and three tasks at most. Say it in one line (« Petit changement :
+je prends la voie courte. ») and add `- voie : courte` under **Étapes**. The decisions are then only the
+idea's **Ouvert** points: ask those, nothing more, and save. Any doubt, or the person asks for the full
+path: the full path. `affiner`, `decouper` and `realiser` read that line and lighten their steps.
 
 **Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
 first turn: after the spec, `/cadrer-x-affiner` then makes a clickable prototype they judge before
@@ -200,6 +207,7 @@ headings exactly, `aucun` under an empty one:
 - écrans : oui|non
 - code : oui|non
 - données : oui|non
+- voie : courte (only on the short path; else no line)
 ## Précisions
 - Q : <question> → R : <réponse>
 ## Stack
@@ -233,7 +241,7 @@ Questions left open: `a-trancher.md` beside them, one block each, numbered after
 
 Commit on the feature branch: `décisions — <Titre>`. Then the spec, here: say in one line that you
 go on with it, open `../cadrer-x-affiner/SKILL.md`, read it whole and follow it for this feature. They
-stop you, or the session is long: `/cadrer-x-affiner <slug>`, in a new session, picks it up.
+stop you: `/cadrer-x-affiner <slug>` picks it up.
 
 ## Red flags
 

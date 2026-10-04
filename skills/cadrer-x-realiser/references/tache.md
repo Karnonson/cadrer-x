@@ -13,7 +13,7 @@ can't tell, never both. Commit messages, file names and labels stay as written h
 (the folder that holds `cadrer-x-realiser/`) at that moment; read it whole and follow it. Not there: go
 on without it. Never through the Skill tool: read the file.
 
-**Launched by realiser.** You never merge, never push, never ask the person: they are not here. What
+**Launched by realiser.** You never merge, never push, never ask the person: they are not here (run by hand with the person present, ask them directly and merge as realiser's *Merge* says). What
 you would ask goes in your report, and your last message is that report (the end of this file).
 
 ## The task and its worktree
@@ -110,6 +110,6 @@ Questions :
 ```
 
 `fait`: ticked and committed, nothing asked. `question`: what remains hangs on the answers. `bloqué`:
-the checks still red after `cadrer-x-debug`'s three tries, a conflict in another task's file, or
+the checks still red after three fixes that did not hold (`cadrer-x-debug`), a conflict in another task's file, or
 something only the person can unblock; say what, under `Questions`. A section with nothing says
 `aucun`.

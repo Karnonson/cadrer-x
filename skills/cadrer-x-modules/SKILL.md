@@ -29,7 +29,7 @@ module, a new file in one, or its tests.
    a `data/` folder imports its database client.
 4. **What you need is not exported by the entry?** Add a small export to that entry, calling that module's
    own code. That is the path that keeps the border, even when it touches a file the task does not list:
-   in `realiser`, ask the person first, then name the file in the commit message.
+   in `realiser` the builder does not touch it alone: it returns `Statut : question` (`Conseil :` the export to add), and the file is named in the commit once the person has said yes.
 
 Before each new import: find both files on the map. Same module, next layer: fine. Another module: its
 entry.
@@ -43,12 +43,12 @@ crossing right. The map outranks the plan.
   entry it goes through, and that entry's file is on its `Fichiers :` line. A new module's files and its
   tests go where `references/structure.md` puts them.
 - **Building** (`realiser`): take the path that keeps the map, and write it as a `Choix :` line: what the
-  plan said, what you did, the file outside `Fichiers :` you touched (after the person's yes). Stop only
+  plan said, what you did, the file outside `Fichiers :` you touched (once the person's yes came back through `realiser`). Stop only
   when the one way through would move a framework folder or merge two modules.
 - **Reviewing** (`examiner`): each crossing is a finding on the Règles axis, quoting the import or the
   query and the **Modules** line it breaks. A module the map lacks, with no **Impact archi** line in
   `decisions.md`, is a finding too, and so is a new module or file placed against `references/structure.md`
-  (a `utils` module, a rule in `shared/`, tests outside their module's folder). Updating the map is
+  (a `utils` module, a rule in `shared/`, tests outside their module's folder). In a feature, updating the map is
   `rendre`'s, at release.
 
 ## Red flags
@@ -59,7 +59,7 @@ crossing right. The map outranks the plan.
 | "`Fichiers :` lists only my module." | Touching the entry is the smaller harm: ask, then name it. |
 | "A server component may query directly." | It still calls its module's entry. |
 | "It's only a type import." | Types come from the entry too. |
-| "I'll add the new module to architecture.md." | `rendre` does, at release. |
+| "I'll add the new module to architecture.md." | In a feature, `rendre` does, at release. Only `init` and `ranger` write the map earlier. |
 | "A `utils` module for these helpers." | A rule of the product goes in its module; the rest in `shared/`. |
 | "Django has apps, but I'll add `src/modules/` for consistency." | The framework's way wins: the app is the module. |
 | "The framework has its `src/`, mine goes beside or inside it." | One code root: `modules/` and `shared/` go in the framework's `src/`. |

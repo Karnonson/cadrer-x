@@ -16,7 +16,7 @@ scenario. You fix nothing and edit no file but `{feature}/verification.md`, from
 
 Talk, and write the file's text, in the person's language, every message included (the short notes
 between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
-Headings, labels and ids stay exactly as written here and in the template.
+File names, headings, labels and ids stay exactly as written here and in the template, in every language: `affiner` and `decouper` read them by these names.
 
 ## Which feature, and how far
 
@@ -92,7 +92,7 @@ Two kinds:
 - `Remarque :` worth a look, and the build can start without it.
 
 Each finding: `- <Préfixe> : <file:line> — <what is wrong, quoting the line> ; <what a builder or a person
-would meet> ; → /cadrer-x-affiner` (or `/cadrer-x-decouper`). Prefix each for what it is.
+would meet> ; → /cadrer-x-affiner` (or `/cadrer-x-decouper`). Prefix: `À reprendre :` or `Remarque :`.
 
 ## Write it, then say it
 
@@ -106,8 +106,7 @@ verification {feature}/verification.md` until it prints nothing. Commit it alone
 In your message: the verdict, each `À reprendre` in one line with the step that fixes it, the count of
 remarks. Then the next step and nothing more:
 
-- `à reprendre`: `/cadrer-x-affiner` (or `/cadrer-x-decouper`), which folds the findings in on the person's
-  yes; then this check again if they want it, in a new session.
+- `à reprendre`: `/cadrer-x-affiner` (or `/cadrer-x-decouper`), which folds the findings in without asking again and shows the result; then this check again if they want it, in a new session.
 - `prête`: `/cadrer-x-decouper` after a spec-only check; `/cadrer-x-realiser <slug>` after spec et tâches.
 
 ## Red flags

@@ -33,7 +33,7 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
   `feature/<slug>`, else `git worktree add` it, `.worktrees/` in `.git/info/exclude` first); step 2 on
   the main branch.
 - `feature/<slug>` not merged into the main branch, and no `{feature}/livraison.md` committed for it:
-  **step 1**. Committed, not merged: step 1's last part, **the merge**.
+  **step 1**. Committed, not merged: step 1's last part, **the merge**; with a remote and a pull request already open (`gh pr view`, else `git ls-remote --heads origin feature/<slug>`), say so and wait for it to be merged, never push or open a second one.
 - Merged, and `livraison.md`'s **En ligne** says `pas encore`: **step 2**. It says `aucun — …` (a library,
   a tool run on one computer): nothing left; say so.
 - Online already, and a later feature merged: step 2 again, for what changed.
@@ -105,7 +105,7 @@ From `templates/livraison.md` and `templates/pr.md`, in the feature's folder. A 
 same feature puts its section on top, under its version.
 
 - **livraison.md**: **Version** (the new version alone on its first line), **Livré** (one line per story
-  with its id, then what waits: **Pas encore**, a question left open), **En ligne** (`pas encore`, or
+  with its id, then `- Plus tard : <what waits>`, from **Pas encore** or a question left open), **En ligne** (`pas encore`, or
   `aucun — <pourquoi>` when the product never goes online), **Mise en ligne**, **Vérifié** and **En cas
   de problème** (step 2 fills them; `pas encore` meanwhile), **À faire** (each `avant la livraison` item
   of `decisions.md` and `architecture.md` still open, marked *à la main*).
@@ -138,7 +138,7 @@ Say how it will go, and ask:
   -m "<Titre> <version>"`, then the whole check command once more on the result. Red: say it, and go
   no further.
 
-Merged: remove the feature's worktree and its branch (`git worktree remove`, `git branch -d`). Then,
+Merged (locally, or seen merged on the remote): remove the feature's worktree and its branch (`git worktree remove`, `git branch -d`). Then,
 when **En ligne** says `pas encore`: step 2, here, said in one line (its plan has its own yes). Else
 the next feature: `/cadrer-x-choisir`.
 
@@ -157,8 +157,7 @@ run a command here only when neither it nor its output holds a secret. When they
 one you can without showing a value (the account lets you in, the address answers, a secret exists by
 name, a value is no longer its local stand-in, compared never printed) and tick it in its file; one
 nothing here can check is ticked on their word, `confirmé par la personne`. One that fails: say what you
-saw, and go no further until it passes or they drop it; dropping one a piece needs drops that piece:
-say what the people using it lose, and stop.
+saw, and go no further until it passes or they drop it; if they drop an item that a part of the product depends on, say what the people using it lose, and ask whether to go on without that part.
 
 **The plan, before anything leaves this computer.** One table, in order: the action · what it creates,
 changes, sends or deletes out there · what it costs now and per month · how to undo it. Real data starts

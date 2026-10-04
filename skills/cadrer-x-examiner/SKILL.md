@@ -89,7 +89,7 @@ match each to the scenario, `EF<n>` or decision that asks for it. One that match
 **Would the test fail?** A test that passes whatever the code does proves nothing. For each box, read
 its test: does it assert the spec's own value, at the boundary the scenario names (the last seat, the
 exact hour, the empty list), through the module's entry? For the scenarios that matter most (an
-`EF<n>` that says NE DOIT JAMAIS, each **À surveiller** line), prove it: in a throwaway detached worktree
+`EF<n>` that forbids something (« ne doit jamais »), each **À surveiller** line), prove it: in a throwaway detached worktree
 outside the repo (`git worktree add --detach <scratch>/examiner-us<n> feature/<slug>`), break the one
 line that makes it true, run that test alone, and see whether it fails; then
 `git worktree remove --force` it. A test still green on broken code is `À corriger :` (`Bloquant :` when

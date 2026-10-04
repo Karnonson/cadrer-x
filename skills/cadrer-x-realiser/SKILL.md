@@ -43,7 +43,7 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   left over is a builder's unmerged work (merge it as below when its report said `fait` and its commit
   ticks the task, else start it again).
 
-**Then one message, and go.** What gets built (the stories, how many tasks, the waves), that tasks run
+**Then one message, and go.** (On the short path, `voie : courte`, the message is two lines: the tasks, and that the story is reviewed before the end.) What gets built (the stories, how many tasks, the waves), that tasks run
 two at a time when they can, that each story is reviewed by someone who did not build it and its
 findings fixed, and that you stop only for their questions and at the end. They launched the build:
 start right away; they can stop you at any time.
@@ -70,8 +70,7 @@ skills are the person's to launch; the builder reads the file. Its last message 
 
 ## Merge into the feature branch
 
-Merging a task into `feature/<slug>` is local and taken back with one command: no yes needed. Never
-while a reviewer is running: its merge waits until the audit is committed.
+Merging a task into `feature/<slug>` is local and taken back with one command: no yes needed. A reviewer reads the feature branch, so do not move it under the reviewer: while one runs, hold the merges of that feature's tasks until its audit is committed.
 
 1. In the task's worktree: `git merge feature/<slug>`, to bring in what other tasks merged. A conflict
    in the task's own files: back to its builder (resume it, or a new one with the conflict named). In
@@ -102,9 +101,9 @@ realiser. » A story with screens is reviewed while no builder with an `Écrans 
 
 Every story `validé`: one message, per story its verdict and what it does now, the captures, the
 `Détail :` lines left, the questions answered on the way. Then delivery: `/cadrer-x-rendre <slug>`
-writes the docs, then merges into the main branch and puts it online, each on their yes. Offer to go on
-with it here; on their yes, open `<skills folder>/cadrer-x-rendre/SKILL.md`, read it whole and follow
-it for this feature.
+writes the docs, then merges into the main branch and puts it online, each on their yes. Go on
+with it here, said in one line (they can stop you): open `<skills folder>/cadrer-x-rendre/SKILL.md`, read it whole and follow
+it for this feature. It asks for its own yes before any merge or push.
 
 ## One task by hand
 

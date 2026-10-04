@@ -22,6 +22,7 @@ Read first: the README, the manifest (package.json, pyproject.toml, Makefile…)
 default `docs`), `{docs}/`, `git log --oneline | head`, `git branch --list 'chore/cadrer-x-init'`.
 
 - No `{docs}/vision.md`, on the main branch or on `chore/cadrer-x-init`: **step 1**.
+- A vision whose **Faire ou louer** says *louer*: nothing more to set up; say so and go to **End** (the merge question only).
 - A vision and no `cadrer-x.yml`, `{docs}/architecture.md`, `{docs}/glossaire.md`, `{docs}/constitution.md` or `AGENTS.md`:
   **step 2**, for what is missing.
 - Everything there: a revision. Ask which file changes and what changed; ask only that. A change to
@@ -143,7 +144,7 @@ commands:
 ```
 
 Only the fields that have a value: no empty string, no placeholder; a field is added the day it has
-one. `root:` only when the app lives in a subfolder; `dev:` only when the app has screens. Tell them the
+one. `root:` only when the app lives in a subfolder; `design_system: <path>` only when the person names a design system folder; `dev:` only when the app has screens. Tell them the
 checks run after every task, so a check that fails today fails every task: run each once now, and
 drop or fix a failing one with them. No code yet: `checks: []` and no `dev:`, and say the first
 feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each environment (`url`, `deploy`,
@@ -210,7 +211,7 @@ Say what is on `chore/cadrer-x-init` (one line per file), then ask whether to me
 branch now. On their yes: from the main checkout, `git merge --ff-only chore/cadrer-x-init` (a merge
 commit if it cannot fast-forward, on a second yes), then `git worktree remove .worktrees/chore.cadrer-x-init`
 and `git branch -d chore/cadrer-x-init`. Never push. Then the next step: `/cadrer-x-choisir <idée>`,
-or first the layout, below.
+or first `/cadrer-x-ranger` (next paragraph).
 
 An existing repo whose code is not laid out as `../cadrer-x-modules/references/structure.md` says: say
 in plain words what that costs them (a change in one place breaks another, two features cannot be

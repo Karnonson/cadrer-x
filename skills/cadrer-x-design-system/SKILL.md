@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-design-system
-description: "Aide cadrer-x, chargée par les autres étapes : trouver le design system du projet (ses couleurs, polices, tailles, espaces et composants), le lire avant de choisir quoi que ce soit, ne jamais le modifier. À charger quand une maquette, un écran ou une page est fait, construit, changé ou relu, ou quand un projet qui a des écrans n'a pas encore de design system."
+description: "Aide cadrer-x, chargée par les autres étapes : trouver le design system du projet (ses couleurs, polices, tailles, espaces et composants), le lire avant de choisir quoi que ce soit, ne jamais le modifier. À charger dès qu'un écran, une page, une maquette, du CSS ou un composant visuel est fait, construit, changé ou relu (couleur, police, bouton, espacement), ou quand un projet qui a des écrans n'a pas encore de design system."
 user-invocable: false
 ---
 
@@ -56,9 +56,9 @@ too: copied byte for byte, never edited.
 ## 5. No design system yet
 
 - **`affiner`'s prototype**: the app's own tokens file and components when it has screens already;
-  none: `affiner`'s `templates/maquette/styles.css`, a plain neutral one, and say once that the look is
+  none: `../cadrer-x-affiner/templates/maquette/styles.css`, a plain neutral one, and say once that the look is
   the prototype's, not a brand. No step makes a design system on its own.
-- **The person asks for one**: make `{docs}/design-system/` from what the product already has, never
+- **The person asks for one, in any step**: that step makes `{docs}/design-system/` from what the product already has, never
   from taste. `styles.css`: the tokens under `:root` with the values the
   product uses today (its tokens file, its global stylesheet, the colours its components repeat), one
   class per part it already has. `readme.md`: the tokens, a table of parts (part, classes, component in

@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-debug
-description: "Aide cadrer-x, chargée par les autres étapes : avant de corriger un bug, un test qui échoue sans qu'on s'y attende, un constat de relecture ou une erreur, un test rouge qui le reproduit, des hypothèses vérifiées une à une, puis la correction de la cause. À charger quand un test casse, qu'un bug est signalé ou qu'une erreur ou un journal est à expliquer."
+description: "Aide cadrer-x, chargée par les autres étapes : déboguer sans deviner. Un test rouge qui reproduit le bug, des hypothèses vérifiées une à une, puis la correction de la cause. À charger dès qu'un test casse sans qu'on s'y attende, qu'un bug, une erreur, un journal ou un constat de relecture est à expliquer, et avant de corriger quoi que ce soit."
 user-invocable: false
 ---
 
@@ -40,7 +40,7 @@ Before any theory, one command that goes red on this bug:
 - deterministic (the clock pinned, the randomness seeded) and fast (seconds).
 
 Run it and keep the failing lines. Shrink it until every part is needed. No red test, no fix: if you
-cannot build one, say what you tried.
+cannot build one, say what you tried. Only explaining a log or an error, with no fix asked: skip this step and say so.
 
 ## 5. Hypotheses before the fix
 
@@ -53,7 +53,7 @@ variable at a time, and mark each confirmed or ruled out with what showed it.
 
 - The smallest change where the cause is, not where the symptom shows, inside the files you may touch
   (a task's `Fichiers :`); a cause outside them is said, never fixed there.
-- The red test goes green; then the whole check command of `cadrer-x.yml`; read the exit code.
+- The red test goes green; then the whole `checks` of `cadrer-x.yml`; read the exit code.
 - Remove every `[DEBUG-` line (grep for it).
 - Three fixes that did not hold mean your model of the code is wrong: stop, go back to step 4, and say so.
 

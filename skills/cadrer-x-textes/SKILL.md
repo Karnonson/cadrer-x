@@ -61,13 +61,13 @@ and say once that the project has no rules of its own.
 A correction of the words (a tone, a turn of phrase, a word they dislike) is a rule the next text will
 break again unless it is written down. Fix the text, then propose the rule in one line, worded as they
 said it; on their yes, add it to `{docs}/regles-ecriture.md` (created when absent: `# Règles d'écriture`, one
-`- <règle>` per line), committed with the step's own files. The next feature starts from it.
+`- <règle>` per line), committed with the step's own files. `examiner` and any read-only step only propose it, in the report. The next feature starts from it.
 
 ## 5. Who writes what
 
 `affiner` writes the screens' words, in the pages and in `contenu.md`, and the person approves them with
 the prototype. A builder takes them word for word. A text they lack (a server error, a limit) is not the
-builder's to invent: one question to the person, with the proposed text written by these rules.
+builder's to invent: one question to the person, with the proposed text written by these rules and linted too (write it to a scratch `.md`, run `frlint.py` on it) before you put it to the person.
 
 ## Red flags
 
