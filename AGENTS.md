@@ -6,9 +6,8 @@ This repository holds the skills only; marketing, the course and lead magnets li
 
 ## Where things are
 
-- `status.md`: the current goal and where things stand. Read it first; before a session ends, update
+- `STATUS.md`: the current goal and where things stand. Read it first; before a session ends, update
   it if the session changed any of it (its date too). State only, never the plan.
-
 - `skills/cadrer-x-<name>/`: one skill each. `SKILL.md`, and as needed `references/` (read when the
   skill says), `templates/` (the files it writes), `scripts/lint.py` (checks those files),
   `agents/openai.yaml` (codex).
