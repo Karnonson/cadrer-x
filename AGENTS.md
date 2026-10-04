@@ -7,7 +7,7 @@ This repository holds the skills only; marketing, the course and lead magnets li
 ## Where things are
 
 - `STATUS.md`: the current goal and where things stand. Read it first; before a session ends, update
-  it if the session changed any of it (its date too). State only, never the plan.
+  it if the session changed any of it (its date too), under *Keeping STATUS.md small*.
 - `skills/cadrer-x-<name>/`: one skill each. `SKILL.md`, and as needed `references/` (read when the
   skill says), `templates/` (the files it writes), `scripts/lint.py` (checks those files),
   `agents/openai.yaml` (codex).
@@ -35,11 +35,24 @@ This repository holds the skills only; marketing, the course and lead magnets li
 - Short sentences, plain words, prose wrapped near 100 columns. A rule appears once; other files point
   to it.
 
+## Keeping STATUS.md small
+
+Every session reads it before working, so it costs context each time. 40 lines at most.
+
+- It says what is true now. Change a line in place; never append a log: history is `git log`.
+- A line leaves once it is no longer true or lives elsewhere: something done is in the commits, a
+  plan is in `docs/roadmap.md`, a trial's finding becomes a roadmap item or a fix, and its row keeps
+  one line pointing to it.
+- Its sections are fixed: Goal, Where things are, Trial projects, Next. No new one.
+- Over 40 lines: cut what is done first, then merge lines; never move the excess to another file.
+- `python3 tools/status_check.py` checks the size, the date and the sections.
+
 ## Checking a change
 
 There is no test suite. Before a commit:
 
-- `git diff --check`, and `bash -n install.sh` when it changed.
+- `git diff --check`, `bash -n install.sh` when it changed, `python3 tools/status_check.py` when
+  `STATUS.md` changed.
 - A changed template or format: write a sample file and run the skill's lint on it, for instance
   `python3 skills/cadrer-x-decouper/scripts/lint.py taches <dir>/taches.md` (each lint's docstring
   gives its usage).
