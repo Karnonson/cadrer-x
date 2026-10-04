@@ -48,9 +48,12 @@ when it exists). Commit each step there. The main branch is never written to wit
   them, or hand them to a subagent and ask something else meanwhile; what you handed off, you don't
   also look up yourself. They decide; they never research.
 - **Plain words.** No file names, formats or code in a question. Never a question only a developer
-  could answer.
-- **Only an explicit yes closes a step** ("oui", "c'est ça"). "Ça me va", "comme tu veux" are not one:
-  ask what they would change.
+  could answer: where code goes, `../cadrer-x-modules/references/structure.md` answers.
+- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", or a condition already met. Say in
+  one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for keeps it
+  open: ask what they would change. "Comme tu veux" takes your recommendation, said in one line.
+- **A side request** (names for the product, a quick idea) gets its own short answer, never in the
+  same message as the step's question: one answer must never stand for two.
 
 ## Step 1 — the vision
 
@@ -71,11 +74,17 @@ Format, without the tool, in their language:
 
 **The four sections of `vision.md`:**
 
-- **Pour qui** — the specific people: who, how many, what they use today.
+- **Pour qui** — the specific people: who, what they use today; how many only when it changes what
+  gets built.
 - **Problème** — what it costs them today, with the last real case.
 - **Succès** — a number a non-developer can check, and a date. Theirs, not yours: ask for it; a figure
   you invent is a guess to put to them.
-- **Faire ou louer** — the alternatives (what each does, costs, lacks) and the verdict.
+- **Faire ou louer** — the verdict, and what every option lacks that matters to them. The table of
+  alternatives goes under **Écarté** in step 2.
+
+**The voice.** `vision.md` is the owner's text: written as they would say it, active, the product as
+the subject (« Agendo montre… »), « je » rare, plain verbs (« prévoir », never « craindre » for a
+plan).
 
 **Faire ou louer.** When the research is back, show it as a short table (option · fait · coûte ·
 manque), then one question: build, or use one of these? Recommend honestly: if a 10 €-a-month product
@@ -84,7 +93,7 @@ verdict, nothing gets built, step 2 does not follow — say it is a win (no code
 verdict names what every option lacks that matters to them.
 
 **Save — only after the yes.** Write back four lines (Pour qui · Problème · Succès · Faire ou louer)
-and ask: "C'est bien ça ?" On the explicit yes, write `{docs}/vision.md` in the branch's worktree:
+and ask: "C'est bien ça ?" On a clear yes, write `{docs}/vision.md` in the branch's worktree:
 
 ```
 # <Produit> — vision
@@ -94,24 +103,27 @@ and ask: "C'est bien ça ?" On the explicit yes, write `{docs}/vision.md` in the
 ## Faire ou louer
 ```
 
-Commit it: `vision — <Produit>`. Then ask whether to do the layout now. Yes: step 2, right away. Not
-now: say `/cadrer-x-init` picks it up at step 2.
+Commit it: `vision — <Produit>`. Then step 2, right away, said in one line. They stop you:
+`/cadrer-x-init` picks it up at step 2.
 
 ## Step 2 — the layout
 
-Four parts, in this order, each shown to the person before it is written. What the repo answers, you
-don't ask.
+Four parts, in this order, written on the branch and committed as you go: the branch is the draft,
+nothing reaches the main branch before the person's yes. What the repo or
+`../cadrer-x-modules/references/structure.md` answers, you don't ask; a question only where both are
+silent (the stack of a new project, a doc its content cannot place, a failing check). Then one summary
+of the four parts, in plain words, and one yes (see **Save**).
 
 ### 1. Where things go
 
 - **An existing repo with docs**: make a plan from `references/carte.md`, one line per path — `déplacer
   <path> → <place>`, `créer <path>`, `garder <path>` with why. Open each doc you would move (its
   heading, its first lines): the name guesses, the content decides (a `HISTORY.md` that tells the
-  product's story is not a changelog). Code, assets and config never move: the framework's layout wins,
-  and `architecture.md` → **Modules** maps the code wherever it is. What a file cannot settle is one
-  question, with your guess. Show the plan in three or four lines (how many docs move, what is created,
-  what stays and why), ask for the yes, then on the branch: `git mv` each line, fix every markdown link
-  to a moved file (`git grep` the old path), and commit `docs: ranger les docs à leur place`.
+  product's story is not a changelog). Code, assets and config never move here: `architecture.md` →
+  **Modules** maps the code wherever it is, and moving it into modules is a feature of its own (see
+  End). What a file cannot settle is one
+  question, with your guess. Then on the branch: `git mv` each line, fix every markdown link to a moved
+  file (`git grep` the old path), and commit `docs: ranger les docs à leur place`.
 - **No code yet**: nothing moves. The stack is settled in part 3.
 
 ### 2. `cadrer-x.yml`
@@ -130,7 +142,8 @@ commands:
     url: http://localhost:<port>
 ```
 
-`root:` only when the app lives in a subfolder; `dev:` only when the app has screens. Tell them the
+Only the fields that have a value: no empty string, no placeholder; a field is added the day it has
+one. `root:` only when the app lives in a subfolder; `dev:` only when the app has screens. Tell them the
 checks run after every task, so a check that fails today fails every task: run each once now, and
 drop or fix a failing one with them. No code yet: `checks: []` and no `dev:`, and say the first
 feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each environment (`url`, `deploy`,
@@ -151,17 +164,27 @@ them first, one question per message:
 3. Follow one action of the product through the chosen parts in plain words ("tu cliques sur Envoyer
    → <part> le reçoit → <part> le garde → tu vois…") and ask what surprises them.
 Each part, secret and chore lands in its section; the setups not chosen go under **Écarté**.
-**Mots**, in both cases: the product's own terms, from the README, the screens and their answers
-(« Inscription : jamais réservation »), so every spec and screen uses the same word.
+**Modules**, no code yet: open `../cadrer-x-modules/references/structure.md` and write the layout for
+the chosen stack. A framework with its own way (its folders, its unit of code, where its tests go):
+that way, as it is, and what a module is in it. Only for what it leaves open: `src/modules/<module>/api.<ext>`,
+`src/shared/` with a `shared` row, `tests/modules/`, the migrations folder, inside the framework's own
+`src/` when it has one, never a second. The modules themselves come with the
+features that need them. **An existing repo whose code is not laid out that way**: the map of where it
+is now, then the target layout from the same file, stated, never asked (a static site with no
+framework has its own section there), and under **À faire**: `- [ ] ranger le code en modules :
+/cadrer-x-ranger — avant la construction`.
+**Mots**, in both cases: the product's name first, as the vision gives it, then its own terms, from the
+README, the screens and their answers (« Inscription : jamais réservation »), so every spec and screen
+uses the same word.
 
 ### 4. `{docs}/constitution.md`, `AGENTS.md`
 
 **The constitution** holds the rules every change keeps: what, if broken, puts a bug, a leak or a
 liability in the product. From `templates/constitution.md`: its default rules, plus what the repo
 implies (its tests, its modules), minus what does not apply (no personal data: no M3, no M4). An
-existing file of rules (`principles.md`, `conventions.md`): its rules first, in this shape. Show the
-rules as one table with who checks each and when, and ask which to change. Each change is one
-question. The rules take effect on their yes; from then on, a rule changes only through an ADR they
+existing file of rules (`principles.md`, `conventions.md`): its rules first, in this shape. The rules
+go in the summary as one table with who checks each and when. Each change they ask for is folded in.
+The rules take effect on their yes; from then on, a rule changes only through an ADR they
 approve (`{docs}/adr/`), written by `/cadrer-x-rendre` when the feature that needs the change ships.
 
 **`AGENTS.md`** is for the agents, loaded every session: from `templates/AGENTS.md`, short — where the
@@ -169,16 +192,24 @@ docs are, the commands, a pointer to the constitution, never its rules copied in
 `AGENTS.md`: add only its missing lines. No `CLAUDE.md`: create it with the one line `@AGENTS.md`, so
 Claude reads the same file as codex; an existing `CLAUDE.md` gets that line if it lacks it.
 
-**Save.** Show the files' changed lines in one message and ask for the yes. Then write them in the
-branch's worktree and commit `init — organisation du projet`.
+**Save.** Commit `init — organisation du projet`. Then one message, in plain words: what moved and
+why, the commands the checks run, the stack in a few lines and one action followed through it, where
+the code goes and whether it is there yet, the rules' table. The files themselves only when they ask.
+Ask what they would change; each change is folded in and committed, until a clear yes.
 
 ## End
 
 Say what is on `chore/cadrer-x-init` (one line per file), then ask whether to merge it into the main
 branch now. On their yes: from the main checkout, `git merge --ff-only chore/cadrer-x-init` (a merge
 commit if it cannot fast-forward, on a second yes), then `git worktree remove .worktrees/chore.cadrer-x-init`
-and `git branch -d chore/cadrer-x-init`. Never push. Then the next step and nothing more:
-`/cadrer-x-choisir <idée>`.
+and `git branch -d chore/cadrer-x-init`. Never push. Then the next step: `/cadrer-x-choisir <idée>`,
+or first the layout, below.
+
+An existing repo whose code is not laid out as `../cadrer-x-modules/references/structure.md` says: say
+in plain words what that costs them (a change in one place breaks another, two features cannot be
+built at once), and recommend laying it out before the first feature. On their yes, open
+`../cadrer-x-ranger/SKILL.md`, read it whole and follow it, here. On a no, the **À faire** line stays,
+and `/cadrer-x-choisir` reminds them once.
 
 ## Red flags
 
@@ -188,7 +219,9 @@ and `git branch -d chore/cadrer-x-init`. Never push. Then the next step and noth
 | "Alternatives would only discourage them." | Faire ou louer comes first; using one is a win. |
 | "Succès : moins de gaspillage." | Their number and their date. |
 | "HISTORY.md, so CHANGELOG.md." | Open it: the name guesses, the content decides. |
-| "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it where it is. |
+| "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it and states the target; `/cadrer-x-ranger` moves it. |
+| "Their project is simple; index.html at the top is fine." | Projects grow: the layout of structure.md, stated. |
+| "How would you like the code organised?" | structure.md answers; state it. |
 | "I'll add `pnpm test` to the checks, every project has it." | Only commands the repo defines, run once now. |
 | "Prices are roughly…" | Look them up today. |
 | "I'll paste the constitution into AGENTS.md." | A pointer: one file holds the rules. |

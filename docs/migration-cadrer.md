@@ -4,11 +4,11 @@ cadrer-x reprend la méthode de cadrer, avec trois changements de fond :
 
 - **Un dossier par fonctionnalité dans `docs/`**, plus `builds/` : `docs/features/0001-<nom>/`, et une seule
   `docs/architecture.md` pour tout le projet, au lieu d'une par build.
-- **Une tâche par session**, plus une boucle qui enchaîne seule : tu lances `/cadrer-x-realiser T03`, la tâche
-  se construit dans son propre worktree, et tu dis oui avant qu'elle rejoigne la fonctionnalité. Plusieurs
-  tâches `[P]` peuvent tourner en même temps, chacune dans sa session.
-- **Une relecture par récit**, plus une par tranche : `/cadrer-x-examiner US1`, dans une autre session que
-  celles qui ont construit, quand toutes les tâches du récit sont faites.
+- **Une construction menée depuis une session** : `/cadrer-x-realiser <nom>` confie chaque tâche à un agent
+  qui la construit dans son propre worktree, deux à la fois quand c'est possible, et la fusionne dans la
+  fonctionnalité quand ses vérifs passent.
+- **Une relecture par récit**, plus une par tranche : quand toutes les tâches d'un récit sont faites,
+  `realiser` le fait relire par un agent neuf qui ne l'a pas construit, et fait corriger ce qu'il trouve.
 
 ## Les étapes
 
@@ -18,11 +18,12 @@ cadrer-x reprend la méthode de cadrer, avec trois changements de fond :
 | `cadrer-choisir` | `/cadrer-x-choisir`, étape 1 | L'idée, comme avant : `idee.md`. |
 | `cadrer-affiner` | `/cadrer-x-choisir`, étape 2 | Les décisions : `decisions.md`. Où ça tourne et ce que ça coûte vont dans `docs/architecture.md`, celle du projet. |
 | `cadrer-detailler` | `/cadrer-x-affiner`, étape 1 | La spec, au format de spec-kit : récits `US1`, scénarios Étant donné / quand / alors, exigences `EF1`, **Statut** brouillon puis validée sur ton oui. |
-| — | `/cadrer-x-affiner`, étape 2 | Nouveau, s'il y a des écrans : une maquette cliquable (`maquette/`), ses textes (`textes.md`) et `passation.md`. |
-| `cadrer-repartir` | `/cadrer-x-decouper` | `tranches.md` devient `taches.md` : des tâches `T01`, rangées par récit, chacune avec ses cases, ses fichiers, ses risques et ce qu'elle attend. |
-| — | `/cadrer-x-verifier` | Facultatif : un second regard sur la spec et les tâches, avant le code. |
-| `cadrer-executer` | `/cadrer-x-realiser T01` | Une tâche par session, test d'abord, dans `.worktrees/tache.<nom>-t01` ; fusion sur ton oui. |
-| `cadrer-reviser` | `/cadrer-x-examiner US1` | Un récit entier, plus une tranche ; `audits/<NN>.md` devient une section de `audit.md`. |
+| — | `/cadrer-x-affiner`, étape 2 | Nouveau, s'il y a des écrans : une maquette cliquable (`maquette/`), ses textes (`contenu.md`) et `passation.md`. |
+| `cadrer-repartir` | `/cadrer-x-decouper` | `tranches.md` devient `taches.md` : des tâches `T01`, rangées par récit, chacune avec ses cases, ses fichiers, ses risques et ce qu'elle attend ; puis un second regard (`verifier`) avant ton oui. |
+| — | `/cadrer-x-verifier` | Facultatif : un second regard sur la spec seule, avant de découper. |
+| `cadrer-executer` | `/cadrer-x-realiser <nom>` | Toute la construction : chaque tâche test d'abord, dans `.worktrees/tache.<nom>-t01`, fusionnée quand ses vérifs passent. `T01` pour une seule tâche. |
+| `cadrer-reviser` | `/cadrer-x-examiner US1` | Un récit entier, plus une tranche, lancé par `realiser` ; `audits/<NN>.md` devient une section de `audit.md`. |
+| — | `/cadrer-x-ranger` | Nouveau : le code existant rangé en modules, sans rien changer au produit. |
 | `cadrer-livrer` | `/cadrer-x-rendre` | La doc du projet, l'ADR, la version, le CHANGELOG, `livraison.md` et `pr.md` d'abord ; puis la fusion, puis la mise en ligne, chacune sur son oui. |
 
 ## Les fichiers
@@ -51,7 +52,7 @@ cadrer-x reprend la méthode de cadrer, avec trois changements de fond :
 |---|---|
 | La branche où tu es | `feature/<nom>`, dans `.worktrees/feature.<nom>` |
 | `parallele` : `tranche-01` dans `../<nom>-01` | `tache/<nom>-t01` dans `.worktrees/tache.<nom>-t01`, une session par tâche |
-| `git merge --no-ff` après l'audit | `git merge --ff-only` dans la fonctionnalité, sur ton oui ; la fonctionnalité rejoint la branche principale avec `/cadrer-x-rendre` |
+| `git merge --no-ff` après l'audit | `git merge --ff-only` dans la fonctionnalité, dès que les vérifs passent ; la fonctionnalité rejoint la branche principale avec `/cadrer-x-rendre`, sur ton oui |
 
 ## Migrer un projet
 

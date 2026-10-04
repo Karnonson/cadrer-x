@@ -4,7 +4,8 @@ Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée �
 étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper, **R**éaliser, **E**xaminer,
 **R**endre. Tu décides aux moments qui comptent.
 
-Chaque étape écrit un fichier que la suivante lit. Rien ne part sans ton oui : ni la spec, ni la fusion,
+Chaque étape écrit un fichier que la suivante lit, puis enchaîne sur la suivante dans la même session,
+sauf si tu l'arrêtes. Rien ne part sans ton oui : ni la spec, ni la fusion dans la branche principale,
 ni la mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
 titres restent fixes, en français, pour que chaque étape retrouve le travail de la précédente.
 
@@ -44,18 +45,27 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
 
 ```
 /cadrer-x-init                 une fois par projet : la vision, puis l'organisation
+/cadrer-x-ranger               si le code existe déjà : le ranger en modules, sans rien changer au produit
 /cadrer-x-choisir              l'idée d'une fonctionnalité, puis ses décisions
 /cadrer-x-affiner <nom>        la spec (tu la valides), puis la maquette s'il y a des écrans
-/cadrer-x-decouper <nom>       les tâches, rangées par récit, avec ce qui peut se faire en même temps
-/cadrer-x-realiser T01         une tâche par session, test d'abord, dans son worktree
-/cadrer-x-examiner US1         la relecture d'un récit, dans une autre session
+/cadrer-x-decouper <nom>       les tâches, rangées par récit, vérifiées par un second regard
+/cadrer-x-realiser <nom>       toute la construction : chaque tâche test d'abord, chaque récit relu
 /cadrer-x-rendre <nom>         la doc, la version, la fusion, puis la mise en ligne
 ```
 
-Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec et les tâches avant d'écrire le code.
+En pratique, trois sessions par fonctionnalité : `choisir` (qui enchaîne sur `affiner` et `decouper`),
+`realiser`, puis `rendre`. Chaque étape enchaîne sur la suivante quand tu dis oui ; tu peux toujours
+l'arrêter et lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
+elle sait où elle en est.
 
-Chaque étape te dit la suivante en finissant. Une étape en deux temps (choisir, affiner, rendre) reprend
-là où le fichier manque : relance-la, elle sait où elle en est.
+`/cadrer-x-realiser <nom>` mène toute la construction depuis une seule session : il confie chaque tâche
+à un agent qui la construit dans son worktree (deux à la fois quand elles ne se touchent pas), la
+fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait relire chaque récit par un
+agent neuf qui ne l'a pas construit, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
+ne s'arrête que pour tes questions et quand tout est relu. À la main, si tu préfères :
+`/cadrer-x-realiser T01` (une tâche), `/cadrer-x-examiner US1` (une relecture, dans une autre session).
+
+Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec seule, avant de découper.
 
 Six aides se chargent seules quand une étape en a besoin : `cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`,
 `cadrer-x-modules`, `cadrer-x-design-system`, `cadrer-x-textes`.
@@ -67,13 +77,32 @@ cadrer-x.yml                       les commandes : installer, vérifier, lancer
 docs/vision.md  docs/architecture.md  docs/constitution.md  docs/adr/
 docs/features/0001-<nom>/
   idee.md  decisions.md  spec.md  a-trancher.md  taches.md
-  maquette/  passation.md  textes.md
+  maquette/  passation.md  contenu.md
   verification.md  audit.md  livraison.md  pr.md  captures/
 .worktrees/                        un dossier par branche en cours (feature.<nom>, tache.<nom>-t01)
 ```
 
+Le code suit d'abord le framework : s'il a sa façon de ranger le code (Rails, Django, NestJS…),
+cadrer-x la suit telle quelle. Ce qu'il laisse libre prend la même forme dans chaque projet : un module
+par partie du produit, chacun avec une seule porte d'entrée.
+
+```
+src/                               un seul, celui du framework quand il en a un (jamais src/src/)
+  <dossiers du framework>          app/, pages/, routes/… : minces, ils appellent un module
+  modules/<module>/api.<ext>       la seule porte du module ; derrière : ui/, server/, data/
+  shared/                          ce que plusieurs modules partagent, sans règle du produit
+tests/modules/<module>/            les tests d'un module, par sa porte
+db/migrations/                     un fichier par changement du schéma
+```
+
+Un projet existant garde sa disposition jusqu'à ce que tu la changes : `cadrer-x-init` la décrit telle
+qu'elle est, écrit celle visée, puis propose `/cadrer-x-ranger`, qui déplace le code un module à la
+fois, après avoir prouvé par des tests et des captures ce que le produit fait aujourd'hui. Le détail :
+[`skills/cadrer-x-modules/references/structure.md`](skills/cadrer-x-modules/references/structure.md).
+
 Une fonctionnalité vit sur `feature/<nom>` ; chaque tâche sur `tache/<nom>-t01`, qui rejoint la
-fonctionnalité sur ton oui. Seule `rendre` pousse, et seulement sur ton oui.
+fonctionnalité dès que ses vérifs passent (c'est local, et ça se défait d'une commande). Seule `rendre`
+fusionne dans la branche principale et pousse, et seulement sur ton oui.
 
 Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conventions.md).
 
@@ -81,6 +110,40 @@ Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conv
 
 [`docs/migration-cadrer.md`](docs/migration-cadrer.md) : ce qui change, et comment passer un projet de
 `builds/<NN>-<nom>/` à `docs/features/`.
+
+## Pourquoi les compétences sont en anglais
+
+Ce que tu lis est en français : les noms des commandes, leurs descriptions, les fichiers que les étapes
+écrivent (`spec.md`, `taches.md`…), leurs titres et leurs libellés. Les étapes te parlent dans ta langue.
+
+Le corps d'une compétence, lui, n'est lu que par l'agent : ce sont ses consignes, chargées à chaque
+fois qu'une étape tourne. Le français coûte plus de tokens pour la même consigne, donc il est en anglais.
+
+Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`realiser`, `modules`,
+`tdd`, `debug`) traduites en entier en français :
+
+| | Anglais | Français |
+| --- | --- | --- |
+| Quatre compétences, tokenizer o200k | 4 987 | 5 855 (1,17×) |
+| Médiane de sept tokenizers publics | | 1,26× (de 1,17× à 1,28×) |
+
+Les quinze compétences font environ 38 700 tokens en anglais (o200k ; 48 900 avec les fichiers
+qu'elles lisent). En français, ce serait de 6 600 à 10 800 tokens de plus, payés à chaque étape lancée :
+une fois par tâche pour l'agent qui la construit, une fois par récit pour celui qui le relit. Le tokenizer de Claude n'est pas
+public : le ratio vient des tokenizers publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
+
+## Outils
+
+`tools/token_estimate.py` compte ce que les compétences coûtent en tokens, et compare deux versions
+(appariées par nom de dossier, ou `--map EN=FR`). Repris de cadrer.
+
+```sh
+uv run tools/token_estimate.py skills                       # les consignes seules
+uv run tools/token_estimate.py skills --files               # avec references/ et templates/
+uv run tools/token_estimate.py skills chemin/vers/fr/skills  # anglais contre français
+```
+
+`--detail o200k` détaille par compétence, `--only o200k` n'en charge qu'un, `--json` donne les chiffres.
 
 ## Les tests des compétences
 

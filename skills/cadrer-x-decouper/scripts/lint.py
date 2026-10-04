@@ -16,7 +16,7 @@ FIXED_H2 = ["Fondations", "Ordre", "À surveiller", "Couverts"]
 STORY_H2 = re.compile(r"^US(\d+) — \S.* \(Priorité : P\d+\)( 🎯)?$")
 TASK = re.compile(r"^- \[([ xX])\] (T(\d{2,})) (\[P\] )?(\[(US\d+)\] )?(\S.*)$")
 LINES = ["Exigences", "Risques", "Écrans", "Fichiers", "Après", "Taille"]
-NEVER = re.compile(r"(^|/)(spec\.md|taches\.md|passation\.md|textes\.md|CHANGELOG\.md)$|(^|/)maquette/|"
+NEVER = re.compile(r"(^|/)(spec\.md|taches\.md|passation\.md|contenu\.md|CHANGELOG\.md)$|(^|/)maquette/|"
                    r"(^|/)docs/(architecture\.md|adr/|security/)")
 
 

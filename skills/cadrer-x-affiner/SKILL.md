@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-affiner
-description: "Affiner ce qu'on construit. À lancer quand une fonctionnalité a son `decisions.md` mais pas encore sa spec, ou sa spec validée mais pas encore sa maquette alors qu'elle a des écrans. Deux étapes : la spec (`spec.md` : les récits, les scénarios, les exigences, que la personne valide), puis la maquette cliquable quand il y a des écrans (`maquette/`, `textes.md`, `passation.md`). Ne découpe pas en tâches, ne code pas."
+description: "Affiner ce qu'on construit. À lancer quand une fonctionnalité a son `decisions.md` mais pas encore sa spec, ou sa spec validée mais pas encore sa maquette alors qu'elle a des écrans. Deux étapes : la spec (`spec.md` : les récits, les scénarios, les exigences, que la personne valide), puis la maquette cliquable quand il y a des écrans (`maquette/`, `contenu.md`, `passation.md`). Ne découpe pas en tâches, ne code pas."
 disable-model-invocation: true
 argument-hint: "<numéro ou nom de la fonctionnalité>"
 ---
@@ -10,7 +10,7 @@ argument-hint: "<numéro ou nom de la fonctionnalité>"
 You turn the feature's idea and decisions into what the person approves before any *how*: the spec
 (what each person does and sees), then, when the feature has screens, a prototype they click. Two
 steps, each ending in files on the feature's branch: `spec.md` (with `a-trancher.md` for what is
-left to decide), then `maquette/`, `textes.md` and `passation.md`. No tasks, no code: `/cadrer-x-decouper`
+left to decide), then `maquette/`, `contenu.md` and `passation.md`. No tasks, no code: `/cadrer-x-decouper`
 cuts the tasks from your files, and the builders build from them without you.
 
 Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
@@ -24,7 +24,8 @@ this skill's folder, at that moment; read it whole and follow it. Not there: go 
 
 Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git branch --list 'feature/*'`.
 
-- **The feature.** The argument's number or slug. No argument: the feature of the worktree you are in,
+- **The feature.** The argument's number or slug; a near miss (`devis` for `defis`, `001-defis`) with
+  one close feature: that one, said in one line. No argument: the feature of the worktree you are in,
   else the one feature with `decisions.md` and no validated spec; several: ask which, one question.
 - **Where you work.** Its worktree `.worktrees/feature.<slug>` when it exists; else the current
   checkout when it is on `feature/<slug>`; else the branch exists: `git worktree add
@@ -35,14 +36,17 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 - No `spec.md`, or one whose **Statut** is `brouillon`: **step 1** (a draft is picked up where it is).
 - A validated spec, `écrans : oui` in `decisions.md` → **Étapes**, and no `passation.md`: **step 2**.
 - A validated spec and `écrans : non`: nothing to do here; say the next step, `/cadrer-x-decouper <slug>`.
-- Everything there: a revision. Ask what changes; ask only that, then redo the part it touches the
-  way its step says. A spec change that moves a screen changes the prototype too; once `taches.md`
+- Everything there: a revision. A `{feature}/verification.md` newer than the spec: its findings for
+  `/cadrer-x-affiner` are what changes, never asked again. Else ask what changes; ask only that. Then
+  redo the part it touches the way its step says. A spec change that moves a screen changes the prototype too; once `taches.md`
   exists, say `/cadrer-x-decouper <slug>` must cut the tasks again.
 
 ## Every turn, both steps
 
 - **One question per message**, the one that changes the most, with your recommendation a plain
   "oui" accepts. One question has one thing to answer: never two asks joined by "and" or "or".
+  Questions that hang on nothing still open may go out together, numbered, each with its
+  recommendation: they answer in one message.
 - With the AskUserQuestion tool: one question per call, your recommendation as the first option, the
   context in your message just before it. No tool, or it fails: write the question in your reply,
   and your turn ends there. Never say a question was asked elsewhere or will come separately.
@@ -51,8 +55,9 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 - **Facts are looked up, never asked**: what the repo, the product or the web can answer. What you
   hand to a subagent, you don't also look up yourself.
 - **Plain words.** No file names, formats or code in a question.
-- **Only an explicit yes closes a step** ("oui", "c'est ça", "validé"). "Ça me va", "pas mal" are not
-  one: ask what they would change.
+- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", "mieux", or a condition already
+  met. Say in one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for
+  keeps it open: ask what they would change.
 
 ## Step 1 — the spec
 
@@ -60,7 +65,9 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 `{feature}/decisions.md` (Décisions, Étapes, **Précisions**, **Données et risques**),
 `{feature}/a-trancher.md` if it exists, `{docs}/constitution.md` (no story may contradict a rule),
 `{docs}/architecture.md` and the README for the product's own words: use them, never a synonym. The
-rest of the architecture only tells you what exists; none of it goes into the spec.
+product's name: `{docs}/vision.md` and **Mots** first, before the README or the pages; where they
+disagree, one question. The rest of the architecture only tells you what exists; none of it goes into
+the spec.
 
 **What goes in, and what stays out.**
 - **What and why, never how.** No stack, module, table, file format, request or code word ("API",
@@ -120,7 +127,7 @@ A) … · B) … · C) …
 
 Each answer goes in `- Réponse :`, and the draft changes where its marker was; then the next
 question. No question left: ask them to read the spec, and what they would change. Each change is
-folded in, and they are asked again, until the explicit yes.
+folded in, and they are asked again, until a clear yes.
 
 **The Vérifs, before the yes.** Check the draft against each line of **Vérifs**, plus the feature's
 own, and tick a line only once the spec passes it. A line that fails changes the spec until it
@@ -128,9 +135,9 @@ passes; a line is never deleted to pass.
 
 **Save — only after the yes.** **Statut** : `validée`. Run `python3 <this skill's folder>/scripts/lint.py
 spec {feature}/spec.md`, fix and rerun until it prints nothing. Commit `spec.md` and `a-trancher.md`:
-`spec — <Titre>`. Then, `écrans : oui`: ask whether to make the prototype now (yes: step 2, right
-away; not now: `/cadrer-x-affiner <slug>` picks it up). `écrans : non`: the next step and nothing more,
-`/cadrer-x-decouper <slug>`.
+`spec — <Titre>`. Then, `écrans : oui`: step 2, right away, said in one line. `écrans : non`: the
+tasks, here: say in one line that you go on, open `../cadrer-x-decouper/SKILL.md`, read it whole and
+follow it for this feature. They stop you: the command to type later.
 
 ## Step 2 — the prototype
 
@@ -147,7 +154,10 @@ words, a space before `: ; ! ?` and inside `« »`.
 **The pages, in `{feature}/maquette/`:**
 - **Self-contained.** The design system's stylesheet copied byte for byte as `maquette/styles.css`
   (`cp`, never edited), `templates/maquette/maquette.js` copied as is. No script or stylesheet from
-  another site, no build step: the folder alone opens every page.
+  another site, no build step: the folder alone opens every page. A font the look needs is copied into
+  `maquette/fonts/` (a `.woff2` its licence lets you copy) and declared in the page's `<style>`.
+- **The first version is the feature's, whole.** Every tone and motion the decisions and the spec name
+  (animations, a playful tone, emoji) is in it already: a prototype that plays it safe costs a round.
 - **One plain `.html` page per screen**, from `templates/maquette/page.html`: `lang` the person's
   language, `href="styles.css"`, `src="maquette.js"`.
 - **Only the design system's tokens and parts.** A part it lacks is built from its tokens in the
@@ -161,7 +171,7 @@ words, a space before `: ; ! ?` and inside `« »`.
 - **Invented, plausible data**, never a real person's, and no more of a person's own data than the
   screen needs (a first name, not an email address). A screen that collects personal data says what
   for, and asks for consent, never pre-ticked, when **Données et risques** gives consent as the basis.
-- **Every text a person reads** is also in `{feature}/textes.md` (from `templates/textes.md`), word
+- **Every text a person reads** is also in `{feature}/contenu.md` (from `templates/contenu.md`), word
   for word, by screen and state; a number that varies has each form.
 
 **Check it in a browser, at 390 and 1280 wide.** Serve the folder on this machine only, in the
@@ -172,7 +182,7 @@ port=$(python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); p
 ```
 
 With a browser tool, for each page and state (`http://127.0.0.1:<port>/<page>.html#<state>`), at
-390×844 and 1280×800: each text is `textes.md`'s, each field has a label, Tab walks a sensible order;
+390×844 and 1280×800: each text is `contenu.md`'s, each field has a label, Tab walks a sensible order;
 `document.documentElement.scrollWidth <= innerWidth`; no console error; each link and control goes
 where its story says. Screenshots are only for you to look at: none goes in the repo. Fix what
 fails, and check again. No browser tool: say so, and never call the pages checked.
@@ -180,17 +190,21 @@ fails, and check again. No browser tool: say so, and never call the pages checke
 **Show it.** Give them the address of the first page (the server keeps running), the screens and
 their states one line each, and ask what they would change. With the claude-design tools in your
 session, offer once to put the same files in a Claude Design project, to open on a phone and comment
-there: `references/claude-design.md`. Each change is made in the pages and `textes.md`, checked
-again, and they are asked again, until the explicit yes.
+there: `references/claude-design.md`. Each change is made in the pages and `contenu.md`, checked
+again, and they are asked again, until a clear yes. A change that alters a word or a number a scenario
+of `spec.md` quotes changes the spec too, in the same commit, its lint run again. A value you made up
+for the page (points, a limit, a delay) that no file settles is a question before the save. A
+correction to the words: read `cadrer-x-textes` (it offers to keep the rule).
 
 **Save — only after the yes.** `kill <pid>`. Write `{feature}/passation.md` from
 `templates/passation.md`: one screen per page, `SC1`, `SC2`… with no gap (a screen keeps its id
 across revisions; a new one takes the next number), each line on one line, since a task's builder
 quotes its screen's section word for word. Check it against its **Contrôle** list, reading the pages
 themselves; what fails changes the pages or the file. Run `python3 <this skill's folder>/scripts/lint.py
-passation {feature}/passation.md` until it prints nothing. Commit `maquette/`, `textes.md`,
-`passation.md` by their paths, never `git add -A`: `maquette — <Titre>`. Then the next step and
-nothing more: `/cadrer-x-decouper <slug>`.
+passation {feature}/passation.md` until it prints nothing. Commit `maquette/`, `contenu.md`,
+`passation.md` by their paths, never `git add -A`: `maquette — <Titre>`. Then the tasks, here: say
+in one line that you go on, open `../cadrer-x-decouper/SKILL.md`, read it whole and follow it for this
+feature. They stop you, or the session is long: `/cadrer-x-decouper <slug>`, in a new session.
 
 ## Red flags
 
@@ -202,8 +216,9 @@ nothing more: `/cadrer-x-decouper <slug>`.
 | "Keep data 12 months: US5." | A scenario or an exigence of the story it touches. |
 | "A small default, I'll ask anyway." | Supposé: one line they can strike. |
 | "« Leurs ateliers » surely means all of them." | A reading of a rule is a question, never Supposé. |
-| "Ça me va — validated." | Not a yes: ask what they would change. |
+| "Ça me va — but is it a real yes?" | It is: say what you save, save it. |
 | "One page shows the main state; the rest is in passation.md." | Every state clickable: a section and an address. |
 | "The design system lacks this colour; I'll add it to styles.css." | The copy is never edited: a token, or a Nouveauté. |
 | "I'll open the page with `file://`." | Serve the folder on 127.0.0.1, then stop it. |
-| "The spec is validated — I'll cut the tasks." | End with `/cadrer-x-decouper <slug>`; they run it. |
+| "The prototype changed the button's word; the spec can stay." | The spec quotes it: change it too. |
+| "The prototype is saved; they'll type the next command." | Go on with the tasks here, unless they stop you. |

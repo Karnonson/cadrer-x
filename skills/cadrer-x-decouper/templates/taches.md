@@ -96,13 +96,15 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 
 ## Ordre
 
-1. Une tâche par session : `/cadrer-x-realiser T<nn>`, chacune dans son worktree. Les tâches `[P]`
-   peuvent tourner en même temps, chacune dans sa session ; les autres attendent ce que nomme leur `Après :`.
-2. À chaque point d'étape, la relecture du récit, dans une autre session : `/cadrer-x-examiner US<n>`.
+1. `/cadrer-x-realiser <fonctionnalité>` construit toutes les tâches, chacune dans son worktree, deux
+   tâches `[P]` à la fois ; les autres attendent ce que nomme leur `Après :`. À la main, une tâche :
+   `/cadrer-x-realiser T<nn>`.
+2. À chaque point d'étape, le récit est relu par quelqu'un qui ne l'a pas construit
+   (`/cadrer-x-examiner US<n>`) ; `realiser` lance cette relecture lui-même.
 3. Après US1 : la plus petite version qui vaut d'être montrée. On peut s'arrêter là et la montrer.
 4. Un récit ajouté ne casse jamais ceux d'avant : leurs tests restent verts.
 
-<!-- Les vagues : chaque vague, les tâches dont l'`Après :` est couvert par les vagues d'avant. Autant de sessions en même temps que de tâches dans une vague. -->
+<!-- Les vagues : chaque vague, les tâches dont l'`Après :` est couvert par les vagues d'avant. -->
 
 - Vague 1 : T01
 - Vague 2 : T02, T03

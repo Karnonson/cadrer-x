@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x ranger"
+  short_description: "Le code rangé en modules, un module à la fois, sans rien changer au produit"
+policy:
+  allow_implicit_invocation: false

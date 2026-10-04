@@ -15,7 +15,7 @@
 - Parties : nav, page, field (label, input), btn-primary, row, list, card (card-title, card-meta), empty, alert-error ; nouvelles : Surlignage
 - États : avant (#avant) — l'invitation à taper un mot ; resultats (#resultats) — le compte, puis une carte par note, la plus récente d'abord : le livre, la page s'il y en a une, les mots autour avec le mot marqué, la date ; aucun (#aucun) — aucune note ne contient le mot, avec le mot tapé ; erreur (#erreur) — la recherche a échoué, le mot reste dans le champ
 - Largeurs : 390 — le champ et le bouton l'un sous l'autre, les cartes sur toute la largeur ; 1280 — la page reste à 720 px, centrée, le champ et le bouton sur une ligne
-- Textes : textes.md → SC1
+- Contenu : contenu.md → SC1
 
 ### SC2 Note
 
@@ -24,7 +24,7 @@
 - Parties : nav, page, back, card-meta ; nouvelles : aucune
 - États : note (#note) — la note entière, son livre en titre, la page si elle est notée et la date, le lien de retour aux résultats
 - Largeurs : 390 — une colonne ; 1280 — la page reste à 720 px, centrée
-- Textes : textes.md → SC2
+- Contenu : contenu.md → SC2
 
 ## Nouveautés
 
@@ -45,6 +45,6 @@
 - [x] Chaque `class` des pages est une partie du design system, une Nouveauté, ou la barre des états ; aucune couleur ni taille brute.
 - [x] Chaque écran montre le moins de données personnelles possible, jamais celles d'un autre.
 - [x] Un écran qui recueille des données dit pourquoi, et demande le consentement (jamais pré-coché) quand c'est sa base.
-- [x] Chaque texte est dans `textes.md`, tel que les pages le montrent ; un nombre qui varie a chaque forme.
+- [x] Chaque texte est dans `contenu.md`, tel que les pages le montrent ; un nombre qui varie a chaque forme.
 - [x] Chaque champ a un libellé visible ; une erreur est annoncée (`role="alert"`), un résultat qui arrive aussi (`aria-live="polite"`) ; une cible tactile fait au moins la taille du design system.
 - [x] Chaque page a été vue à 390 et à 1280, sans défilement de côté à 390 ; sinon, dit sous Ouvert.

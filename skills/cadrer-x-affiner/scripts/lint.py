@@ -21,7 +21,7 @@ TECH = ["api", "endpoint", "csv", "json", "sql", "sqlite", "http", "https", "url
         "schéma", "schema", "utc", "token", "webhook", "cron", "base de données", "requête", "serveur"]
 PASS_H2 = ["Maquette", "Écrans", "Nouveautés", "Accessibilité", "Ouvert", "Contrôle"]
 SCREEN = re.compile(r"^### (SC(\d+)) \S")
-SCREEN_LINES = ["Récits", "Fichier", "Parties", "États", "Largeurs", "Textes"]
+SCREEN_LINES = ["Récits", "Fichier", "Parties", "États", "Largeurs", "Contenu"]
 
 
 def headings(lines):
@@ -197,10 +197,10 @@ def lint_passation(path):
     story_ids = set(re.findall(r"^### (US\d+) — ", spec.read_text(encoding="utf-8"), re.M)) if spec.exists() else None
     if story_ids is None:
         out.append(f"{where}: no spec.md next to it: each screen's Récits are checked against it")
-    textes = folder / "textes.md"
-    textes_ids = set(re.findall(r"^## (SC\d+)\b", textes.read_text(encoding="utf-8"), re.M)) if textes.exists() else None
-    if textes_ids is None:
-        out.append(f"{where}: no textes.md next to it")
+    contenu = folder / "contenu.md"
+    contenu_ids = set(re.findall(r"^## (SC\d+)\b", contenu.read_text(encoding="utf-8"), re.M)) if contenu.exists() else None
+    if contenu_ids is None:
+        out.append(f"{where}: no contenu.md next to it")
 
     screens, cur = [], None
     for n, l in body(lines, spans.get("Écrans")):
@@ -251,8 +251,8 @@ def lint_passation(path):
                     out.append(f"{where}:{n}: #{a} is no `data-state` of {val['Fichier'][1]}")
                 for a in sorted(states_file - anchors):
                     out.append(f"{where}:{n}: the page's state `{a}` is not listed")
-        if textes_ids is not None and s["id"] not in textes_ids:
-            out.append(f"{where}:{s['line']}: textes.md has no `## {s['id']} …` section")
+        if contenu_ids is not None and s["id"] not in contenu_ids:
+            out.append(f"{where}:{s['line']}: contenu.md has no `## {s['id']} …` section")
 
     for n, l in body(lines, spans.get("Contrôle")):
         if l.startswith("- [ ]"):

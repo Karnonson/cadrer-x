@@ -36,8 +36,10 @@ branches too: `git branch --list 'feature/*'`, and each one's folder through
 
 ## Every turn, both steps
 
-- **One question per message**, the one that unblocks the most. One question has one thing to
-  answer: never two asks joined by "and" or "or". Choices are fine when they pick one.
+- **One question per message** when the next depends on its answer, the one that unblocks the most.
+  One question has one thing to answer: never two asks joined by "and" or "or". Choices are fine when
+  they pick one. In step 2, decisions that hang on nothing still open may go out together, numbered,
+  each with its recommendation, at most five: they answer in one message (« 1 A, 2 oui, 3 … »).
 - Each question carries your answer: a guess and how sure you are (step 1), or a recommendation a
   plain "oui" accepts (step 2). Reacting is faster than inventing.
 - With the AskUserQuestion tool: one question per call, your answer as the first option, the context
@@ -52,17 +54,22 @@ branches too: `git branch --list 'feature/*'`, and each one's folder through
 - **Plain words.** No file names, formats or code in a question: ask what they want to happen. Never
   a question only a developer could answer.
 - A vague answer ("tout le monde", "souvent", "mieux") gets one more question for the real case.
-  "Comme tu veux" is not an answer: ask again as a choice between two. A best-practice answer
+  "Comme tu veux" takes your recommendation: say in one line which. A best-practice answer
   ("scalable", "moderne") gets: "Si tu n'avais pas à le justifier, tu voudrais quoi ?"
 - An answer that fights an earlier one or the idea: say so, ask which wins.
-- **Only an explicit yes closes a step** ("oui", "c'est ça"). "Ça me va", "ok on y va", "comme tu
-  veux" are not one: ask what they would change.
+- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", or a condition already met. Say in
+  one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for keeps it
+  open: ask what they would change.
 
 ## Step 1 — the idea
 
 **First turn.**
 1. Read before asking: the README, `{docs}/vision.md`, `{docs}/architecture.md`, the other features'
    `idee.md`, the manifest (package.json, pyproject.toml, Makefile). What they answer, you don't ask.
+   What a memory or another project says about the person is a guess to put to them, never a line of
+   `idee.md` on its own. **À faire** in `{docs}/architecture.md` says the code is still to be laid out
+   in modules: say in one line that `/cadrer-x-ranger` first makes this feature and every next one
+   cheaper, and go on with theirs unless they take it.
 2. **Several capabilities in one ask** (parts that could ship and be checked apart: a booking, a
    payment, reminders, a report): your first question is the split. A short table — feature · what it
    does · what it needs first — a build order (what the others need, then the most useful), and your
@@ -128,8 +135,9 @@ A correction: fold it in, write it back again.
 
 5. Commit it on the feature branch: `idee — <Titre>`.
 6. A split: one branch, folder and `idee.md` per feature, numbered in build order.
-7. Ask whether to settle the decisions now. Yes: step 2, right away, on the first in build order.
-   Not now: say `/cadrer-x-choisir <slug>` picks it up at step 2.
+7. Go on to step 2 right away, on the first in build order, and say so in one line with how many
+   decisions are left (« Reste 4 décisions, je commence. »). They stop you: `/cadrer-x-choisir <slug>`
+   picks it up at step 2.
 
 ## Step 2 — the decisions
 
@@ -179,7 +187,7 @@ storage, analytics, a scheduler) that the settled stack does not cover:
 **Close.** Tell one real day with the finished feature, step by step, in their words — who opens it,
 what they do, what they see, what goes wrong — then what gets built, the stages, the services and
 what they cost, the data kept and for how long, and what waits in `a-trancher.md`. Ask what is wrong
-in it; each correction is folded in and the day told again, until the explicit yes.
+in it; each correction is folded in and the day told again, until a clear yes.
 
 **Save — only after the yes**, in the feature's worktree: `decisions.md` beside `idee.md`, these
 headings exactly, `aucun` under an empty one:
@@ -223,20 +231,21 @@ Questions left open: `a-trancher.md` beside them, one block each, numbered after
 - Réponse :
 ```
 
-Commit on the feature branch: `décisions — <Titre>`. End with the next step and nothing more:
-`/cadrer-x-affiner <slug>`.
+Commit on the feature branch: `décisions — <Titre>`. Then the spec, here: say in one line that you
+go on with it, open `../cadrer-x-affiner/SKILL.md`, read it whole and follow it for this feature. They
+stop you, or the session is long: `/cadrer-x-affiner <slug>`, in a new session, picks it up.
 
 ## Red flags
 
 | Thought | Instead |
 |---|---|
-| "I'll ask the three basics at once to save time." | One question: the next depends on this answer. |
+| "I'll ask the three basics at once to save time." | Step 1: one question, the next depends on it. Step 2: a numbered batch only of decisions that hang on nothing open. |
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
 | "What does the site do today?" | Read it. |
 | "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
-| "They said ça me va." | Not a yes: ask what they'd change. |
+| "They said ça me va." | A yes: say what you save, save it. |
 | "Success: happier clients." | A number and a date they can check. |
 | "Six more questions would nail it." | Five, then `a-trancher.md`. |
 | "Prices are roughly…" | Look them up today. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
-| "Both files saved — I'll start the spec." | End with `/cadrer-x-affiner <slug>`; they run it. |
+| "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |

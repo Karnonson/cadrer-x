@@ -5,7 +5,7 @@ claude --baseline` with `FLEET_SKILLS_SRC` pointing at this repo's `skills/`.
 
 Fixture: `evals/fixture/`, Carnet (Next.js, Turso, Better Auth, vitest), checked out on
 `feature/recherche-notes`, whose folder holds a validated `spec.md` (two stories, five exigences), its
-`passation.md` (SC1 Recherche, SC2 Note), `textes.md` and `maquette/`. `decisions.md` relies on a rate
+`passation.md` (SC1 Recherche, SC2 Note), `contenu.md` and `maquette/`. `decisions.md` relies on a rate
 limit "already in place" that the code does not have.
 
 Prompt: « recherche-notes : on découpe. »

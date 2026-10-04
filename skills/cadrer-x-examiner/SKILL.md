@@ -1,17 +1,17 @@
 ---
 name: cadrer-x-examiner
-description: "Relire un récit (`US1`) une fois toutes ses tâches construites, dans une autre session que celles qui l'ont construit. Vérifie que le code fait ce que dit chaque scénario de la spec, que ses tests échoueraient si le comportement cassait, et qu'il respecte la constitution, la sécurité et les frontières des modules ; clique les écrans quand il y en a. Écrit la section du récit dans `audit.md`. Ne corrige rien."
+description: "Relire un récit (`US1`), ou chaque récit construit d'une fonctionnalité, par quelqu'un qui ne l'a pas construit. `/cadrer-x-realiser` le lance seul quand un récit est construit ; à la main, dans une autre session que celles qui ont construit. Vérifie que le code fait ce que dit chaque scénario de la spec, que ses tests échoueraient si le comportement cassait, et qu'il respecte la constitution, la sécurité et les frontières des modules ; clique les écrans quand il y en a. Écrit la section du récit dans `audit.md`. Ne corrige rien."
 disable-model-invocation: true
-argument-hint: "<US1> [fonctionnalité]"
+argument-hint: "[US1] [fonctionnalité]"
 ---
 
-# cadrer-x examiner — one story, reviewed by someone who did not build it
+# cadrer-x examiner — each story, reviewed by someone who did not build it
 
 Every task of the story passed its own tests: its builder wrote them, from the builder's reading of
 the spec, so a misreading passes them. You ask what those tests cannot: is this the story the person
 approved, and would its tests fail if the behaviour broke? You are read-only on the code: you never
 edit, fix or refactor anything. The one file you write is `{feature}/audit.md`, the story's section,
-from `templates/audit.md`; `/cadrer-x-realiser US<n>` fixes what you found, in another session.
+from `templates/audit.md`; `/cadrer-x-realiser US<n>` fixes what you found.
 
 Talk, and write the audit's text, in the person's language, every message included (the short notes
 between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
@@ -21,12 +21,22 @@ rendre find them by these names.
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
 
+**Launched by realiser** (its prompt says so): the same work, the same file and commit, and the same
+order of reading; the person is not here, so ask no one. A question only they can answer is an
+`Info :` line and goes in your last message, which is for realiser: the verdict, the count of
+`Bloquant :` and `À corriger :`, each of them whole as `audit.md` has it, what you could not judge, the
+questions. No next step. Never through the Skill tool: helpers are read as files.
+
 ## Which story, and where
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.
 
-- **The feature.** The second argument, else the feature of the worktree you are in, else the one
-  whose `taches.md` has the story's tasks all ticked; several: ask which, one question.
+- **The feature.** The argument's number or slug (a near miss with one close feature: that one, said in
+  one line), else the feature of the worktree you are in, else the one whose `taches.md` has a story
+  built and not yet `validé`; several: ask which, one question.
+- **The stories.** `US<n>`: that one. The feature alone, or nothing: every story that is ready and has
+  no `validé` section yet, one after another, one section and one commit each, and one message at the
+  end.
 - **Where you work.** Its worktree `.worktrees/feature.<slug>`; else the current checkout when it is on
   `feature/<slug>`; else `git worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in
   `.git/info/exclude` first, the untracked `.env*` files copied in, `commands.install` run once).
@@ -49,7 +59,7 @@ The order is part of the job: you form your own view before reading anyone's acc
 3. `{feature}/decisions.md`, `{feature}/a-trancher.md` (an answered question is settled),
    `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-securite`, `cadrer-x-modules` and `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its pages in
-   `maquette/`, `{feature}/textes.md`. Read `cadrer-x-design-system` and `cadrer-x-textes`.
+   `maquette/`, `{feature}/contenu.md`. Read `cadrer-x-design-system` and `cadrer-x-textes`.
 5. The code and the tests: each file on the story's tasks' `Fichiers :`, as the feature branch has it
    now, and whatever they call. How it got there: `git log --oneline <main>..feature/<slug>`, then
    `git log -p` of the story's commits (`T<nn> — …`): a test strict in one commit and loosened in a
@@ -118,7 +128,9 @@ Each finding quotes the line it is about.
 
 ## Screens
 
-When `passation.md` gives the story a screen. You may start the app here, and only here: with
+When `passation.md` gives the story a screen. The browser tool already held (another session uses it):
+say so in one line, judge the screens from the code (below), and write `Écrans : pas cliqués —
+navigateur occupé`. Never write a browser driver of your own. You may start the app here, and only here: with
 `commands.dev` in `cadrer-x.yml` and a browser tool, run it from the feature's worktree on a free port
 (no other session's), wait until it answers, and stop it when you are done. Never install, never edit
 a file or an environment variable to get in, never create an account in an outside service. Behind a
@@ -130,17 +142,17 @@ For each screen, at 390 then 1280 wide:
 1. Reach each state its `États :` line names the way a person would (type, send, open, come back). A
    state you cannot cause from the page goes under `### Non jugé`, with why.
 2. Do each scenario of the story on the screen: it works, or it is a Spec finding.
-3. The texts against `textes.md`, word for word; each field's label; the order Tab follows; nothing
+3. The texts against `contenu.md`, word for word; each field's label; the order Tab follows; nothing
    scrolling sideways at 390 (`document.documentElement.scrollWidth <= innerWidth`); no console error.
 4. Save one screenshot per screen and width of its main state, `{feature}/captures/SC<n>-<largeur>.png`
    (`-<état>` added for a state worth showing apart).
 
-Findings: a state the app lacks is partiel (`Bloquant :`); a text that is not `textes.md`'s word for
+Findings: a state the app lacks is partiel (`Bloquant :`); a text that is not `contenu.md`'s word for
 word is `À corriger :`; a raw colour or size where a token holds it, or a part that is neither the
 design system's nor a **Nouveauté** of `passation.md`, is `À corriger :`; a field with no label, a focus
 that jumps, a tap target under the design system's size, sideways scrolling at 390 is `À corriger :`;
 spacing that changes nothing a person can do is `Détail :`. From the code, always, and all there is
-when the screens could not be clicked: each `textes.md` text found in the code (`grep -rn`), each state
+when the screens could not be clicked: each `contenu.md` text found in the code (`grep -rn`), each state
 its code path, the project's own components used.
 
 ## One prefix per finding
@@ -148,7 +160,7 @@ its code path, the project's own components used.
 | Prefix | When | Blocks |
 |---|---|---|
 | `Bloquant :` | wrong behaviour, a scenario manquant or partiel, someone else's data reachable, a secret, a rule of the constitution broken, a lowered bar hiding a wrong behaviour | yes |
-| `À corriger :` | to fix before it ships: a test that would not fail, a risk untested, a border crossed, a text not `textes.md`'s | yes |
+| `À corriger :` | to fix before it ships: a test that would not fail, a risk untested, a border crossed, a text not `contenu.md`'s | yes |
 | `Détail :` | may ship as it is | no |
 | `Info :` | what you checked and found right, what is someone else's, a question for the person | no |
 | `Corrigé :` | a tour 2 finding the fix round closed | no |
@@ -180,7 +192,7 @@ audit.md you just committed and named by those words; each of them in one line (
 the file); what you could not judge, and the questions only they can answer. Then
 the next step and nothing more:
 
-- `à corriger`: `/cadrer-x-realiser US<n>`, in a new session; then `/cadrer-x-examiner US<n>` again.
+- `à corriger`: `/cadrer-x-realiser US<n>`: it fixes the findings, then has the story reviewed again.
 - `validé`: the next story whose tasks are all built (`/cadrer-x-examiner US<m>`), or when every story
   of `taches.md` has a `validé` section, `/cadrer-x-rendre`.
 
@@ -213,4 +225,5 @@ the whole story again: a review that starts over every tour finds something new 
 | "The architecture doc wasn't updated: Bloquant." | `rendre`'s, at ship time: `Info :`. |
 | "Tour 2: let me review the whole story again." | Check the fix round; anything else is late. |
 | "The app needs a test user; I'll add one to the database." | `### Non jugé`, unless the project documents a way in. |
-| "Validé — I'll start the next story's review too." | One story per session; name the next step. |
+| "Asked for US1; US2 is ready too, I'll do it." | What you were asked: the story, or the feature's ready stories. |
+| "The browser is busy; I'll script Chrome myself." | Judge from the code; `Écrans : pas cliqués — navigateur occupé`. |

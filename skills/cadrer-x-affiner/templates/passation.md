@@ -23,7 +23,7 @@
 - Parties : <les parties du design system, par leurs noms> ; nouvelles : <chaque Nouveauté utilisée, ou aucune>
 - États : <état> (#<ancre>) — <ce qu'on voit> ; <état> (#<ancre>) — <ce qu'on voit>
 - Largeurs : 390 — <ce qui change> ; 1280 — <ce qui change>
-- Textes : textes.md → SC1
+- Contenu : contenu.md → SC1
 
 ## Nouveautés
 
@@ -45,6 +45,6 @@
 - [ ] Chaque `class` des pages est une partie du design system, une Nouveauté, ou la barre des états ; aucune couleur ni taille brute.
 - [ ] Chaque écran montre le moins de données personnelles possible, jamais celles d'un autre.
 - [ ] Un écran qui recueille des données dit pourquoi, et demande le consentement (jamais pré-coché) quand c'est sa base.
-- [ ] Chaque texte est dans `textes.md`, tel que les pages le montrent ; un nombre qui varie a chaque forme.
+- [ ] Chaque texte est dans `contenu.md`, tel que les pages le montrent ; un nombre qui varie a chaque forme.
 - [ ] Chaque champ a un libellé visible ; une erreur est annoncée (`role="alert"`), un résultat qui arrive aussi (`aria-live="polite"`) ; une cible tactile fait au moins la taille du design system.
 - [ ] Chaque page a été vue à 390 et à 1280, sans défilement de côté à 390 ; sinon, dit sous Ouvert.

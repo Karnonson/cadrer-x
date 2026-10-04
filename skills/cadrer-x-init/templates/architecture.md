@@ -10,7 +10,7 @@
 
 ## Modules
 
-<!-- Chaque module du code : son nom, ce qu'il possède, ses chemins. Un module n'en utilise un autre que par son point d'entrée. -->
+<!-- La disposition du code, puis chaque module : son nom, ce qu'il possède, ses chemins. Un module n'en utilise un autre que par son `api`. -->
 
 | Module | Possède | Chemins |
 |---|---|---|

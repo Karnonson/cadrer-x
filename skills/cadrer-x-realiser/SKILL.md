@@ -1,110 +1,127 @@
 ---
 name: cadrer-x-realiser
-description: "Réaliser une tâche de `taches.md`. À lancer avec l'identifiant d'une tâche (`T03`), une tâche par session ; les tâches `[P]` peuvent tourner en même temps dans des sessions séparées. Travaille dans le worktree de la tâche, écrit d'abord un test qui échoue, puis le code, lance toutes les vérifs, et fusionne dans la branche de la fonctionnalité sur un oui. Aussi pour corriger ce qu'une relecture (`audit.md`) a trouvé sur un récit."
+description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est validé. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`) ou une seule tâche (`T03`)."
 disable-model-invocation: true
-argument-hint: "<T01, ou US1 pour les correctifs d'une relecture> [fonctionnalité]"
+argument-hint: "[fonctionnalité | US1 | T03]"
 ---
 
-# cadrer-x réaliser — one task, test first, fresh evidence
+# cadrer-x réaliser — every task built, every story reviewed
 
-You build one task of `taches.md`: its boxes are the done-when, its `Fichiers :` the only files you
-touch, the checks of `cadrer-x.yml` the bar. Other tasks may be built at the same time in other
-sessions, so you work in the task's own worktree and merge on the person's yes. Whoever built a task
-never reviews it: `/cadrer-x-examiner` does, in another session.
+You run the build of a feature to its end: each task built test first by a builder in its own
+worktree, merged into `feature/<slug>`; each story, once built, reviewed by a reviewer who did not
+build it; each finding fixed and checked again. You build nothing and review nothing yourself: you
+start builders and reviewers as subagents, merge their work, and ask the person what only they can
+answer. You read `taches.md`, `audit.md` and their reports, never the code: that keeps this session
+light enough for a whole feature.
 
 Talk in the person's language, every message included (the short notes between steps too); in French,
 *tu* or *vous* as they write, *vous* when you can't tell, never both. Commit messages, file names and
 labels stay as written here.
 
-**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
-this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+`<skills folder>` is the folder that holds this skill's folder, as an absolute path.
 
-## The task and its worktree
+## What to build
 
 Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.
 
-- **The feature**: the second argument, else the worktree you are in, else the one whose `taches.md`
-  (on `feature/<slug>`) holds the task; several: ask which.
-- **The task**: `T<nn>` in `{feature}/taches.md` on the feature branch. Already `[x]`: say so, stop.
-  A task named on its `Après :` line not yet `[x]` there: say which it waits for, stop. `US<n>`: a fix
-  round (below).
-- **The worktree**: `.worktrees/` in `.git/info/exclude`, then `git worktree add -b tache/<slug>-t<nn>
-  .worktrees/tache.<slug>-t<nn> feature/<slug>` (lowercase), or reuse both. Copy the untracked `.env*`
-  files from the repo's top (never commit them) and run `commands.install` there. Everything below runs
-  in that worktree.
+- **The feature**: the argument's number or slug (a near miss with one close feature: that one, said in
+  one line), else the worktree you are in, else the one feature whose `taches.md` has open tasks;
+  several: ask which. Its worktree `.worktrees/feature.<slug>` (else `git worktree add` it,
+  `.worktrees/` in `.git/info/exclude` first, the untracked `.env*` files copied in, `commands.install`
+  run once). `{feature}` is its `{docs}/features/NNNN-<slug>/`.
+- **The scope**: no argument or the feature: every story. `US<n>`: that story; with `Bloquant :` or
+  `À corriger :` findings in its latest section of `audit.md`, start with its fix round. `T<nn>`: that
+  task alone (see *One task by hand*).
+- **The state** is in the files, so a run that stopped picks up where it was: tasks `[x]` on the feature
+  branch are built; a story with a `validé` section in `audit.md` is done; a `tache/<slug>-*` branch
+  left over is a builder's unmerged work (merge it as below when its report said `fait` and its commit
+  ticks the task, else start it again).
 
-## Before any change
+**Then one message, and go.** What gets built (the stories, how many tasks, the waves), that tasks run
+two at a time when they can, that each story is reviewed by someone who did not build it and its
+findings fixed, and that you stop only for their questions and at the end. They launched the build:
+start right away; they can stop you at any time.
 
-Read the task's block, its story in `{feature}/spec.md` (the scenarios are the truth), the
-**À surveiller** lines pinned to it, `{docs}/constitution.md`, `{docs}/architecture.md` → **Modules**
-and **Mots**. Read `cadrer-x-tdd`, `cadrer-x-modules`, and, when the task has a `Risques :` line or
-opens a way in, `cadrer-x-securite`. With an `Écrans :` line, read `cadrer-x-design-system`.
+## Builders
 
-Run the whole check command once. A failure now is not yours and not a stop: note the test's exact
-name and build the task anyway.
+A task is **ready** when every task on its `Après :` is `[x]` on the feature branch. Start the ready
+tasks in `taches.md` order, **at most two at once** (or the number the person gives). Two run together
+only when they share no file on `Fichiers :` and at most one has an `Écrans :` line: there is one
+browser.
 
-## Build it, one test at a time
+Each builder is a subagent with a fresh context and this prompt, nothing more: « Read
+`<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>` of the
+feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » Never the Skill tool: the
+skills are the person's to launch; the builder reads the file. Its last message is its report.
 
-Follow `cadrer-x-tdd`: each box a test at the module's entry, named like the box, with the spec's
-values, watched failing on its assertion before its code. Then each risk of `Risques :` and the abuse
-tests of `cadrer-x-securite`. A bug met on the way: read `cadrer-x-debug`. Never lower a bar to get
-green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix the code.
+- **`fait`**: merge it (below), then start what it made ready.
+- **`question`**: ask the person, one question per message, with the builder's recommendation and one
+  line of context (which task, what it is for). Other builders go on meanwhile. The answer goes back to
+  that builder (resume it; else a new builder whose prompt adds the answer). An answer that settles
+  what the spec leaves open is written to `{feature}/a-trancher.md` as a question with its **Réponse**,
+  committed on the feature branch: the reviewer reads it as settled.
+- **`bloqué`**: say what blocks, and ask what to do, with your recommendation.
 
-A task with screens: its section of `passation.md`, its page in `maquette/` and `textes.md` are the
-whole design; the words exactly as `textes.md` has them. With `commands.dev` and a browser tool, open
-the screens at 390 and 1280 wide before you finish; otherwise say they were not opened.
+## Merge into the feature branch
 
-## Stay in the task
+Merging a task into `feature/<slug>` is local and taken back with one command: no yes needed. Never
+while a reviewer is running: its merge waits until the audit is committed.
 
-- Touch only `Fichiers :`. A file outside it the task truly needs: ask, with your recommendation, and
-  name it in the commit message.
-- Never edit `spec.md`, `passation.md`, `maquette/`, `textes.md`, `cadrer-x.yml`, `{docs}/` or a lock
-  file; in `taches.md`, only your task's `[ ]` → `[x]`. No dependency `decisions.md` or the
-  constitution does not allow.
-- Something worth fixing elsewhere: leave it, say it at the end.
+1. In the task's worktree: `git merge feature/<slug>`, to bring in what other tasks merged. A conflict
+   in the task's own files: back to its builder (resume it, or a new one with the conflict named). In
+   another task's file: stop, and ask the person. Then the whole check command there; red: back to its
+   builder.
+2. In the feature's worktree: `git merge --ff-only tache/<slug>-t<nn>`; refused: step 1 again.
+3. From the repo's top, never from inside it: `git worktree remove .worktrees/tache.<slug>-t<nn>`, then
+   `git -C .worktrees/feature.<slug> branch -d tache/<slug>-t<nn>` (the branch is merged there, not in
+   the main branch). Never push.
 
-**Decide, or ask.** A choice no one will see (a name, how a race is prevented): the smallest one, as a
-`Choix :` line of the commit. A choice a person would see that no file settles: one question, with
-your recommendation. Ask before anything destructive, anything touching a secret or a permission, and
-anything outside this worktree.
+## Reviews
 
-## Done means fresh evidence
+A story is **built** when its tasks, and the Fondations tasks they stand on, are `[x]` on the feature
+branch. Start its review then, while builders of other stories go on in their worktrees. A reviewer is
+a subagent with a fresh context, never one that built, and this prompt, nothing more (never a builder's
+report: the reviewer forms its own view): « Read `<skills folder>/cadrer-x-examiner/SKILL.md` whole and
+follow it, for story `US<n>` of the feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by
+realiser. » A story with screens is reviewed while no builder with an `Écrans :` line runs.
 
-1. The whole check command, in this worktree; read the exit code.
-2. Each box and each risk: its test, green in this run.
-3. A failure you did not cause: named by its exact test name, one line on why it is not yours, its
-   files left untouched.
-4. Claim only what this run shows, never "should pass".
-5. Tick your task `[x]` (its line and its boxes) and commit on the task branch: `T<nn> — <titre>`,
-   with the `Choix :` lines in the body.
+- **`validé`**: one short message to the person: the story works now, what they can try, the captures
+  (`{feature}/captures/`), the `Détail :` lines. Then go on.
+- **`à corriger`**: a fix round. A new builder, prompt « … for the fix round of `US<n>` … », merged
+  like a task, then a new reviewer for the next tour. Still `à corriger` after its second tour: stop for
+  the person: what is left, in plain words, and your recommendation.
+- Its questions: ask them as a builder's.
 
-Then one message: each box and each risk with its test and the red run you saw before its code (the
-failing assertion line, trimmed: the person never saw your terminal); the last whole-suite run; the
-choices; what you noticed; one question: merge into `feature/<slug>` now?
+## The end
 
-## Merge — only after the yes
+Every story `validé`: one message, per story its verdict and what it does now, the captures, the
+`Détail :` lines left, the questions answered on the way. Then delivery: `/cadrer-x-rendre <slug>`
+writes the docs, then merges into the main branch and puts it online, each on their yes. Offer to go on
+with it here; on their yes, open `<skills folder>/cadrer-x-rendre/SKILL.md`, read it whole and follow
+it for this feature.
 
-1. In the worktree, `git merge feature/<slug>` to bring in what other tasks merged. A conflict in your
-   files: keep both behaviours. In another task's file: stop, say which. Then the checks again.
-2. Where `feature/<slug>` is checked out: `git merge --ff-only tache/<slug>-t<nn>`; refused: step 1.
-3. `git worktree remove .worktrees/tache.<slug>-t<nn>`, `git branch -d tache/<slug>-t<nn>`. Never push.
-4. Next: the tasks now unblocked (`/cadrer-x-realiser T<nn>`, each in its own session); when the
-   story's tasks are all `[x]`, `/cadrer-x-examiner US<n>` in a new session.
+## One task by hand
 
-## A fix round
+`/cadrer-x-realiser T<nn>`: build it yourself, here, following `references/tache.md` (you are the
+builder: the person is here, so ask them directly). Merge it as above. Its story now built: start its
+review as above. A second person may build another task at the same time, in another session.
 
-`/cadrer-x-realiser US<n>`: the story's `Bloquant :` and `À corriger :` findings in `{feature}/audit.md`.
-Branch `tache/<slug>-us<n>-correctifs`, worktree `.worktrees/tache.<slug>-us<n>-correctifs`. Each
-finding: a red test that reproduces it, then the fix. A missing behaviour becomes a new task at the end
-of the story's section of `taches.md`, built and ticked here; never rewrite an old task. Commit
-`correctifs US<n>`, each finding named; the same merge; then `/cadrer-x-examiner US<n>`, new session.
+## No subagents
+
+Codex starts subagents when asked: this file asks. With no way to start one, build the tasks one after
+another yourself, each following `references/tache.md`, merged as above. A review needs a mind that
+did not build: when a story is built, stop and give the person `/cadrer-x-examiner US<n>`, in a new
+session, then `/cadrer-x-realiser <slug>` again: it picks up from the files.
 
 ## Red flags
 
 | Thought | Instead |
 |---|---|
-| "Code first, tests after." | One failing test, watched failing, then its code. |
-| "Loosen this assertion and it's green." | The code is wrong. |
-| "That failing test isn't mine; quick fix." | Name it, leave it. |
-| "Green: I'll merge." | Ask first. Never push. |
-| "I built it, I'll review it too." | `/cadrer-x-examiner`, another session. |
+| "I'll just write this task myself, it's small." | A builder builds; you merge and ask. |
+| "Green: I'll ask before merging into the feature." | Local and reversible: merge. The main branch is rendre's, on a yes. |
+| "The builder noted a missing text; the review will catch it." | A gap a person would see is a question now. |
+| "I'll tell the reviewer what the builder did." | Its prompt names the story, nothing more. |
+| "Two screen tasks at once, it's faster." | One browser: one at a time. |
+| "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
+| "The Skill tool refused; I'll stop." | Builders and reviewers read the file, never the Skill tool. |
+| "`git branch -d` failed: not merged." | Run it in the feature's worktree, where it is merged. |

@@ -1,4 +1,4 @@
-# Recherche dans les notes — textes
+# Recherche dans les notes — contenu
 
 ## SC1 Recherche
 

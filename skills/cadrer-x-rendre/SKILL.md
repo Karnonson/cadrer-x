@@ -25,7 +25,8 @@ this skill's folder, at that moment; read it whole and follow it. Not there: go 
 Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `git branch --list
 'feature/*' 'tache/*'`, `git remote -v`, the main branch's name.
 
-- **The feature.** The argument's number or slug. None: the feature of the worktree you are in, else the
+- **The feature.** The argument's number or slug (a near miss with one close feature: that one, said in
+  one line). None: the feature of the worktree you are in, else the
   one feature branch not merged into the main branch whose stories all have a `validé` section in
   `audit.md`; several: ask which, one question.
 - **Where you work.** Step 1 in the feature's worktree (`.worktrees/feature.<slug>`, or the checkout on
@@ -44,10 +45,10 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
 Check each, and stop at the first that fails, naming the step that fixes it:
 
 - Every task of `taches.md` is `[x]` on the feature branch, and no `tache/<slug>-*` branch is left
-  unmerged → else `/cadrer-x-realiser T<nn>`.
+  unmerged → else `/cadrer-x-realiser <slug>`.
 - Every story `US<n>` of `taches.md` has a section in `{feature}/audit.md` whose **Verdict** is
-  `validé` → else `/cadrer-x-examiner US<n>` (no section, or after a fix round) or `/cadrer-x-realiser
-  US<n>` (`à corriger`). A chat message saying it passed is not a verdict.
+  `validé` → else `/cadrer-x-realiser <slug>` (it reviews what has no section, and fixes what is `à
+  corriger`). A chat message saying it passed is not a verdict.
 - Every question of `a-trancher.md` has a **Réponse** → else ask it now, one question, your
   recommendation first, and write the answer; one that changes what gets built stops here.
 - The feature's worktree is clean, and the whole check command of `cadrer-x.yml` passes, run now, fresh:
@@ -121,7 +122,7 @@ Run `python3 <this skill's folder>/scripts/lint.py livraison {feature}/livraison
 
 In your message: the version, each doc changed (one line each: what it now says), the ADR's title, the
 **Livré** lines, the **Porte**, what is under **À faire**. Ask what they would change, and fold each change
-in, until the explicit yes ("oui", "c'est bon"; "ça me va" is not one). On the yes: commit on the feature
+in, until a clear yes ("oui", "ok", "ça va", "c'est bon"; a hedge or a change asked for keeps it open). On the yes: commit on the feature
 branch, the docs, the version file, `CHANGELOG.md`, `livraison.md` and `pr.md`: `livraison — <Titre> <version>`.
 
 ### The merge — its own yes
@@ -136,9 +137,9 @@ Say how it will go, and ask:
   -m "<Titre> <version>"`, then the whole check command once more on the result. Red: say it, and go
   no further.
 
-Merged: remove the feature's worktree and its branch (`git worktree remove`, `git branch -d`). Then
-the next step and nothing more: step 2 (`/cadrer-x-rendre` again) when **En ligne** says `pas encore`;
-else the next feature, `/cadrer-x-choisir`.
+Merged: remove the feature's worktree and its branch (`git worktree remove`, `git branch -d`). Then,
+when **En ligne** says `pas encore`: step 2, here, said in one line (its plan has its own yes). Else
+the next feature: `/cadrer-x-choisir`.
 
 ## Step 2 — online
 

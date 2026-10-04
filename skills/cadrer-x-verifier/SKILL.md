@@ -22,8 +22,12 @@ Headings, labels and ids stay exactly as written here and in the template.
 
 Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'feature/*'`.
 
-- **The feature.** The argument's number or slug, else the feature of the worktree you are in, else the
-  one feature with a validated spec and no task built yet; several: ask which, one question.
+- **The feature.** The argument's number or slug (a near miss with one close feature: that one, said in
+  one line), else the feature of the worktree you are in, else the one feature with a validated spec and
+  no task built yet; several: ask which, one question.
+- **Launched by `decouper`** (its prompt says so): you are its fresh pair of eyes. The same work, the
+  same file and commit; ask no one. Your last message is for decouper: the verdict, then each finding
+  whole, as `verification.md` has it. No next step.
 - **Where.** Its worktree `.worktrees/feature.<slug>`, else the checkout on `feature/<slug>`, else `git
   worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in `.git/info/exclude` first).
 - **How far.** No `spec.md`, or not `validée`: say `/cadrer-x-affiner` comes first, and stop. A `taches.md`:
@@ -33,7 +37,7 @@ Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'f
 ## Read
 
 `{feature}/idee.md`, `decisions.md` (each `D<n>`, each **Précisions** answer, **Données et risques**,
-**Impact archi**), `spec.md`, `a-trancher.md`, `passation.md` and `textes.md` when there are screens,
+**Impact archi**), `spec.md`, `a-trancher.md`, `passation.md` and `contenu.md` when there are screens,
 `taches.md` when there is one; `{docs}/constitution.md`, `{docs}/architecture.md` (**Modules**, **Mots**).
 Then run the form checks the earlier steps left, when their skills are installed beside this one:
 `python3 <skills folder>/cadrer-x-affiner/scripts/lint.py spec {feature}/spec.md` (and `passation`), and
@@ -72,7 +76,10 @@ print is a finding as it stands; you look for what they cannot see.
   or a form is a finding.
 - **Couverts says true**: each row's tasks do cover it, read from their boxes, not from the row.
 - **Files where the map puts them**: each path on `Fichiers :` is in its module's paths of **Modules**,
-  or new in a module **Impact archi** announced; never a file the tasks may not touch.
+  or new in a module **Impact archi** or a `D<n>` of `decisions.md` announced; never a file the tasks
+  may not touch.
+- **Settled stays settled.** What a `D<n>`, a **Précisions** answer or an answered question of
+  `a-trancher.md` asks for is never « non demandé »: a task that carries it out is asked for.
 - **`Après :` real**: a task that needs another's code names it; a task that names one it does not need
   makes a session wait (a **Remarque**).
 
@@ -101,7 +108,7 @@ remarks. Then the next step and nothing more:
 
 - `à reprendre`: `/cadrer-x-affiner` (or `/cadrer-x-decouper`), which folds the findings in on the person's
   yes; then this check again if they want it, in a new session.
-- `prête`: `/cadrer-x-decouper` after a spec-only check; `/cadrer-x-realiser T01` after spec et tâches.
+- `prête`: `/cadrer-x-decouper` after a spec-only check; `/cadrer-x-realiser <slug>` after spec et tâches.
 
 ## Red flags
 
@@ -112,4 +119,5 @@ remarks. Then the next step and nothing more:
 | "« Rapidement » is clear enough." | No measure, no check: what number settles it? |
 | "M3 says « leurs ateliers », close enough to all." | Read the rule as written: a contradiction. |
 | "Let me also review the code that's there." | Built work is `/cadrer-x-examiner`'s. |
+| "No scenario asks for these layout tasks." | Read `decisions.md`: a decision may. |
 | "I'll ask the person what they meant." | Write the finding with your proposal; the fixing step asks. |

@@ -23,24 +23,44 @@ docs/constitution.md
 docs/adr/NNNN-<slug>.md
 docs/features/NNNN-<slug>/
   idee.md  decisions.md  spec.md  a-trancher.md  taches.md
-  maquette/  passation.md  textes.md
+  maquette/  passation.md  contenu.md
   verification.md  audit.md  livraison.md  pr.md  captures/
 .worktrees/<branch with / as .>/
 ```
+
+The code: the framework's own way when it has one (its folders, its unit of code, its tests), used as it
+is. Only what it leaves open takes this shape (`skills/cadrer-x-modules/references/structure.md`):
+
+```
+src/modules/<module>/api.<ext>  ui/  server/  data/
+src/shared/                       no rule of the product; imports no module
+tests/modules/<module>/           through api.<ext>
+db/migrations/NNNN_<slug>.sql     unless the ORM keeps its own folder
+```
+
+`src/` is the framework's own code root, never a second one: with a framework that starts with `src/`,
+`modules/` and `shared/` go beside its folders in it.
 
 Branches and worktrees:
 
 | What | Branch | Worktree | Merged into |
 |---|---|---|---|
 | project setup | `chore/cadrer-x-init` | `.worktrees/chore.cadrer-x-init` | the main branch, on the person's yes |
+| laying out old code | `chore/ranger` | `.worktrees/chore.ranger` | the main branch, on the person's yes |
 | a feature | `feature/<slug>` | `.worktrees/feature.<slug>` | the main branch, by `rendre` |
-| a task | `tache/<slug>-t01` | `.worktrees/tache.<slug>-t01` | `feature/<slug>`, fast-forward, on the person's yes |
-| a story's fixes | `tache/<slug>-us1-correctifs` | `.worktrees/tache.<slug>-us1-correctifs` | `feature/<slug>`, on the person's yes |
+| a task | `tache/<slug>-t01` | `.worktrees/tache.<slug>-t01` | `feature/<slug>`, fast-forward, by `realiser` once its checks are green |
+| a story's fixes | `tache/<slug>-us1-correctifs` | `.worktrees/tache.<slug>-us1-correctifs` | `feature/<slug>`, the same way |
 
 `.worktrees/` is in `.git/info/exclude`; untracked `.env*` files are copied into each worktree. A task's
 branch first merges in what the feature gained meanwhile and runs the checks again, so the feature only
 ever fast-forwards. A task commits as `T01 — <titre>`, with `Choix :` lines for what its builder decided
-alone, and ticks its own `[x]` in `taches.md` in that commit. No skill pushes but `rendre`, and only on the person's yes.
+alone, and ticks its own `[x]` in `taches.md` in that commit. Merging into `feature/<slug>` is local
+and taken back with one command, so it needs no yes; merging into the main branch, pushing and going
+online do. No skill pushes but `rendre`, and only on the person's yes.
+
+A clear yes closes a step: "oui", "ok", "ça va", "c'est bon", or a condition already met; a hedge or a
+change asked for keeps it open. A step ends by going on with the next one in the same session, said in
+one line (the person can stop it); only the build, which is long, recommends a fresh session.
 
 | Proa today | cadrer (old) | cadrer-x |
 |---|---|---|
@@ -53,7 +73,7 @@ alone, and ticks its own `[x]` in `taches.md` in that commit. No skill pushes bu
 | `slices.md` | `tranches.md` | `taches.md` |
 | `prototype/` | — | `maquette/` |
 | `handoff.md` | — | `passation.md` |
-| `copy.md` | — | `textes.md` |
+| `copy.md` | — | `contenu.md` |
 | `review.md` | `audits/code.md` | `audit.md` |
 | `release.md` | `livraison.md` | `livraison.md` |
 | `pr.md` | — | `pr.md` |
@@ -171,7 +191,7 @@ the files a task never touches, and `Couverts`.
 | Prototype | Maquette (`- Lien :`, `- Style :`) |
 | Screens | Écrans |
 | `### SC1 <name>` | `### SC1 <nom>` |
-| `Stories:` / `File:` / `Parts:` / `States:` / `Widths:` / `Copy:` | `Récits :` / `Fichier :` / `Parties :` / `États :` / `Largeurs :` / `Textes :` (one line each, in that order) |
+| `Stories:` / `File:` / `Parts:` / `States:` / `Widths:` / `Copy:` | `Récits :` / `Fichier :` / `Parties :` / `États :` / `Largeurs :` / `Contenu :` (one line each, in that order) |
 | New parts | Nouveautés |
 | Accessibility | Accessibilité |
 | Open | Ouvert |
@@ -182,11 +202,11 @@ screen, each state a `<section data-state="<état>">` reached at `<page>.html#<�
 (the design system's, copied unedited, or the template's neutral one); `maquette/maquette.js` (the
 template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
 
-### textes.md
+### contenu.md
 
-`# <Titre> — textes`, then `## SC1 <nom>`, `### <état>`, and `- <Clé> : <texte>` (Titre, Message,
+`# <Titre> — contenu`, then `## SC1 <nom>`, `### <état>`, and `- <Clé> : <texte>` (Titre, Message,
 Bouton…; `{mot}` for what varies). Proa kept it as `prototype/copy.md`; cadrer-x keeps it beside
-`passation.md`. Template: `skills/cadrer-x-affiner/templates/textes.md`.
+`passation.md`. Template: `skills/cadrer-x-affiner/templates/contenu.md`.
 
 ### audit.md (one review per user story)
 
@@ -295,7 +315,7 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-21 Proa skills became 7 skills, 1 optional check and 6 helpers. `init` comes first, once per project; the
+21 Proa skills became 7 skills, 1 optional check, 1 refactor skill and 6 helpers. `init` comes first, once per project; the
 next six spell CADRER, in order. A skill holding two steps checks which one's file is missing and runs
 that one. A helper is loaded by the skills that need it, never run on its own.
 
@@ -303,17 +323,18 @@ that one. A helper is loaded by the skills that need it, never run on its own.
 |---|---|---|---|
 | — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `cadrer-x.yml`, `docs/architecture.md`, `AGENTS.md` |
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea) · 2. decisions (proa-decide, proa-stack for a feature's new service) | `idee.md` · `decisions.md` |
-| **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `textes.md`, `passation.md` |
-| **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list) | `taches.md` |
-| **R** | `cadrer-x-realiser` | one task per session; `[P]` tasks run in parallel sessions, each in its own worktree branched from the feature (proa-build) | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
-| **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
+| **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `contenu.md`, `passation.md` |
+| **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list); then `verifier` in a fresh subagent, its one-answer findings folded in, before the person's one yes | `taches.md` |
+| **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (examiner); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
+| **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built, or every built story of the feature; started by `realiser`, or by hand in another session; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
 | **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 
 Optional, outside the acronym, like spec-kit's `/analyze`:
 
 | | Skill | What it does | Writes |
 |---|---|---|---|
-| — | `cadrer-x-verifier` | Read-only, in a fresh session, after affiner or after decouper: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the skill that fixes it (affiner or decouper). | `verification.md` |
+| — | `cadrer-x-ranger` | Lays out existing code as `cadrer-x-modules/references/structure.md` says, nothing the product does changing: tests and captures of today first, one module per commit, a fresh subagent looks for any change, merged on the person's yes. Offered by `init`; reminded by `choisir` while **À faire** holds it | `docs/rangement.md`, the code moved, **Modules** |
+| — | `cadrer-x-verifier` | Read-only, in a fresh session or a subagent `decouper` starts, after affiner or after decouper: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the skill that fixes it (affiner or decouper). | `verification.md` |
 
 | Helper | Merges | Loaded by |
 |---|---|---|
@@ -321,8 +342,8 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, examiner |
 | `cadrer-x-debug` | proa-debug | realiser, examiner, any failing test |
 | `cadrer-x-design-system` | design-system | init, affiner, realiser, examiner |
-| `cadrer-x-modules` | module-borders | decouper, realiser, examiner |
-| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, examiner, rendre |
+| `cadrer-x-modules` | module-borders | decouper, realiser, ranger, examiner |
+| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | init, affiner, realiser, examiner, rendre |
 
 A helper has `user-invocable: false` (Claude Code keeps it out of the `/` menu) and
 `allow_implicit_invocation: true` in its `agents/openai.yaml` (codex may load it on its own). The

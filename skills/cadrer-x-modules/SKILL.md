@@ -6,20 +6,27 @@ user-invocable: false
 
 # cadrer-x modules — the map decides
 
-Loaded by `decouper` (where each task's files go), `realiser` (each new import) and `examiner` (each
+Loaded by `decouper` (where each task's files go), `realiser` (each new import), `ranger` (each move) and `examiner` (each
 crossing). `{docs}/architecture.md` → **Modules** is the map: each module, what it owns, its paths. The map
 decides, not the folder names. With no map, the rules below still hold on the code's own layout.
 
+`references/structure.md`, beside this file, is the layout: the framework's own way when it has one,
+used as it is; only where it leaves the layout open, `src/modules/<module>/api.<ext>` with `ui/`,
+`server/`, `data/` behind it, `src/shared/`, `tests/modules/<module>/`. Open it when you place a new
+module, a new file in one, or its tests.
+
 ## The rules
 
-1. **The framework's folders win.** Never move or rename what the framework expects (Next.js `src/app/`,
-   Django's apps, Rails' `app/`). Pages, routes and handlers stay thin: they call a module's entry and
-   render.
+1. **The framework's way wins.** Its folders, its unit of code, where its tests go (Rails' `app/`,
+   Django's apps, NestJS modules): use them as they are, never move, rename or wrap them. Pages, routes
+   and handlers stay thin: they call a module's entry and render. Only what the framework leaves open
+   goes in `src/modules/`, as `references/structure.md` says.
 2. **Each layer talks only to the next**: what is shown → the rules → what is kept → the database. A page
    or a component never imports the database client and never runs a query.
-3. **A module uses another only through that module's entry** (its `api.py`, its `server/index.ts`, or the
-   entry the map names), never its tables, its internals, or a file behind its entry. Types come from the
-   entry too.
+3. **A module uses another only through that module's entry** (its `api.<ext>`, or the entry the map
+   names), never its tables, its internals, or a file behind its entry. Types come from the entry too.
+   Where the tree applies, `src/shared/` holds no rule of the product and never imports a module; only
+   a `data/` folder imports its database client.
 4. **What you need is not exported by the entry?** Add a small export to that entry, calling that module's
    own code. That is the path that keeps the border, even when it touches a file the task does not list:
    in `realiser`, ask the person first, then name the file in the commit message.
@@ -33,13 +40,16 @@ A task's `Fichiers :` line naming one file, « a one-line import », a habit in 
 crossing right. The map outranks the plan.
 
 - **Cutting tasks** (`decouper`): one module per task where you can; a task that needs two names the
-  entry it goes through, and that entry's file is on its `Fichiers :` line.
+  entry it goes through, and that entry's file is on its `Fichiers :` line. A new module's files and its
+  tests go where `references/structure.md` puts them.
 - **Building** (`realiser`): take the path that keeps the map, and write it as a `Choix :` line: what the
   plan said, what you did, the file outside `Fichiers :` you touched (after the person's yes). Stop only
   when the one way through would move a framework folder or merge two modules.
 - **Reviewing** (`examiner`): each crossing is a finding on the Règles axis, quoting the import or the
   query and the **Modules** line it breaks. A module the map lacks, with no **Impact archi** line in
-  `decisions.md`, is a finding too. Updating the map is `rendre`'s, at release.
+  `decisions.md`, is a finding too, and so is a new module or file placed against `references/structure.md`
+  (a `utils` module, a rule in `shared/`, tests outside their module's folder). Updating the map is
+  `rendre`'s, at release.
 
 ## Red flags
 
@@ -50,3 +60,7 @@ crossing right. The map outranks the plan.
 | "A server component may query directly." | It still calls its module's entry. |
 | "It's only a type import." | Types come from the entry too. |
 | "I'll add the new module to architecture.md." | `rendre` does, at release. |
+| "A `utils` module for these helpers." | A rule of the product goes in its module; the rest in `shared/`. |
+| "Django has apps, but I'll add `src/modules/` for consistency." | The framework's way wins: the app is the module. |
+| "The framework has its `src/`, mine goes beside or inside it." | One code root: `modules/` and `shared/` go in the framework's `src/`. |
+| "This old folder isn't laid out right, I'll move it." | Moving code is a feature of its own, on the person's yes. |

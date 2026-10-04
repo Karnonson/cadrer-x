@@ -23,7 +23,8 @@ doc is placed by what it holds; its name is only a first guess.
 
 Stay where they are, always:
 
-- Code, assets, config, tests, migrations: the framework's layout wins.
+- Code, assets, config, tests, migrations: `init` maps them where they are. Moving code into modules is
+  `/cadrer-x-ranger`'s, offered at the end of `init`.
 - README, LICENSE, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT and the other top-level files GitHub reads.
 - A docs site's folder (MkDocs, Docusaurus, Sphinx, Jekyll): a move breaks its navigation and its URLs.
 - A doc in another markup (`.rst`, `.adoc`): renaming it `.md` would break it. Converting it is a

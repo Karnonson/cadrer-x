@@ -7,7 +7,7 @@ argument-hint: "<numéro ou nom de la fonctionnalité>"
 
 # cadrer-x découper — the tasks
 
-You cut the approved spec into tasks the builders take one per session, often several at once, each
+You cut the approved spec into tasks the builders take one at a time, often several at once, each
 in its own worktree, never seeing each other. One file, `taches.md`, from `templates/taches.md`. Each
 task's block is that builder's whole brief: its boxes are its done-when, its `Fichiers :` the only
 files it may touch. The reviewer reads **À surveiller**; `/cadrer-x-examiner` reviews a story once all
@@ -25,7 +25,8 @@ this skill's folder, at that moment; read it whole and follow it. Not there: go 
 Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git worktree list`,
 `git branch --list 'feature/*'`.
 
-- **The feature.** The argument's number or slug. No argument: the feature of the worktree you are
+- **The feature.** The argument's number or slug; a near miss (`devis` for `defis`, `001-defis`) with
+  one close feature: that one, said in one line. No argument: the feature of the worktree you are
   in, else the one feature with a validated spec and no `taches.md`; several: ask which, one question.
 - **Where you work.** Its worktree `.worktrees/feature.<slug>`; else the current checkout when it is on
   `feature/<slug>`; else `git worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in
@@ -36,18 +37,25 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 - An old cadrer `tranches.md` there and no `taches.md`: the build started under cadrer. Its ticked slices
   are built: read their code, and write each scenario it already proves as a ticked `[x]` task under its
   story (its files those that hold it, `Risques :` as the code guards them); cut only what is left.
-- `taches.md` already there: a revision. Ask what changed (usually the spec); keep every task already
-  ticked `[x]` as it is, with its id, and cut what changed as new tasks numbered after the last one.
+- `taches.md` already there: a revision. A `{feature}/verification.md` newer than the tasks: its
+  findings for `/cadrer-x-decouper` are what changes, never asked again; else ask what changed (usually
+  the spec). Keep every task already ticked `[x]` as it is, with its id, and cut what changed as new
+  tasks numbered after the last one.
 
 ## Read, in this order
 
 1. `{feature}/spec.md`: the stories, their scenarios, the exigences `EF<n>`. The person approved it:
    never edit it; a story you think is wrong is a question to them.
 2. `{feature}/a-trancher.md`: an answered question is settled; plan on it.
-3. `{feature}/decisions.md`: **Impact archi**, **Données et risques**, **Stack**.
+3. `{feature}/decisions.md`: **Décisions**, **Impact archi**, **Données et risques**, **Stack**. What
+   it settles stays settled: never asked again, never undone by an option you recommend.
 4. `{docs}/constitution.md`: the numbered rules `M<n>`.
 5. `{docs}/architecture.md` → **Modules**: each module, what it owns, its paths. Read `cadrer-x-modules`. Then open the code it points to, so every path you name
-   is real, or sits where the map puts that module's new files.
+   is real, or sits where the map puts that module's new files (a new module: where
+   `../cadrer-x-modules/references/structure.md` puts it). Code not yet laid out that way (**À
+   faire** names `/cadrer-x-ranger`): the feature's new code still goes where the layout puts it and
+   calls the old code where it is. Moving old code is `/cadrer-x-ranger`'s, never a task's: say so in
+   one line.
 6. `{feature}/passation.md`, with screens: each `SC<n>`, its stories, its page, its states.
 7. The tests the project already has, and how `cadrer-x.yml` runs them.
 
@@ -80,7 +88,7 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
 - **A file several tasks change** (`package.json`, the lockfile, a test setup, a route index, a shared
   type) is on the `Fichiers :` line of each, and has one owner: the first task that names it. Every
   other task naming it is `Après :` that owner, directly or through another task.
-- **Never in a task's files**: `spec.md`, `taches.md`, `passation.md`, `maquette/`, `textes.md`
+- **Never in a task's files**: `spec.md`, `taches.md`, `passation.md`, `maquette/`, `contenu.md`
   (affiner's and yours), and `{docs}/architecture.md`, `{docs}/adr/`, `{docs}/security/`, `CHANGELOG.md`
   (`/cadrer-x-rendre` folds the feature in when it ships).
 - **Tests in the runner the project has.** A builder never adds a test runner or a package on its own.
@@ -88,7 +96,9 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
   and the review clicks the rest at 390 and 1280.
 - **Every rule that asks this feature for a test or a tool has a task that owns it.** Read each `M<n>`
   against the feature. Tooling the project lacks is a task of its own in **Fondations** (its config,
-  `package.json`, the lockfile on its `Fichiers :`), and the tasks that need it are `Après :` it. A rule
+  `package.json`, the lockfile on its `Fichiers :`), and the tasks that need it are `Après :` it. The
+  setup the first tests need to run cleanly (`"type": "module"` in `package.json`, the runner's config)
+  is on the first task's `Fichiers :`. A rule
   the approved spec or the project's tools force you to break: a question to the person (it needs an
   ADR), and `- Règles en conflit : M<n> — T<nn> — <pourquoi>` meanwhile.
 
@@ -116,7 +126,7 @@ data is kept is `decisions.md`'s, not a risk. Never a secret's value.
 From the template, in this order:
 
 - **Ordre**: the template's four lines, then the waves: `- Vague 1 : T01`, `- Vague 2 : T02, T05`…,
-  each wave the tasks whose `Après :` the earlier waves cover. That is how many sessions can run at once.
+  each wave the tasks whose `Après :` the earlier waves cover. That is what can be built at once.
 - **À surveiller**: up to five cases the spec implies and no box tests (the same moment, a boundary, a
   hostile value, an empty list), each pinned to the task that owns the code, the one most likely to
   hurt a person first. `- aucun` only after you looked.
@@ -134,18 +144,43 @@ wrong), one per message, with your recommendation a plain "oui" accepts. One lef
 `- Conseil :`, `- Réponse :`. What you decide alone a builder would also have to decide: write it on the
 task's lines, never in an essay.
 
+**What the person chooses here is written down.** A layout, a scope, a tool they settle while you cut
+(« le code dans src/, un module par fonctionnalité ») becomes the next `D<n>` of `decisions.md` →
+**Décisions**, with **Impact archi** when it moves the map, committed with `taches.md`. A choice left in
+the chat is lost to every later step: the check flags its tasks, and the next cut undoes it.
+
 ## Show it, then save
 
 Write `{feature}/taches.md`, comments removed, then run `python3 <this skill's folder>/scripts/lint.py
-taches {feature}/taches.md`; fix and rerun until it prints nothing. In your message: one line per task
-(id, `[P]`, story, title, size, `Après :`), the waves, the **À surveiller** lines, and any question.
-Ask what they would change; each change is folded in, the lint run again, until the explicit yes
-("oui", "c'est bon"; "ça me va" is not one: ask what they would change).
+taches {feature}/taches.md`; fix and rerun until it prints nothing. Commit it (and `decisions.md`,
+`a-trancher.md` when you wrote to them) on the feature branch: `tâches — <Titre>`. The branch is the
+draft: nothing is built from it before the person's yes.
 
-On the yes: commit `taches.md` (and `a-trancher.md` if you wrote to it) on the feature branch:
-`tâches — <Titre>`. Then the next step and nothing more: `/cadrer-x-realiser T01`, and the tasks
-of the first wave that can start in parallel sessions. When `cadrer-x-verifier` is installed, say in
-one line that it can check the spec and the tasks first, in a fresh session.
+**A second look, fresh.** When `cadrer-x-verifier` is installed beside this skill and you can start a
+subagent, start one with a fresh context and this prompt, and nothing of yours: « Read
+`<skills folder>/cadrer-x-verifier/SKILL.md` whole and follow it for the feature `<NNNN-slug>`, in
+`<the feature's worktree>`. Launched by decouper. » Do not use the Skill tool for it: read the file.
+Meanwhile, wait. Its findings, from `verification.md`:
+
+- For `/cadrer-x-decouper`: yours; fold each in.
+- For `/cadrer-x-affiner`, with one fix the files already settle (a word the prototype or **Mots**
+  uses, a value a decision or an answered question gives): fix `spec.md` there, its lint run again,
+  and name each change in your message.
+- Anything that needs a choice: a question in your message, with your recommendation.
+
+No subagent: say in one line that `/cadrer-x-verifier`, in a fresh session, can check the spec and the
+tasks first.
+
+**Show it.** One message: one line per task (id, `[P]`, story, title, size, `Après :`), the waves, the
+**À surveiller** lines, what the second look found and what you changed for it, and the questions.
+Ask what they would change; each change is folded in, the lint run again, until a clear yes ("oui",
+"ok", "ça va", "c'est bon"; a hedge or a change asked for keeps it open).
+
+On the yes: commit what changed since (`tâches — <Titre>`; `spec — <Titre> : corrections de la
+vérification` for the spec). Then the build: `/cadrer-x-realiser <slug>` builds every task, has each
+story reviewed by someone who did not build it, and stops only for the person's questions. Say it runs
+best in a fresh session (`/clear`, then the command); they say go on here: open
+`../cadrer-x-realiser/SKILL.md`, read it whole and follow it for this feature.
 
 ## Red flags
 
@@ -158,5 +193,7 @@ one line that it can check the spec and the tasks first, in a fresh session.
 | "I'll update the data inventory in T02." | `docs/security/` is rendre's. |
 | "Two tasks both edit the route index; fine." | One owner; the other is `Après :` it. |
 | "Risk: the time zone." | A bug: a box. Risks are someone misusing it. |
-| "This story is wrong; I'll fix the spec." | Never edit the spec: ask the person. |
-| "Tasks are saved — I'll start T01." | End with `/cadrer-x-realiser T01`; they run it. |
+| "This story is wrong; I'll fix the spec." | Never edit the spec: ask the person. Only the second look's one-answer drifts are fixed there. |
+| "They said: modules in src/. Noted in my head." | A `D<n>` in `decisions.md`, committed with the tasks. |
+| "The check says T01–T08 nobody asked for; I'll recommend dropping them." | A decision asked for them: the check missed it. Settled stays settled. |
+| "While we're here, T02 moves the old code into modules." | Moving old code is `/cadrer-x-ranger`'s. |
