@@ -22,8 +22,8 @@ this skill's folder, at that moment; read it whole and follow it. Not there: go 
 
 ## Where you are
 
-Read first: `cadrer-x.yml` (`docs:`, `commands`), `{docs}/architecture.md` (**Modules**, **Mots**, **À
-faire**), `git worktree list`, `git branch --list 'chore/ranger' 'feature/*'`.
+Read first: `cadrer-x.yml` (`docs:`, `commands`), `{docs}/architecture.md` (**Modules**, **À
+faire**), `{docs}/glossaire.md`, `git worktree list`, `git branch --list 'chore/ranger' 'feature/*'`.
 
 - **The branch.** `.worktrees/` in `.git/info/exclude`, then `git worktree add -b chore/ranger
   .worktrees/chore.ranger <main branch>`, or reuse both. Everything below runs there.
@@ -38,7 +38,7 @@ faire**), `git worktree list`, `git branch --list 'chore/ranger' 'feature/*'`.
 
 Read `../cadrer-x-modules/references/structure.md` and `cadrer-x-modules`, then the code. Where code
 goes, that file answers: never ask the person, never call the project too simple for it. The
-modules are areas of the product, named with words of **Mots** (never `utils`, `helpers`, `services`).
+modules are areas of the product, named with words of `{docs}/glossaire.md` (never `utils`, `helpers`, `services`).
 The argument names a part of the code: only that part.
 
 Write `{docs}/rangement.md`:
@@ -135,6 +135,6 @@ takes this in with `git merge <main>` in its worktree. Then the next step: `/cad
 | "All modules at once, then the checks." | One module, green, committed; then the next. |
 | "No tests; the move is mechanical, it's fine." | The safety net first: tests and captures of today. |
 | "A nicer key name for localStorage." | Stored and addressed names never change in a move. |
-| "Their project is small; a `utils` folder will do." | Areas of the product, named from **Mots**. |
+| "Their project is small; a `utils` folder will do." | Areas of the product, named from the glossary. |
 | "The diff looks clean to me." | A second look by someone who did not move it. |
 | "Moved: I'll merge into main." | Ask; merge on their yes, never push. |

@@ -74,7 +74,7 @@ Six aides se chargent seules quand une étape en a besoin : `cadrer-x-tdd`, `cad
 
 ```
 cadrer-x.yml                       les commandes : installer, vérifier, lancer
-docs/vision.md  docs/architecture.md  docs/constitution.md  docs/adr/
+docs/vision.md  docs/architecture.md  docs/glossaire.md  docs/constitution.md  docs/adr/
 docs/features/0001-<nom>/
   idee.md  decisions.md  spec.md  a-trancher.md  taches.md
   maquette/  passation.md  contenu.md

@@ -30,7 +30,7 @@ FastAPI, a plain Vite app, a static site with no framework, a library) takes thi
 src/                          the framework's own src/ when it has one (no src/src/)
   <the framework's folders>   app/, pages/, routes/… thin: they call a module's api
   modules/
-    <module>/                 one area of the product, named with a word from Mots
+    <module>/                 one area of the product, named with a word of the glossary
       api.<ext>               its entry: the only file pages, other modules and tests import
       ui/                     its screens' parts (none when it has no screen)
       server/                 its rules and actions

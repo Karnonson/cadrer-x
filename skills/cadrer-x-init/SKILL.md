@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-init
-description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision (pour qui, le problème, le succès, faire ou louer un outil qui existe), puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
+description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision (pour qui, le problème, le succès, faire ou louer un outil qui existe), puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/glossaire.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
 disable-model-invocation: true
 argument-hint: "[le produit en une phrase]"
 ---
@@ -9,7 +9,7 @@ argument-hint: "[le produit en une phrase]"
 
 You set the project up with the person, once, before its first feature. Two steps, each ending in
 files on one branch: the vision (`{docs}/vision.md`), then the layout (`cadrer-x.yml`,
-`{docs}/architecture.md`, `{docs}/constitution.md`, `AGENTS.md`, and the docs already there moved to
+`{docs}/architecture.md`, `{docs}/glossaire.md`, `{docs}/constitution.md`, `AGENTS.md`, and the docs already there moved to
 their place). No feature, no code: the first task of the first feature sets up whatever code needs.
 
 Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
@@ -22,7 +22,7 @@ Read first: the README, the manifest (package.json, pyproject.toml, Makefile…)
 default `docs`), `{docs}/`, `git log --oneline | head`, `git branch --list 'chore/cadrer-x-init'`.
 
 - No `{docs}/vision.md`, on the main branch or on `chore/cadrer-x-init`: **step 1**.
-- A vision and no `cadrer-x.yml`, `{docs}/architecture.md`, `{docs}/constitution.md` or `AGENTS.md`:
+- A vision and no `cadrer-x.yml`, `{docs}/architecture.md`, `{docs}/glossaire.md`, `{docs}/constitution.md` or `AGENTS.md`:
   **step 2**, for what is missing.
 - Everything there: a revision. Ask which file changes and what changed; ask only that. A change to
   `{docs}/constitution.md` is never made here: it goes through an ADR (see step 2).
@@ -173,9 +173,10 @@ features that need them. **An existing repo whose code is not laid out that way*
 is now, then the target layout from the same file, stated, never asked (a static site with no
 framework has its own section there), and under **À faire**: `- [ ] ranger le code en modules :
 /cadrer-x-ranger — avant la construction`.
-**Mots**, in both cases: the product's name first, as the vision gives it, then its own terms, from the
-README, the screens and their answers (« Inscription : jamais réservation »), so every spec and screen
-uses the same word.
+**`{docs}/glossaire.md`**, in both cases, from `templates/glossaire.md`: the product's name first, as
+the vision gives it, then the product's own terms and its domain's (« Jeton : … », « Inscription :
+jamais réservation »), from the README, the screens, the code and their answers, so every spec, screen,
+module and test uses the same word. An existing glossary is moved here (`references/carte.md`).
 
 ### 4. `{docs}/constitution.md`, `AGENTS.md`
 

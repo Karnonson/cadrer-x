@@ -57,7 +57,7 @@ The order is part of the job: you form your own view before reading anyone's acc
 2. `{feature}/taches.md`: the story's tasks, their boxes, `Risques :`, `Fichiers :`, the **À
    surveiller** lines pinned to them, the story's rows of **Couverts**.
 3. `{feature}/decisions.md`, `{feature}/a-trancher.md` (an answered question is settled),
-   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-securite`, `cadrer-x-modules` and `cadrer-x-tdd`.
+   `{docs}/constitution.md` (each `M<n>`), `{docs}/architecture.md` → **Modules**, `{docs}/glossaire.md`. Read `cadrer-x-securite`, `cadrer-x-modules` and `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its pages in
    `maquette/`, `{feature}/contenu.md`. Read `cadrer-x-design-system` and `cadrer-x-textes`.
 5. The code and the tests: each file on the story's tasks' `Fichiers :`, as the feature branch has it
@@ -120,7 +120,7 @@ Each finding quotes the line it is about.
 - **A lowered bar**: a threshold moved, an assertion loosened, a test skipped or wrapped in a `try`, a
   checker silenced, a stub or a TODO left, a dependency the constitution or `decisions.md` does not
   allow.
-- **The words**: a name for a thing the **Mots** list names otherwise (« réservation » for « inscription »).
+- **The words**: a name for a thing `{docs}/glossaire.md` names otherwise (« réservation » for « inscription »).
 - **Whose job it is.** `{docs}/architecture.md`, `{docs}/adr/`, `{docs}/security/` and `CHANGELOG.md` are
   `/cadrer-x-rendre`'s, when the feature ships: their state is at most an `Info :`, and a task that
   edited them is `À corriger :` (another session may be editing them too). A need no story asks for (a

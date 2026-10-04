@@ -7,6 +7,7 @@ doc is placed by what it holds; its name is only a first guess.
 |---|---|---|
 | Who the product serves, the problem, success | `{docs}/vision.md` | vision, product, mission, product-vision |
 | The stack, the parts, where they run, the modules | `{docs}/architecture.md` | architecture, arch, system-design |
+| The product's and its domain's words, each with its meaning | `{docs}/glossaire.md` | glossary, glossaire, terms, terminology, lexicon, vocabulary |
 | The rules every change keeps | `{docs}/constitution.md` | constitution, principles, conventions, guidelines, engineering-rules |
 | One decision each, never edited, only superseded | `{docs}/adr/NNNN-<slug>.md` | adr/, adrs/, decisions/, decision-records/ |
 | One folder per feature: idea, decisions, spec, tasks | `{docs}/features/NNNN-<slug>/` | specs/, rfcs/, prd/, proposals/, features/ |

@@ -64,10 +64,10 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, `git 
 **Read, in this order:** `{feature}/idee.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
 `{feature}/decisions.md` (Décisions, Étapes, **Précisions**, **Données et risques**),
 `{feature}/a-trancher.md` if it exists, `{docs}/constitution.md` (no story may contradict a rule),
-`{docs}/architecture.md` and the README for the product's own words: use them, never a synonym. The
-product's name: `{docs}/vision.md` and **Mots** first, before the README or the pages; where they
-disagree, one question. The rest of the architecture only tells you what exists; none of it goes into
-the spec.
+`{docs}/glossaire.md` and the README for the product's own words: use them, never a synonym. The
+product's name: `{docs}/vision.md` and the glossary first, before the README or the pages; where they
+disagree, one question. `{docs}/architecture.md` only tells you what exists; none of it goes into the
+spec.
 
 **What goes in, and what stays out.**
 - **What and why, never how.** No stack, module, table, file format, request or code word ("API",

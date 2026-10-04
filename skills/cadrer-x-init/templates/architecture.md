@@ -48,8 +48,4 @@
 
 <!-- Les montages non choisis, et pourquoi. -->
 
-## Mots
-
-<!-- Les mots du produit, chacun avec son sens : la spec et les écrans les reprennent, jamais un synonyme (« Inscription : jamais réservation »). -->
-
-- <Mot> : <ce qu'il veut dire ici>
+<!-- Les mots du produit et de son domaine sont dans `glossaire.md`, à côté. -->

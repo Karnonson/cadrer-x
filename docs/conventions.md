@@ -19,6 +19,7 @@ person. Later, fleet parses the same names.
 ```
 cadrer-x.yml                      project file: code, install, checks
 docs/architecture.md              stack, runtime, Modules
+docs/glossaire.md                 the product's and its domain's words; never a synonym
 docs/constitution.md
 docs/adr/NNNN-<slug>.md
 docs/features/NNNN-<slug>/
@@ -284,7 +285,6 @@ by `rendre` at release; no task touches them.
 | Pour lancer | Lancer |
 | Trajet | Trajet |
 | Écarté (cadrer) | Écarté |
-| Words (Proa) | Mots (the product's own terms; a spec uses them, never a synonym) |
 
 Template: `skills/cadrer-x-init/templates/architecture.md`.
 

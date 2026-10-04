@@ -31,7 +31,7 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`.
 
 Read the task's block, its story in `{feature}/spec.md` (the scenarios are the truth), the
 **À surveiller** lines pinned to it, the answered questions of `{feature}/a-trancher.md`,
-`{docs}/constitution.md`, `{docs}/architecture.md` → **Modules** and **Mots**. Read `cadrer-x-tdd`,
+`{docs}/constitution.md`, `{docs}/architecture.md` → **Modules**, `{docs}/glossaire.md`. Read `cadrer-x-tdd`,
 `cadrer-x-modules`, and, when the task has a `Risques :` line or opens a way in, `cadrer-x-securite`.
 With an `Écrans :` line, read `cadrer-x-design-system`.
 

@@ -38,7 +38,7 @@ Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'f
 
 `{feature}/idee.md`, `decisions.md` (each `D<n>`, each **Précisions** answer, **Données et risques**,
 **Impact archi**), `spec.md`, `a-trancher.md`, `passation.md` and `contenu.md` when there are screens,
-`taches.md` when there is one; `{docs}/constitution.md`, `{docs}/architecture.md` (**Modules**, **Mots**).
+`taches.md` when there is one; `{docs}/constitution.md`, `{docs}/architecture.md` (**Modules**), `{docs}/glossaire.md`.
 Then run the form checks the earlier steps left, when their skills are installed beside this one:
 `python3 <skills folder>/cadrer-x-affiner/scripts/lint.py spec {feature}/spec.md` (and `passation`), and
 `python3 <skills folder>/cadrer-x-decouper/scripts/lint.py taches {feature}/taches.md`. A line they
@@ -56,7 +56,7 @@ print is a finding as it stands; you look for what they cannot see.
 - **No contradiction**: between the spec and `decisions.md`; between the spec and each `M<n>` of the
   constitution (a rule's words read as they are: « leurs ateliers » is not « tous les ateliers »);
   between two stories.
-- **The person's words**: each thing named as **Mots** names it; a synonym is a finding (two words make
+- **The person's words**: each thing named as `{docs}/glossaire.md` names it; a synonym is a finding (two words make
   two things in a builder's head).
 - **What a reasonable person expects and no scenario says**: the boundary (the last seat, the exact hour,
   the empty list), the second person at the same moment, the person who should not see it. One line

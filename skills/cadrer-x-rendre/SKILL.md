@@ -76,8 +76,8 @@ Check each, and stop at the first that fails, naming the step that fixes it:
   replaces. A change to the constitution is an ADR too, and only one the person asked for.
 - **`{docs}/architecture.md`**: only the sections the feature changes, each linking the ADR: **Modules**
   (the new module, what it owns, its paths), **Pièces**, **Données** (what is kept, who sees it, the
-  copies), **Secrets** (by name), **Coût**, **Lancer**, **Mots** (a word the spec settled). The file stays
-  the product's shape, never a log.
+  copies), **Secrets** (by name), **Coût**, **Lancer**. The file stays the product's shape, never a log.
+- **`{docs}/glossaire.md`**: each word the spec settled, with its meaning, and the word it replaces.
 - **Personal data**: each piece the feature keeps or sends gets its line in the data list under
   `{docs}/security/` (`data-inventory.md`, or the file the constitution names): what, where it is kept, its
   GDPR basis, how long and then what, who sees it, from **Données et risques**.

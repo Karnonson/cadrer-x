@@ -17,7 +17,7 @@ Read, each whole, before writing a word:
 
 1. **The project's**: `{docs}/textes.md` (the product's register, its words, its tone), and what it points
    to (a brand voice). These win where they differ from the rest.
-2. **The product's words**: `{docs}/architecture.md` → **Mots**: the same word for the same thing, every time.
+2. **The product's words**: `{docs}/glossaire.md`: the same word for the same thing, every time.
 3. **The French the product already shows** (its pages, a feature's `contenu.md`), for the register and
    the words it uses.
 4. **These defaults**, below.
@@ -30,7 +30,7 @@ and say once that the project has no rules of its own.
 - French written as French, never translated from English.
 - One register in every text of the product.
 - Short sentences: 20 words at most between two periods.
-- The product's words (« membre », never « utilisateur », when **Mots** says so).
+- The product's words (« membre », never « utilisateur », when the glossary says so).
 - Clear, not clever: what happened, then what to do next. An error never blames the person and has no
   exclamation mark. No marketing jargon.
 - Written by a person, not a machine: subject, verb, complement. No colon to set up a punchline

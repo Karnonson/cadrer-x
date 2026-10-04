@@ -163,7 +163,7 @@ subagent, start one with a fresh context and this prompt, and nothing of yours: 
 Meanwhile, wait. Its findings, from `verification.md`:
 
 - For `/cadrer-x-decouper`: yours; fold each in.
-- For `/cadrer-x-affiner`, with one fix the files already settle (a word the prototype or **Mots**
+- For `/cadrer-x-affiner`, with one fix the files already settle (a word the prototype or the glossary
   uses, a value a decision or an answered question gives): fix `spec.md` there, its lint run again,
   and name each change in your message.
 - Anything that needs a choice: a question in your message, with your recommendation.
