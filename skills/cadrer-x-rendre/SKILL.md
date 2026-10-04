@@ -61,7 +61,8 @@ Check each, and stop at the first that fails, naming the step that fixes it:
    built, each task's `Risques :`), `a-trancher.md`, `audit.md`, the list of `{feature}/captures/`.
 2. The project's docs you will update: `{docs}/architecture.md`, `{docs}/adr/` (their numbering and
    headings), `{docs}/security/`, and `{docs}/constitution.md`, read only: a rule that says what is
-   checked at release (personal data listed before it is kept) is yours to meet. Read `cadrer-x-securite`.
+   checked at release (personal data listed before it is kept) is yours to meet. Read `cadrer-x-securite`,
+   and `cadrer-x-textes` before the CHANGELOG and `pr.md`.
 3. `CHANGELOG.md`, the version file (the first of `package.json`, `pyproject.toml`, `Cargo.toml`,
    `VERSION` at the top), the commits of the feature (`git log --oneline <main>..feature/<slug>`).
 4. The code each sentence you write is about. Write only what the branch shows: a protection with no

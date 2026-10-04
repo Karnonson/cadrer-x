@@ -6,8 +6,8 @@ user-invocable: false
 
 # cadrer-x débogage — a red test, the cause, then the fix
 
-Loaded by `realiser` (a bug met on the way, a fix round), `examiner` (explaining a failure) and any step
-where a test fails unexpectedly. Guessing at fixes is the failure this prevents. The loop: stop,
+Loaded by `realiser` (a bug met on the way, a fix round), `ranger` (a move that turns the checks red)
+and any step where a test fails unexpectedly. Guessing at fixes is the failure this prevents. The loop: stop,
 reproduce with a red test, hypothesise, change one thing at a time, fix the cause, prove it.
 
 ## 1. Stop the line

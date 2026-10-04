@@ -9,6 +9,7 @@ and the plan's links (stories, exigences, screens, shared files, `Après :`, `[P
 tasks are well cut: that is the person's, and the review's.
 """
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -16,8 +17,8 @@ FIXED_H2 = ["Fondations", "Ordre", "À surveiller", "Couverts"]
 STORY_H2 = re.compile(r"^US(\d+) — \S.* \(Priorité : P\d+\)( 🎯)?$")
 TASK = re.compile(r"^- \[([ xX])\] (T(\d{2,})) (\[P\] )?(\[(US\d+)\] )?(\S.*)$")
 LINES = ["Exigences", "Risques", "Écrans", "Fichiers", "Après", "Taille"]
-NEVER = re.compile(r"(^|/)(spec\.md|taches\.md|passation\.md|contenu\.md|CHANGELOG\.md)$|(^|/)maquette/|"
-                   r"(^|/)docs/(architecture\.md|adr/|security/)")
+NEVER = re.compile(r"(^|/)(spec\.md|taches\.md|passation\.md|contenu\.md|CHANGELOG\.md)$|(^|/)maquette/")
+RENDRE = r"(architecture\.md|adr/|security/)"
 
 
 def ids(text, pattern):
@@ -37,6 +38,17 @@ def constitution(folder):
     return None
 
 
+def rendre_docs(folder):
+    """rendre's docs under {docs}/, the folder two levels up from features/NNNN-x/, as the repo names it."""
+    docs = folder.resolve().parent.parent
+    r = subprocess.run(["git", "rev-parse", "--show-toplevel"], cwd=folder, capture_output=True, text=True)
+    try:
+        rel = docs.relative_to(Path(r.stdout.strip()).resolve()).as_posix() if r.returncode == 0 else "docs"
+    except ValueError:
+        rel = "docs"
+    return re.compile(r"^(\./)?" + ("" if rel == "." else re.escape(rel) + "/") + RENDRE)
+
+
 def files_of(v):
     out = []
     for f in v.split(","):
@@ -50,6 +62,7 @@ def lint(path):
     where, out = str(path), []
     folder = path.parent
     lines = path.read_text(encoding="utf-8").splitlines()
+    rendre_files = rendre_docs(folder)
 
     spec = read(folder / "spec.md")
     stories = ids(spec, r"^### (US\d+) — ")
@@ -174,7 +187,7 @@ def lint(path):
             if not t["files"]:
                 out.append(f"{where}:{n}: `Fichiers :` names the exact paths, tests included")
             for f in t["files"]:
-                if NEVER.search(f):
+                if NEVER.search(f) or rendre_files.search(f):
                     out.append(f"{where}:{n}: `{f}` is never a task's file (affiner's, découper's or rendre's)")
         if "Après" in val:
             n, v = val["Après"]

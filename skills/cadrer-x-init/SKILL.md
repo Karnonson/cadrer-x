@@ -150,8 +150,9 @@ feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each e
 `rollback`) the first time it puts the product online.
 
 **`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
-`permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` put there, so a build
-is not a prompt per check. Nothing else; never `git push`. Committed with the rest.
+`permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` puts there when
+cadrer-x is installed in the project (after a global install, say that `./install.sh` run in the
+project allows them), so a build is not a prompt per check. Nothing else; never `git push`. Committed with the rest.
 
 ### 3. `{docs}/architecture.md`
 
@@ -185,7 +186,8 @@ module and test uses the same word. An existing glossary is moved here (`referen
 ### 4. `{docs}/constitution.md`, `AGENTS.md`
 
 **The constitution** holds the rules every change keeps: what, if broken, puts a bug, a leak or a
-liability in the product. From `templates/constitution.md`: its default rules, plus what the repo
+liability in the product. From `templates/constitution.md`, `{docs}` written as the folder
+`cadrer-x.yml` names: its default rules, plus what the repo
 implies (its tests, its modules), minus what does not apply (no personal data: no M3, no M4). An
 existing file of rules (`principles.md`, `conventions.md`): its rules first, in this shape. The rules
 go in the summary as one table with who checks each and when. Each change they ask for is folded in.
@@ -193,7 +195,7 @@ The rules take effect on their yes; from then on, a rule changes only through an
 approve (`{docs}/adr/`), written by `/cadrer-x-rendre` when the feature that needs the change ships.
 
 **`AGENTS.md`** is for the agents, loaded every session: from `templates/AGENTS.md`, short — where the
-docs are, the commands, a pointer to the constitution, never its rules copied in. An existing
+docs are (`{docs}` written as the folder `cadrer-x.yml` names), the commands, a pointer to the constitution, never its rules copied in. An existing
 `AGENTS.md`: add only its missing lines. No `CLAUDE.md`: create it with the one line `@AGENTS.md`, so
 Claude reads the same file as codex; an existing `CLAUDE.md` gets that line if it lacks it.
 

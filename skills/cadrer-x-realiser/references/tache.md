@@ -33,7 +33,8 @@ Read the task's block, its story in `{feature}/spec.md` (the scenarios are the t
 **À surveiller** lines pinned to it, the answered questions of `{feature}/a-trancher.md`,
 `{docs}/constitution.md`, `{docs}/architecture.md` → **Modules**, `{docs}/glossaire.md`. Read `cadrer-x-tdd`,
 `cadrer-x-modules`, and, when the task has a `Risques :` line or opens a way in, `cadrer-x-securite`.
-With an `Écrans :` line, read `cadrer-x-design-system`.
+With an `Écrans :` line, read `cadrer-x-design-system`. With a text a person reads that `contenu.md`
+lacks, read `cadrer-x-textes`.
 
 Run the whole check command once. A failure now is not yours and not a stop: note the test's exact
 name and build the task anyway.

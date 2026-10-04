@@ -104,8 +104,8 @@ Format, without the tool, in their language:
 - **Ouvert** — every *how* left unsettled (screens, data, services). Never answer one to look
   finished: step 2 settles them.
 
-The interview is the job: never cut it short. You are done when you can predict their answer to your
-next three questions. Then write it back — Résultat, Pour qui, Pourquoi maintenant, Mesure,
+The interview is the job: you are done when you can predict their answer to your next three
+questions. Then write it back — Résultat, Pour qui, Pourquoi maintenant, Mesure,
 Contraintes, Non couverts, one line each — and ask: "C'est bien ça ? Oui, ou dis-moi quoi changer."
 A correction: fold it in, write it back again.
 

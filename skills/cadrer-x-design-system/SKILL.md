@@ -6,8 +6,8 @@ user-invocable: false
 
 # cadrer-x design system — find it, read it, never edit it
 
-Loaded by `init` (a project with screens), `affiner` (the prototype), `realiser` (a task with screens)
-and `examiner` (the screens' review). The design system is the one source of a product's look: its
+Loaded by `affiner` (the prototype), `realiser` (a task with screens) and `examiner` (the screens'
+review). The design system is the one source of a product's look: its
 tokens (every colour, font, size and space) and its parts (a button, a field, a card). A screen that
 invents a colour or a part drifts from the rest of the product, and nobody sees it until it ships.
 
@@ -55,8 +55,11 @@ too: copied byte for byte, never edited.
 
 ## 5. No design system yet
 
-- **`init`, or `affiner`'s first prototype**, with the person: make `{docs}/design-system/` from what the
-  product already has, never from taste. `styles.css`: the tokens under `:root` with the values the
+- **`affiner`'s prototype**: the app's own tokens file and components when it has screens already;
+  none: `affiner`'s `templates/maquette/styles.css`, a plain neutral one, and say once that the look is
+  the prototype's, not a brand. No step makes a design system on its own.
+- **The person asks for one**: make `{docs}/design-system/` from what the product already has, never
+  from taste. `styles.css`: the tokens under `:root` with the values the
   product uses today (its tokens file, its global stylesheet, the colours its components repeat), one
   class per part it already has. `readme.md`: the tokens, a table of parts (part, classes, component in
   the code), the rules. A product with no styles at all: tokens only, the fewest that make a readable

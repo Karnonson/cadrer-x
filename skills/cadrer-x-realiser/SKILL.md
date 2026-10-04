@@ -36,7 +36,8 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
 - **The commands it runs.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) that
   `.claude/settings.json` → `permissions.allow` lacks: add it as `Bash(<the command>)`, and say so in
   your first message; a builder otherwise waits on a prompt for each run. The git commands are there
-  since `install.sh`.
+  when `install.sh` installed cadrer-x in this project; after a global install, say once that each
+  git command will ask, and that `./install.sh` run in the project allows them.
 - **The state** is in the files, so a run that stopped picks up where it was: tasks `[x]` on the feature
   branch are built; a story with a `validé` section in `audit.md` is done; a `tache/<slug>-*` branch
   left over is a builder's unmerged work (merge it as below when its report said `fait` and its commit

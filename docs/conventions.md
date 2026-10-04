@@ -340,10 +340,10 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 |---|---|---|
 | `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory | choisir, affiner, decouper, realiser, examiner, rendre |
 | `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, examiner |
-| `cadrer-x-debug` | proa-debug | realiser, examiner, any failing test |
-| `cadrer-x-design-system` | design-system | init, affiner, realiser, examiner |
+| `cadrer-x-debug` | proa-debug | realiser, ranger, any failing test |
+| `cadrer-x-design-system` | design-system | affiner, realiser, examiner |
 | `cadrer-x-modules` | module-borders | decouper, realiser, ranger, examiner |
-| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | init, affiner, realiser, examiner, rendre |
+| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, examiner, rendre |
 
 A helper has `user-invocable: false` (Claude Code keeps it out of the `/` menu) and
 `allow_implicit_invocation: true` in its `agents/openai.yaml` (codex may load it on its own). The
