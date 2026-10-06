@@ -20,12 +20,13 @@ nothing here can check is ticked on their word, `confirmé par la personne`. One
 saw, and go no further until it passes or they drop it; if they drop an item that a part of the
 product depends on, say what the people using it lose, and ask whether to go on without that part.
 
-**The plan, before anything leaves this computer.** One table, in order: the action · what it creates,
-changes, sends or deletes out there · what it costs now and per month · how to undo it. Real data starts
-empty or from what the person gives, never from local test data; a change to kept data is a row that
-says how to get it back. The cost alert **Coût** names is a row, and so are the copies **Données**
-relies on. The last row is the check online. Wait for the yes; a changed row is shown again; a row that
-spends money gets its own yes, with the amount. A no, or not now: say what is ready, write nothing.
+**The plan, before anything leaves this computer.** One table, in a message, in order: the action ·
+what it creates, changes, sends or deletes out there · what it costs now and per month · how to undo
+it. Real data starts empty or from what the person gives, never from local test data; a change to
+kept data is a row that says how to get it back. The cost alert **Coût** names is a row, and so are
+the copies **Données** relies on. The last row is the check online. Then the question, naming this
+plan; a changed row is shown again; a row that spends money gets its own yes, with the amount. A no,
+or not now: say what is ready, write nothing.
 
 **Run it.** The rows in order, from the commit you noted, one line per result. Never a secret's value in
 code, a commit, a tracked file, or a command whose output is shown. A row that fails: stop, say what you
@@ -59,5 +60,4 @@ first thing to do now.
 | Thought | Instead |
 |---|---|
 | "Paste the API key here and I'll set it." | Never through the conversation: the page, or their own terminal. |
-| "I'll seed production with the test members." | Real data starts empty or from what they give. |
 | "A one-line fix and the check online passes." | No code here: **À faire**, then `/cadrer-x-realiser`. |

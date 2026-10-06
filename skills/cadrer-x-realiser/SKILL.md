@@ -14,8 +14,8 @@ general one: `general-purpose` in Claude Code, codex's default worker; never a r
 agent type), merge, ask the person what only they can answer. Read `taches.md`, `audit.md` and the
 reports, never the code.
 
-Talk in the person's language, every message included; in French, *tu* or *vous* as they write, *vous*
-when unsure, never both. Commit messages, file names and labels stay as written here.
+Talk in the person's language, each note between tool calls too; in French, *tu* or *vous* as they
+write, *vous* when unsure, never both. Commit messages, file names and labels stay as written here.
 
 `<skills folder>`: the folder holding this skill's folder, absolute path. A reference you follow
 yourself (`references/tache.md` by hand or with no subagents, `references/examen.md` in a review
@@ -36,8 +36,7 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   no fix round due: its review, as *Reviews*. `T<nn>`: that task alone (*One task by hand*).
 - **Commands.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) missing from
   `.claude/settings.json` → `permissions.allow`: add it as `Bash(<the command>)` and say so in your
-  first message (else a builder waits on a prompt at each run). No git command there (a global
-  install): say once that each will ask unless `./install.sh` is run in the project.
+  first message (else a builder waits on a prompt at each run).
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
   a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
   or a package's flaw) or the person typed its `US<n>`: such a task is built, then the story reviewed
@@ -64,11 +63,12 @@ of the feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. »
 tool: the builder reads the file. Its last message is its report.
 
 - **`fait`**: merge it (below), then start what it made ready.
-- **`question`**: ask the person, one question per message, with the builder's recommendation and one
-  line of context (task, purpose). Other builders go on. The answer goes back to that builder (resume
-  it, else a new builder whose prompt adds the answer). An answer settling what the spec leaves open is
-  written to `{feature}/a-trancher.md` as a question with its **Réponse**, committed on the feature
-  branch: the reviewer reads it as settled.
+- **`question`**: one about code, tests or `taches.md` is yours: answer it from the feature's files,
+  else take the builder's recommendation: the review judges it. Only what the person sees or does
+  reaches them, one question per message, in plain words, with that recommendation. Other builders
+  go on. The answer goes back to that builder (resume it, else a new builder whose prompt adds the
+  answer). An answer settling what the spec leaves open is written to `{feature}/a-trancher.md` as a
+  question with its **Réponse**, committed on the feature branch: the reviewer reads it as settled.
 - **`bloqué`**: say what blocks, ask what to do, with your recommendation.
 
 ## Merge into the feature branch
@@ -97,8 +97,8 @@ Launched by realiser. » *Its screens* only when a task of the story has an `Éc
 the short path, a box names a page. A story with screens is reviewed while no builder with an
 `Écrans :` line runs.
 
-- **`validé`**: one short message: the story works now, what they can try, the captures
-  (`{feature}/captures/`), the `Détail :` lines. Go on.
+- **`validé`**: two lines at most: what works now, what they can try; the rest waits for *The end*.
+  Go on.
 - **`à corriger`**: fix round. A new builder, prompt « … for the fix round of `US<n>` … », merged like a
   task (branch `tache/<slug>-us<n>-correctifs`, worktree `.worktrees/tache.<slug>-us<n>-correctifs`,
   in place of `-t<nn>`), then a new reviewer for the next tour. The first review is tour 1; the fix

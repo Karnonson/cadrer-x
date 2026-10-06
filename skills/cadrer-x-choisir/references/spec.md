@@ -8,10 +8,6 @@ You turn the feature's idea and decisions into what the person approves before a
 `a-trancher.md` for what is left to decide. No tasks, no code: the tasks are cut from your files, and
 the builders build from them without you.
 
-Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
-*vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
-written here and in the templates, in every language: the later skills find them by these names.
-
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open
 `<skills folder>/cadrer-x-<name>/aide.md` (the folder that holds `cadrer-x-choisir/`) at that moment;
 read it whole and follow it. Not there: go on without it.
@@ -98,7 +94,7 @@ A) … · B) … · C) …
 ```
 
 Each answer goes in `- Réponse :`, and the draft changes where its marker was; then the next
-question. No question left: ask them to read the spec, and what they would change. Each change is
+question. No question left: show them the spec, and ask what they would change. Each change is
 folded in, and they are asked again, until a clear yes.
 
 **The Vérifs, before the yes.** Check the draft against each line of **Vérifs**, plus the feature's

@@ -13,9 +13,10 @@ Then the spec, by its reference; the design when there are screens, and the task
 start (*Workers*); then you stop. No code: the builders build from your files, and whatever you
 leave unsettled they will guess.
 
-Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
-*vous* when you can't tell, and never both. File names, headings and labels stay
-exactly as written here, in every language: the later skills find them by these names.
+Talk, and write the files' text, in the person's language, every message included (each note
+between tool calls too); in French, *tu* or *vous* as they write, *vous* when you can't tell, and
+never both. File names, headings, labels and ids stay exactly as written here and in the templates,
+in every language: the later skills find them by these names.
 
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
@@ -83,9 +84,11 @@ conversation, read it again.
   each with its recommendation, at most five: they answer in one message (« 1 A, 2 oui, 3 … »).
 - Each question carries your answer: a guess and how sure you are (step 1), or a recommendation a
   plain "oui" accepts (step 2). Reacting is faster than inventing.
-- With the AskUserQuestion tool: one question per call, your answer as the first option, the context
-  in your message just before it. No tool, or it fails: write the question in your reply, and your
-  turn ends there. Never say a question was asked elsewhere or will come separately.
+- **Before a yes**: a summary of a few lines in the question; a table or a draft in a message just
+  before, which the question names.
+- With the AskUserQuestion tool: one question per call, your answer as the first option, other
+  context in your message just before it. No tool, or it fails: write the question in your reply,
+  and your turn ends there. Never say a question was asked elsewhere or will come separately.
 - When a subagent reports after your question, the message it triggers ends with the open question
   repeated whole, never a pointer to it.
 - **Facts are looked up, never asked.** What the repo, the product or the web can answer (what the

@@ -12,9 +12,10 @@ files on one branch: the vision (`{docs}/vision.md`), then the layout (`cadrer-x
 `{docs}/architecture.md`, `{docs}/glossaire.md`, `{docs}/constitution.md`, `AGENTS.md`, and the docs already there moved to
 their place). No feature, no code: the first task of the first feature sets up whatever code needs.
 
-Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
-*vous* when you can't tell, and never both. File names, headings and labels stay exactly as written
-here, in every language: the later skills find them by these names.
+Talk, and write the files' text, in the person's language, every message included (each note
+between tool calls too); in French, *tu* or *vous* as they write, *vous* when you can't tell, and
+never both. File names, headings and labels stay exactly as written here, in every language: the
+later skills find them by these names.
 
 ## Which step
 
@@ -42,9 +43,11 @@ when it exists). Commit each step there. The main branch is never written to wit
 - **One question per message**, the one that unblocks the most, with your answer: a guess and how sure
   you are, or a recommendation a plain "oui" accepts. One question has one thing to answer: never two
   asks joined by "and" or "or".
-- With the AskUserQuestion tool: one question per call, your answer as the first option, the context
-  in your message just before it. No tool, or it fails: write the question in your reply, and your
-  turn ends there. Never say a question was asked elsewhere or will come separately.
+- **Before a yes**: a summary of a few lines in the question; a table or a draft in a message just
+  before, which the question names.
+- With the AskUserQuestion tool: one question per call, your answer as the first option, other
+  context in your message just before it. No tool, or it fails: write the question in your reply,
+  and your turn ends there. Never say a question was asked elsewhere or will come separately.
 - When a background check reports after your question, the message it triggers ends with the open
   question repeated whole, never a pointer to it.
 - **Facts are looked up, never asked**: what the repo holds, what exists, what it costs today. Read
@@ -106,8 +109,7 @@ still asked. **Faire ou louer** becomes keep or switch: for each option, the res
 move — the data to carry over, the people to bring along, what the product does today that they would
 lose — and the question is « continuer, ou passer à X ? ». Recommend a switch only when an option does
 what they use today and the move is worth it. A switch is recorded as `louer : <X>` with the move in
-one line, and ends here like any *louer*: cadrer-x does not do the move. Keeping it names what every
-option lacks: the first draft of **Produit**.
+one line, and ends here like any *louer*: cadrer-x does not do the move.
 
 **The voice.** `vision.md` is the owner's text: written as they would say it, active, the product as
 the subject (« Agendo montre… »), « je » rare, plain verbs (« prévoir », never « craindre » for a
@@ -141,8 +143,8 @@ Commit it: `vision — <Produit>`. Then step 2, right away, said in one line. Th
 Four parts, in this order, written on the branch and committed as you go: the branch is the draft,
 nothing reaches the main branch before the person's yes. What the repo or
 `../cadrer-x-modules/references/structure.md` answers, you don't ask; a question only where both are
-silent (the stack of a new project, a doc its content cannot place, a failing check). Then one summary
-of the four parts, in plain words, and one yes (see **Save**).
+silent (the stack of a new project, a doc its content cannot place, a failing check). Then one yes
+(see **Save**).
 
 ### 1. Where things go
 
@@ -260,4 +262,3 @@ and `/cadrer-x-choisir` reminds them once.
 | "src/lib/ should be a module, I'll move it." | Code stays; Modules maps it and states the target; `/cadrer-x-ranger` moves it. |
 | "Their project is simple; index.html at the top is fine." | Projects grow: the layout of structure.md, stated. |
 | "This rule is in the way, I'll drop it." | Rules change through an ADR they approve. |
-| "Done, I'll merge into main." | Ask; merge on their yes, never push. |

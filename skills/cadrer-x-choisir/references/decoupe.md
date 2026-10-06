@@ -9,9 +9,8 @@ task's block is that builder's whole brief: its boxes are its done-when, its `Fi
 files it may touch. The reviewer reads **À surveiller**; realiser has a story reviewed once all its
 tasks are built. No code.
 
-Talk, and write the file's text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
-*vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
-written here and in the template, in every language: the later skills find them by these names.
+Write the file's text in the person's language. File names, headings, labels and ids stay exactly
+as written here and in the template, in every language: the later skills find them by these names.
 
 **Launched by choisir.** You never ask the person and never commit: they are not here. What you
 would ask goes in your report, and your last message is that report (the end of this file). Resumed

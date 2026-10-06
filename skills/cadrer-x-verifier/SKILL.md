@@ -14,9 +14,10 @@ scenario. You fix nothing and edit no file but `{feature}/verification.md`, from
 `templates/verification.md`. Each finding names the stage that fixes it: `→ spec` for the spec,
 `→ tâches` for the tasks.
 
-Talk, and write the file's text, in the person's language, every message included (the short notes
-between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
-File names, headings, labels and ids stay exactly as written here and in the template, in every language: `choisir` reads them by these names.
+Talk, and write the file's text, in the person's language, each note between tool calls too; in
+French, *tu* or *vous* as they write, *vous* when you can't tell, never both. File names, headings,
+labels and ids stay exactly as written here and in the template, in every language: `choisir` reads
+them by these names.
 
 ## Which feature, and how far
 

@@ -12,8 +12,8 @@ the CHANGELOG) and what the person reads at their one yes (`livraison.md`, `pr.m
 and merge, then put it online with them. You alone push, only on their yes (*Never*). A code change
 goes back to `/cadrer-x-realiser`, one the person asks first written as a task (its *The end*).
 
-Talk, and write the files' text, in the person's language, every message included (the short notes
-between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
+Talk, and write the files' text, in the person's language, every message included (each note between
+tool calls too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
 File names, headings, labels and commit messages stay exactly as written here and in the templates.
 
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside

@@ -13,9 +13,9 @@ this skill does neither. First you prove what the product does today; then you m
 time, the checks green after each; then someone who did not move it looks for what changed. All of it
 on its own branch, merged on the person's yes.
 
-Talk, and write, in the person's language, every message included; in French, *tu* or *vous* as they
-write, *vous* when you can't tell, never both. File names, headings, labels and commit messages stay as
-written here.
+Talk and write in the person's language, each note between tool calls too; in French, *tu* or
+*vous* as they write, *vous* when you can't tell, never both. File names, headings, labels and
+commit messages stay as written here.
 
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
@@ -26,7 +26,8 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`), `{docs}/architecture.md` (**Mo
 faire**), `{docs}/glossaire.md`, `git worktree list`, `git branch --list 'chore/ranger' 'feature/*'`.
 
 - **The branch.** `.worktrees/` in `.git/info/exclude`, then `git worktree add -b chore/ranger
-  .worktrees/chore.ranger <main branch>`, or reuse both. Copy the untracked `.env*` files from the repo's top (never commit them) and run `commands.install` there once, or the checks fail for the wrong reason. Everything below runs there.
+  .worktrees/chore.ranger <main branch>`, or reuse both. Copy the untracked `.env*` files from the
+  repo's top (never commit them) and run `commands.install` there once. Everything below runs there.
 - **A plan already there** (`{docs}/rangement.md` on `chore/ranger`): pick up at its first unticked
   module, and say so in one line.
 - **Features in progress** (`feature/*` not merged into the main branch): each will have to take this
@@ -64,8 +65,9 @@ Write `{docs}/rangement.md`:
 Order the modules so each one moved depends only on modules already moved, or on code still in place.
 
 **Show it, in plain words**: what each module will hold, what stays where it is (the framework's
-folders, the host's files), and that nothing a person sees changes. One clear yes ("oui", "ok", "ça
-va", "c'est bon"); a change asked for is folded in. Commit the plan: `rangement — plan`.
+folders, the host's files), and that nothing a person sees changes; then one question naming it. A
+clear yes ("oui", "ok", "ça va", "c'est bon"); a change asked for is folded in. Commit the plan:
+`rangement — plan`.
 
 ## 2. The safety net, before any move
 
