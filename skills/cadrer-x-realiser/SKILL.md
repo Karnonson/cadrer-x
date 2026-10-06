@@ -54,7 +54,8 @@ right away; they can stop you.
 
 ## Builders
 
-A task is **ready** when every task on its `Après :` is `[x]` on the feature branch. Start ready
+A task is **ready** when every task on its `Après :` is `[x]` on the feature branch, and, for a
+`(Priorité : bonus)` story, once every other story is `validé`. Start ready
 tasks in `taches.md` order, **at most two at once** (or the person's number). Two run together only
 if they share no `Fichiers :` file and at most one has an `Écrans :` line (one browser). Close each
 subagent once its report is in and its work is merged or settled, before starting another: never

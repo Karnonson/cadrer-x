@@ -92,7 +92,7 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 
 ---
 
-<!-- Un bloc par récit, dans l'ordre des priorités de spec.md. -->
+<!-- Un bloc par récit, dans l'ordre des priorités de spec.md, un récit `bonus` en dernier. -->
 
 ## Ordre
 

@@ -22,7 +22,7 @@ from pathlib import Path
 
 SPEC_H2 = ["Récits", "Exigences", "Critères", "Supposé", "Pas encore", "Vérifs"]
 SPEC_H3 = {"Récits": {"Cas limites"}, "Exigences": {"Données clés"}}
-STORY = re.compile(r"^### (US(\d+)) — \S.* \(Priorité : P\d+\)$")
+STORY = re.compile(r"^### (US(\d+)) — \S.* \(Priorité : (P\d+|bonus)\)$")
 MARKER = re.compile(r"\[À PRÉCISER : [^\]]*?→ (Q\d+)\]")
 # What a person never reads in a spec: the how. Whole words, any case.
 TECH = ["api", "endpoint", "csv", "json", "sql", "sqlite", "http", "https", "url", "backend", "frontend",
@@ -32,7 +32,7 @@ SCREEN = re.compile(r"^### (SC(\d+)) \S")
 SCREEN_LINES = ["Récits", "Fichier", "Parties", "États", "Largeurs", "Contenu"]
 
 FIXED_H2 = ["Fondations", "Ordre", "À surveiller", "Couverts"]
-STORY_H2 = re.compile(r"^US(\d+) — \S.* \(Priorité : P\d+\)( 🎯)?$")
+STORY_H2 = re.compile(r"^US(\d+) — \S.* \(Priorité : (P\d+|bonus)\)( 🎯)?$")
 TASK = re.compile(r"^- \[([ xX])\] (T(\d{2,})) (\[P\] )?(\[(US\d+)\] )?(\S.*)$")
 LINES = ["Exigences", "Risques", "Écrans", "Fichiers", "Après", "Taille"]
 NEVER = re.compile(r"(^|/)(spec\.md|taches\.md|passation\.md|contenu\.md|CHANGELOG\.md)$|(^|/)maquette/")

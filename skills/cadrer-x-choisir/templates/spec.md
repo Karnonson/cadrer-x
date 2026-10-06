@@ -17,8 +17,8 @@
 
 <!--
   Classés par importance. Chaque récit se teste seul : construit seul, il apporte déjà quelque chose
-  qu'on peut montrer. P1 est le plus important. Les tâches se coupent récit par récit, et
-  `realiser` fait relire un récit à la fois.
+  qu'on peut montrer. P1 est le plus important ; `bonus` : voulu seulement s'il reste du temps,
+  construit après les autres.
 -->
 
 ### US1 — <titre court> (Priorité : P1)

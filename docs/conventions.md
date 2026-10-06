@@ -143,7 +143,7 @@ The template is `skills/cadrer-x-choisir/templates/spec.md`, adapted from spec-k
 | Proa | cadrer-x |
 |---|---|
 | User stories | Récits |
-| `### US1 <title>` | `### US1 — <titre> (Priorité : P1)` |
+| `### US1 <title>` | `### US1 — <titre> (Priorité : P1)`; `(Priorité : bonus)` for a story wanted only if time allows, built after the others pass review |
 | As a … I want … so that | En tant que … je veux … afin de |
 | — (spec-kit) Why this priority / Independent Test / Acceptance Scenarios | Pourquoi cette priorité / Test seul / Scénarios |
 | — (spec-kit) Given / When / Then | Étant donné / quand / alors |
@@ -188,7 +188,7 @@ The template is `skills/cadrer-x-choisir/templates/taches.md`, adapted from spec
 | `Size:` | `Taille :` |
 | — | `Exigences :` (the spec's `EF<n>` the task makes true) |
 | spec-kit Phase 1–2: Setup, Foundational | `## Fondations` |
-| spec-kit Phase 3+: User Story N | `## US1 — <titre> (Priorité : P1)`, with `**But**`, `**Test seul**`, `**Point d'étape**` |
+| spec-kit Phase 3+: User Story N | `## US1 — <titre> (Priorité : P1)` (or `bonus`, last), with `**But**`, `**Test seul**`, `**Point d'étape**` |
 | spec-kit Implementation Strategy | `## Ordre`, ending on the waves: `- Vague 1 : T01`, `- Vague 2 : T02, T03` (each wave the tasks the earlier waves unblock) |
 | `## Review focus` | `## À surveiller` |
 | `## Coverage` | `## Couverts` (rows: `US<n>`, `EF<n>`, constitution rules `M<n>`) |
