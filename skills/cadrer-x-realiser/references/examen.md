@@ -122,10 +122,9 @@ Each finding quotes its line.
 
 ## Screens
 
-When `passation.md` gives the story a screen, or, on the short path (`voie : courte`), a box names a
-page the story changes: read `ecrans.md`, which realiser named, whole and follow it (the browser, the
-states, the widths, the captures, its findings). It feeds `Écrans :` in `### Non jugé`; on the short
-path, an `Info :` line of `### Spec` instead. No screen and no page: skip it and write no `Écrans :` line.
+When realiser named `ecrans.md` (a screen in `passation.md`, a page a short path's box names, a
+terminal app): read it whole and follow it. It feeds `Écrans :` in `### Non jugé` for `passation.md`'s
+screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
 
 ## One prefix per finding
 
@@ -148,7 +147,7 @@ under the title: `## US<n> <titre>`, `**Tour** :`, `**Date** :`, `**Verdict** :`
 `Bloquant :` or `À corriger :` is left, else `validé`), then `### Spec`, `### Règles`, `### Non jugé`
 (and `### Correctifs` from tour 2). A clean axis: `- aucun`. `### Non jugé` opens with `Vérifs :`
 (`lancées — <the command, its exit code, the summary line>` or `pas lancées — <pourquoi>`) and, with
-screens, `Écrans :` (`cliqués SC1 SC2` at both widths, `pas cliqués — <pourquoi>`, or `cliqués SC1 ; pas
+screens, `Écrans :` (`cliqués SC1 SC2` at each size, `pas cliqués — <pourquoi>`, or `cliqués SC1 ; pas
 cliqués SC2 — <pourquoi>`); never claim more than you did. Then what you could not check (a real
 outside service, a load), each with why. A previous tour's section of the same story is replaced, its
 findings carried into `Corrigé :` or repeated.

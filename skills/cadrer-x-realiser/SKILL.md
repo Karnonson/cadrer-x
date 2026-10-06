@@ -93,8 +93,8 @@ never one that built, with this prompt only (never a builder's report): « You a
 cadrer-x-relecteur. Read `<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow
 it, for story `US<n>` of the feature `<NNNN-slug>`. Its screens:
 `<skills folder>/cadrer-x-realiser/references/ecrans.md`. The repo's top: `<path>`.
-Launched by realiser. » *Its screens* only when a task of the story has an `Écrans :` line, or, on
-the short path, a box names a page. A story with screens is reviewed while no builder with an
+Launched by realiser. » *Its screens* only when a task of the story has an `Écrans :` line, a box
+names a page (short path), or `dev:` has no `url` (a terminal app). A story with screens is reviewed while no builder with an
 `Écrans :` line runs.
 
 - **`validé`**: two lines at most: what works now, what they can try; the rest waits for *The end*.

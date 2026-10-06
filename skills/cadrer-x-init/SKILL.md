@@ -140,8 +140,8 @@ Commit it: `vision — <Produit>`. Then step 2, right away, said in one line. Th
 
 ## Step 2 — the layout
 
-Four parts, in this order, written on the branch and committed as you go: the branch is the draft,
-nothing reaches the main branch before the person's yes. What the repo or
+Four parts, in this order, written on the branch and committed as you go: the branch is the draft.
+What the repo or
 `../cadrer-x-modules/references/structure.md` answers, you don't ask; a question only where both are
 silent (the stack of a new project, a doc its content cannot place, a failing check). Then one yes
 (see **Save**).
@@ -151,9 +151,8 @@ silent (the stack of a new project, a doc its content cannot place, a failing ch
 - **An existing repo with docs**: make a plan from `references/carte.md`, one line per path — `déplacer
   <path> → <place>`, `créer <path>`, `garder <path>` with why. Open each doc you would move (its
   heading, its first lines): the name guesses, the content decides (a `HISTORY.md` that tells the
-  product's story is not a changelog). Code, assets and config never move here: `architecture.md` →
-  **Modules** maps the code wherever it is, and moving it into modules is a feature of its own (see
-  End). What a file cannot settle is one
+  product's story is not a changelog). Code, assets and config never move here: **Modules** maps
+  the code wherever it is; `/cadrer-x-ranger` moves it (End). What a file cannot settle is one
   question, with your guess. Then on the branch: `git mv` each line, fix every markdown link to a moved
   file (`git grep` the old path), and commit `docs: ranger les docs à leur place`.
 - **No code yet**: nothing moves. The stack is settled in part 3.
@@ -174,12 +173,14 @@ commands:
     url: http://localhost:<port>
 ```
 
-Only the fields that have a value: no empty string, no placeholder; a field is added the day it has
-one. `root:` only when the app lives in a subfolder; `design_system: <path>` only when the person names a design system folder; `dev:` only when the app has screens. Tell them the
-checks run after every task, so a check that fails today fails every task: run each once now, and
-drop or fix a failing one with them. No code yet: `checks: []` and no `dev:`, and say the first
-feature's foundation task fills them. No `envs:`: `/cadrer-x-rendre` adds each environment (`url`, `deploy`,
-`rollback`) the first time it puts the product online.
+Only fields with a value: no empty string, no placeholder. `root:` only when the app lives in a
+subfolder; `design_system: <path>` only for a folder the person names; `dev:` whenever a person runs
+the app, `url:` only for pages (plain pages, no dev script: `python3 -m http.server <port> --bind
+127.0.0.1`). Tell them the checks run after every task, so one that fails today fails every task:
+run each once now, and drop or fix a failing one with them. No code yet: `checks: []`, `dev:` only
+for plain pages, and say the first feature's foundation task fills them. No `envs:`:
+`/cadrer-x-rendre` adds each environment (`url`, `deploy`, `rollback`) the first time it puts the
+product online.
 
 **`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
 `permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` puts there when
@@ -227,7 +228,7 @@ The rules take effect on their yes; from then on, a rule changes only through an
 approve (`{docs}/adr/`), written by `/cadrer-x-rendre` when the feature that needs the change ships.
 
 **`AGENTS.md`** is for the agents, loaded every session: from `templates/AGENTS.md`, short — where the
-docs are (`{docs}` written as the folder `cadrer-x.yml` names), the commands, a pointer to the constitution, never its rules copied in. An existing
+docs are (the folder itself, never `{docs}`), the commands, a pointer to the constitution, never its rules copied in. An existing
 `AGENTS.md`: add only its missing lines. No `CLAUDE.md`: create it with the one line `@AGENTS.md`, so
 Claude reads the same file as codex; an existing `CLAUDE.md` gets that line if it lacks it.
 
