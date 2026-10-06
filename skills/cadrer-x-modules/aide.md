@@ -1,9 +1,3 @@
----
-name: cadrer-x-modules
-description: "Aide cadrer-x, chargée par les autres étapes : les frontières entre les modules du code, telles que `docs/architecture.md` → Modules les trace. À charger quand un changement importe d'un dossier à un autre, touche deux modules, ou qu'une page, un composant ou une tâche va chercher des données ailleurs ; et pour découper, construire ou relire dans un projet qui a cette carte."
-user-invocable: false
----
-
 # cadrer-x modules — the map decides
 
 Loaded by `decouper` (where each task's files go), `realiser` (each new import), `ranger` (each move) and `examiner` (each

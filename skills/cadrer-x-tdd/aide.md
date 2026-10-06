@@ -1,9 +1,3 @@
----
-name: cadrer-x-tdd
-description: "Aide cadrer-x, chargée par les autres étapes : ce qu'est un bon test (un comportement, par l'entrée publique du module, avec les valeurs de la spec), où il va, les tests à éviter (collés au code, tautologiques, tous écrits d'avance), quand simuler, et la boucle rouge puis vert. À charger avant d'écrire, corriger ou juger un test (TDD, test d'abord, mock, test qui passe trop facilement)."
-user-invocable: false
----
-
 # cadrer-x tests — a behaviour, through the entry, one at a time
 
 Loaded by `realiser` (writing tests), `ranger` (the tests of today, before a move) and `examiner` (judging them). Adapted from Matt Pocock's `tdd`

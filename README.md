@@ -71,8 +71,9 @@ validations en trop. La relecture par un agent neuf, elle, reste.
 
 Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec seule, avant de découper.
 
-Six aides se chargent seules quand une étape en a besoin : `cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`,
-`cadrer-x-modules`, `cadrer-x-design-system`, `cadrer-x-textes`.
+Six aides, de simples fichiers `aide.md`, sont lues par une étape au moment où elle en a besoin :
+`cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`, `cadrer-x-modules`, `cadrer-x-design-system`,
+`cadrer-x-textes`.
 
 ## Où vont les fichiers
 

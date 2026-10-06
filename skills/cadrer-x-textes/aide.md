@@ -1,9 +1,3 @@
----
-name: cadrer-x-textes
-description: "Aide cadrer-x, chargée par les autres étapes : les règles des textes en français que les gens lisent (écrans, messages d'erreur, e-mails, CHANGELOG, annonces), celles du projet d'abord, puis une vérification automatique. À charger avant d'écrire ou de relire un texte en français destiné aux personnes qui utilisent le produit, et de nouveau avant de le dire fini."
-user-invocable: false
----
-
 # cadrer-x textes — the rules, then the writing, then the check
 
 Loaded by `affiner` (the prototype's words, `contenu.md`), `realiser` (a text the screens lack),
@@ -47,7 +41,7 @@ and say once that the project has no rules of its own.
 
 ## 3. Check
 
-1. `python3 <this skill's folder>/scripts/frlint.py <file>…` on every `.md` or `.txt` you wrote or changed
+1. `python3 <this file's folder>/scripts/frlint.py <file>…` on every `.md` or `.txt` you wrote or changed
    (a feature's `contenu.md` holds a page's words, so it is the one linted for screens). Fix each line it
    prints and rerun until it prints nothing. It checks what a machine can: the spacing before `: ; ! ?`
    and inside « », straight quotes around French, decimal commas, thousands, a mixed *tu* / *vous*,

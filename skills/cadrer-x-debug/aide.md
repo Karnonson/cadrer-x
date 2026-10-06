@@ -1,9 +1,3 @@
----
-name: cadrer-x-debug
-description: "Aide cadrer-x, chargée par les autres étapes : déboguer sans deviner. Un test rouge qui reproduit le bug, des hypothèses vérifiées une à une, puis la correction de la cause. À charger dès qu'un test casse sans qu'on s'y attende, qu'un bug, une erreur, un journal ou un constat de relecture est à expliquer, et avant de corriger quoi que ce soit."
-user-invocable: false
----
-
 # cadrer-x débogage — a red test, the cause, then the fix
 
 Loaded by `realiser` (a bug met on the way, a fix round, a reported bug's fix), `ranger` (a move that turns the checks red)

@@ -16,8 +16,9 @@ exact row (it costs nothing, but sends the text to the API).
     uv run tools/token_estimate.py skills --files --detail o200k
     uv run tools/token_estimate.py skills path/to/fr/skills
 
-Directories are scanned for SKILL.md files, evals/ left out. Skills are paired
-by folder name, or through --map EN=FR. --files adds each skill's other .md
+Directories are scanned for SKILL.md files and the helpers' aide.md (read by
+path, no description, never listed), evals/ left out. Skills are paired by
+folder name, or through --map EN=FR. --files adds each skill's other .md
 files (references/, templates/), which a skill reads when it needs them.
 Adapted from cadrer's tools/token_estimate.py.
 """
@@ -46,6 +47,9 @@ HUGGINGFACE = {
     "gemma3": ("unsloth/gemma-3-1b-it", "Google Gemma 3"),
     "claude-legacy": ("Xenova/claude-tokenizer", "Anthropic Claude 1/2 — not Claude 3+"),
 }
+
+
+MAIN = ("SKILL.md", "aide.md")  # a skill's file, a helper's file
 
 
 @dataclass
@@ -78,22 +82,22 @@ def split_frontmatter(text: str) -> tuple[str, str]:
 def extra_files(skill_dir: Path) -> str:
     """the skill's other .md files: its references and templates, never its evals."""
     files = [f for f in sorted(skill_dir.rglob("*.md"))
-             if f.name != "SKILL.md" and "evals" not in f.relative_to(skill_dir).parts]
+             if f.name not in MAIN and "evals" not in f.relative_to(skill_dir).parts]
     return "".join("\n" + f.read_text(encoding="utf-8") for f in files)
 
 
 def load(path: Path, rename: dict[str, str], with_files: bool = False) -> list[Doc]:
     if path.is_dir():
-        files = sorted(f for f in path.rglob("SKILL.md") if "evals" not in f.relative_to(path).parts)
+        files = sorted(f for m in MAIN for f in path.rglob(m) if "evals" not in f.relative_to(path).parts)
     else:
         files = [path]
     if not files:
-        sys.exit(f"no SKILL.md under {path}")
+        sys.exit(f"no SKILL.md or aide.md under {path}")
     docs = []
     for f in files:
-        name = f.parent.name if f.name == "SKILL.md" else f.stem
+        name = f.parent.name if f.name in MAIN else f.stem
         description, body = split_frontmatter(f.read_text(encoding="utf-8"))
-        extra = extra_files(f.parent) if with_files and f.name == "SKILL.md" else ""
+        extra = extra_files(f.parent) if with_files and f.name in MAIN else ""
         docs.append(Doc(rename.get(name, name), f, description, body, extra))
     return docs
 
@@ -251,7 +255,7 @@ def main() -> None:
             sys.exit(f"--detail: unknown or unloaded tokenizer {args.detail}")
         print(f"\nper skill, {counter.name}:")
         for i, d in enumerate(en_docs):
-            line = f"  {d.key:<24} EN {counter(d.full):>6,}"
+            line = f"  {d.key:<24} EN {counter(d.full):>6,}" + ("  aide.md" if d.path.name == "aide.md" else "")
             if fr:
                 g = fr_docs[i]
                 line += f"   FR {counter(g.full):>6,}  {ratio(counter(g.full), counter(d.full)):.2f}×  ({g.path.parent.name})"

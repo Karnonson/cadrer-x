@@ -334,7 +334,8 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 21 Proa skills became 7 skills, 1 optional check, 1 refactor skill and 6 helpers. `init` comes first, once per project; the
 next six spell CADRER, in order. A skill holding two steps checks which one's file is missing and runs
-that one. A helper is loaded by the skills that need it, never run on its own.
+that one. A helper, `skills/cadrer-x-<name>/aide.md`, is read by path by the skills that need it,
+never run on its own.
 
 | | Skill | Its steps (Proa skills merged) | Writes |
 |---|---|---|---|
@@ -353,7 +354,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | — | `cadrer-x-ranger` | Lays out existing code as `cadrer-x-modules/references/structure.md` says, nothing the product does changing: tests and captures of today first, one module per commit, a fresh subagent looks for any change, merged on the person's yes. Offered by `init`; reminded by `choisir` while **À faire** holds it | `docs/rangement.md`, the code moved, **Modules** |
 | — | `cadrer-x-verifier` | Read-only, in a fresh session or a subagent `decouper` starts, after affiner or after decouper: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the skill that fixes it (affiner or decouper). | `verification.md` |
 
-| Helper | Merges | Loaded by |
+| Helper (`aide.md`) | Merges | Read by |
 |---|---|---|
 | `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory; the scan before a release | choisir, affiner, decouper, realiser, examiner, rendre |
 | `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, ranger, examiner |
@@ -362,9 +363,8 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | `cadrer-x-modules` | module-borders | decouper, realiser, ranger, examiner |
 | `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, examiner, rendre |
 
-A helper has `user-invocable: false` (Claude Code keeps it out of the `/` menu) and
-`allow_implicit_invocation: true` in its `agents/openai.yaml` (codex may load it on its own). The
-project's own copy rules live in `{docs}/regles-ecriture.md`; `cadrer-x-textes` reads them before its defaults.
+The project's own copy rules live in `{docs}/regles-ecriture.md`; `cadrer-x-textes` reads them before
+its defaults.
 
 Kept apart, on purpose: affiner and decouper (the spec is the person's gate on *what*, before any *how*);
 realiser and examiner. realiser proves its own task works: a failing test first, then the code, then the
@@ -374,7 +374,7 @@ spec, so a misreading passes them.
 
 ## Install
 
-`install.sh` copies each skill into the project by default: `.claude/skills` and
+`install.sh` copies each skill and helper into the project by default: `.claude/skills` and
 `.agents/skills`, committed with the project so everyone on it has the same version. It also merges into
 `.claude/settings.json` the git commands the steps run (`permissions.allow`) and `git push` under
 `ask`; `init` adds the commands of `cadrer-x.yml`, and `realiser` any it finds missing. `--global` puts

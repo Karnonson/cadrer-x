@@ -9,7 +9,7 @@ so you work in the task's own worktree. Whoever built a task never reviews it.
 Talk, and write, in the person's language; in French, *tu* or *vous* as they write, *vous* when you
 can't tell, never both. Commit messages, file names and labels stay as written here.
 
-**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `<skills folder>/cadrer-x-<name>/SKILL.md`
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `<skills folder>/cadrer-x-<name>/aide.md`
 (the folder that holds `cadrer-x-realiser/`) at that moment; read it whole and follow it. Not there: go
 on without it. Never through the Skill tool: read the file.
 

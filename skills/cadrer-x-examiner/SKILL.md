@@ -17,7 +17,7 @@ Talk and write the audit in the person's language, every message included; in Fr
 they write, *vous* when unsure, never both. Headings, labels, prefixes and ids stay as written here and
 in the template: realiser and rendre find them by these names.
 
-**Helpers.** *read `cadrer-x-<name>`* = open `../cadrer-x-<name>/SKILL.md`, beside this skill's folder,
+**Helpers.** *read `cadrer-x-<name>`* = open `../cadrer-x-<name>/aide.md`, beside this skill's folder,
 read it whole, follow it. Not there: go on without it. Read as files, never through the Skill tool.
 
 **Launched by realiser** (its prompt says so): same work, file and commit; the person is not here, so

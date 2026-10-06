@@ -1,9 +1,3 @@
----
-name: cadrer-x-design-system
-description: "Aide cadrer-x, chargée par les autres étapes : trouver le design system du projet (ses couleurs, polices, tailles, espaces et composants), le lire avant de choisir quoi que ce soit, ne jamais le modifier. À charger dès qu'un écran, une page, une maquette, du CSS ou un composant visuel est fait, construit, changé ou relu (couleur, police, bouton, espacement), ou quand un projet qui a des écrans n'a pas encore de design system."
-user-invocable: false
----
-
 # cadrer-x design system — find it, read it, never edit it
 
 Loaded by `affiner` (the prototype), `realiser` (a task with screens) and `examiner` (the screens'

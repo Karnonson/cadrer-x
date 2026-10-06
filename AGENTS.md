@@ -8,9 +8,9 @@ This repository holds the skills only; marketing, the course and lead magnets li
 
 - `STATUS.md`: the current goal and where things stand. Read it first; before a session ends, update
   it if the session changed any of it (its date too), under *Keeping STATUS.md small*.
-- `skills/cadrer-x-<name>/`: one skill each. `SKILL.md`, and as needed `references/` (read when the
-  skill says), `templates/` (the files it writes), `scripts/lint.py` (checks those files),
-  `agents/openai.yaml` (codex).
+- `skills/cadrer-x-<name>/`: one skill or helper each. A skill: `SKILL.md`, and as needed
+  `references/` (read when the skill says), `templates/` (the files it writes), `scripts/lint.py`
+  (checks those files), `agents/openai.yaml` (codex). A helper: `aide.md` (see *Writing a skill*).
 - `docs/vision.md`: why cadrer-x exists and for whom. `docs/roadmap.md`: what comes before and after
   v1. `docs/conventions.md`: every file name, heading, label and id the skills write and read, and
   which skill does what. Read the conventions before changing a skill.
@@ -25,9 +25,9 @@ This repository holds the skills only; marketing, the course and lead magnets li
   included, as `docs/conventions.md` lists them: other skills and the lints find them by name. Change
   one only with the conventions, every skill that reads it, its template and its lint, in the same
   commit.
-- A helper (`tdd`, `securite`, `debug`, `modules`, `design-system`, `textes`) has
-  `user-invocable: false` and `allow_implicit_invocation: true` in its `agents/openai.yaml`; a skill
-  loads it by reading `../cadrer-x-<name>/SKILL.md` at the moment it names.
+- A helper (`tdd`, `securite`, `debug`, `modules`, `design-system`, `textes`) is a plain file,
+  `skills/cadrer-x-<name>/aide.md`: no frontmatter, no `SKILL.md` and no `agents/` beside it, so no
+  tool lists it. A skill reads it by path, `../cadrer-x-<name>/aide.md`, at the moment it names.
 - In a skill's instructions: the person using cadrer-x decides the product only, so the skill never
   asks them a technical question, and nothing that can't be taken back (a merge, a push, going online,
   a payment) happens without their yes. This is about cadrer-x's users, not about working on this

@@ -1,5 +1,0 @@
-interface:
-  display_name: "cadrer-x modules"
-  short_description: "Les frontières entre les modules du code"
-policy:
-  allow_implicit_invocation: true

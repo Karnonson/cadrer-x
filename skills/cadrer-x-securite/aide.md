@@ -1,9 +1,3 @@
----
-name: cadrer-x-securite
-description: "Aide cadrer-x, chargée par les autres étapes : les règles de sécurité par défaut (secrets, saisies, connexion, données d'un autre, erreurs), les tests d'abus, la liste des données personnelles (base RGPD, durée, qui les voit), et l'analyse avant une livraison. À charger quand du code ou une spec touche une connexion, une saisie, les données d'une autre personne, un paiement, un rôle, un secret, ou garde une donnée personnelle."
-user-invocable: false
----
-
 # cadrer-x sécurité — safe by default, proven by abuse tests, every personal datum listed
 
 Loaded by `choisir` and `affiner` (personal data), `decouper` (risks), `realiser` (defaults, tests),

@@ -17,7 +17,7 @@ Talk, and write the file's text, in the person's language, every message include
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the template, in every language: the later skills find them by these names.
 
-**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
 
 ## Which feature, and where

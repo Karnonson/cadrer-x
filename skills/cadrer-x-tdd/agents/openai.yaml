@@ -1,5 +1,0 @@
-interface:
-  display_name: "cadrer-x tests"
-  short_description: "Des tests qui décrivent un comportement, par l'entrée publique, un à la fois"
-policy:
-  allow_implicit_invocation: true

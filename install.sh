@@ -87,7 +87,8 @@ for engine in $engines; do
   [ "$(cd "$dest" && pwd -P)" = "$(cd "$src" && pwd -P)" ] && { echo "$dest is this checkout's skills folder: nothing to do" >&2; continue; }
   for skill in "$src"/cadrer-x-*/; do
     name="$(basename "$skill")"
-    [ -f "$skill/SKILL.md" ] || continue          # a folder that holds only templates so far
+    # A skill has SKILL.md, a helper aide.md; a folder with neither holds only templates so far.
+    [ -f "$skill/SKILL.md" ] || [ -f "$skill/aide.md" ] || continue
     target="$dest/$name"
     rm -rf "$target"
     [ "$remove" = 1 ] && { echo "removed  $target"; continue; }

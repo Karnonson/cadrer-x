@@ -17,7 +17,7 @@ Talk, and write, in the person's language, every message included; in French, *t
 write, *vous* when you can't tell, never both. File names, headings, labels and commit messages stay as
 written here.
 
-**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/SKILL.md`, beside
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
 
 ## Where you are
