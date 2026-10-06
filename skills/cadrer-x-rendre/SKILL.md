@@ -29,14 +29,15 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
   one feature branch not merged into the main branch whose stories all have a `validé` section in
   `audit.md`; several: ask which, one question.
 - **Where you work.** Step 1 in the feature's worktree (`.worktrees/feature.<slug>`, or the checkout on
-  `feature/<slug>`, else `git worktree add` it, `.worktrees/` in `.git/info/exclude` first); step 2 on
-  the main branch.
+  `feature/<slug>`, else `git worktree add` it, `.worktrees/` in `.git/info/exclude` first); online,
+  on the main branch.
 - `feature/<slug>` not merged into the main branch, and no `{feature}/livraison.md` committed for it:
   **step 1**. Committed, not merged: **the merge**, unless the feature branch has commits after it (a
 task added since): step 1 again, its files updated; with a remote and a pull request already open (`gh pr view`, else `git ls-remote --heads origin feature/<slug>`), say so and wait for it to be merged, never push or open a second one.
-- Merged, and `livraison.md`'s **En ligne** says `pas encore`: **step 2**. It says `aucun — …` (a library,
-  a tool run on one computer): nothing left; say so.
-- Online already, and a later feature merged: step 2 again, for what changed.
+- Merged, and `livraison.md`'s **En ligne** says `pas encore`: **online**: read `references/en-ligne.md`
+  whole now, then follow it; after a summary of this conversation, read it again. **En ligne** says
+  `aucun — …` (a library, a tool run on one computer): nothing left; say so.
+- Online already, and a later feature merged: online again, for what changed, by that reference.
 
 ## Step 1 — the package
 
@@ -110,8 +111,8 @@ same feature puts its section on top, under its version.
 - **livraison.md**: **Version** (the new version alone on its first line), **Livré** (one line per story
   with its id, then `- Plus tard : <what waits>`, from **Pas encore** or a question left open), **En ligne** (`pas encore`, or
   `aucun — <pourquoi>` when the product never goes online), **Mise en ligne**, **Vérifié** and **En cas
-  de problème** (step 2 fills them; `pas encore` meanwhile), **À faire** (each `avant la livraison` item
-  of `decisions.md` and `architecture.md` still open, marked *à la main*).
+  de problème** (going online fills them; `pas encore` meanwhile), **À faire** (each `avant la
+  livraison` item of `decisions.md` and `architecture.md` still open, marked *à la main*).
 - **pr.md**, a body a person who doesn't code can scan: **Résumé** (what changes, for whom, three to
   five lines in the spec's words), **Preuves** (the checks run now, trimmed, with their result; each
   story's review tour and verdict; each capture as `![SC1 à 390](docs/features/NNNN-x/captures/SC1-390.png)`,
@@ -136,65 +137,14 @@ Say how it will go, and ask:
 - **A remote** (`git remote -v`): push `feature/<slug>`, then open the pull request from `pr.md` (`gh pr
   create --base <main> --head feature/<slug> --title "<Titre> <version>" --body-file {feature}/pr.md`
   when `gh` is there; else give them the address git printed). Who merges it is the person's, on the
-  host. Once merged (`git fetch`, then `git branch -r --merged origin/<main>`), step 2.
+  host. Once merged (`git fetch`, then `git branch -r --merged origin/<main>`), back to *Which step*.
 - **No remote**: in the main checkout, clean and on the main branch, `git merge --no-ff feature/<slug>
   -m "<Titre> <version>"`, then the whole check command once more on the result. Red: say it, and go
   no further.
 
-Merged (locally, or seen merged on the remote): remove the feature's worktree and its branch (`git worktree remove`, `git branch -d`). Then,
-when **En ligne** says `pas encore`: step 2, here, said in one line (its plan has its own yes). Else
-the next feature: `/cadrer-x-choisir`.
-
-## Step 2 — online
-
-Read `{docs}/architecture.md` (**Pièces**, **Secrets**, **Données**, **Coût**, **Trajet**, **À faire**),
-`cadrer-x.yml` → `envs` (each environment: `url`, `deploy`, `rollback`), the feature's `livraison.md`, and
-`decisions.md` → **À faire**. The main checkout is clean, on the main branch, at the merge (with a remote, `git pull --ff-only`
-first); note the commit you put online.
-
-**What the person prepares by hand.** Every open `avant la livraison` item, in one message, in order:
-what, where, why it is needed, what it costs. One that spends money gets its own yes, with the amount,
-before they do it. **A secret's value never passes through this conversation**: give them the page
-where they paste it, or a command to run in a terminal of their own, into the place **Secrets** names;
-run a command here only when neither it nor its output holds a secret. When they say done, check each
-one you can without showing a value (the account lets you in, the address answers, a secret exists by
-name, a value is no longer its local stand-in, compared never printed) and tick it in its file; one
-nothing here can check is ticked on their word, `confirmé par la personne`. One that fails: say what you
-saw, and go no further until it passes or they drop it; if they drop an item that a part of the product depends on, say what the people using it lose, and ask whether to go on without that part.
-
-**The plan, before anything leaves this computer.** One table, in order: the action · what it creates,
-changes, sends or deletes out there · what it costs now and per month · how to undo it. Real data starts
-empty or from what the person gives, never from local test data; a change to kept data is a row that
-says how to get it back. The cost alert **Coût** names is a row, and so are the copies **Données**
-relies on. The last row is the check online. Wait for the yes; a changed row is shown again; a row that
-spends money gets its own yes, with the amount. A no, or not now: say what is ready, write nothing.
-
-**Run it.** The rows in order, from the commit you noted, one line per result. Never a secret's value in
-code, a commit, a tracked file, or a command whose output is shown. A row that fails: stop, say what you
-saw, undo the rows already run only if they say so, and write `livraison.md` with what is out there now
-(each row run, what it created, spent or sent; the failed row under **À faire**), committed as
-`livraison — arrêtée : <row>`: the next run skips what is still out there. The commands that worked go
-into `cadrer-x.yml` → `envs` (`url`, `deploy`, `rollback`), so the next release runs them again.
-
-**Check online.** On the real address, follow **Trajet** as the person would, then each scenario of the
-feature that shows from outside, with a browser tool when you have one, and the person's own address or
-account for anything sent, never someone else's. What you can't see from here (a message in their inbox):
-ask them to look, and write what they said. A screenshot of each screen reached,
-`{feature}/captures/livraison-<état>.png`. Remove what the check created, as the plan said. Wrong online
-and right locally: say it plainly, and offer to go back to what was online before (the plan's undo) or
-leave it up: their choice.
-
-**Write and commit.** `livraison.md`: **En ligne** (the address, the date, the commit, the version),
-**Mise en ligne** (the commands in order to do it again, secrets by name), **Vérifié** (each step of the
-Trajet and each scenario checked: seen, or what was seen instead, with its capture), **En cas de
-problème** (how to go back to the previous version, how to get the data back as **Données** says, where
-to look when it stops), **À faire** (each item still open, *à la main*; each thing found wrong online,
-one line `/cadrer-x-choisir` can turn into work). Lint it. Commit `livraison.md`,
-`architecture.md`, `cadrer-x.yml` and the captures on the main branch: `livraison — <adresse>`; push it
-only when a plan row said so.
-
-End with: the address, what was checked and what was seen, what is wrong online if anything, and the
-first thing to do now.
+Merged (locally, or seen merged on the remote): remove the feature's worktree and its branch (`git
+worktree remove`, `git branch -d`). Then, when **En ligne** says `pas encore`: online, here, said in
+one line (its plan has its own yes): back to *Which step*. Else the next feature: `/cadrer-x-choisir`.
 
 ## Never
 
@@ -210,6 +160,4 @@ it; write a secret's value anywhere; put local test data online.
 | "The review looked at security; no need to scan." | The scan runs now: secrets in the history, flawed packages. |
 | "A new table is no big change: no ADR." | **Impact archi** not `aucun` is an ADR. |
 | "The audit says the race is guarded." | Open the code; not found goes under **À faire**. |
-| "Paste the API key here and I'll set it." | Never through the conversation: the page, or their own terminal. |
-| "I'll seed production with the test members." | Real data starts empty or from what they give. |
-| "A one-line fix and the check online passes." | No code here: **À faire**, then `/cadrer-x-realiser`. |
+| "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |

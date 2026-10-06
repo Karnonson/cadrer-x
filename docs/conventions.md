@@ -273,8 +273,9 @@ A later release of the feature puts its section on top. Template: `skills/cadrer
 
 `skills/cadrer-x-rendre/scripts/lint.py livraison|pr <path>` checks both. rendre commits them with the
 docs as `livraison — <Titre> <version>` on the person's yes; the merge has its own yes (a push and a PR
-from `pr.md` with a remote, `git merge --no-ff` without). Step 2 commits `livraison — <adresse>` on the main
-branch, and writes the commands that worked into `cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`).
+from `pr.md` with a remote, `git merge --no-ff` without). Going online (`references/en-ligne.md`)
+commits `livraison — <adresse>` on the main branch, and writes the commands that worked into
+`cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`).
 
 ### docs/security/
 
@@ -345,7 +346,7 @@ realiser. A skill holding several steps checks which one's file is missing and r
 | **D** | `cadrer-x-choisir`, `references/decoupe.md` | tasks (proa-slice, threat-list); then `verifier` in a fresh subagent, its one-answer findings folded in, before the person's one yes | `taches.md` |
 | **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (E); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand, `US1` reviews one story | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
 | **E** | `cadrer-x-realiser`, `references/examen.md` | one user story, once all its `[US<n>]` tasks are built, or every built story of the feature; started by `realiser`, or by hand in another session (`/cadrer-x-realiser <slug> US<n>`); a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
-| **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
+| **R** | `cadrer-x-rendre` | release, then going online (`references/en-ligne.md`), once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 
 Optional, outside the acronym, like spec-kit's `/analyze`:
 
