@@ -24,7 +24,7 @@ cadrer-x reprend la méthode de cadrer, avec trois changements de fond :
 | `cadrer-executer` | `/cadrer-x-realiser <nom>` | Toute la construction : chaque tâche test d'abord, dans `.worktrees/tache.<nom>-t01`, fusionnée quand ses vérifs passent. `T01` pour une seule tâche. |
 | `cadrer-reviser` | `/cadrer-x-realiser <nom> US1` | Un récit entier, plus une tranche, lancé par `realiser` ; `audits/<NN>.md` devient une section de `audit.md`. |
 | — | `/cadrer-x-ranger` | Nouveau : le code existant rangé en modules, sans rien changer au produit. |
-| `cadrer-livrer` | `/cadrer-x-rendre` | La doc du projet, l'ADR, la version, le CHANGELOG, `livraison.md` et `pr.md` d'abord ; puis la fusion, puis la mise en ligne, chacune sur son oui. |
+| `cadrer-livrer` | `/cadrer-x-rendre <nom>` | La doc du projet, l'ADR, la version, le CHANGELOG, `livraison.md` et `pr.md`, enregistrés sans te demander ; puis un seul oui pour envoyer, ouvrir la demande de fusion et fusionner ; puis la mise en ligne, sur son propre oui. |
 
 ## Les fichiers
 

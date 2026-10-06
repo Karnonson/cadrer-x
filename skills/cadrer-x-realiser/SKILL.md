@@ -44,7 +44,7 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its
   report said `fait` and its commit ticks the task, else restart it).
 
-**Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that the story is
+**Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that each story is
 reviewed before the end.) Say what gets built (stories, tasks, waves), two tasks at a time when they
 can, each story reviewed by someone who did not build it, and that you stop only for their
 questions and at the end. They launched the build: start
@@ -109,8 +109,8 @@ the short path, a box names a page. A story with screens is reviewed while no bu
 ## The end
 
 Every story `validé`: one message with, per story, its verdict and what it does now, the captures, the
-`Détail :` lines left, the questions answered. Then delivery here, said in one line: read
-`<skills folder>/cadrer-x-rendre/SKILL.md` whole and follow it for this feature.
+`Détail :` lines left, the questions answered, then `/cadrer-x-rendre <slug>`, better in a new session
+(`/clear`, then the command). Then stop: the delivery is theirs to start.
 
 A change they ask once its story is `validé`, a text too, is a task: the highest `T<nn>` plus one,
 last in its story's section, one box for the change, the other lines from the task that built that

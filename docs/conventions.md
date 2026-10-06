@@ -72,8 +72,9 @@ takes the full path.
 
 A clear yes closes a step: "oui", "ok", "ça va", "c'est bon", or a condition already met; a hedge or a
 change asked for keeps it open. A step ends by going on with the next one in the same session, said in
-one line (the person can stop it), but for the build: `choisir` stops before it and gives
-`/cadrer-x-realiser <slug>`, best run in a fresh session, since the build is long.
+one line (the person can stop it), but around the build: `choisir` stops before it and gives
+`/cadrer-x-realiser <slug>`, `realiser` stops after it and gives `/cadrer-x-rendre <slug>`, each best
+run in a fresh session, since the build is long.
 
 | Proa today | cadrer (old) | cadrer-x |
 |---|---|---|
@@ -259,7 +260,7 @@ the form and that each verdict follows from its findings.
 | — | Mise en ligne | Mise en ligne |
 | Evidence | Vérifié en ligne | Vérifié |
 | How to roll back | Si ça casse | En cas de problème |
-| — | Reste à faire | À faire (each line *à la main*, or the skill that turns it into work) |
+| — | Reste à faire | À faire (only what needs the person's hands, *à la main*, or the skill that turns it into work; never what is done) |
 
 A later release of the feature puts its section on top. Template: `skills/cadrer-x-rendre/templates/livraison.md`.
 
@@ -274,9 +275,10 @@ A later release of the feature puts its section on top. Template: `skills/cadrer
 | `**Blast radius:**` | `**Portée** :` |
 
 `skills/cadrer-x-rendre/scripts/lint.py livraison|pr <path>` checks both. rendre commits them with the
-docs as `livraison — <Titre> <version>` on the person's yes; the merge has its own yes (a push and a PR
-from `pr.md` with a remote, `git merge --no-ff` without). Going online (`references/en-ligne.md`)
-commits `livraison — <adresse>` on the main branch, and writes the commands that worked into
+docs as `livraison — <Titre> <version>` without asking; then one yes, its summary in the question,
+covers the push, the PR from `pr.md` and its merge with a remote, or `git merge --no-ff` without.
+Going online (`references/en-ligne.md`) has its own yes; it commits `livraison — <adresse>` on the
+main branch, and writes the commands that worked into
 `cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`).
 
 ### docs/security/
@@ -348,7 +350,7 @@ realiser. A skill holding several steps checks which one's file is missing and r
 | **D** | `cadrer-x-choisir`, `references/decoupe.md` | tasks (proa-slice, threat-list), by `cadrer-x-decoupeur`, a subagent choisir starts; then `cadrer-x-verificateur` (`verifier`'s file), which choisir starts after it: what the files settle goes back to the decoupeur; a product choice goes to the person, and choisir writes the answer into the spec. No yes on the tasks; choisir then stops | `taches.md` |
 | **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (E); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand, `US1` reviews one story | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
 | **E** | `cadrer-x-realiser`, `references/examen.md` | one user story, once all its `[US<n>]` tasks are built, or every built story of the feature; started by `realiser`, or by hand in another session (`/cadrer-x-realiser <slug> US<n>`); a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
-| **R** | `cadrer-x-rendre` | release, then going online (`references/en-ligne.md`), once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
+| **R** | `cadrer-x-rendre` | release, committed unasked, then one yes for the push, the PR and the merge; then going online (`references/en-ligne.md`), on its own yes; once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 
 Optional, outside the acronym, like spec-kit's `/analyze`:
 

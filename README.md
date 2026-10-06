@@ -51,13 +51,14 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
                                look et les mots, que tu valides), puis les tâches, vérifiées par un
                                second regard ; /cadrer-x-choisir <nom> reprend là où elle en est
 /cadrer-x-realiser <nom>       toute la construction : chaque tâche test d'abord, chaque récit relu
-/cadrer-x-rendre <nom>         la doc, la version, la fusion, puis la mise en ligne
+/cadrer-x-rendre <nom>         la doc et la version, puis un seul oui pour envoyer et fusionner,
+                               puis la mise en ligne, sur son propre oui
 ```
 
-En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches, puis il te donne
-la commande suivante), `realiser`, puis `rendre`. Tu peux toujours arrêter une étape et lancer la
-commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
-elle sait où elle en est.
+En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
+`rendre` ; les deux premières finissent en te donnant la commande suivante. Tu peux toujours arrêter
+une étape et lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent :
+relance-la, elle sait où elle en est.
 
 `/cadrer-x-realiser <nom>` mène toute la construction depuis une seule session : il confie chaque tâche
 à un agent qui la construit dans son worktree (deux à la fois quand elles ne se touchent pas), la

@@ -1,12 +1,12 @@
 # Going online — the plan on a yes, then the real address checked
 
-Followed by `rendre` when its *Which step* finds the feature merged and **En ligne** `pas encore`, or
-a later feature merged into a product already online.
+Followed by `rendre` from its *After the merge*: **En ligne** `pas encore`, or a later feature merged
+into a product already online.
 
 Read `{docs}/architecture.md` (**Pièces**, **Secrets**, **Données**, **Coût**, **Trajet**, **À faire**),
 `cadrer-x.yml` → `envs` (each environment: `url`, `deploy`, `rollback`), the feature's `livraison.md`,
-and `decisions.md` → **À faire**. The main checkout is clean, on the main branch, at the merge (with a
-remote, `git pull --ff-only` first); note the commit you put online.
+and `decisions.md` → **À faire**. The main checkout is clean, on the main branch, at the merge
+(*After the merge* pulled it); note the commit you put online.
 
 **What the person prepares by hand.** Every open `avant la livraison` item, in one message, in order:
 what, where, why it is needed, what it costs. One that spends money gets its own yes, with the amount,
@@ -45,8 +45,8 @@ leave it up: their choice.
 **Mise en ligne** (the commands in order to do it again, secrets by name), **Vérifié** (each step of the
 Trajet and each scenario checked: seen, or what was seen instead, with its capture), **En cas de
 problème** (how to go back to the previous version, how to get the data back as **Données** says, where
-to look when it stops), **À faire** (each item still open, *à la main*; each thing found wrong online,
-one line `/cadrer-x-choisir` can turn into work). Lint it. Commit `livraison.md`,
+to look when it stops), **À faire** (by rendre's *`livraison.md` and `pr.md`*; each thing found wrong
+online, a `/cadrer-x-choisir` line). Lint it as that section says. Commit `livraison.md`,
 `architecture.md`, `cadrer-x.yml` and the captures on the main branch: `livraison — <adresse>`; push it
 only when a plan row said so.
 
