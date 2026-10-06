@@ -52,9 +52,10 @@ Branches and worktrees:
 | a task | `tache/<slug>-t01` | `.worktrees/tache.<slug>-t01` | `feature/<slug>`, fast-forward, by `realiser` once its checks are green |
 | a story's fixes | `tache/<slug>-us1-correctifs` | `.worktrees/tache.<slug>-us1-correctifs` | `feature/<slug>`, the same way |
 
-`.worktrees/` is in `.git/info/exclude`; untracked `.env*` files are copied into each worktree. A task's
-branch first merges in what the feature gained meanwhile and runs the checks again, so the feature only
-ever fast-forwards. A task commits as `T01 — <titre>`, with `Choix :` lines for what its builder decided
+`.worktrees/` is in `.git/info/exclude`; untracked `.env*` files are copied into each worktree. Each
+`realiser` run first merges the main branch into the feature's branch. A task's branch first merges
+in what the feature gained meanwhile and runs the checks again, so the feature only ever
+fast-forwards. A task commits as `T01 — <titre>`, with `Choix :` lines for what its builder decided
 alone, and ticks its own `[x]` in `taches.md` in that commit. Merging into `feature/<slug>` is local
 and taken back with one command, so it needs no yes; merging into the main branch, pushing and going
 online do. No skill pushes but `rendre`, and only on the person's yes.

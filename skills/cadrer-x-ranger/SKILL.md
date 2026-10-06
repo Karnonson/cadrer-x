@@ -30,8 +30,8 @@ faire**), `{docs}/glossaire.md`, `git worktree list`, `git branch --list 'chore/
   repo's top (never commit them) and run `commands.install` there once. Everything below runs there.
 - **A plan already there** (`{docs}/rangement.md` on `chore/ranger`): pick up at its first unticked
   module, and say so in one line.
-- **Features in progress** (`feature/*` not merged into the main branch): each will have to take this
-  in (`git merge <main>` in its worktree), and the conflicts land there. Say which, and recommend
+- **Features in progress** (`feature/*` not merged into the main branch): each takes this in at its
+  next `/cadrer-x-realiser`, and the conflicts land there. Say which, and recommend
   laying out the code once none is in progress; their call, one question.
 - No checks in `cadrer-x.yml` and nothing that runs the code: the safety net below starts with one.
 
@@ -124,8 +124,8 @@ One message: the modules now there, one line each; the tests before and after (h
 the screens compared; what the second look found and what was fixed; the **Remarques**. Then ask
 whether to merge into the main branch. On their yes: from the main checkout, `git merge --ff-only
 chore/ranger` (if it cannot fast-forward, ask once more before a merge commit), then `git worktree remove
-.worktrees/chore.ranger` and `git branch -d chore/ranger`. Never push. Each feature in progress: say it
-takes this in with `git merge <main>` in its worktree. Then the next step: `/cadrer-x-choisir <idée>`.
+.worktrees/chore.ranger` and `git branch -d chore/ranger`. Never push. Each feature in progress: say its
+next `/cadrer-x-realiser` takes this in. Then the next step: `/cadrer-x-choisir <idée>`.
 
 ## Red flags
 

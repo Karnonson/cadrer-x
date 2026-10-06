@@ -89,13 +89,20 @@ A missing behaviour becomes a new task at the end of the story's section of `tac
 ticked here; never rewrite an old task. A finding you think is wrong: a question, never skipped. Commit
 `correctifs US<n>`, each finding named.
 
+## Up to date with main
+
+When realiser's prompt says so: in the feature's own worktree, finish the merge of the main branch it
+started (or start it). Each conflict from both sides' commits and `spec.md`, both sides' behaviour
+kept; the checks green, as *Done means fresh evidence* says; commit. A text or a look the person
+chose that the two sides settle differently: a question.
+
 ## The report
 
 Your last message, in the person's language, these labels as written:
 
 ```
 Statut : fait | question | bloqué
-Tâche : T<nn> — <titre>  (or: Correctifs : US<n>)
+Tâche : T<nn> — <titre>  (or: Correctifs : US<n>; or: À jour : <main>)
 Branche : tache/<slug>-t<nn>, <commit>
 Cases :
 - <the box> — <its test> — rouge vu : <the failing assertion line, trimmed>

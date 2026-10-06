@@ -42,6 +42,9 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   or a package's flaw) or the person typed its `US<n>`: such a task is built, then the story reviewed
   again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its
   report said `fait` and its commit ticks the task, else restart it).
+- **Up to date.** Each run, before any builder or reviewer: `git -C <top>/.worktrees/feature.<slug>
+  merge <main>`, then the whole check command there (`cd`). A conflict, or red: a builder, prompt
+  « … to bring `feature/<slug>` up to date with `<main>` … »; its `fait` needs no merge.
 
 **Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that each story is
 reviewed before the end.) Say what gets built (stories, tasks, waves), two tasks at a time when they
