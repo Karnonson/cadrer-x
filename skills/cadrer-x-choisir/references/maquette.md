@@ -57,12 +57,13 @@ Both:
   form.
 
 **Check it in a browser, at 390 and 1280 wide.** Serve the folder on this machine only. A server
-your message or your last round names is reused. Else first stop any left serving this folder by an
-earlier session (`pgrep -af 'http.server.*{feature}/maquette'`, then `kill` each), and start
-one in the background; choisir stops it later:
+your message or your last round names is reused. Else first stop one an earlier session left on
+this folder: `kill` a `pgrep -af http.server` pid only when its `--directory`, resolved from its own
+working folder (`/proc/<pid>/cwd`; `lsof -a -p <pid> -d cwd` on macOS), is this `maquette/`'s
+absolute path; a name alone never. Then start one in the background; choisir stops it later:
 
 ```
-port=$(python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])') && (python3 -m http.server "$port" --bind 127.0.0.1 --directory {feature}/maquette >/dev/null 2>&1 & echo "port $port pid $!")
+port=$(python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])') && (python3 -m http.server "$port" --bind 127.0.0.1 --directory "$(cd {feature}/maquette && pwd -P)" >/dev/null 2>&1 & echo "port $port pid $!")
 ```
 
 With a browser tool, for each page and state (`http://127.0.0.1:<port>/<page>.html#<state>`), at

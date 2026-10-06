@@ -54,17 +54,23 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
     wireframe before your first question: *Workers*.
   - with screens and no `passation.md`: the design: start (or resume) the designer, *Workers*.
   - `passation.md`, `contenu.md` or `maquette/` not committed (`git status`): a designer (stage
-    `passation`) runs the passation's checks again; then the design's step 3.
+    `passation`) runs the passation's checks again; then *a half-done stage*: `maquette — <Titre>`.
   - no `taches.md`: the tasks: start the decoupeur, *Workers*.
-  - `taches.md` not committed: its lint (`taches`) clean, commit it as the tasks' step 1 says; else
-    the decoupeur again.
-  - no task ticked, no `voie : courte`, no `verification.md` whose **Portée** is `spec et tâches`,
-    and you can start a subagent: the second look, *Workers*.
+  - `taches.md` not committed: with `voie : courte`, more than three tasks or a second story is the
+    tasks' step 1 for a path not short; else *a half-done stage*: `tâches — <Titre>`.
+  - no task ticked, no `voie : courte`, no `verification.md` of **Portée** `spec et tâches` committed
+    after the last commit of `taches.md` and of `spec.md`, and you can start a subagent: the second
+    look, *Workers*.
   - else: the tasks are ready: the stop, *Workers*.
 - **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
   by its step, reference or worker as above, without asking again: the design only when the change
   moves a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which
   step* goes on to the next of these; after the last, stop with its usual next step.
+
+**A half-done stage**, with no worker's report to name its paths: they are what `git status` shows
+changed under `{feature}/` and in `{docs}/regles-ecriture.md`. Each file a lint checks (`spec`,
+`passation`, `taches`) passes it first, else its worker again; then commit those paths, never
+`git add -A`.
 
 A reference you follow, here, in step 1, or a worker's with no subagents: after a summary of this
 conversation, read it again.
