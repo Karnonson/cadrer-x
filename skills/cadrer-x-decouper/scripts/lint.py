@@ -136,10 +136,14 @@ def lint(path):
 
     if not tasks:
         out.append(f"{where}: no task")
-    for k, t in enumerate(tasks, 1):
-        if t["num"] != k:
-            out.append(f"{where}:{t['line']}: {t['id']} should be T{k:02d}: ids go T01, T02… in file order, no gap")
-            break
+    # Ids: T01 to Tn, each once; a task added after the build (realiser, rendre) takes Tn+1 last in its
+    # story's section, so ids rise within a section, not across the file.
+    nums = sorted(t["num"] for t in tasks)
+    if nums != list(range(1, len(tasks) + 1)):
+        out.append(f"{where}: ids go T01 to T{len(tasks):02d}, each once, no gap; found {', '.join(t['id'] for t in tasks)}")
+    for a, b in zip(tasks, tasks[1:]):
+        if a["sec"] == b["sec"] and b["num"] <= a["num"]:
+            out.append(f"{where}:{b['line']}: {b['id']} comes after {a['id']} in its section: ids rise within a section")
     by_id = {t["id"]: t for t in tasks}
     pos = {t["id"]: k for k, t in enumerate(tasks)}
 

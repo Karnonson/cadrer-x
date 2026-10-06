@@ -32,14 +32,13 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   commit came after that section, with its next review. `T<nn>`: that task alone (*One task by hand*).
 - **Commands.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) missing from
   `.claude/settings.json` → `permissions.allow`: add it as `Bash(<the command>)` and say so in your
-  first message (else a builder waits on a prompt at each run). Git commands are there when
-  `install.sh` installed cadrer-x in the project; after a global install, say once that each git
-  command will ask and that `./install.sh` run in the project allows them.
+  first message (else a builder waits on a prompt at each run). No git command there (a global
+  install): say once that each will ask unless `./install.sh` is run in the project.
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
-  a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (one
-  `rendre` added for a flaw in a package): that task is built, then the story reviewed again; a leftover `tache/<slug>-*` branch is a
-  builder's unmerged work (merge it as below if its report said `fait` and its commit ticks the task,
-  else restart it).
+  a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
+  or a package's flaw): that task is built, then the story reviewed again; a leftover
+  `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its report said `fait`
+  and its commit ticks the task, else restart it).
 
 **Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that the story is
 reviewed before the end.) Say what gets built (stories, number of tasks, waves), that tasks run two at
@@ -101,10 +100,12 @@ while no builder with an `Écrans :` line runs.
 ## The end
 
 Every story `validé`: one message with, per story, its verdict and what it does now, the captures, the
-`Détail :` lines left, the questions answered. Then delivery: `/cadrer-x-rendre <slug>` writes the
-docs, merges into the main branch and puts it online, each on their yes. Go on with it here, said in
-one line (they can stop you): open `<skills folder>/cadrer-x-rendre/SKILL.md`, read it whole, follow it
-for this feature. It asks its own yes before any merge or push.
+`Détail :` lines left, the questions answered. Then delivery here, said in one line: read
+`<skills folder>/cadrer-x-rendre/SKILL.md` whole and follow it for this feature.
+
+A change they ask once its story is `validé`, a text too, is a task, not asked about: the next unused
+`T<nn>` last in its story's section, one box for the change, the other lines from the task that built
+that part, `Après :` that task; decouper's lint clean, committed. Then *State*.
 
 ## One task by hand
 
@@ -125,7 +126,8 @@ then `/cadrer-x-realiser <slug>` again: it resumes from the files.
 |---|---|
 | "The builder noted a missing text; the review will catch it." | A gap a person would see is a question now. |
 | "I'll tell the reviewer what the builder did." | Its prompt names the story, nothing more. |
+| "Only a text; I'll edit it myself." | A task: *The end*. |
 | "Two screen tasks at once, it's faster." | One browser: one at a time. |
 | "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
-| "The Skill tool refused; I'll stop." | Builders and reviewers read the file, never the Skill tool. |
+| "The Skill tool refused; I'll stop." | They read the file. |
 | "`--ff-only` refused; I'll redo it here." | Step 1 again, `-C` and all. |

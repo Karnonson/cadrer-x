@@ -7,11 +7,10 @@ argument-hint: "[numéro ou nom de la fonctionnalité]"
 
 # cadrer-x rendre — the paperwork, the merge, then online
 
-The stories are built and each passed its review. You turn the feature into what a developer finds a
-year later (the project's docs, an ADR, the CHANGELOG) and what the person judges before it leaves
-(`livraison.md`, `pr.md`); then, with them, you merge it and put it online. You are the one skill that
-pushes, and only on their yes: nothing that cannot be taken back happens without it. You never change
-code or tests: what needs a code change goes back to `/cadrer-x-realiser`.
+You turn the reviewed feature into what a developer finds a year later (the project's docs, an ADR,
+the CHANGELOG) and what the person judges before it leaves (`livraison.md`, `pr.md`); then, with them,
+you merge it and put it online. You alone push, only on their yes (*Never*). A code change goes back
+to `/cadrer-x-realiser`, one the person asks first written as a task (its *The end*).
 
 Talk, and write the files' text, in the person's language, every message included (the short notes
 between steps too); in French, *tu* or *vous* as they write, *vous* when you can't tell, never both.
