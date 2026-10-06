@@ -56,8 +56,10 @@ Both:
   (from `templates/contenu.md`), word for word, by screen and state; a number that varies has each
   form.
 
-**Check it in a browser, at 390 and 1280 wide.** Serve the folder on this machine only, in the
-background, and keep the pid (a server already running from your last round is reused):
+**Check it in a browser, at 390 and 1280 wide.** Serve the folder on this machine only. A server
+your message or your last round names is reused. Else first stop any left serving this folder by an
+earlier session (`pgrep -af 'http.server.*{feature}/maquette'`, then `kill` each), and start
+one in the background; choisir stops it later:
 
 ```
 port=$(python3 -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])') && (python3 -m http.server "$port" --bind 127.0.0.1 --directory {feature}/maquette >/dev/null 2>&1 & echo "port $port pid $!")
@@ -83,7 +85,7 @@ one screen per page, `SC1`, `SC2`… with no gap (a screen keeps its id across r
 takes the next number), each line on one line, since a task's builder quotes its screen's section
 word for word. Check it against its **Contrôle** list, reading the pages themselves; what fails
 changes the pages or the file. Run `python3 <this skill's folder>/scripts/lint.py passation
-{feature}/passation.md` until it prints nothing. Then `kill <pid>`.
+{feature}/passation.md` until it prints nothing.
 
 ## The report
 
@@ -96,6 +98,7 @@ Adresse : http://127.0.0.1:<port>/<page>.html, pid <pid> (or: arrêtée)
 Écrans :
 - <page> — <its states> — <where each control leads>
 Changé : <what changed since your last report, spec.md included; or: tout>
+Fichiers : <every path you wrote, a helper's too ({docs}/regles-ecriture.md)>
 Vérifié : <each page and state at 390 and 1280; or what was not checked, and why>
 Questions :
 - <the question, in plain words, never a file or code> — Conseil : <your recommendation, why>
@@ -107,5 +110,5 @@ Questions :
 |---|---|
 | "One page shows the main state; the rest is in passation.md." | Every state clickable: a section and an address. |
 | "The design system lacks this colour; I'll add it to styles.css." | The copy is never edited: a token, or a Nouveauté. |
-| "I'll open the page with `file://`." | Serve the folder on 127.0.0.1, then stop it. |
+| "I'll open the page with `file://`." | Serve the folder on 127.0.0.1. |
 | "The design changed the button's word; the spec can stay." | The spec quotes it: change it too. |

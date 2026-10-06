@@ -46,7 +46,8 @@ read it whole and follow it. Not there: go on without it.
    way (**À faire** names `/cadrer-x-ranger`): the feature's new code still goes where the layout puts
    it and calls the old code where it is. Moving old code is `/cadrer-x-ranger`'s, never a task's: say
    so in one line.
-6. `{feature}/passation.md`, with screens: each `SC<n>`, its stories, its page, its states.
+6. `{feature}/passation.md`, with `écrans : oui` and no `voie : courte`: each `SC<n>`, its stories,
+   its page, its states.
 7. The tests the project already has, and how `cadrer-x.yml` runs them.
 
 Facts are looked up, never asked: what the repo, the code or the docs answer is yours.
@@ -149,8 +150,8 @@ taches {feature}/taches.md`; fix and rerun until it prints nothing.
 **Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): a change a
 person sees has no `Écrans :` line (there is no `passation.md`): its box names the page and what it
 shows, and an **À surveiller** line pinned to the task says the review checks it on that page at 390
-and 1280. More than three tasks or a second story: the path was not short; remove the `voie :
-courte` line and take the full path.
+and 1280. More than three tasks or a second story: the path was not short; say so in your report,
+and choisir takes the full path.
 
 **The second look.** Its findings, from `verification.md`, come back to you: each `→ tâches` folded
 in; a `→ spec` with one fix the files already settle (a word the prototype or the glossary uses, a
@@ -166,7 +167,8 @@ Tâches :
 Vagues : <Vague 1 : T01 ; Vague 2 : T02, T05>
 À surveiller :
 - <each line>
-Changé : <what changed since your last report: tasks, spec.md lines, D<n>, voie : courte; or: tout>
+Changé : <what changed since your last report: tasks, spec.md lines, D<n>; or: tout>
+Fichiers : <every path you wrote>
 Questions :
 - <the question, in plain words, never a file or code> — Conseil : <your recommendation, why>
 ```

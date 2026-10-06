@@ -44,6 +44,8 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
   of the file its findings name (`git log -1 --format=%ct -- <file>`): a revision (below) of that
   stage (`→ spec`: the spec, first; `→ tâches`: the tasks). Its findings are what changes, never
   asked again.
+- They ask for a change to a feature that has its `taches.md`: a revision. What they want changed,
+  in their words (« Qu'est-ce que tu veux changer ? »), never which file.
 - Else the first stage still open, in this order:
   - no `decisions.md`: **step 2**.
   - no `spec.md`, or its **Statut** is not `validée` (a draft is picked up where it is): the spec:
@@ -51,10 +53,14 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
     `decisions.md` → **Étapes**, no `voie : courte`), its draft written, start the designer's
     wireframe before your first question: *Workers*.
   - with screens and no `passation.md`: the design: start (or resume) the designer, *Workers*.
+  - `passation.md`, `contenu.md` or `maquette/` not committed (`git status`): a designer (stage
+    `passation`) runs the passation's checks again; then the design's step 3.
   - no `taches.md`: the tasks: start the decoupeur, *Workers*.
+  - `taches.md` not committed: its lint (`taches`) clean, commit it as the tasks' step 1 says; else
+    the decoupeur again.
   - no task ticked, no `voie : courte`, no `verification.md` whose **Portée** is `spec et tâches`,
-    and you can start a subagent: the second look, *Workers* (commit `taches.md` first if it is not).
-- Every stage's file there: a revision. Ask which file changes and what changed; ask only that.
+    and you can start a subagent: the second look, *Workers*.
+  - else: the tasks are ready: the stop, *Workers*.
 - **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
   by its step, reference or worker as above, without asking again: the design only when the change
   moves a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which
@@ -295,7 +301,9 @@ the person. You start each one yourself, one after the other: no worker starts a
   worker; never a registered or custom agent type, never the Skill tool), with a fresh context and
   one message: « You are cadrer-x-<role>. Read `<skills folder>/<its file>` whole and follow it, for
   <its stage> of the feature `<NNNN-slug>`, in `<the feature's worktree>`. Launched by choisir. » It
-  runs in the background while you go on with the person; its last message is its report.
+  runs in the background while you go on with the person; its last message is its report, which
+  names every path it wrote, a helper's too (`{docs}/regles-ecriture.md`): you commit exactly those
+  paths, never `git add -A`.
 - **A correction** in this session goes to the same worker, resumed (Claude Code: a message to it;
   codex: input to it), in the person's words. With no worker open (a new session, or one closed), a
   fresh one reads the files already there and changes only what its message asks.
@@ -305,7 +313,9 @@ the person. You start each one yourself, one after the other: no worker starts a
   below as if it had reported.
 
 **The designer**: `cadrer-x-designer`, `cadrer-x-choisir/references/maquette.md`, for a feature with
-screens. A change with no new screen has none.
+screens (*Which step*), a changed screen as much as a new one. Its server is yours: a designer that
+replaces it in this session gets its address and pid in its message, and you stop it (`kill <pid>`)
+when you close the designer for good.
 
 1. **The wireframe** (stage `wireframe`): started once the spec's draft is written. Show its report
    with the spec (the address, each screen, its states, where each leads): they judge the flow and the
@@ -318,9 +328,8 @@ screens. A change with no new screen has none.
    read `references/claude-design.md` whole and follow it yourself. Each correction goes to the
    designer, until a clear yes that names what it covers: « Ces mots et ce look : c'est bon ? »
 3. **On the yes**, the designer (stage `passation`, with what `claude-design.md` gave for
-   `passation.md`) writes `passation.md` and stops its server. Commit `maquette/`, `contenu.md`,
-   `passation.md`, and `spec.md` when it changed, by their paths, never `git add -A`: `maquette —
-   <Titre>`. Close the designer, say in one line that you go on with the tasks, and go back to
+   `passation.md`) writes `passation.md`. Commit the paths its reports named: `maquette — <Titre>`.
+   Close the designer and its server, say in one line that you go on with the tasks, and go back to
    *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
 
 **The tasks**: the decoupeur (`cadrer-x-decoupeur`, `cadrer-x-choisir/references/decoupe.md`), then
@@ -328,18 +337,22 @@ the verificateur (`cadrer-x-verificateur`, `cadrer-x-verifier/SKILL.md`). No yes
 task list is technical.
 
 1. **The decoupeur** writes `taches.md`. Its questions go to the person, one per message; each answer
-   goes back to it, resumed. Commit what it wrote (`taches.md`, and `decisions.md`, `a-trancher.md`
-   when it wrote to them) by their paths: `tâches — <Titre>`.
+   goes back to it, resumed. A report that the path was not short: remove `voie : courte` from
+   `decisions.md` and commit that alone; with `écrans : oui`, delete the uncommitted `taches.md`, cut
+   again after the design; then back to *Which step*. Else commit the paths its report named:
+   `tâches — <Titre>`.
 2. **The verificateur**, with nothing of yours in its message, unless `voie : courte`, or
    `cadrer-x-verifier` is not beside this skill's folder; wait for its report. What the files settle
-   goes back to the decoupeur, resumed; what needs a product choice is a question for the person,
-   with the finding's proposal as your recommendation, and the answer goes to the decoupeur too.
+   goes back to the decoupeur, resumed. What needs a product choice is a question for the person,
+   with the finding's proposal as your recommendation; the spec is yours: their answer goes in
+   `a-trancher.md` and in the scenario of `spec.md` (lint `spec` run again), then to the decoupeur.
    Commit what changed: `tâches — <Titre>`; `spec — <Titre> : corrections de la vérification` for
    the spec. No subagents: say in one line that `/cadrer-x-verifier`, in a fresh session, can check
    the spec and the tasks first.
-3. **The stop.** Close the workers. One message: what gets built (each story in one line, the number
-   of tasks), what the second look changed, then `/cadrer-x-realiser <slug>`, better in a new
-   session (`/clear`, then the command). Then stop: the build is theirs to start.
+3. **The stop.** Close the workers, and the designer's server if one runs. One message: what gets
+   built (each story in one line, the number of tasks), what the second look changed, then
+   `/cadrer-x-realiser <slug>`, better in a new session (`/clear`, then the command). Then stop: the
+   build is theirs to start.
 
 ## Red flags
 
