@@ -35,3 +35,13 @@
 - Une compétence d'écriture en français, avec les tics de l'IA à éviter.
 - Ajouter le suivi après livraison quand le produit en a besoin : signal à surveiller, seuil d'action,
   personne responsable et chemin pour transformer un problème constaté en correction ou fonctionnalité.
+- Apprendre d'une session à l'autre : les corrections de la personne, une règle d'écart qui se
+  déclenche souvent et les corrections automatiques des vérifs deviennent des leçons du projet
+  (`.cadrer-x/lecon.md`), lues par les sessions suivantes et jointes aux tâches qu'elles concernent,
+  pour que la même erreur ne soit pas réapprise à chaque fonctionnalité.
+
+## Idées en attente
+
+- Des techniques de remue-méninges dans `choisir` : SCAMPER, le remue-méninges inversé, lever une
+  contrainte, et trois autres méthodes structurées, avec une protection contre les biais.
+- Reconnaître seul un projet existant et en écrire l'analyse avant le premier entretien.
