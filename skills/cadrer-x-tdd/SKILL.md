@@ -49,8 +49,8 @@ in `tests/modules/<module>/`.
 ## Mocks
 
 Only at the edges of the system: an outside service (payment, email), time, randomness, the file
-system outside a temp folder: tests point `HOME`, the XDG folders and any data or config path outside
-the repo at temp folders. Never the project's own modules. The project's own database in tests (the
+system outside a temp folder: tests point `HOME`, the XDG folders and any path the app writes data or
+config to at temp folders. Never the project's own modules. The project's own database in tests (the
 test database or SQLite in memory) beats a mock of it. An outside service is easiest to mock when the
 code receives it (`charge(order, client)`) instead of building it.
 

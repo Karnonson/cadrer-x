@@ -41,7 +41,7 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 - `taches.md` already there: a revision. A `{feature}/verification.md` committed after the last commit of `taches.md` (`git log -1 --format=%ct -- <file>`): its
   findings for `/cadrer-x-decouper` are what changes, never asked again; else ask what changed (usually
   the spec). Keep every task already ticked `[x]` as it is, with its id, and cut what changed as new
-  tasks numbered after the last one.
+  tasks numbered from the highest id plus one.
 
 ## Read, in this order
 

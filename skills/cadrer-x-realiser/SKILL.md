@@ -103,9 +103,10 @@ Every story `validé`: one message with, per story, its verdict and what it does
 `Détail :` lines left, the questions answered. Then delivery here, said in one line: read
 `<skills folder>/cadrer-x-rendre/SKILL.md` whole and follow it for this feature.
 
-A change they ask once its story is `validé`, a text too, is a task, not asked about: the next unused
-`T<nn>` last in its story's section, one box for the change, the other lines from the task that built
-that part, `Après :` that task; decouper's lint clean, committed. Then *State*.
+A change they ask once its story is `validé`, a text too, is a task, not asked about: the highest
+`T<nn>` plus one, last in its story's section, one box for the change, the other lines from the task
+that built that part, `Après :` that task. A text: change it in `contenu.md` first. Decouper's lint
+clean, committed. Then *State*.
 
 ## One task by hand
 
@@ -125,7 +126,6 @@ then `/cadrer-x-realiser <slug>` again: it resumes from the files.
 | Thought | Instead |
 |---|---|
 | "The builder noted a missing text; the review will catch it." | A gap a person would see is a question now. |
-| "I'll tell the reviewer what the builder did." | Its prompt names the story, nothing more. |
 | "Only a text; I'll edit it myself." | A task: *The end*. |
 | "Two screen tasks at once, it's faster." | One browser: one at a time. |
 | "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
