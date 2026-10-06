@@ -21,9 +21,9 @@ For each screen, at 390 then 1280 wide:
    (`-<état>` added for a state worth showing apart).
 
 Findings: a state the app lacks is partiel (`Bloquant :`); a text not `contenu.md`'s word for word, a
-raw colour or size where a token holds it, a part neither the design system's nor a **Nouveauté** of
-`passation.md`, a field with no label, a focus that jumps, a tap target under the design system's size,
-sideways scroll at 390: `À corriger :`; spacing changing nothing a person can do: `Détail :`. From the
+field with no label, a focus that jumps, a tap target under the design system's size, sideways scroll
+at 390: `À corriger :`; a raw colour or size where a token holds it, a part neither the design
+system's nor a **Nouveauté** of `passation.md`, spacing: `Détail :`. From the
 code, always, and all there is when screens could not be clicked: each `contenu.md` text in the code
 (`grep -rn`), each state its code path, the project's own components used.
 
