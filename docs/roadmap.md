@@ -26,6 +26,11 @@
 - Un hook git avant chaque commit qui lance `tools/status_check.py`, si `STATUS.md` grossit malgré
   ses règles pendant les essais.
 - Rendre le dépôt public : la même commande d'installation, avec `curl` au lieu de `gh`.
+- L'installation prend la dernière version publiée (le dernier tag `vX.Y.Z`) et non plus `main` ; une
+  option en choisit une autre (`--version v1.0.0`). Relancer la commande passe à la dernière version.
+- Dire dans le README ce que veut dire chaque numéro de `vX.Y.Z` : X change quand un projet commencé
+  avec l'ancienne version doit être adapté (un nom de fichier, un titre, une étape qui change) ; Y,
+  quand une étape ou une aide arrive sans rien casser ; Z, pour une correction.
 - Les tests des compétences (evals), refaits sur les compétences de la v2.
 - Une compétence d'écriture en français, avec les tics de l'IA à éviter.
 - Ajouter le suivi après livraison quand le produit en a besoin : signal à surveiller, seuil d'action,
