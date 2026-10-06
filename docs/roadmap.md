@@ -1,6 +1,9 @@
 # cadrer-x — feuille de route
 
-## Avant la v1
+## Pour la v2
+
+0. Corriger ce que les essais de la v1 ont montré, dans l'ordre du verdict
+   (`docs/reports/2026-10-06-verdict.md`, sur la branche `skills/session-audit-oct06`).
 
 1. Réécrire `docs/vision.md` de cadrer-x sur le Product Vision Board que `cadrer-x-init` produit
    désormais (Vision, Pour qui, Besoins, Produit, Objectifs, Faire ou louer), et le faire valider.
@@ -15,15 +18,15 @@
    ajoutées le 2026-10-04), une mise en ligne qui échoue et l'initialisation d'un projet existant.
    Relever les questions inutiles, les décisions perdues, les étapes bloquantes et le travail
    technique laissé à la personne ; corriger les compétences d'après ce qu'on y voit.
-5. La v1 : une fois les trois projets validés par le propriétaire, pousser `main` sur GitHub et y
-   publier la version `v1.0.0` (une release, avec ce qu'elle contient). D'ici là, rien n'est poussé.
+5. La v2 : une fois ces essais validés par le propriétaire, publier `v2.0.0` sur GitHub (une release,
+   avec ce qu'elle contient).
 
-## Après la v1
+## Après la v2
 
 - Un hook git avant chaque commit qui lance `tools/status_check.py`, si `STATUS.md` grossit malgré
   ses règles pendant les essais.
 - Rendre le dépôt public : la même commande d'installation, avec `curl` au lieu de `gh`.
-- Les tests des compétences (evals), refaits sur les compétences de la v1.
+- Les tests des compétences (evals), refaits sur les compétences de la v2.
 - Une compétence d'écriture en français, avec les tics de l'IA à éviter.
 - Ajouter le suivi après livraison quand le produit en a besoin : signal à surveiller, seuil d'action,
   personne responsable et chemin pour transformer un problème constaté en correction ou fonctionnalité.
