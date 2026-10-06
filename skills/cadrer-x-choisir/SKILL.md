@@ -369,5 +369,6 @@ task list is technical.
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
 | "Success: happier clients." | A number and a date they can check. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
-| "Both files saved; they'll type the next command." · "No time: I'll code it here." | Never: the spec, in this reply. The short path is the fast way. |
+| "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |
+| "No time: I'll code it here." | Never. The spec, in this reply: the short path is the fast way. |
 | "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |
