@@ -1,6 +1,6 @@
 # cadrer-x design system — find it, read it, never edit it
 
-Loaded by `affiner` (the prototype), `realiser` (a task with screens) and realiser's reviewer (the
+Loaded by `choisir` (the prototype), `realiser` (a task with screens) and realiser's reviewer (the
 screens' review). The design system is the one source of a product's look: its
 tokens (every colour, font, size and space) and its parts (a button, a field, a card). A screen that
 invents a colour or a part drifts from the rest of the product, and nobody sees it until it ships.
@@ -36,7 +36,7 @@ The first that answers:
   stylesheet in the app.
 - **A value no token holds**: the nearest token, said once.
 - **A part it lacks**: built from tokens in the feature's own files (a prototype page's `<style>`; in code,
-  the task's module), never in the design system or the shared components. `affiner` lists it in
+  the task's module), never in the design system or the shared components. `choisir` lists it in
   `passation.md` → **Nouveautés**; a builder names it in the commit.
 
 ## 4. Never edit it
@@ -49,8 +49,8 @@ too: copied byte for byte, never edited.
 
 ## 5. No design system yet
 
-- **`affiner`'s prototype**: the app's own tokens file and components when it has screens already;
-  none: `../cadrer-x-affiner/templates/maquette/styles.css`, a plain neutral one, and say once that the look is
+- **`choisir`'s prototype**: the app's own tokens file and components when it has screens already;
+  none: `../cadrer-x-choisir/templates/maquette/styles.css`, a plain neutral one, and say once that the look is
   the prototype's, not a brand. No step makes a design system on its own.
 - **The person asks for one, in any step**: that step makes `{docs}/design-system/` from what the product already has, never
   from taste. `styles.css`: the tokens under `:root` with the values the

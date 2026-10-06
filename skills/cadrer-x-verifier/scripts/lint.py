@@ -13,7 +13,7 @@ from pathlib import Path
 
 HEAD = [("Date", r"\d{4}-\d{2}-\d{2}", "AAAA-MM-JJ"), ("Portée", r"spec|spec et tâches", "`spec` or `spec et tâches`"),
         ("Verdict", r"à reprendre|prête", "`à reprendre` or `prête`")]
-FINDING = re.compile(r"^- (À reprendre|Remarque) : \S.*→ /cadrer-x-(affiner|decouper)\s*$")
+FINDING = re.compile(r"^- (À reprendre|Remarque) : \S.*→ (spec|tâches)\s*$")
 
 
 def lint(path):
@@ -51,7 +51,7 @@ def lint(path):
                 continue
             m = FINDING.match(l)
             if not m:
-                out.append(f"{where}:{r + 1}: a finding is `- À reprendre : …` or `- Remarque : …`, ending `→ /cadrer-x-affiner` or `→ /cadrer-x-decouper`")
+                out.append(f"{where}:{r + 1}: a finding is `- À reprendre : …` or `- Remarque : …`, ending `→ spec` or `→ tâches`")
             elif m.group(1) == "À reprendre":
                 blocking += 1
     if "Vérifié" in spans:

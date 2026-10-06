@@ -1,16 +1,16 @@
 ---
 name: cadrer-x-choisir
-description: "Choisir quoi construire. À lancer quand quelqu'un arrive avec une idée de fonctionnalité ou de changement, ou un bug à corriger, ou quand une fonctionnalité a son `idee.md` mais pas encore son `decisions.md`. Deux entretiens, une question à la fois : l'idée (`idee.md`), puis les décisions (`decisions.md`). Le premier crée la branche et le dossier de la fonctionnalité. Ne spécifie pas, ne code pas."
+description: "Choisir quoi construire, de l'idée aux tâches. À lancer avec une idée de fonctionnalité ou de changement, ou un bug à corriger ; avec le nom d'une fonctionnalité, reprend l'étape ouverte. Une question à la fois : l'idée, les décisions, la spec, la maquette s'il y a des écrans, puis les tâches. Ne code pas."
 disable-model-invocation: true
-argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité>"
+argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité à reprendre>"
 ---
 
-# cadrer-x choisir — the idea, then the decisions
+# cadrer-x choisir — from the idea to the tasks
 
 You find out what the person wants and settle what it takes, one question at a time. Two steps, each
 ending in one file in the feature's folder: the idea (`idee.md`), then the decisions (`decisions.md`).
-No spec, no plan, no code: the next skills write those from your files, and whatever you leave
-unsettled they will guess.
+Then the stages your references hold: the spec, the prototype when there are screens, the tasks. No
+code: the builders build from your files, and whatever you leave unsettled they will guess.
 
 Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings and labels stay
@@ -21,20 +21,39 @@ this skill's folder, at that moment; read it whole and follow it. Not there: go 
 
 ## Which step
 
-Read first: `cadrer-x.yml` (`docs:`, default `docs`), then `{docs}/features/`. Search the feature
-branches too: `git branch --list 'feature/*'`, and each one's folder through
+Read first: `cadrer-x.yml` (`docs:`, default `docs`), `git worktree list`, then `{docs}/features/`.
+Search the feature branches too: `git branch --list 'feature/*'`, and each one's folder through
 `git show feature/<slug>:{docs}/features/`.
 
-- The argument names a feature (its number or its slug) that has `idee.md` and no `decisions.md`:
-  **step 2**.
-- It names one with both files: a revision. Ask which file changes and what changed; ask only
-  that, then save it the way its step says.
-- It names one with no `idee.md`, or it is an idea in words, or there is no argument: **step 1**.
 - Not a git repository, or no commit yet: say `/cadrer-x-init` sets the project up first, and stop.
-- No `cadrer-x.yml` or no `{docs}/vision.md`: say in one line that `/cadrer-x-init` settles the project
-  (who it serves, its stack, its checks) whenever they want, and go on. An offer, never a condition.
+- No `cadrer-x.yml` or no `{docs}/vision.md`: say once, in one line, that `/cadrer-x-init` settles the
+  project (who it serves, its stack, its checks) whenever they want, and go on. An offer, never a
+  condition.
+- The argument names a feature (its number or its slug; a near miss, `devis` for `defis`, with one
+  close feature: that one, said in one line) with no `idee.md`, or it is an idea in words, or there is
+  no argument: **step 1**.
+- **Where you work**, for a feature that has its `idee.md`: its worktree `.worktrees/feature.<slug>`
+  when it exists; else the current checkout when it is on `feature/<slug>`; else `git worktree add
+  .worktrees/feature.<slug> feature/<slug>` (add `.worktrees/` to `.git/info/exclude` first if it is
+  missing, and copy the untracked `.env*` files in). Every file is written there, in
+  `{docs}/features/NNNN-<slug>/` (`{feature}`), and committed on that branch.
+- A `{feature}/verification.md` whose **Verdict** is `à reprendre`, committed after the last commit
+  of the file its findings name (`git log -1 --format=%ct -- <file>`): a revision of that stage
+  (`→ spec`: the spec, first; `→ tâches`: the tasks), its reference read as below. Its findings are what
+  changes, never asked again.
+- Else the first stage still open, in this order:
+  - no `decisions.md`: **step 2**.
+  - no `spec.md`, or its **Statut** is `brouillon` (a draft is picked up where it is): the spec: read
+    `references/spec.md` whole now, then follow it.
+  - `écrans : oui` in `decisions.md` → **Étapes**, no `voie : courte`, and no `passation.md`: the
+    prototype: read `references/maquette.md` whole now, then follow it. With the claude-design tools
+    in your session, its Claude Design offer: `references/claude-design.md`.
+  - no `taches.md`: the tasks: read `references/decoupe.md` whole now, then follow it.
+- Every stage's file there: a revision. Ask which file changes and what changed; ask only that. Then
+  redo that stage the way its step or reference says. A spec change that moves a screen changes the
+  prototype too; once `taches.md` exists, the tasks are cut again after it.
 
-## Every turn, both steps
+## Every turn
 
 - **One question per message** when the next depends on its answer, the one that unblocks the most.
   One question has one thing to answer: never two asks joined by "and" or "or". Choices are fine when
@@ -57,9 +76,9 @@ branches too: `git branch --list 'feature/*'`, and each one's folder through
   "Comme tu veux" takes your recommendation: say in one line which. A best-practice answer
   ("scalable", "moderne") gets: "Si tu n'avais pas à le justifier, tu voudrais quoi ?"
 - An answer that fights an earlier one or the idea: say so, ask which wins.
-- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", or a condition already met. Say in
-  one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for keeps it
-  open: ask what they would change.
+- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", "mieux", or a condition already
+  met. Say in one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for
+  keeps it open: ask what they would change.
 
 ## Step 1 — the idea
 
@@ -171,12 +190,12 @@ colour, a link, a button that misbehaves), no personal data, no new service or s
 of the constitution touched, and you can foresee one story and three tasks at most. A bug usually is
 one. Say it in one line (« Petit changement : je prends la voie courte. ») and add `- voie : courte`
 under **Étapes**. The decisions are then only the idea's **Ouvert** points: ask those, nothing more,
-and save. Any doubt, or the person asks for the full path: the full path. `affiner`, `decouper` and
+and save. Any doubt, or the person asks for the full path: the full path. The spec, the tasks and
 `realiser` read that line and lighten their steps.
 
 **Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
-first turn: after the spec, `/cadrer-x-affiner` then makes a clickable prototype they judge before
-the tasks are cut. On the short path, no prototype: the review checks the change on the real page.
+first turn: after the spec comes a clickable prototype they judge before the tasks are cut. On the
+short path, no prototype: the review checks the change on the real page.
 
 Format, without the tool, in their language:
 
@@ -260,8 +279,7 @@ Questions left open: `a-trancher.md` beside them, one block each, numbered after
 ```
 
 Commit on the feature branch: `décisions — <Titre>`. Then the spec, here: say in one line that you
-go on with it, open `../cadrer-x-affiner/SKILL.md`, read it whole and follow it for this feature. They
-stop you: `/cadrer-x-affiner <slug>` picks it up.
+go on with it, and go back to *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
 
 ## Red flags
 
@@ -274,3 +292,4 @@ stop you: `/cadrer-x-affiner <slug>` picks it up.
 | "A bug report: I'll ask who it's for and how to measure it." | What they did, saw and expected; then try it yourself. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
 | "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |
+| "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |

@@ -1,6 +1,6 @@
 # cadrer-x textes — the rules, then the writing, then the check
 
-Loaded by `affiner` (the prototype's words, `contenu.md`), `realiser` (a text the screens lack),
+Loaded by `choisir` (the prototype's words, `contenu.md`), `realiser` (a text the screens lack),
 realiser's reviewer (the words on screen) and `rendre` (the CHANGELOG, `pr.md`). A product's French
 is part of the product: its register, its words, its punctuation. The rules are the project's, then
 these, not your taste.
@@ -59,7 +59,7 @@ said it; on their yes, add it to `{docs}/regles-ecriture.md` (created when absen
 
 ## 5. Who writes what
 
-`affiner` writes the screens' words, in the pages and in `contenu.md`, and the person approves them with
+`choisir` writes the screens' words, in the pages and in `contenu.md`, and the person approves them with
 the prototype. A builder takes them word for word. A text they lack (a server error, a limit) is not the
 builder's to invent: one question to the person, with the proposed text written by these rules and linted too (write it to a scratch `.md`, run `frlint.py` on it) before you put it to the person.
 

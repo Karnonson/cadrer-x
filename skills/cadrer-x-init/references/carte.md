@@ -37,4 +37,4 @@ Stay where they are, always:
 An old cadrer build's own `architecture.md` is not moved with its folder: the latest build's is folded
 into `{docs}/architecture.md` (its **Comptes et secrets** becomes **Secrets**, **À faire à la main** becomes
 **À faire**, **Pour lancer** becomes **Lancer**), the older ones stay in their feature folder as history. A build in progress keeps its `tranches.md`
-until `/cadrer-x-decouper` cuts what is left into `taches.md`: say so in the plan.
+until `/cadrer-x-choisir <slug>` cuts what is left into `taches.md`: say so in the plan.

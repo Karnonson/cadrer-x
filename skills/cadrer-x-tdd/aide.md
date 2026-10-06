@@ -24,7 +24,7 @@ def test_pay_updates_the_row(self):
 ## Where tests go
 
 At the entry of the module the task builds (`{docs}/architecture.md` → **Modules**: its `api.<ext>`, its
-route, its page). `decouper` already chose them: each box of the task is a test at that entry, named
+route, its page). `choisir` already chose them: each box of the task is a test at that entry, named
 like the box, with the spec's own values. No test against a private function. The file goes where
 **Modules** puts that module's tests; with no line for them, where the framework puts its tests, else
 in `tests/modules/<module>/`.

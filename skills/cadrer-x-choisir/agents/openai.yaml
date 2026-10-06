@@ -1,5 +1,5 @@
 interface:
   display_name: "cadrer-x choisir"
-  short_description: "Entretien : l'idée (idee.md), puis les décisions (decisions.md)"
+  short_description: "De l'idée aux tâches : l'idée, les décisions, la spec, la maquette, les tâches"
 policy:
   allow_implicit_invocation: false

@@ -2,7 +2,7 @@
 
 The framework's way first, whole. Where it leaves the layout open, the same shape in every cadrer-x
 project: the product cut into modules, each with one entry. Read by `init` (**Modules**), `ranger`
-(moving old code there), `decouper` (where each task's files go), `realiser` (where a new file goes)
+(moving old code there), `choisir` (where each task's files go), `realiser` (where a new file goes)
 and realiser's reviewer. This file answers where code goes: never ask the person, and never call a
 project too simple for it; projects grow.
 

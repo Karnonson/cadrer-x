@@ -1,11 +1,7 @@
----
-name: cadrer-x-decouper
-description: "Découper une fonctionnalité en tâches. À lancer quand sa spec est validée (et sa maquette, si elle a des écrans) mais qu'elle n'a pas encore son `taches.md`, ou quand la spec a changé et que les tâches sont à refaire. Écrit `taches.md` : des tranches fines qui traversent tout ce dont elles ont besoin, chacune prouvée par un test, rangées par récit, avec ce qui peut se construire en même temps. Ne code pas."
-disable-model-invocation: true
-argument-hint: "<numéro ou nom de la fonctionnalité>"
----
+# The tasks — cut from the approved spec
 
-# cadrer-x découper — the tasks
+Followed by `choisir` when its *Which step* finds the tasks open. `templates/` and `scripts/` below
+are choisir's, beside `references/`.
 
 You cut the approved spec into tasks the builders take one at a time, often several at once, each
 in its own worktree, never seeing each other. One file, `taches.md`, from `templates/taches.md`. Each
@@ -17,31 +13,17 @@ Talk, and write the file's text, in the person's language, every message include
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the template, in every language: the later skills find them by these names.
 
-**Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
-this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
+**Helpers.** Where this file says *read `cadrer-x-<name>`*, open
+`<skills folder>/cadrer-x-<name>/aide.md` (the folder that holds `cadrer-x-choisir/`) at that moment;
+read it whole and follow it. Not there: go on without it.
 
-## Which feature, and where
+## An old build, a revision
 
-Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git worktree list`,
-`git branch --list 'feature/*'`.
-
-- **The feature.** The argument's number or slug; a near miss (`devis` for `defis`, `001-defis`) with
-  one close feature: that one, said in one line. No argument: the feature of the worktree you are
-  in, else the one feature with a validated spec and no `taches.md`; several: ask which, one question.
-- **Where you work.** Its worktree `.worktrees/feature.<slug>`; else the current checkout when it is on
-  `feature/<slug>`; else `git worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in
-  `.git/info/exclude` first, the untracked `.env*` files copied in). `{feature}` is
-  `{docs}/features/NNNN-<slug>/` there.
-- No `spec.md`, or its **Statut** is not `validée`: say `/cadrer-x-affiner <slug>` comes first, and stop.
-- `écrans : oui` in `decisions.md`, no `voie : courte`, and no `passation.md`: the same, for the
-  prototype.
 - An old cadrer `tranches.md` there and no `taches.md`: the build started under cadrer. Its ticked slices
   are built: read their code, and write each scenario it already proves as a ticked `[x]` task under its
   story (its files those that hold it, `Risques :` as the code guards them); cut only what is left.
-- `taches.md` already there: a revision. A `{feature}/verification.md` committed after the last commit of `taches.md` (`git log -1 --format=%ct -- <file>`): its
-  findings for `/cadrer-x-decouper` are what changes, never asked again; else ask what changed (usually
-  the spec). Keep every task already ticked `[x]` as it is, with its id, and cut what changed as new
-  tasks numbered from the highest id plus one.
+- `taches.md` already there: a revision. Keep every task already ticked `[x]` as it is, with its id,
+  and cut what changed as new tasks numbered from the highest id plus one.
 
 ## Read, in this order
 
@@ -53,10 +35,10 @@ Read first: `cadrer-x.yml` (`docs:`, default `docs`; `commands.checks`), `git wo
 4. `{docs}/constitution.md`: the numbered rules `M<n>`.
 5. `{docs}/architecture.md` → **Modules**: each module, what it owns, its paths. Read `cadrer-x-modules`. Then open the code it points to, so every path you name
    is real, or sits where the map puts that module's new files (a new module: where
-   `../cadrer-x-modules/references/structure.md` puts it). Code not yet laid out that way (**À
-   faire** names `/cadrer-x-ranger`): the feature's new code still goes where the layout puts it and
-   calls the old code where it is. Moving old code is `/cadrer-x-ranger`'s, never a task's: say so in
-   one line.
+   `<skills folder>/cadrer-x-modules/references/structure.md` puts it). Code not yet laid out that
+   way (**À faire** names `/cadrer-x-ranger`): the feature's new code still goes where the layout puts
+   it and calls the old code where it is. Moving old code is `/cadrer-x-ranger`'s, never a task's: say
+   so in one line.
 6. `{feature}/passation.md`, with screens: each `SC<n>`, its stories, its page, its states.
 7. The tests the project already has, and how `cadrer-x.yml` runs them.
 
@@ -92,7 +74,7 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
   type) is on the `Fichiers :` line of each, and has one owner: the first task that names it. Every
   other task naming it is `Après :` that owner, directly or through another task.
 - **Never in a task's files**: `spec.md`, `taches.md`, `passation.md`, `maquette/`, `contenu.md`
-  (affiner's and yours), and `{docs}/architecture.md`, `{docs}/adr/`, `{docs}/security/`, `CHANGELOG.md`
+  (choisir's), and `{docs}/architecture.md`, `{docs}/adr/`, `{docs}/security/`, `CHANGELOG.md`
   (`/cadrer-x-rendre` folds the feature in when it ships).
 - **Tests in the runner the project has.** A builder never adds a test runner or a package on its own.
   A box about how a screen looks at a width stays a box: the test proves its text, its link, its state,
@@ -167,14 +149,14 @@ no `passation.md`): its box names the page and what it shows, and an **À survei
 the task says the review checks it on that page at 390 and 1280. More than three tasks or a second
 story: the path was not short; remove the `voie : courte` line and take the full path.
 
-**A second look, fresh.** When `cadrer-x-verifier` is installed beside this skill and you can start a
+**A second look, fresh.** When `cadrer-x-verifier` is installed beside choisir and you can start a
 subagent, start one with a fresh context and this prompt, and nothing of yours: « Read
 `<skills folder>/cadrer-x-verifier/SKILL.md` whole and follow it for the feature `<NNNN-slug>`, in
-`<the feature's worktree>`. Launched by decouper. » Do not use the Skill tool for it: read the file.
+`<the feature's worktree>`. Launched by choisir. » Do not use the Skill tool for it: read the file.
 Meanwhile, wait. Its findings, from `verification.md`:
 
-- For `/cadrer-x-decouper`: yours; fold each in.
-- For `/cadrer-x-affiner`, with one fix the files already settle (a word the prototype or the glossary
+- For `→ tâches`: yours; fold each in.
+- For `→ spec`, with one fix the files already settle (a word the prototype or the glossary
   uses, a value a decision or an answered question gives): fix `spec.md` there, its lint run again,
   and name each change in your message.
 - Anything that needs a choice: a question in your message, with your recommendation.
@@ -191,7 +173,7 @@ On the yes: commit what changed since (`tâches — <Titre>`; `spec — <Titre> 
 vérification` for the spec). Then the build: `/cadrer-x-realiser <slug>` builds every task, has each
 story reviewed by someone who did not build it, and stops only for the person's questions. Say it runs
 best in a fresh session (`/clear`, then the command); they say go on here: open
-`../cadrer-x-realiser/SKILL.md`, read it whole and follow it for this feature.
+`<skills folder>/cadrer-x-realiser/SKILL.md`, read it whole and follow it for this feature.
 
 ## Red flags
 

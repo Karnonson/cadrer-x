@@ -109,7 +109,7 @@ A change they ask once its story is `validé`, a text too, is a task: the highes
 last in its story's section, one box for the change, the other lines from the task that built that
 part, `Après :` that task. A text: in `contenu.md` first, if it has one. Against a scenario or a
 decision: ask once, plainly, whether it replaces it; the answer goes in `a-trancher.md`, and a yes
-changes the scenario in `spec.md` (a no: no task). Decouper's lint clean, committed. Then *State*.
+changes the scenario in `spec.md` (a no: no task). choisir's lint (`taches`) clean, committed. Then *State*.
 
 ## One task by hand
 

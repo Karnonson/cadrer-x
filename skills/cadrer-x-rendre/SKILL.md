@@ -189,7 +189,7 @@ leave it up: their choice.
 Trajet and each scenario checked: seen, or what was seen instead, with its capture), **En cas de
 problème** (how to go back to the previous version, how to get the data back as **Données** says, where
 to look when it stops), **À faire** (each item still open, *à la main*; each thing found wrong online,
-one line `/cadrer-x-choisir` or `/cadrer-x-decouper` can turn into work). Lint it. Commit `livraison.md`,
+one line `/cadrer-x-choisir` can turn into work). Lint it. Commit `livraison.md`,
 `architecture.md`, `cadrer-x.yml` and the captures on the main branch: `livraison — <adresse>`; push it
 only when a plan row said so.
 

@@ -45,16 +45,16 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
 ```
 /cadrer-x-init                 une fois par projet : la vision, puis l'organisation
 /cadrer-x-ranger               si le code existe déjà : le ranger en modules, sans rien changer au produit
-/cadrer-x-choisir              l'idée d'une fonctionnalité, puis ses décisions
-/cadrer-x-affiner <nom>        la spec (tu la valides), puis la maquette s'il y a des écrans
-/cadrer-x-decouper <nom>       les tâches, rangées par récit, vérifiées par un second regard
+/cadrer-x-choisir              l'idée d'une fonctionnalité, ses décisions, la spec (tu la valides),
+                               la maquette s'il y a des écrans, puis les tâches, vérifiées par un
+                               second regard ; /cadrer-x-choisir <nom> reprend là où elle en est
 /cadrer-x-realiser <nom>       toute la construction : chaque tâche test d'abord, chaque récit relu
 /cadrer-x-rendre <nom>         la doc, la version, la fusion, puis la mise en ligne
 ```
 
-En pratique, trois sessions par fonctionnalité : `choisir` (qui enchaîne sur `affiner` et `decouper`),
-`realiser`, puis `rendre`. Chaque étape enchaîne sur la suivante quand tu dis oui ; tu peux toujours
-l'arrêter et lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
+En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
+`rendre`. Chaque étape enchaîne sur la suivante quand tu dis oui ; tu peux toujours l'arrêter et
+lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
 elle sait où elle en est.
 
 `/cadrer-x-realiser <nom>` mène toute la construction depuis une seule session : il confie chaque tâche

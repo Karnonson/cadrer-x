@@ -1,6 +1,6 @@
 # cadrer-x modules — the map decides
 
-Loaded by `decouper` (where each task's files go), `realiser` (each new import), `ranger` (each move) and realiser's reviewer
+Loaded by `choisir` (where each task's files go), `realiser` (each new import), `ranger` (each move) and realiser's reviewer
 (each crossing). `{docs}/architecture.md` → **Modules** is the map: each module, what it owns, its paths. The map
 decides, not the folder names. With no map, the rules below still hold on the code's own layout.
 
@@ -33,7 +33,7 @@ entry.
 A task's `Fichiers :` line naming one file, « a one-line import », a habit in the code: none makes a
 crossing right. The map outranks the plan.
 
-- **Cutting tasks** (`decouper`): one module per task where you can; a task that needs two names the
+- **Cutting tasks** (`choisir`): one module per task where you can; a task that needs two names the
   entry it goes through, and that entry's file is on its `Fichiers :` line. A new module's files and its
   tests go where `references/structure.md` puts them.
 - **Building** (`realiser`): take the path that keeps the map, and write it as a `Choix :` line: what the

@@ -54,7 +54,7 @@ There is no test suite. Before a commit:
 - `git diff --check`, `bash -n install.sh` when it changed, `python3 tools/status_check.py` when
   `STATUS.md` changed.
 - A changed template or format: write a sample file and run the skill's lint on it, for instance
-  `python3 skills/cadrer-x-decouper/scripts/lint.py taches <dir>/taches.md` (each lint's docstring
+  `python3 skills/cadrer-x-choisir/scripts/lint.py taches <dir>/taches.md` (each lint's docstring
   gives its usage).
 - A changed install: `./install.sh --link <scratch dir>` and look at what landed there.
 - Size: `uv run tools/token_estimate.py skills`.

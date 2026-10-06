@@ -1,6 +1,6 @@
 # cadrer-x sécurité — safe by default, proven by abuse tests, every personal datum listed
 
-Loaded by `choisir` and `affiner` (personal data), `decouper` (risks), `realiser` (defaults, tests),
+Loaded by `choisir` (personal data; the tasks' risks), `realiser` (defaults, tests),
 realiser's reviewer (review) and `rendre` (the data list, the scan before a release). The safe way is the default; anything else needs a
 written reason, on a `Choix :` line or in the step's own file.
 
@@ -73,8 +73,8 @@ nothing. One line per check goes in `pr.md` → **Preuves**: `- Sécurité : <ch
    of **Ordre**: `- [ ] T<next> [US<n>] Mettre à jour <paquet> vers <version corrigée>`, one box
    `- [ ] <the audit command> ne signale plus <id de la faille>`, `Exigences : aucune`, `Risques :
    dépendances — <id> → <version corrigée>`, `Fichiers :` the manifest, the lockfile and any code the
-   new version breaks, `Après : aucune`, `Taille : XS`. Run decouper's lint (`python3
-   ../cadrer-x-decouper/scripts/lint.py taches {feature}/taches.md`), commit `taches — <paquet>
+   new version breaks, `Après : aucune`, `Taille : XS`. Run choisir's lint (`python3
+   ../cadrer-x-choisir/scripts/lint.py taches {feature}/taches.md`), commit `taches — <paquet>
    <version corrigée>`, and name `/cadrer-x-realiser <slug>`: it builds the task and reviews the story
    again, then `rendre` runs this scan again. No fixed version, or only one that changes what the
    product does: a question to the person instead, your recommendation first (another package, or
@@ -103,9 +103,9 @@ Each piece of personal data gets five answers: **what**, **where it is kept**, *
 - **Duration** is a period and an end (deleted, anonymized), never « toujours » or blank.
 - Personal data in logs, analytics or a prompt sent to an AI: only with its own line.
 
-Where it goes: `choisir` writes the lines under `decisions.md` → **Données et risques**; `affiner` turns a
+Where it goes: `choisir` writes the lines under `decisions.md` → **Données et risques**; its spec turns a
 gap (a datum a story keeps with no basis or duration) into a question in `a-trancher.md` with your
-recommended answer; `decouper` puts each threat on a task's `Risques :`; `rendre` folds the lines into the
+recommended answer; its tasks put each threat on a task's `Risques :`; `rendre` folds the lines into the
 data list under `{docs}/security/` (`data-inventory.md`, or the file the constitution names). A duration the
 code does not enforce is never written as done.
 

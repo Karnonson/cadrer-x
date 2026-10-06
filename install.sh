@@ -51,7 +51,7 @@ self="$here/install.sh"
 src="$here/skills"
 # Skills cadrer-x no longer has, taken out of the destination by every install and --remove: when a
 # skill becomes a reference, append its folder's name.
-retired="cadrer-x-examiner"
+retired="cadrer-x-examiner cadrer-x-affiner cadrer-x-decouper"
 scope=project dir=. engines="" link=0 remove=0
 
 while [ $# -gt 0 ]; do
