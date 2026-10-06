@@ -29,29 +29,33 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
 - No `cadrer-x.yml` or no `{docs}/vision.md`: say once, in one line, that `/cadrer-x-init` settles the
   project (who it serves, its stack, its checks) whenever they want, and go on. An offer, never a
   condition.
+- No argument: the feature of the worktree you are in, or of the checkout on `feature/<slug>`, while
+  it has no `taches.md`. Else, features with `decisions.md` and no `taches.md`: ask which to go on
+  with, or a new idea, one question. Else **step 1**.
 - The argument names a feature (its number or its slug; a near miss, `devis` for `defis`, with one
-  close feature: that one, said in one line) with no `idee.md`, or it is an idea in words, or there is
-  no argument: **step 1**.
+  close feature: that one, said in one line) with no `idee.md`, or it is an idea in words: **step 1**.
 - **Where you work**, for a feature that has its `idee.md`: its worktree `.worktrees/feature.<slug>`
   when it exists; else the current checkout when it is on `feature/<slug>`; else `git worktree add
   .worktrees/feature.<slug> feature/<slug>` (add `.worktrees/` to `.git/info/exclude` first if it is
   missing, and copy the untracked `.env*` files in). Every file is written there, in
   `{docs}/features/NNNN-<slug>/` (`{feature}`), and committed on that branch.
 - A `{feature}/verification.md` whose **Verdict** is `à reprendre`, committed after the last commit
-  of the file its findings name (`git log -1 --format=%ct -- <file>`): a revision of that stage
-  (`→ spec`: the spec, first; `→ tâches`: the tasks), its reference read as below. Its findings are what
-  changes, never asked again.
+  of the file its findings name (`git log -1 --format=%ct -- <file>`): a revision (below) of that
+  stage (`→ spec`: the spec, first; `→ tâches`: the tasks). Its findings are what changes, never
+  asked again.
 - Else the first stage still open, in this order:
   - no `decisions.md`: **step 2**.
-  - no `spec.md`, or its **Statut** is `brouillon` (a draft is picked up where it is): the spec: read
-    `references/spec.md` whole now, then follow it.
+  - no `spec.md`, or its **Statut** is not `validée` (a draft is picked up where it is): the spec:
+    read `references/spec.md` whole now, then follow it.
   - `écrans : oui` in `decisions.md` → **Étapes**, no `voie : courte`, and no `passation.md`: the
     prototype: read `references/maquette.md` whole now, then follow it. With the claude-design tools
     in your session, its Claude Design offer: `references/claude-design.md`.
   - no `taches.md`: the tasks: read `references/decoupe.md` whole now, then follow it.
-- Every stage's file there: a revision. Ask which file changes and what changed; ask only that. Then
-  redo that stage the way its step or reference says. A spec change that moves a screen changes the
-  prototype too; once `taches.md` exists, the tasks are cut again after it.
+- Every stage's file there: a revision. Ask which file changes and what changed; ask only that.
+- **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
+  by its step or reference as above, without asking again: the prototype only when the change moves
+  a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which step* goes
+  on to the next of these; after the last, stop with its usual next step.
 
 ## Every turn
 
@@ -72,13 +76,16 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
   yourself: wait for its report. They decide; they never research.
 - **Plain words.** No file names, formats or code in a question: ask what they want to happen. Never
   a question only a developer could answer.
-- A vague answer ("tout le monde", "souvent", "mieux") gets one more question for the real case.
+- A vague answer ("tout le monde", "souvent") gets one more question for the real case.
   "Comme tu veux" takes your recommendation: say in one line which. A best-practice answer
   ("scalable", "moderne") gets: "Si tu n'avais pas à le justifier, tu voudrais quoi ?"
 - An answer that fights an earlier one or the idea: say so, ask which wins.
-- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", "mieux", or a condition already
-  met. Say in one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for
-  keeps it open: ask what they would change.
+- **Settled stays settled.** `decisions.md` → **Décisions** and **Précisions**, and every answered
+  question of `a-trancher.md`, are read, never asked again.
+- **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", or a condition already met;
+  "mieux" only in answer to a revised result you just showed, elsewhere a vague answer. Say in one
+  line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for keeps it open:
+  ask what they would change.
 
 ## Step 1 — the idea
 

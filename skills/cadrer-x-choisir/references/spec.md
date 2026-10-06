@@ -22,8 +22,6 @@ read it whole and follow it. Not there: go on without it.
   "oui" accepts. One question has one thing to answer: never two asks joined by "and" or "or".
   Questions that hang on nothing still open may go out together, numbered, each with its
   recommendation: they answer in one message.
-- **Settled stays settled.** `decisions.md` → **Décisions** and **Précisions**, and every answered
-  question of `a-trancher.md`, are read, never asked again.
 
 ## The spec
 
