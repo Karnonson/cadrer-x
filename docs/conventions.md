@@ -198,7 +198,9 @@ Polish phase (docs are `rendre`'s; anything else belongs to a story).
 
 `skills/cadrer-x-decouper/scripts/lint.py taches <path>` checks the form and the plan's links: ids, each task's
 lines, its stories, exigences and screens against `spec.md` and `passation.md`, `[P]`, one owner per shared file,
-the files a task never touches, and `Couverts`.
+the files a task never touches, and `Couverts`. Task ids go `T01` to `Tn`, each used once, rising within
+a story's section, not across the file: a task added after the build (`realiser`, `rendre`) takes the
+highest id plus one, last in its story's section, and no task is ever renumbered.
 
 ### passation.md (design handoff)
 

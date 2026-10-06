@@ -105,7 +105,7 @@ Every story `validé`: one message with, per story, its verdict and what it does
 
 A change they ask once its story is `validé`, a text too, is a task, not asked about: the highest
 `T<nn>` plus one, last in its story's section, one box for the change, the other lines from the task
-that built that part, `Après :` that task. A text: change it in `contenu.md` first. Decouper's lint
+that built that part, `Après :` that task. A text: in `contenu.md` first, if it has one. Decouper's lint
 clean, committed. Then *State*.
 
 ## One task by hand
