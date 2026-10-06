@@ -1,6 +1,6 @@
 # cadrer-x design system — find it, read it, never edit it
 
-Loaded by `choisir` (the prototype), `realiser` (a task with screens) and realiser's reviewer (the
+Loaded by `choisir`'s designer, `realiser` (a task with screens) and realiser's reviewer (the
 screens' review). The design system is the one source of a product's look: its
 tokens (every colour, font, size and space) and its parts (a button, a field, a card). A screen that
 invents a colour or a part drifts from the rest of the product, and nobody sees it until it ships.
@@ -49,9 +49,12 @@ too: copied byte for byte, never edited.
 
 ## 5. No design system yet
 
-- **`choisir`'s prototype**: the app's own tokens file and components when it has screens already;
-  none: `../cadrer-x-choisir/templates/maquette/styles.css`, a plain neutral one, and say once that the look is
-  the prototype's, not a brand. No step makes a design system on its own.
+- **`choisir`'s designer**: the app's own tokens file and components when it has screens already.
+  None: propose a finished look from the brief (the fonts, colours, sites they like and what
+  « premium » means to them, in `decisions.md`; with nothing said, from who it serves and what for),
+  written in `maquette/styles.css` with the token names and parts of
+  `../cadrer-x-choisir/templates/maquette/styles.css`, and say in one line what it rests on. Never
+  "a designer later": this look is what gets built. No step makes a design system on its own.
 - **The person asks for one, in any step**: that step makes `{docs}/design-system/` from what the product already has, never
   from taste. `styles.css`: the tokens under `:root` with the values the
   product uses today (its tokens file, its global stylesheet, the colours its components repeat), one
@@ -68,4 +71,4 @@ too: copied byte for byte, never edited.
 | "Used once, a hex is fine." | A token, or the nearest one, said once. |
 | "The design system lacks a badge; I'll add it." | Build it in the feature; list it under Nouveautés. |
 | "I'll copy the prototype's styles.css into the app." | The app has its own tokens and components. |
-| "No design system: I'll pick nice colours." | From what the product already uses, or ask. |
+| "No design system: I'll pick nice colours." | From what the product uses, else from the brief. |

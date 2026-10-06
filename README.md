@@ -46,7 +46,8 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
 /cadrer-x-init                 une fois par projet : la vision, puis l'organisation
 /cadrer-x-ranger               si le code existe déjà : le ranger en modules, sans rien changer au produit
 /cadrer-x-choisir              l'idée d'une fonctionnalité, ses décisions, la spec (tu la valides),
-                               la maquette s'il y a des écrans, puis les tâches, vérifiées par un
+                               la maquette s'il y a des écrans (un croquis avec la spec, puis le
+                               look et les mots, que tu valides), puis les tâches, vérifiées par un
                                second regard ; /cadrer-x-choisir <nom> reprend là où elle en est
 /cadrer-x-realiser <nom>       toute la construction : chaque tâche test d'abord, chaque récit relu
 /cadrer-x-rendre <nom>         la doc, la version, la fusion, puis la mise en ligne

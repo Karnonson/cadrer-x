@@ -9,8 +9,9 @@ argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité à reprendre>"
 
 You find out what the person wants and settle what it takes, one question at a time. Two steps, each
 ending in one file in the feature's folder: the idea (`idee.md`), then the decisions (`decisions.md`).
-Then the stages your references hold: the spec, the prototype when there are screens, the tasks. No
-code: the builders build from your files, and whatever you leave unsettled they will guess.
+Then the spec, by its reference; the design when there are screens, by a worker you start
+(*Workers*); the tasks. No code: the builders build from your files, and whatever you leave
+unsettled they will guess.
 
 Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings and labels stay
@@ -46,16 +47,16 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
 - Else the first stage still open, in this order:
   - no `decisions.md`: **step 2**.
   - no `spec.md`, or its **Statut** is not `validée` (a draft is picked up where it is): the spec:
-    read `references/spec.md` whole now, then follow it.
-  - `écrans : oui` in `decisions.md` → **Étapes**, no `voie : courte`, and no `passation.md`: the
-    prototype: read `references/maquette.md` whole now, then follow it. With the claude-design tools
-    in your session, its Claude Design offer: `references/claude-design.md`.
+    read `references/spec.md` whole now, then follow it. With screens (`écrans : oui` in
+    `decisions.md` → **Étapes**, no `voie : courte`), its draft written, start the designer's
+    wireframe before your first question: *Workers*.
+  - with screens and no `passation.md`: the design: start (or resume) the designer, *Workers*.
   - no `taches.md`: the tasks: read `references/decoupe.md` whole now, then follow it.
 - Every stage's file there: a revision. Ask which file changes and what changed; ask only that.
 - **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
-  by its step or reference as above, without asking again: the prototype only when the change moves
-  a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which step* goes
-  on to the next of these; after the last, stop with its usual next step.
+  by its step, reference or worker as above, without asking again: the design only when the change
+  moves a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which
+  step* goes on to the next of these; after the last, stop with its usual next step.
 
 ## Every turn
 
@@ -68,8 +69,8 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
 - With the AskUserQuestion tool: one question per call, your answer as the first option, the context
   in your message just before it. No tool, or it fails: write the question in your reply, and your
   turn ends there. Never say a question was asked elsewhere or will come separately.
-- When a background check reports after your question, the message it triggers ends with the open
-  question repeated whole, never a pointer to it.
+- When a subagent reports after your question, the message it triggers ends with the open question
+  repeated whole, never a pointer to it.
 - **Facts are looked up, never asked.** What the repo, the product or the web can answer (what the
   app already does, what it runs on, what a service does and costs today) is yours: read it, or hand
   it to a subagent and ask something else meanwhile. What you handed off, you don't also look up
@@ -191,8 +192,9 @@ and save. Any doubt, or the person asks for the full path: the full path. The sp
 `realiser` read that line and lighten their steps.
 
 **Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
-first turn: after the spec comes a clickable prototype they judge before the tasks are cut. On the
-short path, no prototype: the review checks the change on the real page.
+first turn: with the spec comes a sketch of the screens and the ways between them, and after its yes
+the finished design, its look and its words, which they approve before the tasks are cut. On the
+short path, no design: the review checks the change on the real page.
 
 Format, without the tool, in their language:
 
@@ -202,16 +204,17 @@ A) … · B) … · C) …
 ➡️ Conseil : A — <why>. « Oui » le prend ; ou une lettre, ou tes mots.
 ```
 
-- **At most 5 clarification questions.** Rank them scope > privacy > what the person sees >
-  technical. What has a default nobody would argue with, write down as a decision marked *supposé*
-  instead of asking. The stack questions and the closing story do not count.
+- **Ask until you can predict their next answers**, as in step 1, ranked scope > privacy > what the
+  person sees > technical. What has a default nobody would argue with, write down as a decision
+  marked *supposé* instead of asking.
 - What you don't get to, or they leave for later, goes to `a-trancher.md` with your recommended
   answer: they settle it when the spec is written.
 - Before closing, check the frontier holds each of these, where it applies, settled or cut on
   purpose: who uses it and whether each needs their own way in; where what it holds comes from, where
   it is kept, what happens if it is lost; the first time, an empty list, a wrong entry, a mistake
   undone; phone, computer or both; who else sees what; what it costs them to run; what must stay
-  private.
+  private. With screens, the look (fonts, colours, a site they like, what « premium » means to them)
+  and their real content (name, address, photos, and where those are): the designer's brief.
 - Small is a valid answer: if the feature shrinks to nothing worth building, say so.
 
 **A new outside service** (email, text messages, payments, login, hosting, a database, an AI model,
@@ -276,6 +279,43 @@ Questions left open: `a-trancher.md` beside them, one block each, numbered after
 
 Commit on the feature branch: `décisions — <Titre>`. Then the spec, here: say in one line that you
 go on with it, and go back to *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
+
+## Workers
+
+The pages are made by a worker, a subagent you start, so they never load here: you keep the person.
+`<skills folder>`: the folder holding this skill's folder, absolute path.
+
+- **Start one** as the tool's general subagent (`general-purpose` in Claude Code, codex's default
+  worker; never a registered or custom agent type, never the Skill tool), with a fresh context and
+  one message: « You are cadrer-x-<role>. Read `<skills folder>/<its file>` whole and follow it, for
+  <its stage> of the feature `<NNNN-slug>`, in `<the feature's worktree>`. Launched by choisir. » It
+  runs in the background while you go on with the person; its last message is its report.
+- **A correction** in this session goes to the same worker, resumed (Claude Code: a message to it;
+  codex: input to it), in the person's words. With no worker open (a new session, or one closed), a
+  fresh one reads the files already there and changes only what its message asks.
+- Codex holds three subagents open at once, these and the ones that look facts up: close each worker
+  once its stage is settled.
+- **No subagents** (the tool has none, or they are off): follow its file yourself, then do your part
+  below as if it had reported.
+
+**The designer**: `cadrer-x-designer`, `cadrer-x-choisir/references/maquette.md`, for a feature with
+screens. A change with no new screen has none.
+
+1. **The wireframe** (stage `wireframe`): started once the spec's draft is written. Show its report
+   with the spec (the address, each screen, its states, where each leads): they judge the flow and the
+   stories together, and the spec's yes waits for it. A flow change a story quotes changes the spec
+   too; a spec change that moves a screen goes to the designer.
+2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
+   else a fresh one. Show the address, each screen and its states in one line, then its questions,
+   one per message. With the claude-design tools in your session (the designer has none), offer once
+   to put the same files in a Claude Design project, to open on a phone and comment there: on a yes,
+   read `references/claude-design.md` whole and follow it yourself. Each correction goes to the
+   designer, until a clear yes that names what it covers: « Ces mots et ce look : c'est bon ? »
+3. **On the yes**, the designer (stage `passation`, with what `claude-design.md` gave for
+   `passation.md`) writes `passation.md` and stops its server. Commit `maquette/`, `contenu.md`,
+   `passation.md`, and `spec.md` when it changed, by their paths, never `git add -A`: `maquette —
+   <Titre>`. Close the designer, say in one line that you go on with the tasks, and go back to
+   *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
 
 ## Red flags
 

@@ -1,5 +1,6 @@
-/* Style neutre de la maquette, quand le projet n'a pas encore de design system : lisible, accessible,
-   sans marque. Copié tel quel dans maquette/ ; les pages n'utilisent que ces tokens et ces parties. */
+/* Style neutre du wireframe : lisible, accessible, sans marque. Copié tel quel dans maquette/ ; les
+   pages n'utilisent que ces tokens et ces parties. Sans design system, le look proposé en haute
+   fidélité garde ces noms de tokens et ces parties, avec ses propres valeurs. */
 :root {
   --couleur-fond: #ffffff;
   --couleur-surface: #f5f5f4;

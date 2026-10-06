@@ -107,9 +107,10 @@ own, and tick a line only once the spec passes it. A line that fails changes the
 passes; a line is never deleted to pass.
 
 **Save — only after the yes.** **Statut** : `validée`. Run `python3 <this skill's folder>/scripts/lint.py
-spec {feature}/spec.md`, fix and rerun until it prints nothing. Commit `spec.md` and `a-trancher.md`:
-`spec — <Titre>`. The spec is done: say in one line that you go on with the next stage, and go back
-to choisir's *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
+spec {feature}/spec.md`, fix and rerun until it prints nothing. Commit `spec.md`, `a-trancher.md`,
+and the wireframe's `maquette/` when there is one: `spec — <Titre>`. The spec is done: say in one
+line that you go on with the next stage, and go back to choisir's *Which step*. They stop you:
+`/cadrer-x-choisir <slug>` picks it up.
 
 ## Red flags
 
