@@ -32,9 +32,11 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
   `feature/<slug>`, else `git worktree add` it, `.worktrees/` in `.git/info/exclude` first); the merge
   and online in the main checkout (`<top>`, the repo's top), clean, on the main branch.
 - `feature/<slug>` not merged into the main branch, and no `{feature}/livraison.md` committed for it:
-  **step 1**. Committed, not merged: **the yes**, unless the feature branch has commits after it (a
-  task added since): step 1 again, its files updated. Pushed, nothing new since, the merge left to
-  the host (*The yes*): say so, and wait.
+  **step 1**. Committed, not merged, in this order: the feature branch has commits after it (a task
+  added since): step 1 again, its files updated. Pushed as it is, its pull request open (`gh pr view
+  feature/<slug>`, else `git ls-remote --heads origin feature/<slug>`): with `gh`, its checks passed
+  and nothing queued, the yes for its merge alone (*The yes*); else say what it waits on, and wait.
+  Else: **the yes**.
 - Merged (with a remote, into `origin/<main>` after `git fetch`): *After the merge*.
 
 ## Step 1 — the package
@@ -129,27 +131,34 @@ Both lints clean: commit on the feature branch, unasked, the docs, the version f
 `livraison.md` and `pr.md`: `livraison — <Titre> <version>`. Then one message, the summary inside the
 question: the version, each doc changed in one line, the ADR's title, the **Livré** lines, **Porte**
 and **Portée**, **À faire**; then, in plain words: may you send it, open the pull request and merge
-it into the main branch (no remote: merge it)? A change to the package: made, linted, committed,
-asked again.
+it into the main branch (no remote: merge it)? A hedge or a change asked for keeps it open; a
+package change is made, linted, committed, asked again.
 
 On the yes:
 
 - **A remote**: push `feature/<slug>`; with `gh`, open the pull request from `pr.md` (`gh pr create
-  --head feature/<slug> --title "<Titre> <version>" --body-file {feature}/pr.md`; one already open
-  takes the push, never a second), then `gh pr merge feature/<slug> --merge`. No `gh`, or the host
-  refuses the merge: say what you saw and give the address; the merge is theirs, there.
+  --base <main> --head feature/<slug> --title "<Titre> <version>" --body-file {feature}/pr.md`; one
+  already open takes the push, never a second; its base not `<main>`: say so, and no merge). Then
+  `gh pr checks feature/<slug>`: one failed or pending: say which, plainly, and stop, never
+  bypassed. All passed, or none: `gh pr merge feature/<slug> --merge`, then `git fetch` and `git
+  merge-base --is-ancestor feature/<slug> origin/<main>`; not there (queued): say so, and wait. No
+  `gh`, or the host refuses the merge: say what you saw and give the address; the merge is theirs.
 - **No remote**: `git -C <top> merge --no-ff feature/<slug> -m "<Titre> <version>"`, then the whole
   check command there once more. Red: say it, and go no further.
+
+In `origin/<main>`, or merged here and green: *After the merge*.
 
 ### After the merge
 
 With a remote, `git -C <top> pull --ff-only` first. Remove the feature's worktree and branch, if
-still there (`git -C <top> worktree remove`, `branch -d`). Then, by `livraison.md`'s **En ligne**:
+still there (`git -C <top> worktree remove`, `branch -d`); never the folder this session runs in:
+then say they stay until a run from elsewhere. Then, by `livraison.md`'s **En ligne**:
 
-- `pas encore`, or a later feature merged since: **online**, here (its plan has its own yes): read
-  `references/en-ligne.md` whole now, then follow it; after a summary of this conversation, read it
-  again.
-- Else: nothing left; say so. The next feature is theirs to start: `/cadrer-x-choisir`.
+- `aucun — …`, or an address with nothing merged since: nothing left; say so. The next feature is
+  theirs to start: `/cadrer-x-choisir`.
+- `pas encore`, or an address with a later feature merged since: **online**, here (its plan has its
+  own yes): read `references/en-ligne.md` whole now, then follow it; after a summary of this
+  conversation, read it again.
 
 ## Never
 

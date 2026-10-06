@@ -41,4 +41,6 @@ pas encore
 
 ## À faire
 
+<!-- Seulement ce que la personne fait de ses mains (*à la main*) ou une commande `/cadrer-x-…` ; jamais ce qui est fait. -->
+
 - aucun

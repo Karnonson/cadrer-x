@@ -118,8 +118,11 @@ def lint_livraison(path):
                     out.append(f"{where}:{rows[0][0]}: online, so `## {name}` says what was done, not `pas encore`")
 
     for n, l in body.get("À faire") or []:
-        if l.startswith("- ") and l.strip() != "- aucun" and not l.startswith(("- [ ] ", "- [x] ")) and "à la main" not in l \
-                and "/cadrer-x-" not in l:
+        if not l.startswith("- ") or l.strip() == "- aucun":
+            continue
+        if l.startswith(("- [x] ", "- [X] ")):
+            out.append(f"{where}:{n}: a done item is not listed under À faire")
+        elif "à la main" not in l and "/cadrer-x-" not in l:
             out.append(f"{where}:{n}: an À faire line is the person's (*à la main*) or names the skill that turns it into work")
     return out
 

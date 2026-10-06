@@ -260,7 +260,7 @@ the form and that each verdict follows from its findings.
 | — | Mise en ligne | Mise en ligne |
 | Evidence | Vérifié en ligne | Vérifié |
 | How to roll back | Si ça casse | En cas de problème |
-| — | Reste à faire | À faire (only what needs the person's hands, *à la main*, or the skill that turns it into work; never what is done) |
+| — | Reste à faire | À faire (only what needs the person's hands, *à la main*, or the skill that turns it into work, plain or `- [ ]`; never what is done, never `- [x]`) |
 
 A later release of the feature puts its section on top. Template: `skills/cadrer-x-rendre/templates/livraison.md`.
 

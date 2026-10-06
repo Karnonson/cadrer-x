@@ -8,7 +8,8 @@ Read `{docs}/architecture.md` (**Pièces**, **Secrets**, **Données**, **Coût**
 and `decisions.md` → **À faire**. The main checkout is clean, on the main branch, at the merge
 (*After the merge* pulled it); note the commit you put online.
 
-**What the person prepares by hand.** Every open `avant la livraison` item, in one message, in order:
+**What the person prepares by hand.** Each open `avant la livraison` item that rendre's *`livraison.md`
+and `pr.md`* gives the person (one an agent can do here is a row of the plan), in one message, in order:
 what, where, why it is needed, what it costs. One that spends money gets its own yes, with the amount,
 before they do it. **A secret's value never passes through this conversation**: give them the page
 where they paste it, or a command to run in a terminal of their own, into the place **Secrets** names;
