@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-realiser
-description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est validé. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`) ou une seule tâche (`T03`)."
+description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est validé. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`, ou refaire sa relecture) ou une seule tâche (`T03`)."
 disable-model-invocation: true
 argument-hint: "[fonctionnalité] [US1 | T03]"
 ---
@@ -29,17 +29,16 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
 - **Scope**: no argument or the feature: every story. `US<n>` (alone or after the feature): that
   story. Either way, a story whose latest `audit.md` section is `à corriger` starts with its fix round,
   or, if a `correctifs US<n>` commit came after that section, with its next review. `US<n>` built with
-  no fix round due: its review, as *Reviews* (again, if `validé`). `T<nn>`: that task alone (*One task
-  by hand*).
+  no fix round due: its review, as *Reviews*. `T<nn>`: that task alone (*One task by hand*).
 - **Commands.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) missing from
   `.claude/settings.json` → `permissions.allow`: add it as `Bash(<the command>)` and say so in your
   first message (else a builder waits on a prompt at each run). No git command there (a global
   install): say once that each will ask unless `./install.sh` is run in the project.
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
   a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
-  or a package's flaw): that task is built, then the story reviewed again; a leftover
-  `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its report said `fait`
-  and its commit ticks the task, else restart it).
+  or a package's flaw) or the person typed its `US<n>`: such a task is built, then the story reviewed
+  again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its
+  report said `fait` and its commit ticks the task, else restart it).
 
 **Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that the story is
 reviewed before the end.) Say what gets built (stories, tasks, waves), two tasks at a time when they
