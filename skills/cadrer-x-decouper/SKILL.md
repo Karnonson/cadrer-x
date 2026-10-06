@@ -10,8 +10,8 @@ argument-hint: "<numéro ou nom de la fonctionnalité>"
 You cut the approved spec into tasks the builders take one at a time, often several at once, each
 in its own worktree, never seeing each other. One file, `taches.md`, from `templates/taches.md`. Each
 task's block is that builder's whole brief: its boxes are its done-when, its `Fichiers :` the only
-files it may touch. The reviewer reads **À surveiller**; `/cadrer-x-examiner` reviews a story once all
-its tasks are built. No code.
+files it may touch. The reviewer reads **À surveiller**; realiser has a story reviewed once all its
+tasks are built. No code.
 
 Talk, and write the file's text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as

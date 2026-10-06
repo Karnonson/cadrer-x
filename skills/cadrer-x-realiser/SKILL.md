@@ -2,7 +2,7 @@
 name: cadrer-x-realiser
 description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est validé. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`) ou une seule tâche (`T03`)."
 disable-model-invocation: true
-argument-hint: "[fonctionnalité | US1 | T03]"
+argument-hint: "[fonctionnalité] [US1 | T03]"
 ---
 
 # cadrer-x réaliser — every task built, every story reviewed
@@ -26,9 +26,11 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   worktree `.worktrees/feature.<slug>` (else `git worktree add` it, `.worktrees/` in
   `.git/info/exclude` first, untracked `.env*` copied in, `commands.install` run once). `{feature}` =
   its `{docs}/features/NNNN-<slug>/`.
-- **Scope**: no argument or the feature: every story. `US<n>`: that story. Either way, a story whose
-  latest `audit.md` section is `à corriger` starts with its fix round, or, if a `correctifs US<n>`
-  commit came after that section, with its next review. `T<nn>`: that task alone (*One task by hand*).
+- **Scope**: no argument or the feature: every story. `US<n>` (alone or after the feature): that
+  story. Either way, a story whose latest `audit.md` section is `à corriger` starts with its fix round,
+  or, if a `correctifs US<n>` commit came after that section, with its next review. `US<n>` built with
+  no fix round due: its review, as *Reviews* (again, if `validé`). `T<nn>`: that task alone (*One task
+  by hand*).
 - **Commands.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) missing from
   `.claude/settings.json` → `permissions.allow`: add it as `Bash(<the command>)` and say so in your
   first message (else a builder waits on a prompt at each run). No git command there (a global
@@ -83,9 +85,11 @@ the repo's top); never a task merge or a reset in the main checkout.
 A story is **built** when its tasks and the Fondations tasks they stand on are `[x]` on the feature
 branch. Review it then, while other stories' builders go on. A reviewer is a fresh-context subagent,
 never one that built, with this prompt only (never a builder's report): « Read
-`<skills folder>/cadrer-x-examiner/SKILL.md` whole and follow it, for story `US<n>` of the feature
-`<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » A story with screens is reviewed
-while no builder with an `Écrans :` line runs.
+`<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow it, for story `US<n>` of the
+feature `<NNNN-slug>`. Its screens: `<skills folder>/cadrer-x-realiser/references/ecrans.md`. The
+repo's top: `<path>`. Launched by realiser. » *Its screens* only when a task of the story has an
+`Écrans :` line, or, on the short path, a box names a page. A story with screens is reviewed while no
+builder with an `Écrans :` line runs.
 
 - **`validé`**: one short message: the story works now, what they can try, the captures
   (`{feature}/captures/`), the `Détail :` lines. Go on.
@@ -118,8 +122,9 @@ it as above. Another person may build another task meanwhile, in another session
 
 Codex starts subagents when asked: this file asks. With no way to start one, build the tasks one after
 another yourself, each following `references/tache.md`, merged as above. A review needs a mind that did
-not build: when a story is built, stop and give the person `/cadrer-x-examiner US<n>` for a new session,
-then `/cadrer-x-realiser <slug>` again: it resumes from the files.
+not build: when a story is built, stop and give the person `/cadrer-x-realiser <slug> US<n>` for a new
+session, then `/cadrer-x-realiser <slug>` again: it resumes from the files. The `US<n>` session, having
+built none of the story, reviews it itself: `references/examen.md`, with what *Reviews* names.
 
 ## Red flags
 

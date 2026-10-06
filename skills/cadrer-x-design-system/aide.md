@@ -1,7 +1,7 @@
 # cadrer-x design system — find it, read it, never edit it
 
-Loaded by `affiner` (the prototype), `realiser` (a task with screens) and `examiner` (the screens'
-review). The design system is the one source of a product's look: its
+Loaded by `affiner` (the prototype), `realiser` (a task with screens) and realiser's reviewer (the
+screens' review). The design system is the one source of a product's look: its
 tokens (every colour, font, size and space) and its parts (a button, a field, a card). A screen that
 invents a colour or a part drifts from the rest of the product, and nobody sees it until it ships.
 

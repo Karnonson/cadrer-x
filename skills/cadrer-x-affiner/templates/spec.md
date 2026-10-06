@@ -18,7 +18,7 @@
 <!--
   Classés par importance. Chaque récit se teste seul : construit seul, il apporte déjà quelque chose
   qu'on peut montrer. P1 est le plus important. `découper` coupe les tâches récit par récit, et
-  `examiner` relit un récit à la fois.
+  `realiser` fait relire un récit à la fois.
 -->
 
 ### US1 — <titre court> (Priorité : P1)

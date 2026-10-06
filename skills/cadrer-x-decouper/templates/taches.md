@@ -1,9 +1,9 @@
 <!--
   Modèle de taches.md cadrer-x, adapté du modèle de tâches de spec-kit
   (https://github.com/github/spec-kit/blob/main/templates/tasks-template.md, licence MIT, © GitHub, Inc.).
-  Les titres, libellés et identifiants restent tels quels, dans toutes les langues : `realiser`,
-  `examiner` et `rendre` les cherchent par ces noms. Le texte est dans la langue de la personne.
-  Les tâches ci-dessous sont des exemples : les remplacer toutes. Retirer ces commentaires.
+  Les titres, libellés et identifiants restent tels quels, dans toutes les langues : `realiser`
+  (sa relecture comprise) et `rendre` les cherchent par ces noms. Le texte est dans la langue de la
+  personne. Les tâches ci-dessous sont des exemples : les remplacer toutes. Retirer ces commentaires.
 -->
 
 # <Titre> — tâches
@@ -70,7 +70,7 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
   Après : T01
   Taille : S
 
-**Point d'étape** : US1 marche seul → `/cadrer-x-examiner US1`.
+**Point d'étape** : US1 marche seul → `/cadrer-x-realiser <fonctionnalité> US1`.
 
 ---
 
@@ -88,7 +88,7 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
   Après : T02
   Taille : S
 
-**Point d'étape** : US1 et US2 marchent chacun seul → `/cadrer-x-examiner US2`.
+**Point d'étape** : US1 et US2 marchent chacun seul → `/cadrer-x-realiser <fonctionnalité> US2`.
 
 ---
 
@@ -100,7 +100,7 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
    tâches `[P]` à la fois ; les autres attendent ce que nomme leur `Après :`. À la main, une tâche :
    `/cadrer-x-realiser T<nn>`.
 2. À chaque point d'étape, le récit est relu par quelqu'un qui ne l'a pas construit
-   (`/cadrer-x-examiner US<n>`) ; `realiser` lance cette relecture lui-même.
+   (`/cadrer-x-realiser <fonctionnalité> US<n>`) ; `realiser` lance cette relecture lui-même.
 3. Après US1 : la plus petite version qui vaut d'être montrée. On peut s'arrêter là et la montrer.
 4. Un récit ajouté ne casse jamais ceux d'avant : leurs tests restent verts.
 

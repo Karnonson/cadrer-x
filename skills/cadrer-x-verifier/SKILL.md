@@ -32,7 +32,7 @@ Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'f
   worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in `.git/info/exclude` first).
 - **How far.** No `spec.md`, or not `validée`: say `/cadrer-x-affiner` comes first, and stop. A `taches.md`:
   **spec et tâches**; none: **spec**. A task already `[x]`: say the build has started, that you check
-  what is not built yet, and that `/cadrer-x-examiner` judges the rest.
+  what is not built yet, and that the review (`/cadrer-x-realiser`) judges the rest.
 
 ## Read
 
@@ -117,6 +117,6 @@ remarks. Then the next step and nothing more:
 | "This box says 48 h; I'll correct it to 24 h." | Fix nothing: a finding, → `/cadrer-x-decouper`. |
 | "« Rapidement » is clear enough." | No measure, no check: what number settles it? |
 | "M3 says « leurs ateliers », close enough to all." | Read the rule as written: a contradiction. |
-| "Let me also review the code that's there." | Built work is `/cadrer-x-examiner`'s. |
+| "Let me also review the code that's there." | Built work is the review's (`/cadrer-x-realiser`). |
 | "No scenario asks for these layout tasks." | Read `decisions.md`: a decision may. |
 | "I'll ask the person what they meant." | Write the finding with your proposal; the fixing step asks. |

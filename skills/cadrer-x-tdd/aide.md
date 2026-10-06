@@ -1,6 +1,6 @@
 # cadrer-x tests — a behaviour, through the entry, one at a time
 
-Loaded by `realiser` (writing tests), `ranger` (the tests of today, before a move) and `examiner` (judging them). Adapted from Matt Pocock's `tdd`
+Loaded by `realiser` (writing tests), `ranger` (the tests of today, before a move) and realiser's reviewer (judging them). Adapted from Matt Pocock's `tdd`
 skill (MIT, github.com/mattpocock/skills).
 
 ## What a good test is

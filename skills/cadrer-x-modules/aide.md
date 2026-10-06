@@ -1,7 +1,7 @@
 # cadrer-x modules — the map decides
 
-Loaded by `decouper` (where each task's files go), `realiser` (each new import), `ranger` (each move) and `examiner` (each
-crossing). `{docs}/architecture.md` → **Modules** is the map: each module, what it owns, its paths. The map
+Loaded by `decouper` (where each task's files go), `realiser` (each new import), `ranger` (each move) and realiser's reviewer
+(each crossing). `{docs}/architecture.md` → **Modules** is the map: each module, what it owns, its paths. The map
 decides, not the folder names. With no map, the rules below still hold on the code's own layout.
 
 `references/structure.md`, beside this file, is the layout: the framework's own way when it has one,
@@ -39,7 +39,7 @@ crossing right. The map outranks the plan.
 - **Building** (`realiser`): take the path that keeps the map, and write it as a `Choix :` line: what the
   plan said, what you did, the file outside `Fichiers :` you touched (once the person's yes came back through `realiser`). Stop only
   when the one way through would move a framework folder or merge two modules.
-- **Reviewing** (`examiner`): each crossing is a finding on the Règles axis, quoting the import or the
+- **Reviewing** (realiser's reviewer): each crossing is a finding on the Règles axis, quoting the import or the
   query and the **Modules** line it breaks. A module the map lacks, with no **Impact archi** line in
   `decisions.md`, is a finding too, and so is a new module or file placed against `references/structure.md`
   (a `utils` module, a rule in `shared/`, tests outside their module's folder). In a feature, updating the map is

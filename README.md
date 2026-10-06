@@ -62,7 +62,8 @@ elle sait où elle en est.
 fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait relire chaque récit par un
 agent neuf qui ne l'a pas construit, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
 ne s'arrête que pour tes questions et quand tout est relu. À la main, si tu préfères :
-`/cadrer-x-realiser T01` (une tâche), `/cadrer-x-examiner US1` (une relecture, dans une autre session).
+`/cadrer-x-realiser T01` (une tâche), `/cadrer-x-realiser <nom> US1` (une relecture, dans une autre
+session).
 
 Un petit changement (un mot, une couleur, un bouton qui se comporte mal) ou un bug passe aussi par
 `/cadrer-x-choisir` : décris-le en une phrase (« le bouton Envoyer ne fait rien »). L'entretien se

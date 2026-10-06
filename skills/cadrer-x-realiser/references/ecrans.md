@@ -1,6 +1,6 @@
-# examiner — judging a story's screens
+# Judging a story's screens
 
-Read when `passation.md` gives the story a screen, or on the short path when a box names a page. Findings go on the `### Spec` and `### Règles` axes of `audit.md`, with the prefixes of `SKILL.md`.
+Read when `passation.md` gives the story a screen, or on the short path when a box names a page. Findings go on the `### Spec` and `### Règles` axes of `audit.md`, with the prefixes of `examen.md`.
 
 The browser tool already held (another session): say so in
 one line, judge from the code (below), write `Écrans : pas cliqués — navigateur occupé`. Never write

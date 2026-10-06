@@ -1,7 +1,7 @@
 # cadrer-x sécurité — safe by default, proven by abuse tests, every personal datum listed
 
 Loaded by `choisir` and `affiner` (personal data), `decouper` (risks), `realiser` (defaults, tests),
-`examiner` (review) and `rendre` (the data list, the scan before a release). The safe way is the default; anything else needs a
+realiser's reviewer (review) and `rendre` (the data list, the scan before a release). The safe way is the default; anything else needs a
 written reason, on a `Choix :` line or in the step's own file.
 
 ## The defaults

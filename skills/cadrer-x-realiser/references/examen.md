@@ -1,24 +1,22 @@
----
-name: cadrer-x-examiner
-description: "Relire un récit (`US1`), ou chaque récit construit d'une fonctionnalité, par quelqu'un qui ne l'a pas construit. `/cadrer-x-realiser` le lance seul quand un récit est construit ; à la main, dans une autre session que celles qui ont construit. Vérifie que le code fait ce que dit chaque scénario de la spec, que ses tests échoueraient si le comportement cassait, et qu'il respecte la constitution, la sécurité et les frontières des modules ; clique les écrans quand il y en a. Écrit la section du récit dans `audit.md`. Ne corrige rien."
-disable-model-invocation: true
-argument-hint: "[US1] [fonctionnalité]"
----
+# Review a story — by someone who did not build it
 
-# cadrer-x examiner — each story, reviewed by someone who did not build it
+The reviewer's procedure, for one story of `taches.md`. Followed by a reviewer `realiser` starts (its
+prompt says *Launched by realiser*), or, with no subagents, by `realiser` itself in a session that
+built none of the story (`/cadrer-x-realiser <slug> US<n>`).
 
 Each task passed its builder's tests, written from the builder's reading of the spec: a misreading
 passes them. You ask what they cannot: is this the story the person approved, and would its tests fail
 if the behaviour broke? Read-only on the code: never edit, fix or refactor. You write one file,
-`{feature}/audit.md`, the story's section, from `templates/audit.md`; `/cadrer-x-realiser US<n>` fixes
-what you found.
+`{feature}/audit.md`, the story's section, from `<skills folder>/cadrer-x-realiser/templates/audit.md`;
+`/cadrer-x-realiser US<n>` fixes what you found.
 
 Talk and write the audit in the person's language, every message included; in French, *tu* or *vous* as
 they write, *vous* when unsure, never both. Headings, labels, prefixes and ids stay as written here and
 in the template: realiser and rendre find them by these names.
 
-**Helpers.** *read `cadrer-x-<name>`* = open `../cadrer-x-<name>/aide.md`, beside this skill's folder,
-read it whole, follow it. Not there: go on without it. Read as files, never through the Skill tool.
+**Helpers.** *read `cadrer-x-<name>`* = open `<skills folder>/cadrer-x-<name>/aide.md` (the folder that
+holds `cadrer-x-realiser/`), read it whole, follow it. Not there: go on without it. Read as files,
+never through the Skill tool.
 
 **Launched by realiser** (its prompt says so): same work, file and commit; the person is not here, so
 ask no one. A question only they can answer is an `Info :` line, in your last message (for realiser):
@@ -29,9 +27,9 @@ could not judge, the questions. No next step.
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.
 
-- **Feature.** The argument's number or slug (one close near miss: that one, said in one line), else
-  the worktree's feature, else the one whose `taches.md` has a story built and not yet `validé`;
-  several: ask, one question.
+- **Feature.** The number or slug realiser names (its prompt or argument; one close near miss: that
+  one, said in one line), else the worktree's feature, else the one whose `taches.md` has a story
+  built and not yet `validé`; several: ask, one question.
 - **Stories.** `US<n>`: that one. The feature alone, or nothing: every ready story with no `validé`
   section, one after another, one section and one commit each, one message at the end.
 - **Where.** `.worktrees/feature.<slug>`; else the current checkout if on `feature/<slug>`; else `git
@@ -56,7 +54,7 @@ Order matters: form your own view before reading anyone's account.
    `cadrer-x-modules`, `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its
    `maquette/` pages, `{feature}/contenu.md`. Read `cadrer-x-design-system`, `cadrer-x-textes`. On the
-   short path, no `passation.md`: the page a box names, as `references/ecrans.md` says.
+   short path, no `passation.md`: the page a box names, as `ecrans.md`, which realiser named, says.
 5. Code and tests: each file on the tasks' `Fichiers :` as the feature branch has it now, and what they
    call. How it got there: `git log --oneline <main>..feature/<slug>`, then `git log -p` of the story's
    commits (`T<nn> — …`): a test strict in one commit and loosened later is how a bar gets lowered.
@@ -122,9 +120,9 @@ Each finding quotes its line.
 ## Screens
 
 When `passation.md` gives the story a screen, or, on the short path (`voie : courte`), a box names a
-page the story changes: read `references/ecrans.md` whole and follow it (the browser, the states, the
-widths, the captures, its findings). It feeds `Écrans :` in `### Non jugé`; on the short path, an
-`Info :` line of `### Spec` instead. No screen and no page: skip it and write no `Écrans :` line.
+page the story changes: read `ecrans.md`, which realiser named, whole and follow it (the browser, the
+states, the widths, the captures, its findings). It feeds `Écrans :` in `### Non jugé`; on the short
+path, an `Info :` line of `### Spec` instead. No screen and no page: skip it and write no `Écrans :` line.
 
 ## One prefix per finding
 
@@ -142,7 +140,7 @@ pass the story, never harden a detail.
 
 ## Write the audit
 
-`{feature}/audit.md` from `templates/audit.md`, created when absent. The story's section goes on top,
+`{feature}/audit.md` from the template, created when absent. The story's section goes on top,
 under the title: `## US<n> <titre>`, `**Tour** :`, `**Date** :`, `**Verdict** :` (`à corriger` if any
 `Bloquant :` or `À corriger :` is left, else `validé`), then `### Spec`, `### Règles`, `### Non jugé`
 (and `### Correctifs` from tour 2). A clean axis: `- aucun`. `### Non jugé` opens with `Vérifs :`
@@ -152,8 +150,9 @@ cliqués SC2 — <pourquoi>`); never claim more than you did. Then what you coul
 outside service, a load), each with why. A previous tour's section of the same story is replaced, its
 findings carried into `Corrigé :` or repeated.
 
-Run `python3 <this skill's folder>/scripts/lint.py audit {feature}/audit.md`; fix, rerun until silent.
-Commit `audit.md` (and `captures/`) only, on the feature branch: `audit US<n> — <verdict>`. Never push.
+Run `python3 <skills folder>/cadrer-x-realiser/scripts/lint.py audit {feature}/audit.md`; fix, rerun
+until silent. Commit `audit.md` (and `captures/`) only, on the feature branch: `audit US<n> —
+<verdict>`. Never push.
 
 ## Tell the person
 
@@ -162,8 +161,8 @@ just committed, named by those words; each in one line (what a person meets, the
 not judge; the questions only they can answer. Then the next step, nothing more:
 
 - `à corriger`: `/cadrer-x-realiser US<n>`: fixes the findings, then has the story reviewed again.
-- `validé`: the next story whose tasks are all built (`/cadrer-x-examiner US<m>`), or, when every story
-  of `taches.md` has a `validé` section, `/cadrer-x-rendre`.
+- `validé`: the next story whose tasks are all built (`/cadrer-x-realiser <slug> US<m>`), or, when
+  every story of `taches.md` has a `validé` section, `/cadrer-x-rendre`.
 
 ## Tour 2 and later
 

@@ -1,5 +1,0 @@
-interface:
-  display_name: "cadrer-x examiner"
-  short_description: "La relecture d'un récit, par quelqu'un qui ne l'a pas construit"
-policy:
-  allow_implicit_invocation: false

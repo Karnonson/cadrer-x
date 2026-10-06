@@ -49,6 +49,9 @@ fi
 
 self="$here/install.sh"
 src="$here/skills"
+# Skills cadrer-x no longer has, taken out of the destination by every install and --remove: when a
+# skill becomes a reference, append its folder's name.
+retired="cadrer-x-examiner"
 scope=project dir=. engines="" link=0 remove=0
 
 while [ $# -gt 0 ]; do
@@ -85,6 +88,10 @@ for engine in $engines; do
   case "$engine" in claude) dest="$base/.claude/skills" ;; codex) dest="$base/.agents/skills" ;; esac
   mkdir -p "$dest"
   [ "$(cd "$dest" && pwd -P)" = "$(cd "$src" && pwd -P)" ] && { echo "$dest is this checkout's skills folder: nothing to do" >&2; continue; }
+  for name in $retired; do
+    [ -e "$dest/$name" ] || [ -L "$dest/$name" ] || continue
+    rm -rf "$dest/$name" && echo "removed  $dest/$name"
+  done
   for skill in "$src"/cadrer-x-*/; do
     name="$(basename "$skill")"
     # A skill has SKILL.md, a helper aide.md; a folder with neither holds only templates so far.

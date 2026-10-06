@@ -1,9 +1,9 @@
 # cadrer-x textes — the rules, then the writing, then the check
 
 Loaded by `affiner` (the prototype's words, `contenu.md`), `realiser` (a text the screens lack),
-`examiner` (the words on screen) and `rendre` (the CHANGELOG, `pr.md`). A product's French is part of
-the product: its register, its words, its punctuation. The rules are the project's, then these, not
-your taste.
+realiser's reviewer (the words on screen) and `rendre` (the CHANGELOG, `pr.md`). A product's French
+is part of the product: its register, its words, its punctuation. The rules are the project's, then
+these, not your taste.
 
 ## 1. Find the rules
 
@@ -55,7 +55,7 @@ and say once that the project has no rules of its own.
 A correction of the words (a tone, a turn of phrase, a word they dislike) is a rule the next text will
 break again unless it is written down. Fix the text, then propose the rule in one line, worded as they
 said it; on their yes, add it to `{docs}/regles-ecriture.md` (created when absent: `# Règles d'écriture`, one
-`- <règle>` per line), committed with the step's own files. `examiner` and any read-only step only propose it, in the report. The next feature starts from it.
+`- <règle>` per line), committed with the step's own files. The reviewer and any read-only step only propose it, in the report. The next feature starts from it.
 
 ## 5. Who writes what
 

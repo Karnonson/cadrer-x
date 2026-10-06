@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the form of a cadrer-x feature's taches.md, as realiser, examiner and rendre read it.
+"""Check the form of a cadrer-x feature's taches.md, as realiser and rendre read it.
 
     python3 lint.py taches <feature>/taches.md
 

@@ -63,7 +63,7 @@ The short path: a change that adds no screen or way through one (a visible chang
 exists is fine), holds no personal data, adds no service or stack choice, touches no constitution rule,
 and fits one story and three tasks, carries `- voie : courte` under **Étapes** in `decisions.md`.
 `choisir` asks only the idea's **Ouvert** points; `affiner` writes one small story and no prototype;
-`decouper` skips the second look and the tasks' yes and goes on to `realiser`; `examiner` still reviews
+`decouper` skips the second look and the tasks' yes and goes on to `realiser`; its review still covers
 the story, and clicks a visible change on its real page, since a fresh reader is what the shortcut does
 not give up. A reported bug enters by `choisir` too: the agent tries it before asking more, `idee.md`
 holds the steps and what should happen, `- bug : oui` under **Étapes** makes the first task a test that
@@ -172,7 +172,7 @@ The template is `skills/cadrer-x-affiner/templates/spec.md`, adapted from spec-k
 ### taches.md
 
 The template is `skills/cadrer-x-decouper/templates/taches.md`, adapted from spec-kit's tasks template
-(MIT): tasks grouped by story, each story ending on a checkpoint where `examiner` reviews it.
+(MIT): tasks grouped by story, each story ending on a checkpoint where `realiser` has it reviewed.
 
 | Proa / spec-kit | cadrer-x |
 |---|---|
@@ -244,7 +244,7 @@ One section per story, the latest on top: `## US1 <titre>`, then `**Tour** :`, `
 Each finding: `- <Préfixe> : <file:line> — <gap> : <what> ; <what a person meets> ; correction : <fix>`. A
 clean axis is `- aucun`. A new tour of a story replaces its section. Committed on the feature branch as
 `audit US1 — <verdict>`, with its screenshots in `captures/SC1-390.png`. Template:
-`skills/cadrer-x-examiner/templates/audit.md`; `skills/cadrer-x-examiner/scripts/lint.py audit <path>` checks
+`skills/cadrer-x-realiser/templates/audit.md`; `skills/cadrer-x-realiser/scripts/lint.py audit <path>` checks
 the form and that each verdict follows from its findings.
 
 ### livraison.md (release + going online)
@@ -332,10 +332,10 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-21 Proa skills became 7 skills, 1 optional check, 1 refactor skill and 6 helpers. `init` comes first, once per project; the
-next six spell CADRER, in order. A skill holding two steps checks which one's file is missing and runs
-that one. A helper, `skills/cadrer-x-<name>/aide.md`, is read by path by the skills that need it,
-never run on its own.
+21 Proa skills became 6 skills, 1 optional check, 1 refactor skill and 6 helpers. `init` comes first,
+once per project; the next six steps spell CADRER, in order; E is a reference of realiser. A skill
+holding two steps checks which one's file is missing and runs that one. A helper,
+`skills/cadrer-x-<name>/aide.md`, is read by path by the skills that need it, never run on its own.
 
 | | Skill | Its steps (Proa skills merged) | Writes |
 |---|---|---|---|
@@ -343,8 +343,8 @@ never run on its own.
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea) · 2. decisions (proa-decide, proa-stack for a feature's new service) | `idee.md` · `decisions.md` |
 | **A** | `cadrer-x-affiner` | 1. spec (proa-spec) · 2. prototype, when there are screens (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `contenu.md`, `passation.md` |
 | **D** | `cadrer-x-decouper` | tasks (proa-slice, threat-list); then `verifier` in a fresh subagent, its one-answer findings folded in, before the person's one yes | `taches.md` |
-| **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (examiner); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
-| **E** | `cadrer-x-examiner` | one user story, once all its `[US<n>]` tasks are built, or every built story of the feature; started by `realiser`, or by hand in another session; a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
+| **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (E); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand, `US1` reviews one story | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
+| **E** | `cadrer-x-realiser`, `references/examen.md` | one user story, once all its `[US<n>]` tasks are built, or every built story of the feature; started by `realiser`, or by hand in another session (`/cadrer-x-realiser <slug> US<n>`); a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |
 | **R** | `cadrer-x-rendre` | release and going online, once every story's audit passes and the whole test suite is green (proa-release, cadrer-livrer) | `livraison.md`, `pr.md`, CHANGELOG, ADR |
 
 Optional, outside the acronym, like spec-kit's `/analyze`:
@@ -356,21 +356,21 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 
 | Helper (`aide.md`) | Merges | Read by |
 |---|---|---|
-| `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory; the scan before a release | choisir, affiner, decouper, realiser, examiner, rendre |
-| `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, ranger, examiner |
+| `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory; the scan before a release | choisir, affiner, decouper, realiser, rendre |
+| `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, ranger |
 | `cadrer-x-debug` | proa-debug | realiser, ranger, any failing test |
-| `cadrer-x-design-system` | design-system | affiner, realiser, examiner |
-| `cadrer-x-modules` | module-borders | decouper, realiser, ranger, examiner |
-| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, examiner, rendre |
+| `cadrer-x-design-system` | design-system | affiner, realiser |
+| `cadrer-x-modules` | module-borders | decouper, realiser, ranger |
+| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | affiner, realiser, rendre |
 
 The project's own copy rules live in `{docs}/regles-ecriture.md`; `cadrer-x-textes` reads them before
 its defaults.
 
 Kept apart, on purpose: affiner and decouper (the spec is the person's gate on *what*, before any *how*);
-realiser and examiner. realiser proves its own task works: a failing test first, then the code, then the
-checks run fresh. examiner asks what those tests cannot: whether the story is what the spec asked for, and
-whether its tests would fail if the behaviour broke. The builder's tests carry the builder's reading of the
-spec, so a misreading passes them.
+the builder and the reviewer. The builder proves its own task works: a failing test first, then the
+code, then the checks run fresh. The reviewer asks what those tests cannot: whether the story is what
+the spec asked for, and whether its tests would fail if the behaviour broke. The builder's tests carry
+the builder's reading of the spec, so a misreading passes them.
 
 ## Install
 
