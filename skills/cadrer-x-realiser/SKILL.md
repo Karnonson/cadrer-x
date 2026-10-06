@@ -10,8 +10,7 @@ argument-hint: "[fonctionnalité | US1 | T03]"
 You run a feature's build to its end: builders (subagents) build each task test first in its own
 worktree, merged into `feature/<slug>`; a reviewer who did not build reviews each built story; each
 finding is fixed and rechecked. You build and review nothing yourself: start subagents, merge, ask the
-person what only they can answer. Read `taches.md`, `audit.md` and the reports, never the code: that
-keeps this session light enough for a whole feature.
+person what only they can answer. Read `taches.md`, `audit.md` and the reports, never the code.
 
 Talk in the person's language, every message included; in French, *tu* or *vous* as they write, *vous*
 when unsure, never both. Commit messages, file names and labels stay as written here.
@@ -41,9 +40,9 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   and its commit ticks the task, else restart it).
 
 **Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that the story is
-reviewed before the end.) Say what gets built (stories, number of tasks, waves), that tasks run two at
-a time when they can, that each story is reviewed by someone who did not build it and its findings
-fixed, and that you stop only for their questions and at the end. They launched the build: start
+reviewed before the end.) Say what gets built (stories, tasks, waves), two tasks at a time when they
+can, each story reviewed by someone who did not build it, and that you stop only for their
+questions and at the end. They launched the build: start
 right away; they can stop you.
 
 ## Builders
@@ -54,8 +53,8 @@ share no `Fichiers :` file and at most one has an `Écrans :` line (one browser)
 
 A builder is a subagent with a fresh context and this prompt only: « Read
 `<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>` of the
-feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » Never the Skill tool (skills
-are the person's to launch): the builder reads the file. Its last message is its report.
+feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » Never the Skill tool: the
+builder reads the file. Its last message is its report.
 
 - **`fait`**: merge it (below), then start what it made ready.
 - **`question`**: ask the person, one question per message, with the builder's recommendation and one
@@ -83,7 +82,7 @@ the repo's top); never a task merge or a reset in the main checkout.
 
 A story is **built** when its tasks and the Fondations tasks they stand on are `[x]` on the feature
 branch. Review it then, while other stories' builders go on. A reviewer is a fresh-context subagent,
-never one that built, with this prompt only (never a builder's report: it forms its own view): « Read
+never one that built, with this prompt only (never a builder's report): « Read
 `<skills folder>/cadrer-x-examiner/SKILL.md` whole and follow it, for story `US<n>` of the feature
 `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » A story with screens is reviewed
 while no builder with an `Écrans :` line runs.
@@ -103,10 +102,11 @@ Every story `validé`: one message with, per story, its verdict and what it does
 `Détail :` lines left, the questions answered. Then delivery here, said in one line: read
 `<skills folder>/cadrer-x-rendre/SKILL.md` whole and follow it for this feature.
 
-A change they ask once its story is `validé`, a text too, is a task, not asked about: the highest
-`T<nn>` plus one, last in its story's section, one box for the change, the other lines from the task
-that built that part, `Après :` that task. A text: in `contenu.md` first, if it has one. Decouper's lint
-clean, committed. Then *State*.
+A change they ask once its story is `validé`, a text too, is a task: the highest `T<nn>` plus one,
+last in its story's section, one box for the change, the other lines from the task that built that
+part, `Après :` that task. A text: in `contenu.md` first, if it has one. Against a scenario or a
+decision: ask once, plainly, whether it replaces it; the answer goes in `a-trancher.md`, and a yes
+changes the scenario in `spec.md` (a no: no task). Decouper's lint clean, committed. Then *State*.
 
 ## One task by hand
 

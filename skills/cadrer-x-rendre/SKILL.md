@@ -32,7 +32,8 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
   `feature/<slug>`, else `git worktree add` it, `.worktrees/` in `.git/info/exclude` first); step 2 on
   the main branch.
 - `feature/<slug>` not merged into the main branch, and no `{feature}/livraison.md` committed for it:
-  **step 1**. Committed, not merged: step 1's last part, **the merge**; with a remote and a pull request already open (`gh pr view`, else `git ls-remote --heads origin feature/<slug>`), say so and wait for it to be merged, never push or open a second one.
+  **step 1**. Committed, not merged: **the merge**, unless the feature branch has commits after it (a
+task added since): step 1 again, its files updated; with a remote and a pull request already open (`gh pr view`, else `git ls-remote --heads origin feature/<slug>`), say so and wait for it to be merged, never push or open a second one.
 - Merged, and `livraison.md`'s **En ligne** says `pas encore`: **step 2**. It says `aucun — …` (a library,
   a tool run on one computer): nothing left; say so.
 - Online already, and a later feature merged: step 2 again, for what changed.
@@ -209,7 +210,6 @@ it; write a secret's value anywhere; put local test data online.
 | "The review looked at security; no need to scan." | The scan runs now: secrets in the history, flawed packages. |
 | "A new table is no big change: no ADR." | **Impact archi** not `aucun` is an ADR. |
 | "The audit says the race is guarded." | Open the code; not found goes under **À faire**. |
-| "They said yes to the package: I'll push too." | The merge has its own yes. |
 | "Paste the API key here and I'll set it." | Never through the conversation: the page, or their own terminal. |
 | "I'll seed production with the test members." | Real data starts empty or from what they give. |
 | "A one-line fix and the check online passes." | No code here: **À faire**, then `/cadrer-x-realiser`. |
