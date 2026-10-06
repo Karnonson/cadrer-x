@@ -9,9 +9,9 @@ argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité à reprendre>"
 
 You find out what the person wants and settle what it takes, one question at a time. Two steps, each
 ending in one file in the feature's folder: the idea (`idee.md`), then the decisions (`decisions.md`).
-Then the spec, by its reference; the design when there are screens, by a worker you start
-(*Workers*); the tasks. No code: the builders build from your files, and whatever you leave
-unsettled they will guess.
+Then the spec, by its reference; the design when there are screens, and the tasks, by workers you
+start (*Workers*); then you stop. No code: the builders build from your files, and whatever you
+leave unsettled they will guess.
 
 Talk, and write the files' text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings and labels stay
@@ -51,12 +51,17 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
     `decisions.md` → **Étapes**, no `voie : courte`), its draft written, start the designer's
     wireframe before your first question: *Workers*.
   - with screens and no `passation.md`: the design: start (or resume) the designer, *Workers*.
-  - no `taches.md`: the tasks: read `references/decoupe.md` whole now, then follow it.
+  - no `taches.md`: the tasks: start the decoupeur, *Workers*.
+  - no task ticked, no `voie : courte`, no `verification.md` whose **Portée** is `spec et tâches`,
+    and you can start a subagent: the second look, *Workers* (commit `taches.md` first if it is not).
 - Every stage's file there: a revision. Ask which file changes and what changed; ask only that.
 - **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
   by its step, reference or worker as above, without asking again: the design only when the change
   moves a screen, the tasks once `taches.md` exists. A stage that ends by going back to *Which
   step* goes on to the next of these; after the last, stop with its usual next step.
+
+A reference you follow, here, in step 1, or a worker's with no subagents: after a summary of this
+conversation, read it again.
 
 ## Every turn
 
@@ -282,7 +287,8 @@ go on with it, and go back to *Which step*. They stop you: `/cadrer-x-choisir <s
 
 ## Workers
 
-The pages are made by a worker, a subagent you start, so they never load here: you keep the person.
+The pages and the tasks are made by workers, subagents you start, so they never load here: you keep
+the person. You start each one yourself, one after the other: no worker starts another.
 `<skills folder>`: the folder holding this skill's folder, absolute path.
 
 - **Start one** as the tool's general subagent (`general-purpose` in Claude Code, codex's default
@@ -317,6 +323,24 @@ screens. A change with no new screen has none.
    <Titre>`. Close the designer, say in one line that you go on with the tasks, and go back to
    *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
 
+**The tasks**: the decoupeur (`cadrer-x-decoupeur`, `cadrer-x-choisir/references/decoupe.md`), then
+the verificateur (`cadrer-x-verificateur`, `cadrer-x-verifier/SKILL.md`). No yes on the tasks: a
+task list is technical.
+
+1. **The decoupeur** writes `taches.md`. Its questions go to the person, one per message; each answer
+   goes back to it, resumed. Commit what it wrote (`taches.md`, and `decisions.md`, `a-trancher.md`
+   when it wrote to them) by their paths: `tâches — <Titre>`.
+2. **The verificateur**, with nothing of yours in its message, unless `voie : courte`, or
+   `cadrer-x-verifier` is not beside this skill's folder; wait for its report. What the files settle
+   goes back to the decoupeur, resumed; what needs a product choice is a question for the person,
+   with the finding's proposal as your recommendation, and the answer goes to the decoupeur too.
+   Commit what changed: `tâches — <Titre>`; `spec — <Titre> : corrections de la vérification` for
+   the spec. No subagents: say in one line that `/cadrer-x-verifier`, in a fresh session, can check
+   the spec and the tasks first.
+3. **The stop.** Close the workers. One message: what gets built (each story in one line, the number
+   of tasks), what the second look changed, then `/cadrer-x-realiser <slug>`, better in a new
+   session (`/clear`, then the command). Then stop: the build is theirs to start.
+
 ## Red flags
 
 | Thought | Instead |
@@ -326,5 +350,5 @@ screens. A change with no new screen has none.
 | "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
 | "Success: happier clients." | A number and a date they can check. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
-| "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |
+| "Both files saved; they'll type the next command." · "No time: I'll code it here." | Never: the spec, in this reply. The short path is the fast way. |
 | "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |

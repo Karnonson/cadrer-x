@@ -5,9 +5,10 @@ Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée �
 **R**endre. Tu décides aux moments qui comptent.
 
 Chaque étape écrit un fichier que la suivante lit, puis enchaîne sur la suivante dans la même session,
-sauf si tu l'arrêtes. Rien ne part sans ton oui : ni la spec, ni la fusion dans la branche principale,
-ni la mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
-titres restent fixes, en français, pour que chaque étape retrouve le travail de la précédente.
+sauf si tu l'arrêtes ; `choisir`, lui, s'arrête avant la construction. Rien ne part sans ton oui : ni
+la spec, ni la fusion dans la branche principale, ni la mise en ligne. Les étapes te parlent dans ta
+langue ; les noms de fichiers et les titres restent fixes, en français, pour que chaque étape
+retrouve le travail de la précédente.
 
 ## Installer
 
@@ -53,9 +54,9 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
 /cadrer-x-rendre <nom>         la doc, la version, la fusion, puis la mise en ligne
 ```
 
-En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
-`rendre`. Chaque étape enchaîne sur la suivante quand tu dis oui ; tu peux toujours l'arrêter et
-lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
+En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches, puis il te donne
+la commande suivante), `realiser`, puis `rendre`. Tu peux toujours arrêter une étape et lancer la
+commande plus tard. Une étape reprend là où ses fichiers s'arrêtent : relance-la,
 elle sait où elle en est.
 
 `/cadrer-x-realiser <nom>` mène toute la construction depuis une seule session : il confie chaque tâche

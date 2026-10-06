@@ -1,7 +1,7 @@
 # The tasks — cut from the approved spec
 
-Followed by `choisir` when its *Which step* finds the tasks open. `templates/` and `scripts/` below
-are choisir's, beside `references/`.
+Followed by the decoupeur `choisir` starts (its message says *Launched by choisir*), or by choisir
+itself with no subagents. `templates/` and `scripts/` below are choisir's, beside `references/`.
 
 You cut the approved spec into tasks the builders take one at a time, often several at once, each
 in its own worktree, never seeing each other. One file, `taches.md`, from `templates/taches.md`. Each
@@ -12,6 +12,12 @@ tasks are built. No code.
 Talk, and write the file's text, in the person's language, every message included (the short notes between steps too); in French, *tu* or *vous* as they write,
 *vous* when you can't tell, and never both. File names, headings, labels and ids stay exactly as
 written here and in the template, in every language: the later skills find them by these names.
+
+**Launched by choisir.** You never ask the person and never commit: they are not here. What you
+would ask goes in your report, and your last message is that report (the end of this file). Resumed
+with answers or the second look's findings: read `taches.md` again first, and change only what they
+ask. Not launched: you are choisir; ask the person directly, and go on with its *Workers* where the
+report would be.
 
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open
 `<skills folder>/cadrer-x-<name>/aide.md` (the folder that holds `cadrer-x-choisir/`) at that moment;
@@ -28,7 +34,8 @@ read it whole and follow it. Not there: go on without it.
 ## Read, in this order
 
 1. `{feature}/spec.md`: the stories, their scenarios, the exigences `EF<n>`. The person approved it:
-   never edit it (one exception: the one-fix drifts of **A second look**); a story you think is wrong is a question to them.
+   never edit it (one exception: the one-fix drifts of **The second look**); a story you think is
+   wrong is a question to them.
 2. `{feature}/a-trancher.md`: an answered question is settled; plan on it.
 3. `{feature}/decisions.md`: **Décisions**, **Impact archi**, **Données et risques**, **Stack**. What
    it settles stays settled: never asked again, never undone by an option you recommend.
@@ -124,56 +131,45 @@ From the template, in this order:
 
 Rare: the spec and the decisions settled the *what*. Ask only what changes the plan and that no file
 answers (a rule in conflict, a tool the project lacks and that costs something, a story you think is
-wrong), one per message, with your recommendation a plain "oui" accepts. One left for later goes to
+wrong), in plain words, with your recommendation a plain "oui" accepts. One left for later goes to
 `{feature}/a-trancher.md` as `## Q<n> · plan · <question>`, with `- Options :`, `- Effets :`,
 `- Conseil :`, `- Réponse :`. What you decide alone a builder would also have to decide: write it on the
 task's lines, never in an essay.
 
 **What the person chooses here is written down.** A layout, a scope, a tool they settle while you cut
 (« le code dans src/, un module par fonctionnalité ») becomes the next `D<n>` of `decisions.md` →
-**Décisions**, with **Impact archi** when it moves the map, committed with `taches.md`. A choice left in
-the chat is lost to every later step: the second look flags its tasks, and the next cut undoes it.
+**Décisions**, with **Impact archi** when it moves the map, beside `taches.md`. A choice left in the
+chat is lost to every later step: the second look flags its tasks, and the next cut undoes it.
 
-## Show it, then save
+## Write it, then report
 
 Write `{feature}/taches.md`, comments removed, then run `python3 <this skill's folder>/scripts/lint.py
-taches {feature}/taches.md`; fix and rerun until it prints nothing. Commit it (and `decisions.md`,
-`a-trancher.md` when you wrote to them) on the feature branch: `tâches — <Titre>`. The branch is the
-draft: nothing is built from it before the person's yes.
+taches {feature}/taches.md`; fix and rerun until it prints nothing.
 
-**Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): skip the second
-look below, and the person's yes on the tasks: the spec already had theirs. Show the tasks in one
-message (id, title, `Fichiers :`, **À surveiller**), commit, and go on to `realiser` in the same
-session, said in one line: they can stop you. A change a person sees has no `Écrans :` line (there is
-no `passation.md`): its box names the page and what it shows, and an **À surveiller** line pinned to
-the task says the review checks it on that page at 390 and 1280. More than three tasks or a second
-story: the path was not short; remove the `voie : courte` line and take the full path.
+**Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): a change a
+person sees has no `Écrans :` line (there is no `passation.md`): its box names the page and what it
+shows, and an **À surveiller** line pinned to the task says the review checks it on that page at 390
+and 1280. More than three tasks or a second story: the path was not short; remove the `voie :
+courte` line and take the full path.
 
-**A second look, fresh.** When `cadrer-x-verifier` is installed beside choisir and you can start a
-subagent, start one as choisir's *Workers* says, with this message and nothing of yours:
-« You are cadrer-x-verificateur. Read `<skills folder>/cadrer-x-verifier/SKILL.md` whole and follow
-it for the feature `<NNNN-slug>`, in `<the feature's worktree>`. Launched by choisir. » Do not use
-the Skill tool for it: read the file. Meanwhile, wait. Its findings, from `verification.md`:
+**The second look.** Its findings, from `verification.md`, come back to you: each `→ tâches` folded
+in; a `→ spec` with one fix the files already settle (a word the prototype or the glossary uses, a
+value a decision or an answered question gives) fixed in `spec.md`, its lint run again. One that
+needs a choice after all: a question.
 
-- For `→ tâches`: yours; fold each in.
-- For `→ spec`, with one fix the files already settle (a word the prototype or the glossary
-  uses, a value a decision or an answered question gives): fix `spec.md` there, its lint run again,
-  and name each change in your message.
-- Anything that needs a choice: a question in your message, with your recommendation.
+**The report**, your last message, in the person's language, these labels as written; a section with
+nothing says `aucun`:
 
-No subagent: say in one line that `/cadrer-x-verifier`, in a fresh session, can check the spec and the
-tasks first.
-
-**Show it.** One message: one line per task (id, `[P]`, story, title, size, `Après :`), the waves, the
-**À surveiller** lines, what the second look found and what you changed for it, and the questions.
-Ask what they would change; each change is folded in, the lint run again, until a clear yes ("oui",
-"ok", "ça va", "c'est bon"; a hedge or a change asked for keeps it open).
-
-On the yes: commit what changed since (`tâches — <Titre>`; `spec — <Titre> : corrections de la
-vérification` for the spec). Then the build: `/cadrer-x-realiser <slug>` builds every task, has each
-story reviewed by someone who did not build it, and stops only for the person's questions. Say it runs
-best in a fresh session (`/clear`, then the command); they say go on here: open
-`<skills folder>/cadrer-x-realiser/SKILL.md`, read it whole and follow it for this feature.
+```
+Tâches :
+- T<nn> [P] [US<n>] <titre> — <taille> — Après : <…>
+Vagues : <Vague 1 : T01 ; Vague 2 : T02, T05>
+À surveiller :
+- <each line>
+Changé : <what changed since your last report: tasks, spec.md lines, D<n>, voie : courte; or: tout>
+Questions :
+- <the question, in plain words, never a file or code> — Conseil : <your recommendation, why>
+```
 
 ## Red flags
 
@@ -183,7 +179,7 @@ best in a fresh session (`/clear`, then the command); they say go on here: open
 | "T03 comes after T02, to be safe." | `Après :` only what it stands on: each needless link is a session that waits. |
 | "The builder will add a test runner." | Tooling is a Fondations task; the others are `Après :` it. |
 | "Two tasks both edit the route index; fine." | One owner; the other is `Après :` it. |
-| "This story is wrong; I'll fix the spec." | Never edit the spec: ask the person. Only the second look's one-answer drifts are fixed there. |
-| "They said: modules in src/. Noted in my head." | A `D<n>` in `decisions.md`, committed with the tasks. |
+| "This story is wrong; I'll fix the spec." | Never edit the spec: a question. Only the second look's one-answer drifts are fixed there. |
+| "They said: modules in src/. Noted in my head." | A `D<n>` in `decisions.md`, beside the tasks. |
 | "The second look says T01–T08 nobody asked for; I'll recommend dropping them." | A decision asked for them: the second look missed it. Settled stays settled. |
 | "While we're here, T02 moves the old code into modules." | Moving old code is `/cadrer-x-ranger`'s. |

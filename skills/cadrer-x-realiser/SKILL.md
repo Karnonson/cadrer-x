@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-realiser
-description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est validé. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`, ou refaire sa relecture) ou une seule tâche (`T03`)."
+description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est prêt. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`, ou refaire sa relecture) ou une seule tâche (`T03`)."
 disable-model-invocation: true
 argument-hint: "[fonctionnalité] [US1 | T03]"
 ---
@@ -17,7 +17,9 @@ reports, never the code.
 Talk in the person's language, every message included; in French, *tu* or *vous* as they write, *vous*
 when unsure, never both. Commit messages, file names and labels stay as written here.
 
-`<skills folder>`: the folder holding this skill's folder, absolute path.
+`<skills folder>`: the folder holding this skill's folder, absolute path. A reference you follow
+yourself (`references/tache.md` by hand or with no subagents, `references/examen.md` in a review
+session): after a summary of this conversation, read it again.
 
 ## What to build
 
