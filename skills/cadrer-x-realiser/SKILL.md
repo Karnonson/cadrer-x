@@ -68,17 +68,17 @@ are the person's to launch): the builder reads the file. Its last message is its
 
 ## Merge into the feature branch
 
-Merging a task into `feature/<slug>` is local and undone with one command: no yes needed. A reviewer
-reads the feature branch, so do not move it under them: while one runs, hold that feature's task merges
-until its audit is committed.
+A task merge is local and undoable: no yes needed. While a reviewer reads a feature branch, hold
+its task merges until the audit is committed. Each git command names its folder with `-C` (`<top>`:
+the repo's top); never a merge or reset in the main checkout.
 
-1. In the task's worktree: `git merge feature/<slug>` (brings in other tasks' merges). Conflict in the
-   task's own files: back to its builder (resume, or a new one with the conflict named). In another
-   task's file: stop, ask the person. Then the whole check command there; red: back to its builder.
-2. In the feature's worktree: `git merge --ff-only tache/<slug>-t<nn>`; refused: step 1 again.
-3. From the repo's top, never from inside it: `git worktree remove .worktrees/tache.<slug>-t<nn>`; then
-   `git merge-base --is-ancestor tache/<slug>-t<nn> feature/<slug>` and on yes `git branch
-   -D tache/<slug>-t<nn>` (`-d` checks the main branch, where it is not merged yet). Never push.
+1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`. Conflict in its own files: back
+   to its builder, told the conflict; in another task's: stop, ask the person. Then the whole check
+   command in that worktree (`cd`); red: back to its builder.
+2. `git -C <top>/.worktrees/feature.<slug> merge --ff-only tache/<slug>-t<nn>`; refused: step 1 again.
+3. `git -C <top> worktree remove .worktrees/tache.<slug>-t<nn>`; then `git -C <top> merge-base
+   --is-ancestor tache/<slug>-t<nn> feature/<slug>` and on yes `git -C <top> branch -D
+   tache/<slug>-t<nn>` (`-d` would check the main branch). Never push.
 
 ## Reviews
 
@@ -128,4 +128,4 @@ then `/cadrer-x-realiser <slug>` again: it resumes from the files.
 | "Two screen tasks at once, it's faster." | One browser: one at a time. |
 | "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
 | "The Skill tool refused; I'll stop." | Builders and reviewers read the file, never the Skill tool. |
-| "`git branch -d` failed: not merged." | It checks the main branch: `merge-base --is-ancestor` on the feature, then `-D`. |
+| "`--ff-only` refused; I'll redo it here." | Step 1 again, `-C` and all. |
