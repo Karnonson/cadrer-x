@@ -150,10 +150,11 @@ the task says the review checks it on that page at 390 and 1280. More than three
 story: the path was not short; remove the `voie : courte` line and take the full path.
 
 **A second look, fresh.** When `cadrer-x-verifier` is installed beside choisir and you can start a
-subagent, start one with a fresh context and this prompt, and nothing of yours: « Read
-`<skills folder>/cadrer-x-verifier/SKILL.md` whole and follow it for the feature `<NNNN-slug>`, in
-`<the feature's worktree>`. Launched by choisir. » Do not use the Skill tool for it: read the file.
-Meanwhile, wait. Its findings, from `verification.md`:
+subagent, start the tool's general one (`general-purpose` in Claude Code, codex's default worker;
+never a registered or custom agent type) with a fresh context and this prompt, and nothing of yours:
+« You are cadrer-x-verificateur. Read `<skills folder>/cadrer-x-verifier/SKILL.md` whole and follow
+it for the feature `<NNNN-slug>`, in `<the feature's worktree>`. Launched by choisir. » Do not use
+the Skill tool for it: read the file. Meanwhile, wait. Its findings, from `verification.md`:
 
 - For `→ tâches`: yours; fold each in.
 - For `→ spec`, with one fix the files already settle (a word the prototype or the glossary

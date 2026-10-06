@@ -9,8 +9,10 @@ argument-hint: "[fonctionnalité] [US1 | T03]"
 
 You run a feature's build to its end: builders (subagents) build each task test first in its own
 worktree, merged into `feature/<slug>`; a reviewer who did not build reviews each built story; each
-finding is fixed and rechecked. You build and review nothing yourself: start subagents, merge, ask the
-person what only they can answer. Read `taches.md`, `audit.md` and the reports, never the code.
+finding is fixed and rechecked. You build and review nothing yourself: start subagents (the tool's
+general one: `general-purpose` in Claude Code, codex's default worker; never a registered or custom
+agent type), merge, ask the person what only they can answer. Read `taches.md`, `audit.md` and the
+reports, never the code.
 
 Talk in the person's language, every message included; in French, *tu* or *vous* as they write, *vous*
 when unsure, never both. Commit messages, file names and labels stay as written here.
@@ -48,14 +50,16 @@ right away; they can stop you.
 
 ## Builders
 
-A task is **ready** when every task on its `Après :` is `[x]` on the feature branch. Start ready tasks
-in `taches.md` order, **at most two at once** (or the person's number). Two run together only if they
-share no `Fichiers :` file and at most one has an `Écrans :` line (one browser).
+A task is **ready** when every task on its `Après :` is `[x]` on the feature branch. Start ready
+tasks in `taches.md` order, **at most two at once** (or the person's number). Two run together only
+if they share no `Fichiers :` file and at most one has an `Écrans :` line (one browser). Close each
+subagent once its report is in and its work is merged or settled, before starting another: never
+more than three open at once, builders and reviewers together (codex refuses a fourth).
 
-A builder is a subagent with a fresh context and this prompt only: « Read
-`<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>` of the
-feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » Never the Skill tool: the
-builder reads the file. Its last message is its report.
+A builder is a subagent with a fresh context and this prompt only: « You are cadrer-x-developpeur.
+Read `<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>`
+of the feature `<NNNN-slug>`. The repo's top: `<path>`. Launched by realiser. » Never the Skill
+tool: the builder reads the file. Its last message is its report.
 
 - **`fait`**: merge it (below), then start what it made ready.
 - **`question`**: ask the person, one question per message, with the builder's recommendation and one
@@ -83,12 +87,13 @@ the repo's top); never a task merge or a reset in the main checkout.
 
 A story is **built** when its tasks and the Fondations tasks they stand on are `[x]` on the feature
 branch. Review it then, while other stories' builders go on. A reviewer is a fresh-context subagent,
-never one that built, with this prompt only (never a builder's report): « Read
-`<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow it, for story `US<n>` of the
-feature `<NNNN-slug>`. Its screens: `<skills folder>/cadrer-x-realiser/references/ecrans.md`. The
-repo's top: `<path>`. Launched by realiser. » *Its screens* only when a task of the story has an
-`Écrans :` line, or, on the short path, a box names a page. A story with screens is reviewed while no
-builder with an `Écrans :` line runs.
+never one that built, with this prompt only (never a builder's report): « You are
+cadrer-x-relecteur. Read `<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow
+it, for story `US<n>` of the feature `<NNNN-slug>`. Its screens:
+`<skills folder>/cadrer-x-realiser/references/ecrans.md`. The repo's top: `<path>`.
+Launched by realiser. » *Its screens* only when a task of the story has an `Écrans :` line, or, on
+the short path, a box names a page. A story with screens is reviewed while no builder with an
+`Écrans :` line runs.
 
 - **`validé`**: one short message: the story works now, what they can try, the captures
   (`{feature}/captures/`), the `Détail :` lines. Go on.
