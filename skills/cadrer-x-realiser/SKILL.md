@@ -69,7 +69,7 @@ are the person's to launch): the builder reads the file. Its last message is its
 
 A task merge is local and undoable: no yes needed. While a reviewer reads a feature branch, hold
 its task merges until the audit is committed. Each git command names its folder with `-C` (`<top>`:
-the repo's top); never a merge or reset in the main checkout.
+the repo's top); never a task merge or a reset in the main checkout.
 
 1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`. Conflict in its own files: back
    to its builder, told the conflict; in another task's: stop, ask the person. Then the whole check
