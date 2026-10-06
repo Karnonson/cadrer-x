@@ -135,21 +135,11 @@ questions. Then write it back — Résultat, Pour qui, Pourquoi maintenant, Mesu
 Contraintes, Non couverts, one line each — and ask: "C'est bien ça ? Oui, ou dis-moi quoi changer."
 A correction: fold it in, write it back again.
 
-**A small change** (a word, a colour, a link, a default, on something the product already has): the
-interview shrinks to what is unclear, one question at most. **Résultat** and **Problème** from what
-they said; **Pour qui** and **Pourquoi maintenant** in one line each, from what they said or the
-product's own; **Mesure** what they will see once it is done (« le bouton dit "Envoyer" »);
-**Existant** `le produit lui-même`. Step 2 decides the short path.
+**A small change** (a word, a colour, a link, a default, on something the product already has):
+read `references/petit-changement.md` whole now, then follow it.
 
-**A bug** (something that should work and doesn't, or worked and stopped): no idea to shape, a fault
-to pin. Ask only what they haven't said, one question at a time: what they did, what they saw, what
-they expected. Then try it yourself before asking more: the app from `commands.dev` with a browser
-tool, stopped when done, else the code the steps go through. What you find is a fact, never asked;
-you fix nothing here. In `idee.md`: the title starts with « Corriger : »; **Résultat** what should
-happen; **Problème** the steps, what they see, and `reproduit` or `pas reproduit — <what you tried>`;
-**Mesure** « les mêmes étapes donnent <what should happen> »; **Existant** where it breaks, or `à
-trouver à la construction`; **Pour qui** and **Pourquoi maintenant** in one line each. Step 2 writes
-`- bug : oui`.
+**A bug** (something that should work and doesn't, or worked and stopped): read `references/bug.md`
+whole now, then follow it.
 
 **Save — only after the yes.**
 1. A slug: lowercase words and hyphens, 24 characters at most. The number: the highest `NNNN` under
@@ -263,8 +253,7 @@ headings exactly, `aucun` under an empty one:
 - [ ] <what the person sets up by hand, where> — avant la construction|avant la livraison
 ```
 
-- **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data;
-  `bug : oui` is a reported bug: its first task reproduces it with a test that fails today.
+- **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data.
 - **Impact archi** — usually `aucun`. Not when the feature adds a module, a table or a kind of stored
   data, an outside service or a running part (a job, a worker), or changes the stack. A setting saved
   per account is stored data: say what. `{docs}/architecture.md` itself is not edited here:
@@ -296,7 +285,6 @@ go on with it, and go back to *Which step*. They stop you: `/cadrer-x-choisir <s
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
 | "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
 | "Success: happier clients." | A number and a date they can check. |
-| "A bug report: I'll ask who it's for and how to measure it." | What they did, saw and expected; then try it yourself. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
 | "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |
 | "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |
