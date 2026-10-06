@@ -61,13 +61,14 @@ online do. No skill pushes but `rendre`, and only on the person's yes.
 
 The short path: a change that adds no screen or way through one (a visible change on a screen that
 exists is fine), holds no personal data, adds no service or stack choice, touches no constitution rule,
-and fits one story and three tasks, carries `- voie : courte` under **Étapes** in `decisions.md`.
-`choisir` asks only the idea's **Ouvert** points, writes one small story and no design, and skips the
-second look; its review still covers the story, and clicks a visible change on its real page, since
+and fits one story and three tasks, carries `- voie : courte` under **Étapes** in `decisions.md`; one
+the person asks for, whatever its size, `- voie : courte — demandée`. `choisir` asks only the idea's
+**Ouvert** points, writes small stories and no design, and skips the second look; its review still covers each story, and clicks a visible change on its real page, since
 a fresh reader is what the shortcut does not give up. A reported bug enters by `choisir` too: the agent tries it before asking more, `idee.md`
 holds the steps and what should happen, `- bug : oui` under **Étapes** makes the first task a test that
-fails on the code as it is (`cadrer-x-debug`). Any step that finds the change bigger
-drops the line and takes the full path.
+fails on the code as it is (`cadrer-x-debug`). A step that finds the change bigger says so in
+one line: `demandée`, the line stays and choisir says what it still skips; else choisir drops it and
+takes the full path.
 
 A clear yes closes a step: "oui", "ok", "ça va", "c'est bon", or a condition already met; a hedge or a
 change asked for keeps it open. A step ends by going on with the next one in the same session, said in

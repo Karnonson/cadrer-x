@@ -56,8 +56,8 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
   - `passation.md`, `contenu.md` or `maquette/` not committed (`git status`): a designer (stage
     `passation`) runs the passation's checks again; then *a half-done stage*: `maquette — <Titre>`.
   - no `taches.md`: the tasks: start the decoupeur, *Workers*.
-  - `taches.md` not committed: with `voie : courte`, more than three tasks or a second story is the
-    tasks' step 1 for a path not short; else *a half-done stage*: `tâches — <Titre>`.
+  - `taches.md` not committed: past `voie : courte`'s size, *bigger than it looked* first; then,
+    still there, *a half-done stage*: `tâches — <Titre>`.
   - no task ticked, no `voie : courte`, no `verification.md` of **Portée** `spec et tâches` committed
     after the last commit of `taches.md` and of `spec.md`, and you can start a subagent: the second
     look, *Workers*.
@@ -115,10 +115,10 @@ conversation, read it again.
    in modules: say in one line that `/cadrer-x-ranger` first makes this feature and every next one
    cheaper, and go on with theirs unless they take it.
 2. **Several capabilities in one ask** (parts that could ship and be checked apart: a booking, a
-   payment, reminders, a report): your first question is the split. A short table — feature · what it
-   does · what it needs first — a build order (what the others need, then the most useful), and your
-   guess which to talk through first. Each becomes its own feature; what they share (who, why now) is
-   asked once.
+   payment, reminders, a report): your first question offers the split, once. A short table —
+   feature · what it does · what it needs first — a build order (what the others need, then the most
+   useful), and your guess which to talk through first. Split: each its own feature, what they share
+   (who, why now) asked once. Declined, or shipped together: one feature, each part a story.
 3. **A problem but no idea yet**: before narrowing, lay out three to five different ways to solve it
    as a table — one line · what it makes worse · rough size — one of them almost no work. Then your
    pick and the assumption it rests on. They choose; the interview goes on with that one.
@@ -199,19 +199,21 @@ Map the **design tree**: each decision and the ones that hang off it. The **fron
 decision whose prerequisites are settled. Start from the idea's **Ouvert** list and the assumption
 it rests on. Each answer reshapes the tree: recompute the frontier before the next question.
 
-**The short path, as soon as you can tell.** A small change does not need the whole ceremony: no new
-screen and no new way through one (a change a person sees on a screen that exists is fine: a word, a
-colour, a link, a button that misbehaves), no personal data, no new service or stack choice, no rule
-of the constitution touched, and you can foresee one story and three tasks at most. A bug usually is
-one. Say it in one line (« Petit changement : je prends la voie courte. ») and add `- voie : courte`
+**The short path, as soon as you can tell**, for a small change: no new screen and no new way
+through one (a change a person sees on a screen that exists is fine: a word, a colour, a link, a
+button that misbehaves), no personal data, no new service or stack choice, no rule of the
+constitution touched, and you can foresee one story and three tasks at most. A bug usually is one.
+Say it in one line (« Petit changement : je prends la voie courte. ») and add `- voie : courte`
 under **Étapes**. The decisions are then only the idea's **Ouvert** points: ask those, nothing more,
-and save. Any doubt, or the person asks for the full path: the full path. The spec, the tasks and
-`realiser` read that line and lighten their steps.
+and save. Any doubt: the full path. The person's ask wins, before the tasks: the full path, or the
+short path at any size: `- voie : courte — demandée`. **Bigger than it looked** (a later step
+finds more than the above): `demandée` stays; else remove the line, commit `decisions.md` alone, and
+with `écrans : oui` delete an uncommitted `taches.md`: the tasks follow the design. Each time, one
+line says what the path skips (the design, the second look), or why it is now full.
 
 **Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
 first turn: with the spec comes a sketch of the screens and the ways between them, and after its yes
-the finished design, its look and its words, which they approve before the tasks are cut. On the
-short path, no design: the review checks the change on the real page.
+the finished design, its look and its words, which they approve before the tasks are cut.
 
 Format, without the tool, in their language:
 
@@ -261,7 +263,7 @@ headings exactly, `aucun` under an empty one:
 - écrans : oui|non
 - code : oui|non
 - données : oui|non
-- voie : courte (only on the short path; else no line)
+- voie : courte|courte — demandée (only on the short path; else no line)
 - bug : oui (only for a bug; else no line)
 ## Précisions
 - Q : <question> → R : <réponse>
@@ -343,9 +345,8 @@ the verificateur (`cadrer-x-verificateur`, `cadrer-x-verifier/SKILL.md`). No yes
 task list is technical.
 
 1. **The decoupeur** writes `taches.md`. Its questions go to the person, one per message; each answer
-   goes back to it, resumed. A report that the path was not short: remove `voie : courte` from
-   `decisions.md` and commit that alone; with `écrans : oui`, delete the uncommitted `taches.md`, cut
-   again after the design; then back to *Which step*. Else commit the paths its report named:
+   goes back to it, resumed. A report that they outgrow the short path: *bigger than it looked*; the
+   line removed, back to *Which step*, else commit the paths its report named:
    `tâches — <Titre>`.
 2. **The verificateur**, with nothing of yours in its message, unless `voie : courte`, or
    `cadrer-x-verifier` is not beside this skill's folder; wait for its report. What the files settle
@@ -366,7 +367,6 @@ task list is technical.
 |---|---|
 | "I'll ask the three basics at once to save time." | Step 1: one question, the next depends on it. Step 2: a numbered batch only of decisions that hang on nothing open. |
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
-| "It's one idea, one feature." | Could its parts ship apart? Then it is several. |
 | "Success: happier clients." | A number and a date they can check. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
 | "Both files saved; they'll type the next command." · "No time: I'll code it here." | Never: the spec, in this reply. The short path is the fast way. |

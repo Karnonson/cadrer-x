@@ -147,11 +147,10 @@ chat is lost to every later step: the second look flags its tasks, and the next 
 Write `{feature}/taches.md`, comments removed, then run `python3 <this skill's folder>/scripts/lint.py
 taches {feature}/taches.md`; fix and rerun until it prints nothing.
 
-**Short path** (`voie : courte` in `decisions.md`, and at most three tasks in one story): a change a
-person sees has no `Écrans :` line (there is no `passation.md`): its box names the page and what it
-shows, and an **À surveiller** line pinned to the task says the review checks it on that page at 390
-and 1280. More than three tasks or a second story: the path was not short; say so in your report,
-and choisir takes the full path.
+**Short path** (`voie : courte` in `decisions.md`): a change a person sees has no `Écrans :` line
+(there is no `passation.md`): its box names the page and what it shows, and an **À surveiller** line
+pinned to the task says the review checks it on that page at 390 and 1280. More than three tasks or
+a second story: say so in one line of your report; choisir settles the path.
 
 **The second look.** Its findings, from `verification.md`, come back to you: each `→ tâches` folded
 in; a `→ spec` with one fix the files already settle (a word the prototype or the glossary uses, a

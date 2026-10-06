@@ -25,14 +25,13 @@ read it whole and follow it. Not there: go on without it.
 
 ## The spec
 
-**Short path** (`voie : courte` under **Étapes** of `decisions.md`): one story, its scenarios, the
-**Cas limites** that are real, **Exigences** and **Critères** in one or two lines each, no question
-unless the three-part bar below is met, and no `Vérifs` ceremony beyond the lint. Show it in one
-message and ask for the yes as below. A change a person sees: its scenario names the page and what
-they see there, in their words. A bug (`bug : oui`): the first scenario is the report's steps, with
-what should happen. If writing it shows more than one story, a new screen or a new way through one,
-or personal data: say the change is bigger than it looked, remove the `voie : courte` line from `decisions.md`
-(commit it), and carry on with the full path.
+**Short path** (`voie : courte` under **Étapes** of `decisions.md`): one story, or those they asked
+for, the scenarios, the **Cas limites** that are real, **Exigences** and **Critères** in one or two
+lines each, no question unless the three-part bar below is met, and no `Vérifs` ceremony beyond the
+lint. Show it in one message and ask for the yes as below. A change a person sees: its scenario
+names the page and what they see there, in their words. A bug (`bug : oui`): the first scenario is
+the report's steps, with what should happen. Writing it shows it bigger: choisir's *bigger than it
+looked*.
 
 **Read, in this order:** `{feature}/idee.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
 `{feature}/decisions.md` (Décisions, Étapes, **Précisions**, **Données et risques**),
