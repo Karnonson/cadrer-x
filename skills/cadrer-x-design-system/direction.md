@@ -37,9 +37,9 @@ Typography carries the page's personality.
   `https://cdn.jsdelivr.net/fontsource/fonts/<id>@latest/latin-<weight>-normal.woff2` (`<id>`: the
   family in lowercase, hyphens for spaces; `latin` holds French; `-italic` for italics), and its
   licence beside it, from its folder in `github.com/google/fonts` (`ofl/<name>/OFL.txt`,
-  `apache/<name>/LICENSE.txt` or `ufl/<name>/UFL.txt`, the name without hyphens). Check each
-  download answered and is real (`file` says Web Open Font Format (Version 2)); else another open
-  face, or the closest system face, said in your report.
+  `apache/<name>/LICENSE.txt` or `ufl/<name>/UFL.txt`, the name without hyphens). Each font file
+  must be real (`file` says Web Open Font Format (Version 2)), its licence must have answered with
+  its text; else another open face, or the closest system face, said in your report.
 
 ## Structure
 
@@ -72,20 +72,21 @@ appears whatever the subject:
 ## Three pistes, when the look is yours
 
 At the first design only (no `passation.md` yet), with no design system, no screens in the app yet
-and `maquette/styles.css` still the template's, the `haute fidélité` starts here, unless the
-person's words in `decisions.md` already settle the look whole. Make the main screen in three
-clearly different looks, each its own page, `maquette/piste-1.html` to `piste-3.html`, its look
-whole in its `<style>` (its tokens declared there: the one place a raw value lives), its plan
-(below), reviewed, in a comment at the top. Three variations of one idea are one piste. Your report lists them under `Pistes :`, each with its
+and no pick recorded (no `/* Piste choisie :` comment at the top of `maquette/styles.css`), the
+`haute fidélité` starts here, unless the person's words in `decisions.md` already settle the look
+whole. Make the main screen in three clearly different looks, each its own page,
+`maquette/piste-1.html` to `piste-3.html`, its look whole in its `<style>` (its tokens declared
+there: the one place a raw value lives), its plan (below), reviewed, in a comment at the top.
+Three variations of one idea are one piste. Your report lists them under `Pistes :`, each with its
 address and one plain line on what it feels like, never a hex value or a font name. Then stop:
 nothing else is built before their pick. Started again on the pages with no word from the person:
 report them again as they are. A correction (none fits, or what they want instead) revises the
 pistes, and you wait for a pick again.
 
 Their pick (one piste, or parts of several): first write its plan, resolved, with their pick in
-their words, as the comment at the top of `maquette/styles.css`, and its tokens there: that is the
-record of the pick. Then delete the piste pages (any left once that comment exists too), and build
-the whole `haute fidélité` from it. A piste page is never in your report's `Fichiers :`.
+their words, as the comment at the top of `maquette/styles.css`, starting `/* Piste choisie :`, and
+its tokens there: that is the record of the pick. Then delete the piste pages (any left once that
+comment exists too), and build the whole `haute fidélité` from it, as from any recorded pick. A piste page is never in your report's `Fichiers :`.
 
 ## Plan, review, build, critique
 

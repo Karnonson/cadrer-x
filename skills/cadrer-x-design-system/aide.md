@@ -76,5 +76,5 @@ too: copied byte for byte, never edited.
 | "The prototype says `var(--color-accent-soft)`; I'll paste it." | Map it to the app's token that holds that value. |
 | "Used once, a hex is fine." | A token, or the nearest one, said once. |
 | "The design system lacks a badge; I'll add it." | Build it in the feature; list it under Nouveautés. |
-| "I'll copy the prototype's styles.css into the app." | Its values go in the app's own tokens file; with none yet, the first task with screens writes it. |
+| "I'll copy the prototype's styles.css into the app." | Its values go in the app's own tokens file; with none yet, only as the builder bullet above says. |
 | "No design system: I'll pick nice colours." | From what the product uses, else from `decisions.md`. |
