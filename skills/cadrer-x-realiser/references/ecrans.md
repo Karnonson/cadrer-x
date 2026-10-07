@@ -8,7 +8,7 @@ a terminal app (`commands.dev` with no `url`). Findings go on the `### Spec` and
 
 **The real entry.** Start the app as a person does, only here: `commands.dev` of `cadrer-x.yml`
 (plain pages without it: `python3 -m http.server <port> --bind 127.0.0.1` in their folder), from the
-feature's worktree on a free port (no other session's); wait until it answers; stop it when done.
+feature's worktree on a free port (no other session's); wait until it answers; kill its pid when done.
 Open its first page and go by its links and buttons to each screen, until it is ready (its data in,
 nothing loading), never a file or a part opened alone. The browser tool already held (another
 session): say so in one line, judge from the code (below), write `Écrans : pas cliqués — navigateur

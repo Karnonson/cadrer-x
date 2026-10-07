@@ -2,9 +2,9 @@
 
 The builder's procedure, for one task of `taches.md` or one fix round of `audit.md`. Followed by a
 builder `realiser` starts (its prompt says *Launched by realiser*), or by `realiser` itself when the
-person names one task (`/cadrer-x-realiser T03`). The task's boxes are the done-when, its `Fichiers :`
-the files you touch, the checks of `cadrer-x.yml` the bar. Other tasks may be built at the same time,
-so you work in the task's own worktree.
+person names one task (`/cadrer-x-realiser T03`). The task's boxes are the done-when, the checks of
+`cadrer-x.yml` the bar. Other tasks may be built at the same time, so you work in the task's own
+worktree.
 
 Talk, and write, in the person's language; in French, *tu* or *vous* as they write, *vous* when you
 can't tell, never both. Commit messages, file names and labels stay as written here.
@@ -49,8 +49,8 @@ green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix
 
 A task with screens: its section of `passation.md`, its page in `maquette/` and `contenu.md` are the
 whole design; the words exactly as `contenu.md` has them. With `commands.dev` and a browser tool free,
-open the screens at their `Largeurs :` widths before you finish; the browser held, or no tool: say
-they were not opened, and never write a browser driver of your own.
+open the screens at their `Largeurs :` widths, then stop the server you started (its pid); the
+browser held, or no tool: say they were not opened, and never write a browser driver of your own.
 
 ## Stay in the task
 
