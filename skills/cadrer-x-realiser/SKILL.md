@@ -40,8 +40,8 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
   or a package's flaw), the person typed its `US<n>`, or a catch-up merge or a later task changed
   one of its tasks' `Fichiers :` (unclear: all): such a task is built, then the story reviewed again
-  (a new tour 1); a leftover `tache/<slug>-*` branch is a builder's unmerged work (merged as below if its
-  commit ticks the task, else restarted).
+  (a new tour 1); a leftover `tache/<slug>-*` branch is a builder's unmerged work (merged as below if
+  its commit ticks the task, else restarted).
 - **Catch-up.** Each run, before any subagent: `git -C <top>/.worktrees/feature.<slug> merge
   <main>`, then the whole check command there (`cd`). A conflict, or red: a builder, prompt
   « … to bring `feature/<slug>` up to date with `<main>` … »; its `fait` needs no merge.
@@ -78,8 +78,8 @@ tool: the builder reads the file. Its last message is its report.
 ## Merge into the feature branch
 
 A task merge is local and undoable: no yes needed. While a reviewer reads a feature branch, hold
-its task merges and the catch-up until the audit is committed. Each git command names its folder with `-C` (`<top>`:
-the repo's top); never a task merge or a reset in the main checkout.
+its task merges and the catch-up until the audit is committed. Each git command names its folder
+with `-C` (`<top>`: the repo's top); never a task merge or a reset in the main checkout.
 
 1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`, then the whole check command
    in that worktree (`cd`). A conflict (both tasks' work kept, another task's file too) or red: back
