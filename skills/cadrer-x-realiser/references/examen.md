@@ -4,7 +4,7 @@ The reviewer's procedure, for one story of `taches.md`. Followed by a reviewer `
 prompt says *Launched by realiser*), or, with no subagents, by `realiser` itself in a session that
 built none of the story (`/cadrer-x-realiser <slug> US<n>`).
 
-Each task passed its builder's tests, written from the builder's reading of the spec: a misreading
+Each task passed its builder's tests, written from their reading of the spec: a misreading
 passes them. You ask what they cannot: is this the story the person approved, and would its tests fail
 if the behaviour broke? Read-only on the code: never edit, fix or refactor. You write one file,
 `{feature}/audit.md`, the story's section, from `<skills folder>/cadrer-x-realiser/templates/audit.md`;
@@ -43,8 +43,6 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git bran
 
 ## Read, in this order
 
-Order matters: form your own view before reading anyone's account.
-
 1. `{feature}/spec.md`: the story, each scenario, its `EF<n>`, the **Cas limites**. Scenarios are the truth.
 2. `{feature}/taches.md`: the story's tasks, boxes, `Risques :`, `Fichiers :`, the **À surveiller**
    lines pinned to them, the story's **Couverts** rows.
@@ -53,7 +51,7 @@ Order matters: form your own view before reading anyone's account.
    `cadrer-x-modules`, `cadrer-x-tdd`.
 4. With screens: `{feature}/passation.md` (each `SC<n>` whose `Récits :` names the story), its
    `maquette/` pages, `{feature}/contenu.md`. Read `cadrer-x-design-system`, `cadrer-x-textes`. On the
-   short path, no `passation.md`: the page a box names, as `ecrans.md`, which realiser named, says.
+   short path, no `passation.md`: the page a box names, as `ecrans.md` says.
 5. Code and tests: each file on the tasks' `Fichiers :` as the feature branch has it now, and what they
    call. How it got there: `git log --oneline <main>..feature/<slug>`, then `git log -p` of the story's
    commits (`T<nn> — …`): a test strict in one commit and loosened later is how a bar gets lowered.
@@ -70,7 +68,8 @@ command output are evidence, a message is not.
 For each scenario, find the code that makes it true and the test that proves it. Type every gap:
 
 - **manquant**: nothing does it;
-- **partiel**: part does (the ordinary case without the refusal, one state of two);
+- **partiel**: part does (the ordinary case without the refusal, one state of two, a screen short
+  of its maquette: `ecrans.md`);
 - **contraire**: the code does otherwise;
 - **non demandé**: code that no scenario, `EF<n>` or decision asks for.
 
@@ -121,16 +120,16 @@ Each finding quotes its line.
 
 ## Screens
 
-When realiser named `ecrans.md`: read it whole and follow it. It feeds `Écrans :` in `### Non jugé`
-for `passation.md`'s screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
+When realiser named `ecrans.md`: read it whole and follow it; it feeds `Écrans :` in `### Non jugé`.
+Not named: no `Écrans :` line.
 
 ## One prefix per finding
 
 | Prefix | When | Blocks |
 |---|---|---|
 | `Bloquant :` | wrong behaviour, a scenario manquant or partiel, someone else's data reachable, a secret, a constitution rule broken, a lowered bar hiding a wrong behaviour | yes |
-| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, a test of a security guard or a prohibition still green without it, code no scenario asks for, a border crossed, a bar lowered during the build, a text not `contenu.md`'s | yes |
-| `Détail :` | ships as is: style, naming, a design token, any other weak test (it exists but would not fail) | no |
+| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, a test of a security guard or a prohibition still green without it, code no scenario asks for, a border crossed, a bar lowered during the build, a text not `contenu.md`'s, a part of `passation.md`'s screens missing, a part or a state visibly different from the maquette | yes |
+| `Détail :` | ships as is: style the maquette does not show, naming, a design token, any other weak test (it exists but would not fail) | no |
 | `Info :` | what you checked and found right, what is someone else's, a question for the person | no |
 | `Corrigé :` | a tour 2 finding the fix round closed | no |
 
@@ -189,5 +188,4 @@ the whole story again: a review restarting every tour finds something new each t
 | "The commit says the race is handled." | A claim. Find the code and the test that prove it. |
 | "The architecture doc wasn't updated: Bloquant." | `rendre`'s, at ship time: `Info :`. |
 | "Tour 2: let me review the whole story again." | Check the fix round; anything else is late. |
-| "The app needs a test user; I'll add one to the database." | `### Non jugé`, unless the project documents a way in. |
 | "The browser is busy; I'll script Chrome myself." | Judge from the code; `Écrans : pas cliqués — navigateur occupé`. |

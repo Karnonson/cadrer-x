@@ -20,29 +20,33 @@ For each screen, at each size:
 1. Reach each state its `États :` line names the way a person would (type, send, open, come back). A
    state you cannot cause from the page: `### Non jugé`, with why.
 2. Do each scenario of the story on the screen: it works, or it is a Spec finding.
-3. Texts against `contenu.md` word for word; each field's label; Tab order; no sideways scroll at the
+3. Beside it, the maquette page the person approved: `{feature}/` served as plain pages (the command
+   above, its own port, killed after), `maquette/<page>.html#<état>` at the same width; its state bar
+   is not product.
+4. Texts against `contenu.md` word for word; each field's label; Tab order; no sideways scroll at the
    narrow size (`document.documentElement.scrollWidth <= innerWidth`); no console error.
-4. One screenshot per screen and width of its main state, `{feature}/captures/SC<n>-<largeur>.png`
+5. One screenshot per screen and width of its main state, `{feature}/captures/SC<n>-<largeur>.png`
    (`-<état>` added for a state worth showing apart).
 
-Findings: a state the app lacks is partiel (`Bloquant :`); a text not `contenu.md`'s word for word, a
-field with no label, a focus that jumps, a tap target under the design system's size, sideways scroll:
-`À corriger :`; a raw colour or size where a token holds it, a part neither the design system's nor
-a **Nouveauté** of `passation.md`, spacing: `Détail :`. From the code, always, and all there is when
-screens could not be clicked: each `contenu.md` text in the code (`grep -rn`), each state its code
-path, the project's own components used.
+Findings: a state the app lacks is partiel (`Bloquant :`); what a person would see missing or
+different from the maquette, against its Nouveautés and `États :` (a background, a block's size
+or place, a text's font or size, a motion, a state), is partiel too: `À corriger :`, like a text not
+`contenu.md`'s, a field with no label, a focus that jumps, a tap target under the design system's
+size, sideways scroll; a token's name or a raw value in its place, the CSS form, spacing: `Détail :`.
+From the code, always, and all there is when screens could not be clicked: each `contenu.md` text in
+the code (`grep -rn`), each state its code path, the project's own components used.
 
 **A story run in a terminal**: the command its scenarios run (else `dev.run`, else the README's) in
-a terminal of the size above, with a temporary home and data folders (never the person's own files).
-One that waits for keys: left open until its ready screen is drawn (a run that quits first proves
-nothing), then each scenario with the keys a person presses. A command that prints and exits: for
-each scenario, its output at that width, its exit status and what it wrote in the temporary folders
-are the evidence. A crash, a line cut or overlapping, a key that does nothing: a finding as above.
-What it drew or printed: an `Info :` line of `### Spec`, as on the short path.
+a terminal of the size above, with a temporary home and data folders (never the person's own).
+One that waits for keys: left open until its ready screen is drawn, then each scenario with the keys
+a person presses. A command that prints and exits: for each scenario, its output at that width, exit
+status and what it wrote in the temporary folders are the evidence. A crash, a line cut or
+overlapping, a key that does nothing: a finding as above. What it drew or printed: an `Info :` line
+of `### Spec`, as on the short path.
 
 **The short path** (`voie : courte`, no `passation.md`): the page the box names, at both sizes. Do
-the box's scenario there, check the rest of the page did not move and the console has no error, and
-save one screenshot per width, `{feature}/captures/page-<largeur>.png`. No `Écrans :` line in
-`audit.md`: what you saw goes in a `- Info :` line of `### Spec`, with the two captures' paths, a gap
-in a finding as above. The page not opened (the browser held, no tool, no `commands.dev`): that
-`Info :` line says so and why, never left out, and you judge from the code.
+the box's scenario there, check the rest of the page did not move, no console error, and save one
+screenshot per width, `{feature}/captures/page-<largeur>.png`. What you saw: a `- Info :` line of
+`### Spec` (no `Écrans :` line) with the two captures' paths; a gap is a finding as above. The page
+not opened (browser held, no tool, no `commands.dev`): that `Info :` line says so and why; judge from
+the code.
