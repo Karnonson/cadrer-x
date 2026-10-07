@@ -38,8 +38,8 @@ Both:
 - **Self-contained.** `maquette/styles.css`: the template's for the wireframe; then the design
   system's, copied byte for byte (`cp`, never edited), or with none the look you propose. No script
   or stylesheet from another site, no build step: the folder alone opens every page. A font the look
-  needs is copied into `maquette/fonts/` (a `.woff2` its licence lets you copy) and declared in the
-  page's `<style>`.
+  needs is a file in `maquette/fonts/`, declared by `@font-face` in `styles.css` (in each page's
+  `<style>` when `styles.css` is a design system's copy).
 - **One plain `.html` page per screen**, from `templates/maquette/page.html`: `lang` the person's
   language, `href="styles.css"`, `src="maquette.js"` (`templates/maquette/maquette.js`, copied as is).
 - **Only the stylesheet's tokens and parts.** A part it lacks is built from its tokens in the page's

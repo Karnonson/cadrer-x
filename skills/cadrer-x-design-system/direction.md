@@ -32,6 +32,12 @@ Typography carries the page's personality.
 - A type scale with deliberate weights, widths and spacing, after *The Elements of Typographic
   Style*. A headline's type is part of the design, not a neutral carrier.
 - Lines under 80 characters; serif body text gets a little more line height than sans.
+- An open-licence face (OFL, as on Google Fonts) is the normal way, downloaded once so the folder
+  stays self-contained: each weight's `.woff2` into `maquette/fonts/`, from
+  `https://cdn.jsdelivr.net/fontsource/fonts/<id>@latest/latin-<weight>-normal.woff2` (`<id>`: the
+  family in lowercase, hyphens for spaces; `latin` holds French; `-italic` for italics), and its
+  licence beside it, from `https://raw.githubusercontent.com/google/fonts/main/ofl/<id without hyphens>/OFL.txt`.
+  No network: the closest system face, said in your report.
 
 ## Structure
 

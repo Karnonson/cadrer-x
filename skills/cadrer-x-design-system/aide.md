@@ -51,10 +51,11 @@ too: copied byte for byte, never edited.
 
 - **`choisir`'s designer**: the app's own tokens file and components when it has screens already.
   None: propose a finished look from `decisions.md` (the fonts, colours, sites they like and what
-  « premium » means to them; with nothing said, from who it serves and what for),
-  written in `maquette/styles.css` with the token names and parts of
-  `../cadrer-x-choisir/templates/maquette/styles.css`, and say in one line what it rests on. Never
-  "a designer later": this look is what gets built. No step makes a design system on its own.
+  « premium » means to them; with nothing said, from who it serves and what for), and say in one
+  line what it rests on. It is written in `maquette/styles.css`, which keeps the token names and the
+  state bar of `../cadrer-x-choisir/templates/maquette/styles.css`, so the wireframe's pages still
+  work; the values, the tokens and parts you add, and the fonts are yours. Never "a designer
+  later": this look is what gets built. No step makes a design system on its own.
 - **The person asks for one, in any step**: that step makes `{docs}/design-system/` from what the product already has, never
   from taste. `styles.css`: the tokens under `:root` with the values the
   product uses today (its tokens file, its global stylesheet, the colours its components repeat), one

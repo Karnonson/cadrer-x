@@ -1,6 +1,7 @@
 /* Style neutre du wireframe : lisible, accessible, sans marque. Copié tel quel dans maquette/ ; les
    pages n'utilisent que ces tokens et ces parties. Sans design system, le look proposé en haute
-   fidélité garde ces noms de tokens et ces parties, avec ses propres valeurs. */
+   fidélité garde ces noms de tokens et la barre des états ; ses valeurs, ses tokens et parties en
+   plus et ses polices (maquette/fonts/) sont les siens. */
 :root {
   --couleur-fond: #ffffff;
   --couleur-surface: #f5f5f4;
