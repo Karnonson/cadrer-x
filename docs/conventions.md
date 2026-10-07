@@ -227,7 +227,7 @@ its own values, parts and fonts, `maquette/fonts/*.woff2`); `maquette/maquette.j
 template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
 With no look to follow, the `haute fidélité` starts with `maquette/piste-1.html` to `piste-3.html`,
 never committed; the person's pick, its plan resolved, is the comment at the top of
-`maquette/styles.css`, and `- Style :` names it.
+`maquette/styles.css`, starting `/* Piste choisie :`, and `- Style :` names it.
 
 ### contenu.md
 
