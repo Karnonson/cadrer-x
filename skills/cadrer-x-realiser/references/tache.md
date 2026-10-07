@@ -4,7 +4,7 @@ The builder's procedure, for one task of `taches.md` or one fix round of `audit.
 builder `realiser` starts (its prompt says *Launched by realiser*), or by `realiser` itself when the
 person names one task (`/cadrer-x-realiser T03`). The task's boxes are the done-when, its `Fichiers :`
 the files you touch, the checks of `cadrer-x.yml` the bar. Other tasks may be built at the same time,
-so you work in the task's own worktree. Whoever built a task never reviews it.
+so you work in the task's own worktree.
 
 Talk, and write, in the person's language; in French, *tu* or *vous* as they write, *vous* when you
 can't tell, never both. Commit messages, file names and labels stay as written here.
@@ -85,9 +85,9 @@ with `Statut : question`.
 For `US<n>`: the story's `Bloquant :` and `À corriger :` findings in the latest section of
 `{feature}/audit.md`. Branch `tache/<slug>-us<n>-correctifs`, worktree
 `.worktrees/tache.<slug>-us<n>-correctifs`. Each finding: a red test that reproduces it, then the fix.
-A missing behaviour becomes a new task at the end of the story's section of `taches.md`, built and
-ticked here; never rewrite an old task. A finding you think is wrong: a question, never skipped. Commit
-`correctifs US<n>`, each finding named.
+A missing behaviour becomes a new task, the highest `T<nn>` plus one, last in the story's section of
+`taches.md`, built and ticked here; never rewrite an old task. A finding you think is wrong: a
+question, never skipped. Commit `correctifs US<n>`, each finding named.
 
 ## Up to date with main
 
