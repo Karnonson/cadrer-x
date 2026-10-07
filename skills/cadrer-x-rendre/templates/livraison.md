@@ -13,7 +13,7 @@
 ## Livré
 
 - US1 <le récit, dans les mots de la spec>
-- Plus tard : <ce qui attend, de Pas encore ou d'une question restée ouverte>
+- Plus tard : <ce qui attend, de Pas encore, d'une question restée ouverte ou d'un Détail de la relecture>
 
 ## En ligne
 

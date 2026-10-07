@@ -108,15 +108,15 @@ The repo's top: `<path>`. Launched by realiser. » *Its screens* only when a tas
 
 ## The end
 
-Every story `validé`: one message with, per story, its verdict and what it does now, the captures, the
-`Détail :` lines left, the questions answered, then `/cadrer-x-rendre <slug>`, better in a new session
-(`/clear`, then the command). Then stop: the delivery is theirs to start.
-
-A change they ask once its story is `validé`, a text too, is a task: the highest `T<nn>` plus one,
-last in its story's section, one box for the change, the other lines from the task that built that
-part, `Après :` that task. A text: in `contenu.md` first, if it has one. Against a scenario or a
-decision: ask once, plainly, whether it replaces it; the answer goes in `a-trancher.md`, and a yes
-changes the scenario in `spec.md` (a no: no task). choisir's lint (`taches`) clean, committed. Then *State*.
+Every story `validé`: one message: per story, its verdict, what it does now; the captures, the
+questions answered, each `Détail :` left. Any: end on « Ces détails : on les corrige maintenant, ou
+on livre tel quel ? » (recommend « tel quel » if all cosmetic). « Maintenant »: each is a task, as
+any change asked once its story is `validé`, a text too: the highest `T<nn>` plus one, last in its
+story's section, one box for the change, the other lines from the task that built that part, `Après :`
+that task. A text: in `contenu.md` first, if any. Against a scenario or decision: ask once whether it
+replaces it; the answer in `a-trancher.md`; a yes changes `spec.md` (a no: no task). choisir's lint
+(`taches`) clean, committed. Then *State*, and this message again. « Tel quel », or none left:
+`/cadrer-x-rendre <slug>`, best in a new session (`/clear`, then the command); stop.
 
 ## One task by hand
 

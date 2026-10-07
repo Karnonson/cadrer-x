@@ -109,12 +109,12 @@ From `templates/livraison.md` and `templates/pr.md`, in the feature's folder. A 
 same feature puts its section on top, under its version.
 
 - **livraison.md**: **Version** (the new version alone on its first line), **Livré** (one line per story
-  with its id, then `- Plus tard : <what waits>`, from **Pas encore** or a question left open), **En ligne** (`pas encore`, or
-  `aucun — <pourquoi>` when the product never goes online), **Mise en ligne**, **Vérifié** and **En cas
-  de problème** (going online fills them; `pas encore` meanwhile), **À faire**: only what needs the
-  person's own hands (*à la main*) or a `/cadrer-x-…` command for a gap; never what is done or what an
-  agent can do here. Each open `avant la livraison` item of `decisions.md` and `architecture.md`:
-  checked now, ticked there if done.
+  with its id, then `- Plus tard : <what waits>`: **Pas encore**, a question left open, each `Détail :`
+  left in `audit.md`), **En ligne** (`pas encore`, or `aucun — <pourquoi>` when the product never goes
+  online), **Mise en ligne**, **Vérifié** and **En cas de problème** (going online fills them; `pas
+  encore` meanwhile), **À faire**: only what needs the person's own hands (*à la main*) or a
+  `/cadrer-x-…` command for a gap; never what is done or what an agent can do here. Each open `avant la
+  livraison` item of `decisions.md` and `architecture.md`: checked now, ticked there if done.
 - **pr.md**, a body a person who doesn't code can scan: **Résumé** (what changes, for whom, three to
   five lines in the spec's words), **Preuves** (the checks run now, trimmed, with their result; each
   story's review tour and verdict; each capture as `![SC1 à 390](docs/features/NNNN-x/captures/SC1-390.png)`,
@@ -129,10 +129,10 @@ Run `python3 <this skill's folder>/scripts/lint.py livraison {feature}/livraison
 
 Both lints clean: commit on the feature branch, unasked, the docs, the version file, `CHANGELOG.md`,
 `livraison.md` and `pr.md`: `livraison — <Titre> <version>`. Then one message, the summary inside the
-question: the version, each doc changed in one line, the ADR's title, the **Livré** lines, **Porte**
-and **Portée**, **À faire**; then, in plain words: may you send it, open the pull request and merge
-it into the main branch (no remote: merge it)? A hedge or a change asked for keeps it open; a
-package change is made, linted, committed, asked again.
+question: the version, each doc changed in one line, the ADR's title, the **Livré** lines (a `Détail :`
+left waits under **Plus tard**: realiser asked, not you), **Porte** and **Portée**, **À faire**; then,
+plainly: may you send it, open the pull request, merge it into the main branch (no remote: merge it)?
+A hedge or a change asked for keeps it open; a package change: made, linted, committed, asked again.
 
 On the yes:
 
