@@ -86,7 +86,8 @@ pistes, and you wait for a pick again.
 Their pick (one piste, or parts of several): first write its plan, resolved, with their pick in
 their words, as the comment at the top of `maquette/styles.css`, starting `/* Piste choisie :`, and
 its tokens there: that is the record of the pick. Then delete the piste pages (any left once that
-comment exists too), and build the whole `haute fidélité` from it, as from any recorded pick. A piste page is never in your report's `Fichiers :`.
+comment exists too), and build the whole `haute fidélité` from it, as from any recorded pick. A
+piste page is never in your report's `Fichiers :`.
 
 ## Plan, review, build, critique
 
