@@ -48,9 +48,9 @@ tests of `cadrer-x-securite`. A bug met on the way, or a feature that fixes one 
 green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix the code.
 
 A task with screens: its section of `passation.md`, its page in `maquette/` and `contenu.md` are the
-whole design; the words exactly as `contenu.md` has them. With `commands.dev` and a browser tool free,
-open the screens at their `Largeurs :` widths, then stop the server you started (its pid); the
-browser held, or no tool: say they were not opened, and never write a browser driver of your own.
+whole design; the words exactly as `contenu.md` has them. A builder never opens the browser: the
+test proves the box, the reviewer clicks the screens. A box only a screen can prove (a style rule, no
+value a test reads) says so on its `Cases :` line, in place of its test.
 
 ## Stay in the task
 

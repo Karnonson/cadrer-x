@@ -55,9 +55,8 @@ their questions and at the end. They launched the build: start right away; they 
 A task is **ready** when every task on its `Après :` is `[x]` on the feature branch, and, for a
 `(Priorité : bonus)` story, once every non-bonus story is `validé`. Start ready tasks in `taches.md`
 order, **at most two at once** (or the person's number). Two run together only if they share no
-`Fichiers :` file and at most one has an `Écrans :` line (one browser). Close each subagent once its
-work is merged or settled: never more than three open at once, builders and reviewers together
-(codex refuses a fourth).
+`Fichiers :` file. Close each subagent once its work is merged or settled: never more than three open
+at once, builders and reviewers together (codex refuses a fourth).
 
 A builder is a subagent with a fresh context and this prompt only: « You are cadrer-x-developpeur.
 Read `<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>`
@@ -92,13 +91,13 @@ with `-C` (`<top>`: the repo's top); never a task merge or a reset in the main c
 ## Reviews
 
 A story is **built** when its tasks and the Fondations tasks they stand on are `[x]` on the feature
-branch. Review it then; builders go on. A reviewer is a fresh-context subagent, never one that
-built, with this prompt only (never a builder's report): « You are cadrer-x-relecteur. Read
+branch. Review it then: a reviewer runs while builders build; the browser is the reviewers', so
+never two reviewers at once. A reviewer is a fresh-context subagent, never one that built, with this
+prompt only (never a builder's report): « You are cadrer-x-relecteur. Read
 `<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow it, for story `US<n>` of
 the feature `<NNNN-slug>`. Its screens: `<skills folder>/cadrer-x-realiser/references/ecrans.md`.
 The repo's top: `<path>`. Launched by realiser. » *Its screens* only when a task of the story has an
-`Écrans :` line, a box names a page (short path), or its scenarios run in a terminal. A story
-with screens is reviewed while no builder with an `Écrans :` line runs.
+`Écrans :` line, a box names a page (short path), or its scenarios run in a terminal.
 
 - **`validé`**: two lines at most: what works now, what they can try; the rest waits for *The end*.
 - **`à corriger`**: fix round. A new builder, prompt « … for the fix round of `US<n>` … », merged
