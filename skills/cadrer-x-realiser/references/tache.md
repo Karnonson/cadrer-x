@@ -50,7 +50,7 @@ green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix
 A task with screens: its section of `passation.md`, its page in `maquette/` and `contenu.md` are the
 whole design; the words exactly as `contenu.md` has them. A builder never opens the browser: the
 test proves the box, the reviewer clicks the screens. A box only a screen can prove (a style rule, no
-value a test reads) says so on its `Cases :` line, in place of its test.
+value a test reads) says so on its `Cases :` line, `écran seul` in place of its test.
 
 ## Stay in the task
 
@@ -73,7 +73,7 @@ with `Statut : question`.
 ## Done means fresh evidence
 
 1. The whole check command, in this worktree; read the exit code.
-2. Each box and each risk: its test, green in this run.
+2. Each box and each risk: its test, green in this run, or the screen its `Cases :` line names.
 3. A failure you did not cause: named by its exact test name, one line on why it is not yours, its
    files left untouched.
 4. Claim only what this run shows, never "should pass".
@@ -107,7 +107,7 @@ Statut : fait | question | bloqué
 Tâche : T<nn> — <titre>  (or: Correctifs : US<n>; or: À jour : <main>)
 Branche : tache/<slug>-t<nn>, <commit>
 Cases :
-- <the box> — <its test> — rouge vu : <the failing assertion line, trimmed>
+- <the box> — <its test> — rouge vu : <the failing assertion line, trimmed> (or : écran seul)
 Risques :
 - <the risk> — <its test> — rouge vu : <…>
 Vérifs : <the command> — code <n> — <its summary line> ; échecs pas à moi : <test names, or aucun>
