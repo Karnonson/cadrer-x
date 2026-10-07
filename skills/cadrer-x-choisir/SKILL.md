@@ -237,8 +237,8 @@ A) … · B) … · C) …
   purpose: who uses it and whether each needs their own way in; where what it holds comes from, where
   it is kept, what happens if it is lost; the first time, an empty list, a wrong entry, a mistake
   undone; phone, computer or both; who else sees what; what it costs them to run; what must stay
-  private. With screens, the look (fonts, colours, a site they like, what « premium » means to them)
-  and their real content (name, address, photos, and where those are): the designer's brief.
+  private. With screens, for the designer: the look (fonts, colours, a site they like, what
+  « premium » means to them) and their real content (name, address, photos, and where those are).
 - Small is a valid answer: if the feature shrinks to nothing worth building, say so.
 
 **A new outside service** (email, text messages, payments, login, hosting, a database, an AI model,

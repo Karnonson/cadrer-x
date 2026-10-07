@@ -50,8 +50,8 @@ too: copied byte for byte, never edited.
 ## 5. No design system yet
 
 - **`choisir`'s designer**: the app's own tokens file and components when it has screens already.
-  None: propose a finished look from the brief (the fonts, colours, sites they like and what
-  « premium » means to them, in `decisions.md`; with nothing said, from who it serves and what for),
+  None: propose a finished look from `decisions.md` (the fonts, colours, sites they like and what
+  « premium » means to them; with nothing said, from who it serves and what for),
   written in `maquette/styles.css` with the token names and parts of
   `../cadrer-x-choisir/templates/maquette/styles.css`, and say in one line what it rests on. Never
   "a designer later": this look is what gets built. No step makes a design system on its own.
@@ -71,4 +71,4 @@ too: copied byte for byte, never edited.
 | "Used once, a hex is fine." | A token, or the nearest one, said once. |
 | "The design system lacks a badge; I'll add it." | Build it in the feature; list it under Nouveautés. |
 | "I'll copy the prototype's styles.css into the app." | The app has its own tokens and components. |
-| "No design system: I'll pick nice colours." | From what the product uses, else from the brief. |
+| "No design system: I'll pick nice colours." | From what the product uses, else from `decisions.md`. |

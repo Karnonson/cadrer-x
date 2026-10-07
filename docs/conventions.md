@@ -222,7 +222,7 @@ highest id plus one, last in its story's section, and no task is ever renumbered
 Template: `skills/cadrer-x-choisir/templates/passation.md`. The pages: `maquette/<page>.html`, one per
 screen, each state a `<section data-state="<état>">` reached at `<page>.html#<état>`; `maquette/styles.css`
 (the template's neutral one for the wireframe; then the design system's, copied unedited, or with
-none the look the designer proposes from the brief); `maquette/maquette.js` (the
+none the look the designer proposes from `decisions.md`); `maquette/maquette.js` (the
 template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
 
 ### contenu.md
