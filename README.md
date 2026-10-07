@@ -63,8 +63,11 @@ relance-la, elle sait où elle en est.
 `/cadrer-x-realiser <nom>` mène tout le développement depuis une seule session : il confie chaque tâche
 à un agent qui la développe dans son worktree (deux à la fois quand elles ne se touchent pas), la
 fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait relire chaque récit par un
-agent neuf qui ne l'a pas développé, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
-ne s'arrête que pour tes questions et quand tout est relu. À la main, si tu préfères :
+agent neuf qui ne l'a pas développé (c'est lui qui clique les écrans, la maquette validée à côté ;
+celui qui développe n'ouvre jamais le navigateur), et renvoie ce que la relecture trouve à un agent
+qui le corrige. Il ne s'arrête que pour tes questions et, une fois tout relu, pour une dernière :
+les détails que la relecture a laissés, on les corrige maintenant ou on livre ? Ceux qui attendent,
+`rendre` les note dans `livraison.md`. À la main, si tu préfères :
 `/cadrer-x-realiser T01` (une tâche), `/cadrer-x-realiser <nom> US1` (une relecture, dans une autre
 session).
 
@@ -119,7 +122,7 @@ Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conv
 
 ## Feuille de route
 
-Ce qui vient, avant et après la v1 : [`docs/roadmap.md`](docs/roadmap.md).
+Ce qui vient, avant et après la v2 : [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Tu viens de cadrer ?
 
@@ -142,11 +145,11 @@ Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`
 | Quatre compétences, tokenizer o200k | 4 987 | 5 855 (1,17×) |
 | Médiane de sept tokenizers publics | | 1,26× (de 1,17× à 1,28×) |
 
-Les six étapes et les six aides font environ 29 200 tokens en anglais (o200k ; 53 100 avec les
-fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 200 tokens de plus, payés à chaque
-étape lancée : une fois par tâche pour l'agent qui la développe, une fois par récit pour celui qui le
-relit. Le tokenizer de Claude n'est pas public : le ratio vient des tokenizers publics, et
-`ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
+Au 2026-10-07, les six compétences et les six aides font environ 29 500 tokens en anglais (o200k ;
+55 500 avec les fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 300 tokens de plus,
+payés à chaque étape lancée : une fois par tâche pour l'agent qui la développe, une fois par récit
+pour celui qui le relit. Le tokenizer de Claude n'est pas public : le ratio vient des tokenizers
+publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
 
 ## Outils
 
