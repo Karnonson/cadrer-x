@@ -224,6 +224,9 @@ screen, each state a `<section data-state="<état>">` reached at `<page>.html#<�
 (the template's neutral one for the wireframe; then the design system's, copied unedited, or with
 none the look the designer proposes from `decisions.md`); `maquette/maquette.js` (the
 template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
+With no look to follow, the `haute fidélité` starts with `maquette/piste-1.html` to `piste-3.html`,
+never committed; the person's pick goes in `decisions.md` → **Précisions** (`- Q : le look → R : …`)
+and in `- Style :`.
 
 ### contenu.md
 
@@ -348,7 +351,7 @@ realiser. A skill holding several steps checks which one's file is missing and r
 |---|---|---|---|
 | — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `cadrer-x.yml`, `docs/architecture.md`, `AGENTS.md` |
 | **C** | `cadrer-x-choisir` | 1. idea (proa-idea), a small change in `references/petit-changement.md`, a bug in `references/bug.md` · 2. decisions (proa-decide, proa-stack for a feature's new service); then A and D. `/cadrer-x-choisir <slug>` resumes the stage that is open | `brief.md` · `decisions.md` |
-| **A** | `cadrer-x-choisir`, `references/spec.md` · `references/maquette.md` | 1. spec (proa-spec) · 2. the design, with `écrans : oui` and no `voie : courte`, by `cadrer-x-designer`, a subagent choisir starts: a wireframe while the spec is written, committed with it; the final look and words after its yes, then `passation.md` after theirs (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `contenu.md`, `passation.md` |
+| **A** | `cadrer-x-choisir`, `references/spec.md` · `references/maquette.md` | 1. spec (proa-spec) · 2. the design, with `écrans : oui` and no `voie : courte`, by `cadrer-x-designer`, a subagent choisir starts: a wireframe while the spec is written, committed with it; the final look and words after its yes (with no look to follow, three looks of the main screen first, `maquette/piste-<n>.html`, and the person picks one), then `passation.md` after theirs (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `contenu.md`, `passation.md` |
 | **D** | `cadrer-x-choisir`, `references/decoupe.md` | tasks (proa-slice, threat-list), by `cadrer-x-decoupeur`, a subagent choisir starts; then `cadrer-x-verificateur` (`verifier`'s file), which choisir starts after it: what the files settle goes back to the decoupeur; a product choice goes to the person, and choisir writes the answer into the spec. No yes on the tasks; choisir then stops | `taches.md` |
 | **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (E); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand, `US1` reviews one story | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |
 | **E** | `cadrer-x-realiser`, `references/examen.md` | one user story, once all its `[US<n>]` tasks are built; started by `realiser`, or by hand in another session (`/cadrer-x-realiser <slug> US<n>`); a task with no story is reviewed with the first story that builds on it (proa-review, design-review) | `audit.md` |

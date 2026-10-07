@@ -302,7 +302,7 @@ Questions left open: `a-trancher.md` beside them, one block each, numbered after
 ```
 
 Commit on the feature branch: `décisions — <Titre>`. Then the spec, here: say in one line that you
-go on with it, and go back to *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
+go on with it, and go back to *Which step*.
 
 ## Workers
 
@@ -316,12 +316,12 @@ the person. You start each one yourself, one after the other: no worker starts a
   <its stage> of the feature `<NNNN-slug>`, in `<the feature's worktree>`. Launched by choisir. » It
   runs in the background while you go on with the person; its last message is its report, which
   names every path it wrote, a helper's too (`{docs}/regles-ecriture.md`): you commit exactly those
-  paths, never `git add -A`.
+  paths.
 - **A correction** in this session goes to the same worker, resumed (Claude Code: a message to it;
   codex: input to it), in the person's words. With no worker open (a new session, or one closed), a
   fresh one reads the files already there and changes only what its message asks.
-- Codex holds three subagents open at once, these and the ones that look facts up: close each worker
-  once its stage is settled.
+- Codex holds three subagents open at once, fact lookups included: close each worker once its stage
+  is settled.
 - **No subagents** (the tool has none, or they are off): follow its file yourself, then do your part
   below as if it had reported.
 
@@ -335,12 +335,14 @@ when you close the designer for good.
    stories together, and the spec's yes waits for it. A flow change a story quotes changes the spec
    too; a spec change that moves a screen goes to the designer.
 2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
-   else a fresh one. Show the address, each screen and its states in one line, then its questions,
-   one per message. Each correction goes to the designer, until a clear yes that names what it
-   covers: « Ces mots et ce look : c'est bon ? »
+   else a fresh one. A report with **Pistes**: show each, its address and its line, then one
+   question: which one, or what to take from each; the answer goes to the designer. Then show the
+   address, each screen and its states in one line, then its questions, one per message. Each
+   correction goes to the designer, until a clear yes that names what it covers: « Ces mots et ce
+   look : c'est bon ? »
 3. **On the yes**, the designer (stage `passation`) writes `passation.md`. Commit the paths its
    reports named: `maquette — <Titre>`. Close the designer, say in one line that you go on with the
-   tasks, and go back to *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
+   tasks, and go back to *Which step*.
 
 **The tasks**: the decoupeur (`cadrer-x-decoupeur`, `cadrer-x-choisir/references/decoupe.md`), then
 the verificateur (`cadrer-x-verificateur`, `cadrer-x-verifier/SKILL.md`). No yes on the tasks: a

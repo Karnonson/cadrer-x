@@ -10,7 +10,7 @@
 
 ## Maquette
 
-- Style : <le chemin du design system, ou `maquette/styles.css, proposé : pas encore de design system`>
+- Style : <le chemin du design system, ou `maquette/styles.css, proposé : pas encore de design system` — la piste choisie : <sa palette, ses polices, sa chose mémorable>>
 - La barre des états (`nav.maquette-etats`) et `maquette.js` sont propres à la maquette, jamais du code produit.
 
 ## Écrans

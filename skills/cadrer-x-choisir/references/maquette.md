@@ -30,8 +30,9 @@ inside `« »`.
   and the moves between them, the template's neutral `styles.css`, the spec's words. No `contenu.md`
   yet. The spec is being written meanwhile: never edit it; a flow that differs is in your report.
 - **The `haute fidélité`** replaces it: the final look and the real words, as the person will see
-  them. Its first version is the feature's, whole: every tone and motion the decisions and the spec
-  name (animations, a playful tone, emoji) is in it already; a page that plays it safe costs a round.
+  them. Its first version (after the three pistes, when there are some) is the feature's, whole:
+  every tone and motion the decisions and the spec name (animations, a playful tone, emoji) is in it
+  already; a page that plays it safe costs a round.
 
 Both:
 - **Self-contained.** `maquette/styles.css`: the template's for the wireframe; then the design
@@ -98,6 +99,7 @@ Your last message, in the person's language, these labels as written; a section 
 ```
 Étape : wireframe | haute fidélité | passation
 Adresse : http://127.0.0.1:<port>/<page>.html, pid <pid> (or: arrêtée)
+Pistes : <aucun, or one line each: piste-<n> — http://127.0.0.1:<port>/piste-<n>.html — <what it feels like>>
 Écrans :
 - <page> — <its states> — <where each control leads>
 Changé : <what changed since your last report, spec.md included; or: tout>

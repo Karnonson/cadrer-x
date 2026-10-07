@@ -61,6 +61,22 @@ appears whatever the subject:
    orchestrated moment (the page's arrival, one reveal) lands better. Motion that answers an action
    (opening, confirming) and shows what changed is welcome; `prefers-reduced-motion` turns it off.
 
+## Three pistes, when the look is yours
+
+With no design system and no screens in the app yet, and no pick under **Précisions** in
+`decisions.md`, the `haute fidélité` starts here, unless their words there already settle the look
+whole. Make the main screen in three clearly different looks, each its own page,
+`maquette/piste-1.html` to `piste-3.html`, its look whole in its `<style>` (its tokens declared
+there: the one place a raw value lives), its plan (below), reviewed, in a comment at the top.
+Three variations of one idea are one piste. Your report lists them under `Pistes :`, each with its
+address and one plain line on what it feels like, never a hex value or a font name. Then stop:
+nothing else is built before their pick. The three pages already there and no pick: report them
+again as they are.
+
+Their pick comes back (one piste, or parts of several): write it in `decisions.md` → **Précisions**,
+`- Q : le look → R : <their pick, in their words>`, delete the three pages (never committed), and
+build the whole `haute fidélité` from that plan.
+
 ## Plan, review, build, critique
 
 1. **Plan** the look in a few lines: the palette as 4 to 6 named hex values; the typefaces and their
