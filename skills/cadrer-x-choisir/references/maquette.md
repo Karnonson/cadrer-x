@@ -105,6 +105,7 @@ Pistes : <aucun, or one line each: piste-<n> — http://127.0.0.1:<port>/piste-<
 Changé : <what changed since your last report, spec.md included; or: tout>
 Fichiers : <every path you wrote, a helper's too ({docs}/regles-ecriture.md)>
 Vérifié : <each page and state at 390 and 1280; or what was not checked, and why>
+Retouches : <at the haute fidélité, what the look's critique changed; else aucun>
 Questions :
 - <the question, in plain words, never a file or code> — Conseil : <your recommendation, why>
 ```

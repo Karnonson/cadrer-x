@@ -93,7 +93,9 @@ build the whole `haute fidélité` from that plan.
    on what changed and why.
 3. **Build** from the revised plan. Keep selectors from cancelling each other: a section's padding
    against a button's margin is the usual one.
-4. **Critique** on the screenshots, and fix what reads as a default.
+4. **Critique** before the report, on your screenshots at both widths: each page against the
+   defaults above and against its plan (the picked piste's, or each piste's own). Fix what reads as
+   a default or strays from the plan, look again, and say under `Retouches :` what you changed.
 
 ## Restraint
 
