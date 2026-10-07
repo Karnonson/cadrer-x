@@ -54,7 +54,7 @@ when it exists). Commit each step there. The main branch is never written to wit
   them, or hand them to a subagent and ask something else meanwhile; what you handed off, you don't
   also look up yourself. They decide; they never research.
 - **Plain words.** No file names, formats or code in a question. Never a question only a developer
-  could answer: where code goes, `../cadrer-x-modules/references/structure.md` answers.
+  could answer.
 - **A clear yes closes a step**: "oui", "ok", "ça va", "c'est bon", or a condition already met. Say in
   one line what you save, then save. A hedge ("bof", "je sais pas") or a change asked for keeps it
   open: ask what they would change. "Comme tu veux" takes your recommendation, said in one line.
@@ -195,10 +195,10 @@ From `templates/architecture.md`. **An existing repo**: fill each section from w
 them first, one question per message:
 1. What is already chosen or ruled out (their accounts, a host they pay for, a tool they refuse): ask
    first, and what they name is used — say so plainly when it breaks a safety rule.
-2. Then two or three named setups, each with its trade-offs in plain words, your pick first: what
-   each part does and where it runs; whether it must work with their computer off; whether a card is
-   needed and the monthly cost at their use, looked up today; what happens at a free tier's limit;
-   what they will set up by hand.
+2. Then two or three setups, your pick first, each said by what it changes for them, tools named
+   only in the file: what each part does and where it runs; whether it must work with their
+   computer off; whether a card is needed and the monthly cost at their use, looked up today; what
+   happens at a free tier's limit; what they will set up by hand.
 3. Follow one action of the product through the chosen parts in plain words ("tu cliques sur Envoyer
    → <part> le reçoit → <part> le garde → tu vois…") and ask what surprises them.
 Each part, secret and chore lands in its section; the setups not chosen go under **Écarté**.
