@@ -36,8 +36,9 @@ and say once that the project has no rules of its own.
 - No anglicisms: « avoir du sens », never « faire sens »; « s'inscrire », never « appliquer pour ».
 - A text that varies: each form written (« 1 note contient », « 3 notes contiennent »), what varies named
   (`{mot}`).
-- On a screen: a button says what it does (« Chercher », never « OK »); a field's label says what to type;
-  a message fits the screen at 390 px.
+- On a screen: a button says what it does (« Chercher », never « OK »), and its action keeps that name
+  through the flow (« Publier », then « Publié »); a field's label says what to type; an empty screen
+  says what to do first; a message fits the screen at 390 px.
 
 ## 3. Check
 

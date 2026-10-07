@@ -19,8 +19,10 @@ read it whole and follow it. Not there: go on without it.
 **Read:** `{feature}/brief.md`, `{feature}/spec.md` (each story a person sees is a screen, or a state
 of one; its scenarios are what the screen must let them do and see), `{feature}/decisions.md` (the
 look and the real content they gave), `{docs}/constitution.md`. From the `haute fidélité` on: **the
-look**, read `cadrer-x-design-system`; **the words**, read `cadrer-x-textes`; in French, at least:
-the product's *tu* or *vous*, its own words, a space before `: ; ! ?` and inside `« »`.
+look**, read `cadrer-x-design-system`, and at that stage only
+`<skills folder>/cadrer-x-design-system/direction.md`, whole; **the words**, read `cadrer-x-textes`;
+in French, at least: the product's *tu* or *vous*, its own words, a space before `: ; ! ?` and
+inside `« »`.
 
 ## The pages, in `{feature}/maquette/`
 

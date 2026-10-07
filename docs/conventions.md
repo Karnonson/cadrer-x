@@ -366,7 +366,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | `cadrer-x-securite` | secure-defaults, abuse-tests, data-inventory; the scan before a release | choisir, realiser, rendre |
 | `cadrer-x-tdd` | (new, after Matt Pocock's `tdd`) | realiser, ranger |
 | `cadrer-x-debug` | proa-debug | realiser, ranger, any failing test |
-| `cadrer-x-design-system` | design-system | choisir, realiser |
+| `cadrer-x-design-system` | design-system; beside it, `direction.md`, the craft of a proposed look, adapted from Anthropic's frontend-design (Apache-2.0) | choisir, realiser |
 | `cadrer-x-modules` | module-borders | choisir, realiser, ranger |
 | `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | choisir, realiser, rendre |
 
