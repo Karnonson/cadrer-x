@@ -3,7 +3,8 @@
 Skills for Claude Code and codex that take someone who doesn't code from an idea to software online:
 `init`, then Choisir, Affiner, Découper (`choisir`), Réaliser, Examiner (`realiser`), Rendre
 (`rendre`); `ranger` and `verifier` beside them. Free, for a francophone audience.
-This repository holds the skills only; marketing, the course and lead magnets live elsewhere.
+This repository holds the skills only; marketing beyond the name, the course and lead magnets
+live elsewhere.
 
 ## Where things are
 
@@ -12,9 +13,10 @@ This repository holds the skills only; marketing, the course and lead magnets li
 - `skills/cadrer-x-<name>/`: one skill or helper each. A skill: `SKILL.md`, and as needed
   `references/` (read when the skill says), `templates/` (the files it writes), `scripts/lint.py`
   (checks those files), `agents/openai.yaml` (codex). A helper: `aide.md` (see *Writing a skill*).
-- `docs/vision.md`: why cadrer-x exists and for whom. `docs/roadmap.md`: what comes before and after
-  v1. `docs/conventions.md`: every file name, heading, label and id the skills write and read, and
-  which skill does what. Read the conventions before changing a skill.
+- `docs/vision.md`: why cadrer-x exists and for whom. `docs/name.md`: the name and its marketing
+  angle. `docs/roadmap.md`: what comes before and after v1. `docs/conventions.md`: every file name,
+  heading, label and id the skills write and read, and which skill does what. Read the conventions
+  before changing a skill.
 - `install.sh`: installs the skills into a project (`.claude/skills`, `.agents/skills`) or globally.
 - `tools/token_estimate.py`: what the skills cost in tokens.
 
