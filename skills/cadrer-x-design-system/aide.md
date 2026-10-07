@@ -42,9 +42,9 @@ The first that answers:
 ## 4. Never edit it
 
 Not its stylesheet, readme or gallery; in code, not the shared tokens file or the shared components;
-not "just one token", not when a task's `Fichiers :` names it. A change it needs (a missing colour, a token
-that fails contrast, a part every feature will want) is a question to the person, with your
-recommendation, in `{feature}/a-trancher.md`. A prototype's copy of the stylesheet is the design system
+not "just one token", not when a task's `Fichiers :` names it, but to write it the first time
+(section 5). A change it needs (a missing colour, a token that fails contrast, a part every feature
+will want) is a question to the person, with your recommendation, in `{feature}/a-trancher.md`. A prototype's copy of the stylesheet is the design system
 too: copied byte for byte, never edited.
 
 ## 5. No design system yet
@@ -62,7 +62,11 @@ too: copied byte for byte, never edited.
   class per part it already has. `readme.md`: the tokens, a table of parts (part, classes, component in
   the code), the rules. A product with no styles at all: tokens only, the fewest that make a readable
   page, and ask the person for their brand (colours, a font), one question.
-- **A builder**: use the project's existing tokens and components; never make a design system.
+- **A builder**: the project's tokens and components. The app has no tokens file yet (its first
+  screens): the task whose `Fichiers :` names it writes it, once, from the values of
+  `{feature}/maquette/styles.css`, every token, in the app's own way (its CSS variables, its theme
+  file), and copies the fonts of `maquette/fonts/` with their licence; the next tasks use it. Never
+  the prototype's file pasted, never its classes, never a design system.
 
 ## Red flags
 
@@ -71,5 +75,5 @@ too: copied byte for byte, never edited.
 | "The prototype says `var(--color-accent-soft)`; I'll paste it." | Map it to the app's token that holds that value. |
 | "Used once, a hex is fine." | A token, or the nearest one, said once. |
 | "The design system lacks a badge; I'll add it." | Build it in the feature; list it under Nouveautés. |
-| "I'll copy the prototype's styles.css into the app." | The app has its own tokens and components. |
+| "I'll copy the prototype's styles.css into the app." | Its values go in the app's own tokens file; with none yet, the first task with screens writes it. |
 | "No design system: I'll pick nice colours." | From what the product uses, else from `decisions.md`. |
