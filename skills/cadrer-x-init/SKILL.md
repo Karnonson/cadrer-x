@@ -90,11 +90,11 @@ Format, without the tool, in their language:
   the last real case.
 - **Produit** — three to five things that make it stand out from what already exists. Never a
   feature list: each feature's details go in its own spec.
-- **Objectifs** — why it is worth their time or money (earn, save time, cut a cost, learn), the most
-  important first, each with a number a non-developer can check and a date. Theirs, not yours: ask
-  for it; a figure you invent is a guess to put to them.
-- **Faire ou louer** — not on Pichler's board: the verdict, and what every option lacks that matters
-  to them. The table of alternatives goes under **Écarté** in step 2.
+- **Objectifs** — why it is worth their time or money (earn, save time, cut a cost, learn), drafted
+  from **Besoins**, the most important first, each with a number they can check and a date; a figure
+  you invent is a guess to put to them. A tool for themselves: one, never a business case.
+- **Faire ou louer** — not on Pichler's board: the verdict. The table of alternatives goes under
+  **Écarté** in step 2.
 
 **The order of the questions** is not the file's: Pour qui, then Besoins, the easy ones. Then the
 Vision, drafted from their words for them to correct — never asked cold, an empty "quelle est ta
