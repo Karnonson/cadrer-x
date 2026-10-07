@@ -215,9 +215,10 @@ finds more than the above): `demandée` stays; else remove the line, commit `dec
 with `écrans : oui` delete an uncommitted `taches.md`: the tasks follow the design. Each time, one
 line says what the path skips (the design, the second look), or why it is now full.
 
-**Stages, as soon as you can tell.** Anything a person sees changes → `écrans : oui`. Say it in the
-first turn: with the spec comes a sketch of the screens and the ways between them, and after its yes
-the finished design, its look and its words, which they approve before the tasks are cut.
+**Stages, as soon as you can tell.** A page a browser shows changes → `écrans : oui` (a terminal's
+output: `non`). Say it in the first turn: with the spec comes a sketch of the screens and the ways
+between them, and after its yes the finished design, its look and its words, which they approve
+before the tasks are cut.
 
 Format, without the tool:
 
@@ -373,6 +374,5 @@ task list is technical.
 | "No guess, so I don't lead them." | A guess and a confidence, or a recommendation. |
 | "Success: happier clients." | A number and a date they can check. |
 | "I'll write the folder on the main branch." | The feature branch, in its worktree, after the yes. |
-| "Both files saved; they'll type the next command." | Go on with the spec here, unless they stop you. |
 | "No time: I'll code it here." | Never. The spec, in this reply: the short path is the fast way. |
 | "I know what that reference says." | Read it whole now: it changes, and a summary drops it. |
