@@ -210,7 +210,7 @@ highest id plus one, last in its story's section, and no task is ever renumbered
 
 | Proa | cadrer-x |
 |---|---|
-| Prototype | Maquette (`- Lien :`, `- Style :`) |
+| Prototype | Maquette (`- Style :`) |
 | Screens | Écrans |
 | `### SC1 <name>` | `### SC1 <nom>` |
 | `Stories:` / `File:` / `Parts:` / `States:` / `Widths:` / `Copy:` | `Récits :` / `Fichier :` / `Parties :` / `États :` / `Largeurs :` / `Contenu :` (one line each, in that order) |

@@ -336,15 +336,11 @@ when you close the designer for good.
    too; a spec change that moves a screen goes to the designer.
 2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
    else a fresh one. Show the address, each screen and its states in one line, then its questions,
-   one per message. With the claude-design tools in your session and no `passation.md` yet, offer
-   once a Claude Design project of the same files, to see them on another device. On a yes, and
-   later only when they ask, read `references/claude-design.md` whole and follow it yourself. Each
-   correction goes to the designer, until a clear yes that names what it covers: « Ces mots et ce
-   look : c'est bon ? »
-3. **On the yes**, the designer (stage `passation`, with what `claude-design.md` gave for
-   `passation.md`) writes `passation.md`. Commit the paths its reports named: `maquette — <Titre>`.
-   Close the designer, say in one line that you go on with the tasks, and go back to *Which step*.
-   They stop you: `/cadrer-x-choisir <slug>` picks it up.
+   one per message. Each correction goes to the designer, until a clear yes that names what it
+   covers: « Ces mots et ce look : c'est bon ? »
+3. **On the yes**, the designer (stage `passation`) writes `passation.md`. Commit the paths its
+   reports named: `maquette — <Titre>`. Close the designer, say in one line that you go on with the
+   tasks, and go back to *Which step*. They stop you: `/cadrer-x-choisir <slug>` picks it up.
 
 **The tasks**: the decoupeur (`cadrer-x-decoupeur`, `cadrer-x-choisir/references/decoupe.md`), then
 the verificateur (`cadrer-x-verificateur`, `cadrer-x-verifier/SKILL.md`). No yes on the tasks: a

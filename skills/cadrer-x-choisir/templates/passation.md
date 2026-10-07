@@ -10,7 +10,6 @@
 
 ## Maquette
 
-- Lien : <adresse Claude Design (https://…), ou `aucun — maquette locale` : ouvrir maquette/<page>.html>
 - Style : <le chemin du design system, ou `maquette/styles.css, proposé : pas encore de design system`>
 - La barre des états (`nav.maquette-etats`) et `maquette.js` sont propres à la maquette, jamais du code produit.
 

@@ -202,12 +202,6 @@ def lint_passation(path):
     spans = outline(lines, where, "passation", PASS_H2, out)
     leftovers(lines, where, out)
 
-    link = next(((n, l) for n, l in body(lines, spans.get("Maquette")) if l.startswith("- Lien :")), None)
-    if not link:
-        out.append(f"{where}: `## Maquette` has no `- Lien :` line")
-    elif not re.match(r"^- Lien : (https://\S+|aucun — \S.*)$", link[1]):
-        out.append(f"{where}:{link[0]}: `- Lien :` is an https:// address, or `aucun — <pourquoi>`")
-
     spec = folder / "spec.md"
     story_ids = set(re.findall(r"^### (US\d+) — ", spec.read_text(encoding="utf-8"), re.M)) if spec.exists() else None
     if story_ids is None:
