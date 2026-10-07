@@ -42,7 +42,7 @@
 
 ## À faire
 
-<!-- Ce que la personne prépare à la main : - [ ] quoi, où — avant la construction|avant la livraison -->
+<!-- Ce que la personne prépare à la main : - [ ] quoi, où — avant le développement|avant la livraison -->
 
 ## Écarté
 

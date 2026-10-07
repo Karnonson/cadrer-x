@@ -29,7 +29,7 @@ names the page and what they see there, in their words. A bug (`bug : oui`): the
 the report's steps, with what should happen. Writing it shows it bigger: choisir's *bigger than it
 looked*.
 
-**Read, in this order:** `{feature}/idee.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
+**Read, in this order:** `{feature}/brief.md` (Résultat, Pour qui, Mesure, Non couverts, **Ouvert**),
 `{feature}/decisions.md` (Décisions, Étapes, **Précisions**, **Données et risques**),
 `{feature}/a-trancher.md` if it exists, `{docs}/constitution.md` (no story may contradict a rule),
 `{docs}/glossaire.md` and the README for the product's own words: use them, never a synonym. The

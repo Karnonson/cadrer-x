@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-ranger
-description: "Ranger le code qui existe dans la disposition de cadrer-x (celle du framework, sinon un module par partie du produit), sans rien changer à ce que fait le produit. À lancer quand `docs/architecture.md` → À faire le demande, ou quand le code a grandi en désordre. Prouve d'abord ce que le produit fait aujourd'hui (tests, captures), puis déplace un module à la fois, les vérifs vertes après chacun, sur sa propre branche ; fait relire le tout ; fusion sur un oui. Ne construit aucune fonctionnalité."
+description: "Ranger le code qui existe dans la disposition de cadrer-x (celle du framework, sinon un module par partie du produit), sans rien changer à ce que fait le produit. À lancer quand `docs/architecture.md` → À faire le demande, ou quand le code a grandi en désordre. Prouve d'abord ce que le produit fait aujourd'hui (tests, captures), puis déplace un module à la fois, les vérifs vertes après chacun, sur sa propre branche ; fait relire le tout ; fusion sur un oui. Ne développe aucune fonctionnalité."
 disable-model-invocation: true
 argument-hint: "[une partie du code, ou rien pour tout]"
 ---

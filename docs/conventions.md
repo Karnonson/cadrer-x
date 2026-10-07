@@ -23,7 +23,7 @@ docs/glossaire.md                 the product's and its domain's words; never a 
 docs/constitution.md
 docs/adr/NNNN-<slug>.md
 docs/features/NNNN-<slug>/
-  idee.md  decisions.md  spec.md  a-trancher.md  taches.md
+  brief.md  decisions.md  spec.md  a-trancher.md  taches.md
   maquette/  passation.md  contenu.md
   verification.md  audit.md  livraison.md  pr.md  captures/
 .worktrees/<branch with / as .>/
@@ -65,7 +65,7 @@ exists is fine), holds no personal data, adds no service or stack choice, touche
 and fits one story and three tasks, carries `- voie : courte` under **Étapes** in `decisions.md`; one
 the person asks for, whatever its size, `- voie : courte — demandée`. `choisir` asks only the idea's
 **Ouvert** points, writes small stories and no design, and skips the second look; its review still covers each story, and clicks a visible change on its real page, since
-a fresh reader is what the shortcut does not give up. A reported bug enters by `choisir` too: the agent tries it before asking more, `idee.md`
+a fresh reader is what the shortcut does not give up. A reported bug enters by `choisir` too: the agent tries it before asking more, `brief.md`
 holds the steps and what should happen, `- bug : oui` under **Étapes** makes the first task a test that
 fails on the code as it is (`cadrer-x-debug`). A step that finds the change bigger says so in
 one line: `demandée`, the line stays and choisir says what it still skips; else choisir drops it and
@@ -81,7 +81,7 @@ run in a fresh session, since the build is long.
 |---|---|---|
 | `proa.yml` | — | `cadrer-x.yml` |
 | `docs/features/NNNN-<slug>/` | `builds/<NN>-<slug>/` | `docs/features/NNNN-<slug>/` |
-| `idea.md` | `idee.md` | `idee.md` |
+| `idea.md` | `idee.md` | `brief.md` |
 | `decisions.md` | `decisions.md` | `decisions.md` |
 | `spec.md` | `spec.md` | `spec.md` |
 | `open-questions.md` | `a-trancher.md` | `a-trancher.md` |
@@ -96,7 +96,7 @@ run in a fresh session, since the build is long.
 
 ## Headings by file
 
-### idee.md
+### brief.md
 
 | Proa | cadrer-x |
 |---|---|
@@ -133,7 +133,7 @@ Roman Pichler's Product Vision Board, in its order, then the build-or-use verdic
 | Stack choices | Stack |
 | Architecture impact | Impact archi |
 | Data and risks | Données et risques |
-| — | À faire (what the person sets up by hand, each marked avant la construction or avant la livraison) |
+| — | À faire (what the person sets up by hand, each marked avant le développement or avant la livraison) |
 
 ### spec.md
 
@@ -347,7 +347,7 @@ realiser. A skill holding several steps checks which one's file is missing and r
 | | Skill | Its steps (Proa skills merged) | Writes |
 |---|---|---|---|
 | — | `cadrer-x-init` | 1. vision (proa-vision) · 2. layout (proa-adopt, proa-stack at project level, the constitution); both on branch `chore/cadrer-x-init`, merged on the person's yes | `docs/vision.md` · `cadrer-x.yml`, `docs/architecture.md`, `AGENTS.md` |
-| **C** | `cadrer-x-choisir` | 1. idea (proa-idea), a small change in `references/petit-changement.md`, a bug in `references/bug.md` · 2. decisions (proa-decide, proa-stack for a feature's new service); then A and D. `/cadrer-x-choisir <slug>` resumes the stage that is open | `idee.md` · `decisions.md` |
+| **C** | `cadrer-x-choisir` | 1. idea (proa-idea), a small change in `references/petit-changement.md`, a bug in `references/bug.md` · 2. decisions (proa-decide, proa-stack for a feature's new service); then A and D. `/cadrer-x-choisir <slug>` resumes the stage that is open | `brief.md` · `decisions.md` |
 | **A** | `cadrer-x-choisir`, `references/spec.md` · `references/maquette.md` | 1. spec (proa-spec) · 2. the design, with `écrans : oui` and no `voie : courte`, by `cadrer-x-designer`, a subagent choisir starts: a wireframe while the spec is written, committed with it; the final look and words after its yes, then `passation.md` after theirs (prototype, design-handoff) | `spec.md`, `a-trancher.md` · `maquette/`, `contenu.md`, `passation.md` |
 | **D** | `cadrer-x-choisir`, `references/decoupe.md` | tasks (proa-slice, threat-list), by `cadrer-x-decoupeur`, a subagent choisir starts; then `cadrer-x-verificateur` (`verifier`'s file), which choisir starts after it: what the files settle goes back to the decoupeur; a product choice goes to the person, and choisir writes the answer into the spec. No yes on the tasks; choisir then stops | `taches.md` |
 | **R** | `cadrer-x-realiser` | the whole build, in one session: a builder subagent per task (`references/tache.md`), two `[P]` tasks at once, each in its own worktree branched from the feature, merged back when green; a fresh reviewer subagent per built story (E); fix rounds, two tours at most; stops only for the person's questions (proa-build). `T01` builds one task by hand, `US1` reviews one story | code, the task's branch in `.worktrees/`, merged back into `feature/<slug>` |

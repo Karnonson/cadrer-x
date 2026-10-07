@@ -5,7 +5,7 @@ Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée �
 **R**endre. Tu décides aux moments qui comptent.
 
 Chaque étape écrit un fichier que la suivante lit, puis enchaîne sur la suivante dans la même session,
-sauf si tu l'arrêtes ; `choisir`, lui, s'arrête avant la construction. Rien ne part sans ton oui : ni
+sauf si tu l'arrêtes ; `choisir`, lui, s'arrête avant le développement. Rien ne part sans ton oui : ni
 la spec, ni la fusion dans la branche principale, ni la mise en ligne. Les étapes te parlent dans ta
 langue ; les noms de fichiers et les titres restent fixes, en français, pour que chaque étape
 retrouve le travail de la précédente.
@@ -24,7 +24,7 @@ Pour un seul des deux : `… | bash -s -- --engine codex`. Relancer la même com
 
 Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à committer,
 pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise aussi les
-commandes git que les étapes lancent (worktrees, fusions, commits), pour que la construction ne te
+commandes git que les étapes lancent (worktrees, fusions, commits), pour que le développement ne te
 demande pas ton accord à chaque fusion ; `git push` te le demande toujours. `cadrer-x-init` y ajoute les
 commandes du projet (installer, vérifier, lancer).
 
@@ -50,7 +50,7 @@ lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-
                                la maquette s'il y a des écrans (un croquis avec la spec, puis le
                                look et les mots, que tu valides), puis les tâches, vérifiées par un
                                second regard ; /cadrer-x-choisir <nom> reprend là où elle en est
-/cadrer-x-realiser <nom>       toute la construction : chaque tâche test d'abord, chaque récit relu
+/cadrer-x-realiser <nom>       tout le développement : chaque tâche test d'abord, chaque récit relu
 /cadrer-x-rendre <nom>         la doc et la version, puis un seul oui pour envoyer et fusionner,
                                puis la mise en ligne, sur son propre oui
 ```
@@ -60,10 +60,10 @@ En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâc
 une étape et lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent :
 relance-la, elle sait où elle en est.
 
-`/cadrer-x-realiser <nom>` mène toute la construction depuis une seule session : il confie chaque tâche
-à un agent qui la construit dans son worktree (deux à la fois quand elles ne se touchent pas), la
+`/cadrer-x-realiser <nom>` mène tout le développement depuis une seule session : il confie chaque tâche
+à un agent qui la développe dans son worktree (deux à la fois quand elles ne se touchent pas), la
 fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait relire chaque récit par un
-agent neuf qui ne l'a pas construit, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
+agent neuf qui ne l'a pas développé, et renvoie ce que la relecture trouve à un agent qui le corrige. Il
 ne s'arrête que pour tes questions et quand tout est relu. À la main, si tu préfères :
 `/cadrer-x-realiser T01` (une tâche), `/cadrer-x-realiser <nom> US1` (une relecture, dans une autre
 session).
@@ -85,7 +85,7 @@ Six aides, de simples fichiers `aide.md`, sont lues par une étape au moment où
 cadrer-x.yml                       les commandes : installer, vérifier, lancer
 docs/vision.md  docs/architecture.md  docs/glossaire.md  docs/constitution.md  docs/adr/
 docs/features/0001-<nom>/
-  idee.md  decisions.md  spec.md  a-trancher.md  taches.md
+  brief.md  decisions.md  spec.md  a-trancher.md  taches.md
   maquette/  passation.md  contenu.md
   verification.md  audit.md  livraison.md  pr.md  captures/
 .worktrees/                        un dossier par branche en cours (feature.<nom>, tache.<nom>-t01)
@@ -142,7 +142,7 @@ Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`
 
 Les quinze compétences font environ 38 700 tokens en anglais (o200k ; 48 900 avec les fichiers
 qu'elles lisent). En français, ce serait de 6 600 à 10 800 tokens de plus, payés à chaque étape lancée :
-une fois par tâche pour l'agent qui la construit, une fois par récit pour celui qui le relit. Le tokenizer de Claude n'est pas
+une fois par tâche pour l'agent qui la développe, une fois par récit pour celui qui le relit. Le tokenizer de Claude n'est pas
 public : le ratio vient des tokenizers publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
 
 ## Outils

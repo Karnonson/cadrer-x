@@ -12,18 +12,18 @@
 
 ## Format
 
-`- [ ] T01 [P] [US1] <verbe> <ce qu'elle construit>`, puis ses lignes :
+`- [ ] T01 [P] [US1] <verbe> <ce qu'elle développe>`, puis ses lignes :
 
 - `- [ ] <fait quand>` : un scénario de la spec, comme la vérification que le test de la tâche prouve.
   Chaque scénario de `spec.md` est la case d'une seule tâche ; une case qu'aucun scénario ne demande
   est du hors-champ.
 - `Exigences :` les `EF<n>` de la spec que la tâche rend vraies.
 - `Risques :` <domaine> — <menace> → <protection> ; … ou `aucun — <pourquoi>`. Un test par risque.
-- `Écrans :` les `SC<n>` de `passation.md` qu'elle construit ou change ; pas de ligne sans écran.
+- `Écrans :` les `SC<n>` de `passation.md` qu'elle crée ou change ; pas de ligne sans écran.
 - `Fichiers :` les chemins exacts, tests compris ; la tâche ne touche qu'eux.
-- `Après :` les tâches sans lesquelles elle ne se construit ni ne se teste, ou `aucune`.
+- `Après :` les tâches sans lesquelles elle ne se développe ni ne se teste, ou `aucune`.
 - `Taille :` XS (1 fichier), S (1–2), M (3–5). Au-delà, ou un « et » dans le titre : deux tâches.
-- `[P]` : elle peut se construire en même temps que la tâche d'avant (son `Après :` ne la nomme pas,
+- `[P]` : elle peut se développer en même temps que la tâche d'avant (son `Après :` ne la nomme pas,
   et elles n'ont aucun fichier en commun).
 
 Chaque tâche est une tranche fine qui traverse toutes les couches dont elle a besoin (ce qu'on garde,
@@ -96,10 +96,10 @@ Le test s'écrit en premier, dans la tâche elle-même : pas de tâche de tests 
 
 ## Ordre
 
-1. `/cadrer-x-realiser <fonctionnalité>` construit toutes les tâches, chacune dans son worktree, deux
+1. `/cadrer-x-realiser <fonctionnalité>` développe toutes les tâches, chacune dans son worktree, deux
    tâches `[P]` à la fois ; les autres attendent ce que nomme leur `Après :`. À la main, une tâche :
    `/cadrer-x-realiser T<nn>`.
-2. À chaque point d'étape, le récit est relu par quelqu'un qui ne l'a pas construit
+2. À chaque point d'étape, le récit est relu par quelqu'un qui ne l'a pas développé
    (`/cadrer-x-realiser <fonctionnalité> US<n>`) ; `realiser` lance cette relecture lui-même.
 3. Après US1 : la plus petite version qui vaut d'être montrée. On peut s'arrêter là et la montrer.
 4. Un récit ajouté ne casse jamais ceux d'avant : leurs tests restent verts.

@@ -37,7 +37,7 @@ Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'f
 
 ## Read
 
-`{feature}/idee.md`, `decisions.md` (each `D<n>`, each **Précisions** answer, **Données et risques**,
+`{feature}/brief.md`, `decisions.md` (each `D<n>`, each **Précisions** answer, **Données et risques**,
 **Impact archi**), `spec.md`, `a-trancher.md`, `passation.md` and `contenu.md` when there are screens,
 `taches.md` when there is one; `{docs}/constitution.md`, `{docs}/architecture.md` (**Modules**), `{docs}/glossaire.md`.
 Then run the form checks the earlier steps left, when their skills are installed beside this one:

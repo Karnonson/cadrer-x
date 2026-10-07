@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-init
-description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision, sur le Product Vision Board de Roman Pichler (vision, pour qui, besoins, produit, objectifs), et faire ou louer un outil qui existe, puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/glossaire.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne construit aucune fonctionnalité."
+description: "Préparer le projet. À lancer une fois par projet, avant sa première fonctionnalité, ou quand sa vision ou son organisation est à refaire. Deux étapes : la vision, sur le Product Vision Board de Roman Pichler (vision, pour qui, besoins, produit, objectifs), et faire ou louer un outil qui existe, puis l'organisation (`cadrer-x.yml`, `docs/architecture.md`, `docs/glossaire.md`, `docs/constitution.md`, `AGENTS.md`, et les docs déjà là rangés à leur place). Ne développe aucune fonctionnalité."
 disable-model-invocation: true
 argument-hint: "[le produit en une phrase]"
 ---
@@ -210,7 +210,7 @@ that way, as it is, and what a module is in it. Only for what it leaves open: `s
 features that need them. **An existing repo whose code is not laid out that way**: the map of where it
 is now, then the target layout from the same file, stated, never asked (a static site with no
 framework has its own section there), and under **À faire**: `- [ ] ranger le code en modules :
-/cadrer-x-ranger — avant la construction`.
+/cadrer-x-ranger — avant le développement`.
 **`{docs}/glossaire.md`**, in both cases, from `templates/glossaire.md`: the product's name first, as
 the vision gives it, then the product's own terms and its domain's (« Jeton : … », « Inscription :
 jamais réservation »), from the README, the screens, the code and their answers, so every spec, screen,

@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-choisir
-description: "Choisir quoi construire, de l'idée aux tâches. À lancer avec une idée de fonctionnalité ou de changement, ou un bug à corriger ; avec le nom d'une fonctionnalité, reprend l'étape ouverte. Une question à la fois : l'idée, les décisions, la spec, la maquette s'il y a des écrans, puis les tâches. Ne code pas."
+description: "Choisir quoi développer, de l'idée aux tâches. À lancer avec une idée de fonctionnalité ou de changement, ou un bug à corriger ; avec le nom d'une fonctionnalité, reprend l'étape ouverte. Une question à la fois : l'idée, les décisions, la spec, la maquette s'il y a des écrans, puis les tâches. Ne code pas."
 disable-model-invocation: true
 argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité à reprendre>"
 ---
@@ -8,7 +8,7 @@ argument-hint: "<idée, ou numéro ou nom d'une fonctionnalité à reprendre>"
 # cadrer-x choisir — from the idea to the tasks
 
 You find out what the person wants and settle what it takes, one question at a time. Two steps, each
-ending in one file in the feature's folder: the idea (`idee.md`), then the decisions (`decisions.md`).
+ending in one file in the feature's folder: the idea (`brief.md`), then the decisions (`decisions.md`).
 Then the spec, by its reference; the design when there are screens, and the tasks, by workers you
 start (*Workers*); then you stop. No code: the builders build from your files, and whatever you
 leave unsettled they will guess.
@@ -35,8 +35,8 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
   it has no `taches.md`. Else, features with `decisions.md` and no `taches.md`: ask which to go on
   with, or a new idea, one question. Else **step 1**.
 - The argument names a feature (its number or its slug; a near miss, `devis` for `defis`, with one
-  close feature: that one, said in one line) with no `idee.md`, or it is an idea in words: **step 1**.
-- **Where you work**, for a feature that has its `idee.md`: its worktree `.worktrees/feature.<slug>`
+  close feature: that one, said in one line) with no `brief.md`, or it is an idea in words: **step 1**.
+- **Where you work**, for a feature that has its `brief.md`: its worktree `.worktrees/feature.<slug>`
   when it exists; else the current checkout when it is on `feature/<slug>`; else `git worktree add
   .worktrees/feature.<slug> feature/<slug>` (add `.worktrees/` to `.git/info/exclude` first if it is
   missing, and copy the untracked `.env*` files in). Every file is written there, in
@@ -112,9 +112,9 @@ conversation, read it again.
 
 **First turn.**
 1. Read before asking: the README, `{docs}/vision.md`, `{docs}/glossaire.md` (use its words, never a synonym), `{docs}/architecture.md`, the other features'
-   `idee.md`, the manifest (package.json, pyproject.toml, Makefile). What they answer, you don't ask.
+   `brief.md`, the manifest (package.json, pyproject.toml, Makefile). What they answer, you don't ask.
    What a memory or another project says about the person is a guess to put to them, never a line of
-   `idee.md` on its own. **À faire** in `{docs}/architecture.md` says the code is still to be laid out
+   `brief.md` on its own. **À faire** in `{docs}/architecture.md` says the code is still to be laid out
    in modules: say in one line that `/cadrer-x-ranger` first makes this feature and every next one
    cheaper, and go on with theirs unless they take it.
 2. **Several capabilities in one ask** (parts that could ship and be checked apart: a booking, a
@@ -134,7 +134,7 @@ Format, without the tool, in their language:
 ➡️ Mon idée : <the answer you expect, and what it rests on> — confiance ~40 % (il manque : <what>)
 ```
 
-**What the interview settles** — the headings of `idee.md`:
+**What the interview settles** — the headings of `brief.md`:
 
 - **Résultat** — what is true for the user once it ships.
 - **Pour qui** — which people, how many, what they use today.
@@ -170,7 +170,7 @@ whole now, then follow it.
 3. The branch and its worktree: add `.worktrees/` to `.git/info/exclude` if it is not there, then
    `git worktree add --no-track -b feature/<slug> .worktrees/feature.<slug> <base>`. Copy the
    untracked `.env*` files from the repo's top into the worktree (never commit them).
-4. Write `.worktrees/feature.<slug>/{docs}/features/NNNN-<slug>/idee.md` with these headings
+4. Write `.worktrees/feature.<slug>/{docs}/features/NNNN-<slug>/brief.md` with these headings
    exactly; a heading with nothing under it says `aucun`; **Mesure** and **Existant** are never `aucun`: ask or look them up:
 
    ```
@@ -186,15 +186,15 @@ whole now, then follow it.
    ## Ouvert
    ```
 
-5. Commit it on the feature branch: `idee — <Titre>`.
-6. A split: one branch, folder and `idee.md` per feature, numbered in build order.
+5. Commit it on the feature branch: `brief — <Titre>`.
+6. A split: one branch, folder and `brief.md` per feature, numbered in build order.
 7. Go on to step 2 right away, on the first in build order, and say so in one line with how many
    decisions are left (« Reste 4 décisions, je commence. »). They stop you: `/cadrer-x-choisir <slug>`
    picks it up at step 2.
 
 ## Step 2 — the decisions
 
-**Load, before any question.** The feature's `idee.md`, and `decisions.md` or `a-trancher.md` if
+**Load, before any question.** The feature's `brief.md`, and `decisions.md` or `a-trancher.md` if
 they exist. What is already settled — read it, never ask it: `{docs}/architecture.md` (its stack,
 Modules, data), `{docs}/constitution.md`, `{docs}/adr/`.
 
@@ -255,7 +255,7 @@ what they do, what they see, what goes wrong — then what gets built, the stage
 what they cost, the data kept and for how long, and what waits in `a-trancher.md`. Ask what is wrong
 in it; each correction is folded in and the day told again, until a clear yes.
 
-**Save — only after the yes**, in the feature's worktree: `decisions.md` beside `idee.md`, these
+**Save — only after the yes**, in the feature's worktree: `decisions.md` beside `brief.md`, these
 headings exactly, `aucun` under an empty one:
 
 ```
@@ -275,7 +275,7 @@ headings exactly, `aucun` under an empty one:
 ## Impact archi
 ## Données et risques
 ## À faire
-- [ ] <what the person sets up by hand, where> — avant la construction|avant la livraison
+- [ ] <what the person sets up by hand, where> — avant le développement|avant la livraison
 ```
 
 - **Étapes** — `code : non` is a copy or docs change; `données : oui` stores or changes stored data.

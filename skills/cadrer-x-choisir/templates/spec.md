@@ -11,19 +11,19 @@
 **Branche** : `feature/<slug>`
 **Créée** : <AAAA-MM-JJ>
 **Statut** : brouillon
-**Source** : `idee.md`, `decisions.md`
+**Source** : `brief.md`, `decisions.md`
 
 ## Récits
 
 <!--
-  Classés par importance. Chaque récit se teste seul : construit seul, il apporte déjà quelque chose
+  Classés par importance. Chaque récit se teste seul : développé seul, il apporte déjà quelque chose
   qu'on peut montrer. P1 est le plus important ; `bonus` : voulu seulement s'il reste du temps,
-  construit après les autres.
+  développé après les autres.
 -->
 
 ### US1 — <titre court> (Priorité : P1)
 
-En tant que <qui, tiré de idee.md>, je veux <quoi> afin de <pourquoi>.
+En tant que <qui, tiré de brief.md>, je veux <quoi> afin de <pourquoi>.
 
 **Pourquoi cette priorité** : <la valeur, et pourquoi ce rang>
 
@@ -80,7 +80,7 @@ En tant que <qui>, je veux <quoi> afin de <pourquoi>.
 
 ## Critères
 
-<!-- Mesurables, sans technique, tirés de la Mesure de idee.md. -->
+<!-- Mesurables, sans technique, tirés de la Mesure de brief.md. -->
 
 - **CS1** : <« un client réserve un appel en moins de 2 minutes »>
 - **CS2** : <« moins d'1 appel manqué sur 10 d'ici le 31 janvier »>
@@ -101,7 +101,7 @@ En tant que <qui>, je veux <quoi> afin de <pourquoi>.
 
 <!-- Des questions oui/non sur la façon dont la spec est écrite, suivies des récits qu'elles couvrent. -->
 
-- [ ] Chaque récit nomme une personne de `idee.md` et pourquoi ça compte pour elle ? (tous)
+- [ ] Chaque récit nomme une personne de `brief.md` et pourquoi ça compte pour elle ? (tous)
 - [ ] Chaque scénario se vérifie par quelqu'un qui ne code pas, en faisant et en regardant ? (tous)
 - [ ] Chaque décision de `decisions.md` apparaît dans un récit ou sous Pas encore ? (…)
 - [ ] Qui peut voir, changer ou télécharger chaque donnée personnelle est dit ? (…)

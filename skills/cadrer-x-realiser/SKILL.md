@@ -1,6 +1,6 @@
 ---
 name: cadrer-x-realiser
-description: "Construire une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est prêt. Construit chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit construit par un agent qui ne l'a pas construit ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`, ou refaire sa relecture) ou une seule tâche (`T03`)."
+description: "Développer une fonctionnalité, de ses tâches à ses récits relus. À lancer quand `taches.md` est prêt. Développe chaque tâche dans son worktree, test d'abord, deux à la fois quand c'est possible ; fusionne chacune dans la branche de la fonctionnalité ; fait relire chaque récit par un agent qui ne l'a pas développé ; corrige ce que la relecture trouve ; ne s'arrête que pour les questions de la personne. Aussi pour un seul récit (`US1`, ou refaire sa relecture) ou une seule tâche (`T03`)."
 disable-model-invocation: true
 argument-hint: "[fonctionnalité] [US1 | T03]"
 ---

@@ -12,7 +12,7 @@ doc is placed by what it holds; its name is only a first guess.
 | The rules every change keeps | `{docs}/constitution.md` | constitution, principles, conventions, guidelines, engineering-rules |
 | One decision each, never edited, only superseded | `{docs}/adr/NNNN-<slug>.md` | adr/, adrs/, decisions/, decision-records/ |
 | One folder per feature: idea, decisions, spec, tasks | `{docs}/features/NNNN-<slug>/` | specs/, rfcs/, prd/, proposals/, features/ |
-| An old cadrer build: `idee.md`, `decisions.md`, `spec.md`, `tranches.md`, `audits/`, `livraison.md` | `{docs}/features/NNNN-<slug>/` (`builds/01-x` → `features/0001-x`, its files moved as they are) | builds/<NN>-<slug>/ |
+| An old cadrer build: `idee.md`, `tranches.md`, `audits/`… | `{docs}/features/NNNN-<slug>/` (`builds/01-x` → `features/0001-x`, `idee.md` → `brief.md`, the rest as is) | builds/<NN>-<slug>/ |
 | How to deploy, restart, restore | `{docs}/runbook.md` | runbook, operations, ops, deploy, deployment |
 | Threats and their guards | `{docs}/security/threat-model.md` | threat-model, threats |
 | Personal data: what, where, basis, retention | `{docs}/security/data-inventory.md` | data-inventory, privacy, gdpr, personal-data |

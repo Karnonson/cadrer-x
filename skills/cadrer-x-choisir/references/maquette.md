@@ -16,7 +16,7 @@ ask the person directly, and go on with its *Workers* where the report would be.
 `<skills folder>/cadrer-x-<name>/aide.md` (the folder that holds `cadrer-x-choisir/`) at that moment;
 read it whole and follow it. Not there: go on without it.
 
-**Read:** `{feature}/idee.md`, `{feature}/spec.md` (each story a person sees is a screen, or a state
+**Read:** `{feature}/brief.md`, `{feature}/spec.md` (each story a person sees is a screen, or a state
 of one; its scenarios are what the screen must let them do and see), `{feature}/decisions.md` (the
 look and the real content they gave), `{docs}/constitution.md`. From the `haute fidélité` on: **the
 look**, read `cadrer-x-design-system`; **the words**, read `cadrer-x-textes`; in French, at least:

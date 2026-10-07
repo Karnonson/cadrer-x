@@ -1,7 +1,7 @@
 <!--
   Modèle de passation.md cadrer-x. Trois lecteurs : la personne, qui regarde la maquette ; `choisir`,
-  qui donne à chaque tâche ses écrans (`Écrans : SC1`) ; et celui qui construit une tâche, qui cite la
-  section de son écran mot pour mot et construit à partir d'elle et de la maquette seules.
+  qui donne à chaque tâche ses écrans (`Écrans : SC1`) ; et celui qui développe une tâche, qui cite
+  la section de son écran mot pour mot et développe à partir d'elle et de la maquette seules.
   Titres, libellés et identifiants tels quels ; le texte dans la langue de la personne. Une section
   vide dit `aucun`. Chaque ligne d'un écran tient sur une ligne. Retirer ces commentaires.
 -->
