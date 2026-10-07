@@ -337,7 +337,7 @@ when you close the designer for good.
 2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
    else a fresh one. Show the address, each screen and its states in one line, then its questions,
    one per message. With the claude-design tools in your session (the designer has none), offer once
-   to put the same files in a Claude Design project, to open on a phone and comment there: on a yes,
+   to put the same files in a Claude Design project, to see them on another device: on a yes,
    read `references/claude-design.md` whole and follow it yourself. Each correction goes to the
    designer, until a clear yes that names what it covers: « Ces mots et ce look : c'est bon ? »
 3. **On the yes**, the designer (stage `passation`, with what `claude-design.md` gave for
