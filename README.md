@@ -4,11 +4,11 @@ Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée �
 étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper (`choisir`), **R**éaliser,
 **E**xaminer (`realiser`), **R**endre (`rendre`). Tu décides aux moments qui comptent.
 
-Chaque étape écrit un fichier que la suivante lit, puis enchaîne sur la suivante dans la même session,
-sauf si tu l'arrêtes ; `choisir`, lui, s'arrête avant le développement. Rien ne part sans ton oui : ni
-la spec, ni la fusion dans la branche principale, ni la mise en ligne. Les étapes te parlent dans ta
-langue ; les noms de fichiers et les titres restent fixes, en français, pour que chaque étape
-retrouve le travail de la précédente.
+Chaque étape écrit un fichier que la suivante lit. Une commande enchaîne ses étapes dans la même
+session, sauf si tu l'arrêtes ; d'une commande à l'autre, c'est toi qui lances la suite
+([Les étapes](#les-étapes)). Rien ne part sans ton oui : ni la spec, ni la fusion dans la branche
+principale, ni la mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
+titres restent fixes, en français, pour que chaque étape retrouve le travail de la précédente.
 
 ## Installer
 
@@ -73,7 +73,9 @@ Un petit changement (un mot, une couleur, un bouton qui se comporte mal) ou un b
 réduit à ce qui manque, l'agent essaie le bug lui-même, et la voie courte saute la maquette et les
 validations en trop. La relecture par un agent neuf, elle, reste.
 
-Facultatif : `/cadrer-x-verifier <nom>`, un second regard sur la spec seule, avant de découper.
+Facultatif : `/cadrer-x-verifier <nom>`, dans une session neuve, un regard à froid avant le code :
+sur la spec seule, ou sur la spec et les tâches. Utile surtout quand `choisir` n'a pas pu lancer son
+second regard (sans sous-agents) : il te le propose alors.
 
 Six aides, de simples fichiers `aide.md`, sont lues par une étape au moment où elle en a besoin :
 `cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`, `cadrer-x-modules`, `cadrer-x-design-system`,
@@ -140,10 +142,11 @@ Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`
 | Quatre compétences, tokenizer o200k | 4 987 | 5 855 (1,17×) |
 | Médiane de sept tokenizers publics | | 1,26× (de 1,17× à 1,28×) |
 
-Les quinze compétences font environ 38 700 tokens en anglais (o200k ; 48 900 avec les fichiers
-qu'elles lisent). En français, ce serait de 6 600 à 10 800 tokens de plus, payés à chaque étape lancée :
-une fois par tâche pour l'agent qui la développe, une fois par récit pour celui qui le relit. Le tokenizer de Claude n'est pas
-public : le ratio vient des tokenizers publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
+Les six étapes et les six aides font environ 29 200 tokens en anglais (o200k ; 53 100 avec les
+fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 200 tokens de plus, payés à chaque
+étape lancée : une fois par tâche pour l'agent qui la développe, une fois par récit pour celui qui le
+relit. Le tokenizer de Claude n'est pas public : le ratio vient des tokenizers publics, et
+`ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
 
 ## Outils
 
