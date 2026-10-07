@@ -85,7 +85,7 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
   (`/cadrer-x-rendre` folds the feature in when it ships).
 - **Tests in the runner the project has.** A builder never adds a test runner or a package on its own.
   A box about how a screen looks at a width stays a box: the test proves its text, its link, its state,
-  and the review clicks the rest at 390 and 1280.
+  and the review clicks the rest.
 - **Every rule that asks this feature for a test or a tool has a task that owns it.** Read each `M<n>`
   against the feature. Tooling the project lacks is a task of its own in **Fondations** (its config,
   `package.json`, the lockfile on its `Fichiers :`), and the tasks that need it are `Après :` it. The
@@ -149,8 +149,8 @@ taches {feature}/taches.md`; fix and rerun until it prints nothing.
 
 **Short path** (`voie : courte` in `decisions.md`): a change a person sees has no `Écrans :` line
 (there is no `passation.md`): its box names the page and what it shows, and an **À surveiller** line
-pinned to the task says the review checks it on that page at 390 and 1280. More than three tasks or
-a second story: say so in one line of your report; choisir settles the path.
+pinned to the task says the review checks it on that page. More than three tasks or a second story:
+say so in one line of your report; choisir settles the path.
 
 **The second look.** Its findings, from `verification.md`, come back to you: each `→ tâches` folded
 in; a `→ spec` with one fix the files already settle (a word the prototype or the glossary uses, a

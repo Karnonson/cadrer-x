@@ -30,8 +30,7 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git bran
 - **Feature.** The number or slug realiser names (its prompt or argument; one close near miss: that
   one, said in one line), else the worktree's feature, else the one whose `taches.md` has a story
   built and not yet `validé`; several: ask, one question.
-- **Stories.** `US<n>`: that one. The feature alone, or nothing: every ready story with no `validé`
-  section, one after another, one section and one commit each, one message at the end.
+- **Story.** The `US<n>` of the prompt or the argument.
 - **Where.** `.worktrees/feature.<slug>`; else the current checkout if on `feature/<slug>`; else `git
   worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in `.git/info/exclude` first,
   untracked `.env*` copied in, `commands.install` run once). Uncommitted changes there: not yours to
@@ -83,7 +82,7 @@ removed or asked about), whatever else is wrong with it.
 its test: does it assert the spec's own value, at the boundary the scenario names (the last seat, the
 exact hour, the empty list), through the module's entry? For the scenarios that matter most (an `EF<n>`
 that forbids something (« ne doit jamais »), each **À surveiller** line), prove it: in a throwaway
-detached worktree outside the repo (`git worktree add --detach <a temp folder>/examiner-us<n>
+detached worktree outside the repo (`git worktree add --detach <a temp folder>/relecture-us<n>
 feature/<slug>`), break the one line that makes it true, run that test alone, see whether it fails, then
 `git worktree remove --force` it. Still green on broken code: `Détail :`, but `À corriger :` for
 a security guard or a prohibition (`Bloquant :` if the behaviour it should guard is also wrong); no

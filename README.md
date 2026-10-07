@@ -1,8 +1,8 @@
 # cadrer-x
 
 Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée à la mise en ligne, une
-étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper, **R**éaliser, **E**xaminer,
-**R**endre. Tu décides aux moments qui comptent.
+étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper (`choisir`), **R**éaliser,
+**E**xaminer (`realiser`), **R**endre (`rendre`). Tu décides aux moments qui comptent.
 
 Chaque étape écrit un fichier que la suivante lit, puis enchaîne sur la suivante dans la même session,
 sauf si tu l'arrêtes ; `choisir`, lui, s'arrête avant le développement. Rien ne part sans ton oui : ni

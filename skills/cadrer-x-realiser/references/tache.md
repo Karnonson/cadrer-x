@@ -49,8 +49,8 @@ green (a loosened assertion, a skip, a moved threshold, a silenced checker): fix
 
 A task with screens: its section of `passation.md`, its page in `maquette/` and `contenu.md` are the
 whole design; the words exactly as `contenu.md` has them. With `commands.dev` and a browser tool free,
-open the screens at 390 and 1280 wide before you finish; the browser held, or no tool: say they were
-not opened, and never write a browser driver of your own.
+open the screens at their `Largeurs :` widths before you finish; the browser held, or no tool: say
+they were not opened, and never write a browser driver of your own.
 
 ## Stay in the task
 
