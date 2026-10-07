@@ -7,12 +7,11 @@ argument-hint: "[fonctionnalité] [US1 | T03]"
 
 # cadrer-x réaliser — every task built, every story reviewed
 
-You run a feature's build to its end: builders (subagents) build each task test first in its own
-worktree, merged into `feature/<slug>`; a reviewer who did not build reviews each built story; each
-finding is fixed and rechecked. You build and review nothing yourself: start subagents (the tool's
-general one: `general-purpose` in Claude Code, codex's default worker; never a registered or custom
-agent type), merge, ask the person what only they can answer. Read `taches.md`, `audit.md` and the
-reports, never the code.
+You run a feature's build to its end: builders build each task, a reviewer who did not build
+reviews each built story, each finding is fixed. You build and review nothing yourself: start
+subagents (the tool's general one: `general-purpose` in Claude Code, codex's default worker; never a
+registered or custom agent type), merge, ask the person what only they can answer. Read
+`taches.md`, `audit.md` and the reports, never the code.
 
 Talk in the person's language, each note between tool calls too; in French, *tu* or *vous* as they
 write, *vous* when unsure, never both. Commit messages, file names and labels stay as written here.
@@ -36,30 +35,28 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   no fix round due: its review, as *Reviews*. `T<nn>`: that task alone (*One task by hand*).
 - **Commands.** Each command of `cadrer-x.yml` (`install`, each check, `dev.run`) missing from
   `.claude/settings.json` → `permissions.allow`: add it as `Bash(<the command>)` and say so in your
-  first message (else a builder waits on a prompt at each run).
+  first message.
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
   a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
   or a package's flaw) or the person typed its `US<n>`: such a task is built, then the story reviewed
-  again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merge it as below if its
-  report said `fait` and its commit ticks the task, else restart it).
-- **Up to date.** Each run, before any builder or reviewer: `git -C <top>/.worktrees/feature.<slug>
-  merge <main>`, then the whole check command there (`cd`). A conflict, or red: a builder, prompt
+  again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merged as below if its
+  commit ticks the task, else restarted).
+- **Up to date.** Each run, before any subagent: `git -C <top>/.worktrees/feature.<slug> merge
+  <main>`, then the whole check command there (`cd`). A conflict, or red: a builder, prompt
   « … to bring `feature/<slug>` up to date with `<main>` … »; its `fait` needs no merge.
 
 **Then one message, and go.** (Short path, `voie : courte`: two lines, the tasks and that each story is
-reviewed before the end.) Say what gets built (stories, tasks, waves), two tasks at a time when they
-can, each story reviewed by someone who did not build it, and that you stop only for their
-questions and at the end. They launched the build: start
-right away; they can stop you.
+reviewed before the end.) Say what gets built (stories, tasks, waves) and that you stop only for
+their questions and at the end. They launched the build: start right away; they can stop you.
 
 ## Builders
 
 A task is **ready** when every task on its `Après :` is `[x]` on the feature branch, and, for a
-`(Priorité : bonus)` story, once every other story is `validé`. Start ready
-tasks in `taches.md` order, **at most two at once** (or the person's number). Two run together only
-if they share no `Fichiers :` file and at most one has an `Écrans :` line (one browser). Close each
-subagent once its report is in and its work is merged or settled, before starting another: never
-more than three open at once, builders and reviewers together (codex refuses a fourth).
+`(Priorité : bonus)` story, once every other story is `validé`. Start ready tasks in `taches.md`
+order, **at most two at once** (or the person's number). Two run together only if they share no
+`Fichiers :` file and at most one has an `Écrans :` line (one browser). Close each subagent once its
+work is merged or settled: never more than three open at once, builders and reviewers together
+(codex refuses a fourth).
 
 A builder is a subagent with a fresh context and this prompt only: « You are cadrer-x-developpeur.
 Read `<skills folder>/cadrer-x-realiser/references/tache.md` whole and follow it, for task `T<nn>`
@@ -69,11 +66,13 @@ tool: the builder reads the file. Its last message is its report.
 - **`fait`**: merge it (below), then start what it made ready.
 - **`question`**: one about code, tests or `taches.md` is yours: answer it from the feature's files,
   else take the builder's recommendation: the review judges it. Only what the person sees or does
-  reaches them, one question per message, in plain words, with that recommendation. Other builders
-  go on. The answer goes back to that builder (resume it, else a new builder whose prompt adds the
-  answer). An answer settling what the spec leaves open is written to `{feature}/a-trancher.md` as a
-  question with its **Réponse**, committed on the feature branch: the reviewer reads it as settled.
-- **`bloqué`**: say what blocks, ask what to do, with your recommendation.
+  reaches them, one question per message, in plain words, with that recommendation. The answer goes
+  back to that builder (resumed, else a new one told it). An answer settling what the spec leaves
+  open is written to `{feature}/a-trancher.md` as a question with its **Réponse**, committed on the
+  feature branch: the reviewer reads it as settled.
+- **`bloqué`**: a new builder, once, its prompt adding the report. Again: what only the person can
+  give (an account, a key) is asked as above; else build the rest, then stop with what does not work
+  yet, in plain words.
 
 ## Merge into the feature branch
 
@@ -81,9 +80,9 @@ A task merge is local and undoable: no yes needed. While a reviewer reads a feat
 its task merges until the audit is committed. Each git command names its folder with `-C` (`<top>`:
 the repo's top); never a task merge or a reset in the main checkout.
 
-1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`. Conflict in its own files: back
-   to its builder, told the conflict; in another task's: stop, ask the person. Then the whole check
-   command in that worktree (`cd`); red: back to its builder.
+1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`, then the whole check command
+   in that worktree (`cd`). A conflict (both tasks' work kept, another task's file too) or red: back
+   to its builder, told which.
 2. `git -C <top>/.worktrees/feature.<slug> merge --ff-only tache/<slug>-t<nn>`; refused: step 1 again.
 3. `git -C <top> worktree remove .worktrees/tache.<slug>-t<nn>`; then `git -C <top> merge-base
    --is-ancestor tache/<slug>-t<nn> feature/<slug>` and on yes `git -C <top> branch -D
@@ -92,22 +91,19 @@ the repo's top); never a task merge or a reset in the main checkout.
 ## Reviews
 
 A story is **built** when its tasks and the Fondations tasks they stand on are `[x]` on the feature
-branch. Review it then, while other stories' builders go on. A reviewer is a fresh-context subagent,
-never one that built, with this prompt only (never a builder's report): « You are
-cadrer-x-relecteur. Read `<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow
-it, for story `US<n>` of the feature `<NNNN-slug>`. Its screens:
-`<skills folder>/cadrer-x-realiser/references/ecrans.md`. The repo's top: `<path>`.
-Launched by realiser. » *Its screens* only when a task of the story has an `Écrans :` line, a box
-names a page (short path), or `dev:` has no `url` (a terminal app). A story with screens is reviewed while no builder with an
-`Écrans :` line runs.
+branch. Review it then; builders go on. A reviewer is a fresh-context subagent, never one that
+built, with this prompt only (never a builder's report): « You are cadrer-x-relecteur. Read
+`<skills folder>/cadrer-x-realiser/references/examen.md` whole and follow it, for story `US<n>` of
+the feature `<NNNN-slug>`. Its screens: `<skills folder>/cadrer-x-realiser/references/ecrans.md`.
+The repo's top: `<path>`. Launched by realiser. » *Its screens* only when a task of the story has an
+`Écrans :` line, a box names a page (short path), or `dev:` has no `url` (a terminal app). A story
+with screens is reviewed while no builder with an `Écrans :` line runs.
 
 - **`validé`**: two lines at most: what works now, what they can try; the rest waits for *The end*.
-  Go on.
-- **`à corriger`**: fix round. A new builder, prompt « … for the fix round of `US<n>` … », merged like a
-  task (branch `tache/<slug>-us<n>-correctifs`, worktree `.worktrees/tache.<slug>-us<n>-correctifs`,
-  in place of `-t<nn>`), then a new reviewer for the next tour. The first review is tour 1; the fix
-  round and its re-review are tour 2. Still `à corriger` after tour 2: stop for the person: what is
-  left, in plain words, your recommendation.
+- **`à corriger`**: fix round. A new builder, prompt « … for the fix round of `US<n>` … », merged
+  like a task (`-us<n>-correctifs` in place of `-t<nn>`), then a new reviewer for the next tour. The
+  first review is tour 1; the fix round and its re-review are tour 2. Still `à corriger` after tour
+  2: stop for the person: what is left, in plain words, your recommendation.
 - Its questions: ask them as a builder's.
 
 ## The end
@@ -125,8 +121,7 @@ changes the scenario in `spec.md` (a no: no task). choisir's lint (`taches`) cle
 ## One task by hand
 
 `/cadrer-x-realiser T<nn>`: build it yourself, here, following `references/tache.md` (you are the
-builder; the person is here, so ask them directly). Merge as above. If its story is now built, review
-it as above. Another person may build another task meanwhile, in another session.
+builder; ask the person directly). Merge as above. If its story is now built, review it as above.
 
 ## No subagents
 
@@ -142,7 +137,5 @@ built none of the story, reviews it itself: `references/examen.md`, with what *R
 |---|---|
 | "The builder noted a missing text; the review will catch it." | A gap a person would see is a question now. |
 | "Only a text; I'll edit it myself." | A task: *The end*. |
-| "Two screen tasks at once, it's faster." | One browser: one at a time. |
 | "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
-| "The Skill tool refused; I'll stop." | They read the file. |
 | "`--ff-only` refused; I'll redo it here." | Step 1 again, `-C` and all. |

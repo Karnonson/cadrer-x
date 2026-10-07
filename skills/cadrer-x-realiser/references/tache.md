@@ -118,6 +118,5 @@ Questions :
 ```
 
 `fait`: ticked and committed, nothing asked. `question`: what remains hangs on the answers. `bloqué`:
-the checks still red after three fixes that did not hold (`cadrer-x-debug`), a conflict in another task's file, or
-something only the person can unblock; say what, under `Questions`. A section with nothing says
-`aucun`.
+the checks still red after three fixes that did not hold (`cadrer-x-debug`), or something only the
+person can unblock; say what, under `Questions`. A section with nothing says `aucun`.
