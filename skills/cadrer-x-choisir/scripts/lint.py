@@ -352,6 +352,12 @@ def lint_taches(path):
             out.append(f"{where}:{n}: {us} is not a story of spec.md")
     for us in sorted((stories or set()) - {u for _, u in story_secs}, key=lambda s: int(s[2:])):
         out.append(f"{where}: {us} of spec.md has no `## {us} — …` section")
+    # A bonus story is bonus in both files.
+    spec_prio = dict(re.findall(r"^### (US\d+) — .* \(Priorité : (P\d+|bonus)\)$", spec or "", re.M))
+    for n, t in h2:
+        if (m := STORY_H2.match(t)) and f"US{m.group(1)}" in spec_prio:
+            if (m.group(2) == "bonus") != (spec_prio[f"US{m.group(1)}"] == "bonus"):
+                out.append(f"{where}:{n}: US{m.group(1)} is `{m.group(2)}` here but `{spec_prio[f'US{m.group(1)}']}` in spec.md")
 
     def section_at(n):
         cur = None
@@ -458,6 +464,15 @@ def lint_taches(path):
             t["after"] = [a for a in got if a in by_id and pos[a] < pos[tid]]
         if "Taille" in val and val["Taille"][1] not in ("XS", "S", "M"):
             out.append(f"{where}:{val['Taille'][0]}: `Taille :` is XS, S or M; bigger is two tasks")
+
+    # Nothing required stands on a bonus story's task.
+    def bonus(t):
+        m = STORY_H2.match(t["sec"] or "")
+        return bool(m) and m.group(2) == "bonus"
+    for t in tasks:
+        for a in t["after"]:
+            if not bonus(t) and bonus(by_id[a]):
+                out.append(f"{where}:{t['line']}: {t['id']} is after {a}, a bonus story's task: what a required story stands on is never a bonus")
 
     def ancestors(tid, seen=None):
         seen = set() if seen is None else seen

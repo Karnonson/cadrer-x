@@ -119,7 +119,7 @@ From the template, in this order:
 
 - **Ordre**: the template's four lines, then the waves: `- Vague 1 : T01`, `- Vague 2 : T02, T05`…,
   each wave the tasks whose `Après :` the earlier waves cover; a `bonus` story's tasks in the last
-  waves, alone. That is what can be built at once.
+  waves, alone, and never what a required story stands on. That is what can be built at once.
 - **À surveiller**: up to five cases the spec implies and no box tests (the same moment, a boundary, a
   hostile value, an empty list), each pinned to the task that owns the code, the one most likely to
   hurt a person first. `- aucun` only after you looked.
