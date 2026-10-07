@@ -1,6 +1,6 @@
 # cadrer-x conventions
 
-2026-10-03. The fixed names every cadrer-x skill writes and reads. A skill finds another skill's
+2026-10-07. The fixed names every cadrer-x skill writes and reads. A skill finds another skill's
 section by its exact heading, so these names never change once released, and they are never translated per
 person. Later, fleet parses the same names.
 
@@ -74,8 +74,9 @@ takes the full path.
 A clear yes closes a step: "oui", "ok", "ça va", "c'est bon", or a condition already met; a hedge or a
 change asked for keeps it open. A step ends by going on with the next one in the same session, said in
 one line (the person can stop it), but around the build: `choisir` stops before it and gives
-`/cadrer-x-realiser <slug>`, `realiser` stops after it and gives `/cadrer-x-rendre <slug>`, each best
-run in a fresh session, since the build is long.
+`/cadrer-x-realiser <slug>`; `realiser` stops after it, once the person has settled the `Détail :`
+lines left (fixed now, or shipped: see *livraison.md*), and gives `/cadrer-x-rendre <slug>`; each
+best run in a fresh session, since the build is long.
 
 | Proa today | cadrer (old) | cadrer-x |
 |---|---|---|
@@ -261,7 +262,7 @@ the form and that each verdict follows from its findings.
 | Proa release.md | cadrer livraison.md | cadrer-x |
 |---|---|---|
 | Version | — | Version (the version alone on its first line) |
-| What shipped | — | Livré (one line per story, then « Plus tard : … ») |
+| What shipped | — | Livré (one line per story, then « Plus tard : … »: **Pas encore**, a question left open, each `Détail :` of `audit.md` the person chose, at `realiser`'s end, to ship as is) |
 | Where | En ligne | En ligne (`pas encore`, `aucun — <pourquoi>`, or the address, date, commit) |
 | — | Mise en ligne | Mise en ligne |
 | Evidence | Vérifié en ligne | Vérifié |
@@ -381,7 +382,10 @@ Kept apart, on purpose: the spec and the tasks (the spec is the person's gate on
 the builder and the reviewer. The builder proves its own task works: a failing test first, then the
 code, then the checks run fresh. The reviewer asks what those tests cannot: whether the story is what
 the spec asked for, and whether its tests would fail if the behaviour broke. The builder's tests carry
-the builder's reading of the spec, so a misreading passes them.
+the builder's reading of the spec, so a misreading passes them. The browser is the reviewer's: a
+builder never opens the screens (a box only a screen can prove says `écran seul` on the `Cases :`
+line of its report), and one reviewer at a time runs beside the builders, the approved maquette
+page beside each screen.
 
 ## Install
 
