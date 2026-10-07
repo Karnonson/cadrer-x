@@ -71,7 +71,7 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
 **A half-done stage**, with no worker's report to name its paths: they are what `git status` shows
 changed under `{feature}/` and in `{docs}/regles-ecriture.md`. Each file a lint checks (`spec`,
 `passation`, `taches`) passes it first, else its worker again; then commit those paths, never
-`git add -A`.
+`git add -A`, never a `piste-*.html`.
 
 A reference you follow, here, in step 1, or a worker's with no subagents: after a summary of this
 conversation, read it again.
@@ -322,7 +322,7 @@ the person. You start each one yourself, one after the other: no worker starts a
   fresh one reads the files already there and changes only what its message asks.
 - Codex holds three subagents open at once, fact lookups included: close each worker once its stage
   is settled.
-- **No subagents** (the tool has none, or they are off): follow its file yourself, then do your part
+- **No subagents** (none, or turned off): follow its file yourself, then do your part
   below as if it had reported.
 
 **The designer**: `cadrer-x-designer`, `cadrer-x-choisir/references/maquette.md`, for a feature with
@@ -335,8 +335,8 @@ when you close the designer for good.
    stories together, and the spec's yes waits for it. A flow change a story quotes changes the spec
    too; a spec change that moves a screen goes to the designer.
 2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
-   else a fresh one. A report with **Pistes**: show each, its address and its line, then one
-   question: which one, or what to take from each; the answer goes to the designer. Then show the
+   else a fresh one. A report with **Pistes**: show each, its address and its line, and ask which
+   one, or what to take from each; the answer goes to the designer. Then show the
    address, each screen and its states in one line, then its questions, one per message. Each
    correction goes to the designer, until a clear yes that names what it covers: « Ces mots et ce
    look : c'est bon ? »

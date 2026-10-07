@@ -94,12 +94,12 @@ changes the pages or the file. Run `python3 <this skill's folder>/scripts/lint.p
 ## The report
 
 Your last message, in the person's language, these labels as written; a section with nothing says
-`aucun`:
+`aucun` (`Pistes :` is left out):
 
 ```
 Étape : wireframe | haute fidélité | passation
 Adresse : http://127.0.0.1:<port>/<page>.html, pid <pid> (or: arrêtée)
-Pistes : <aucun, or one line each: piste-<n> — http://127.0.0.1:<port>/piste-<n>.html — <what it feels like>>
+Pistes : <only while pistes wait for a pick, one line each: piste-<n> — http://127.0.0.1:<port>/piste-<n>.html — <what it feels like>>
 Écrans :
 - <page> — <its states> — <where each control leads>
 Changé : <what changed since your last report, spec.md included; or: tout>

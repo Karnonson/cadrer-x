@@ -226,8 +226,8 @@ none the look the designer proposes from `decisions.md`: the template's token na
 its own values, parts and fonts, `maquette/fonts/*.woff2`); `maquette/maquette.js` (the
 template's, unedited); the state bar `nav.maquette-etats`. Neither the bar nor the script is product code.
 With no look to follow, the `haute fidélité` starts with `maquette/piste-1.html` to `piste-3.html`,
-never committed; the person's pick goes in `decisions.md` → **Précisions** (`- Q : le look → R : …`)
-and in `- Style :`.
+never committed; the person's pick, its plan resolved, is the comment at the top of
+`maquette/styles.css`, and `- Style :` names it.
 
 ### contenu.md
 
