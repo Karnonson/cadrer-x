@@ -34,10 +34,12 @@ screens could not be clicked: each `contenu.md` text in the code (`grep -rn`), e
 path, the project's own components used.
 
 **A terminal app**: `dev.run` (else the README's command) in a terminal of the size above, with a
-temporary home and data folders (never the person's own files), left open until its ready screen is
-drawn: a run that quits first proves nothing. Do each scenario there with the keys a person presses;
-a crash, a line cut or overlapping, a key that does nothing: a finding as above. What it drew: an
-`Info :` line of `### Spec`, as on the short path.
+temporary home and data folders (never the person's own files). One that waits for keys: left open
+until its ready screen is drawn (a run that quits first proves nothing), then each scenario with the
+keys a person presses. A command that prints and exits: for each scenario, its output at that width,
+its exit status and what it wrote in the temporary folders are the evidence. A crash, a line cut or
+overlapping, a key that does nothing: a finding as above. What it drew or printed: an `Info :` line
+of `### Spec`, as on the short path.
 
 **The short path** (`voie : courte`, no `passation.md`): the page the box names, at both sizes. Do
 the box's scenario there, check the rest of the page did not move and the console has no error, and
