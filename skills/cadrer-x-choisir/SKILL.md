@@ -127,7 +127,7 @@ conversation, read it again.
    pick and the assumption it rests on. They choose; the interview goes on with that one.
 4. Then your read of the idea in one line with a confidence, and Q1.
 
-Format, without the tool, in their language:
+Format, without the tool:
 
 ```
 **Q2 · Pour qui** — <the question in plain words, two or three concrete choices when they help>
@@ -142,7 +142,8 @@ Format, without the tool, in their language:
 - **Pourquoi maintenant**
 - **Mesure** — a number a non-developer can check, and a date ("moins d'1 appel manqué sur 10 d'ici
   le 31 janvier"), never "plus d'engagement".
-- **Contraintes** — money, time, what must not change.
+- **Contraintes** — what must hold for this feature and only for it; nothing the constitution or the
+  architecture already says.
 - **Existant** — looked up first: a library or plugin, a feature the product already has, an outside
   product, a spreadsheet or a form. Put what you found to them: what each does for this, what it
   lacks. If one does the job, say so plainly and ask whether to stop here: using it is a win.
@@ -218,7 +219,7 @@ line says what the path skips (the design, the second look), or why it is now fu
 first turn: with the spec comes a sketch of the screens and the ways between them, and after its yes
 the finished design, its look and its words, which they approve before the tasks are cut.
 
-Format, without the tool, in their language:
+Format, without the tool:
 
 ```
 **Q1** — <question> ? <why it matters, one line>
@@ -243,7 +244,7 @@ A) … · B) … · C) …
 storage, analytics, a scheduler) that the settled stack does not cover:
 1. Say in two lines what is already chosen and what is ruled out: not asked again.
 2. Look up what the settled services already offer for the need: an account they pay for often
-   covers a second one. Today's docs and prices, never memory.
+   covers a second one.
 3. Ask first: a service they want or already pay for. Then, unless the stack rules already say, one
    they refuse. What they name is used; say so plainly when it breaks a rule (a secret in the
    browser, personal data sent where nothing allows it, a line of the constitution).
