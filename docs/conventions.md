@@ -384,8 +384,7 @@ code, then the checks run fresh. The reviewer asks what those tests cannot: whet
 the spec asked for, and whether its tests would fail if the behaviour broke. The builder's tests carry
 the builder's reading of the spec, so a misreading passes them. The browser is the reviewer's: a
 builder never opens the screens (a box only a screen can prove says `écran seul` on the `Cases :`
-line of its report), and one reviewer at a time runs beside the builders, the approved maquette
-page beside each screen.
+line of its report), and one reviewer at a time runs beside the builders.
 
 ## Install
 

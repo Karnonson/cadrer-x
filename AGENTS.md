@@ -14,7 +14,7 @@ live elsewhere.
   `references/` (read when the skill says), `templates/` (the files it writes), `scripts/lint.py`
   (checks those files), `agents/openai.yaml` (codex). A helper: `aide.md` (see *Writing a skill*).
 - `docs/vision.md`: why cadrer-x exists and for whom. `docs/name.md`: the name and its marketing
-  angle. `docs/roadmap.md`: what comes before and after v1. `docs/conventions.md`: every file name,
+  angle. `docs/roadmap.md`: what comes before and after v2. `docs/conventions.md`: every file name,
   heading, label and id the skills write and read, and which skill does what. Read the conventions
   before changing a skill.
 - `install.sh`: installs the skills into a project (`.claude/skills`, `.agents/skills`) or globally.
