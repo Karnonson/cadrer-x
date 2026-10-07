@@ -5,21 +5,21 @@ Loaded by `choisir` (where each task's files go), `realiser` (each new import), 
 decides, not the folder names. With no map, the rules below still hold on the code's own layout.
 
 `references/structure.md`, beside this file, is the layout: the framework's own way when it has one,
-used as it is; only where it leaves the layout open, `src/modules/<module>/api.<ext>` with `ui/`,
-`server/`, `data/` behind it, `src/shared/`, `tests/modules/<module>/`. Open it when you place a new
-module, a new file in one, or its tests.
+used as it is; only where it leaves the layout open, its tree: modules behind one entry each
+(`api.<ext>`), `shared/`, tests by module. Open it when you place a new module, a new file in one, or
+its tests.
 
 ## The rules
 
 1. **The framework's way wins.** Its folders, its unit of code, where its tests go (Rails' `app/`,
    Django's apps, NestJS modules): use them as they are, never move, rename or wrap them. Pages, routes
    and handlers stay thin: they call a module's entry and render. Only what the framework leaves open
-   goes in `src/modules/`, as `references/structure.md` says.
+   takes the tree of `references/structure.md`.
 2. **Each layer talks only to the next**: what is shown → the rules → what is kept → the database. A page
    or a component never imports the database client and never runs a query.
 3. **A module uses another only through that module's entry** (its `api.<ext>`, or the entry the map
    names), never its tables, its internals, or a file behind its entry. Types come from the entry too.
-   Where the tree applies, `src/shared/` holds no rule of the product and never imports a module; only
+   Where the tree applies, `shared/` holds no rule of the product and never imports a module; only
    a `data/` folder imports its database client.
 4. **What you need is not exported by the entry?** Add a small export to that entry, calling that module's
    own code. That is the path that keeps the border, even when it touches a file the task does not list:

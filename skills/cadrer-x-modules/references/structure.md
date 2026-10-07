@@ -61,9 +61,9 @@ db/migrations/
   its folder wins.
 - **A layer only when the module has it.** A module with no server has no `server/`; one that keeps
   nothing has no `data/`.
-- **The language's rules win too.** Python: imports go through the package, so the tree sits inside it
-  (`src/<package>/modules/<module>/api.py`, `src/<package>/shared/`). Go: tests beside the code
-  (`*_test.go`).
+- **The language's rules win too.** Python: no `modules/` layer; `src/<package>/<module>/api.py`,
+  `src/<package>/shared/`, `tests/<module>/`, and a CLI or TUI keeps its entry (`cli.py`,
+  `__main__.py`) at the package's top. Go: tests beside the code (`*_test.go`).
 
 ## A static site, no framework
 

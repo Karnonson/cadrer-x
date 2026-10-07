@@ -93,8 +93,8 @@ For each module of the plan, in order:
    and paste, word for word; the old place calls the new entry until its callers have moved.
 3. **Move the callers** to the entry, in batches, the checks green after each batch.
 4. **Take the old away**: the old file or the forwarding left, once nothing calls it.
-5. **The tests move with it**: to `tests/modules/<module>/` (or where the framework puts them), each
-   through the entry. A test changes its import, never what it asserts.
+5. **The tests move with it**: where `structure.md` puts them, each through the entry. A test
+   changes its import, never what it asserts.
 
 Never changed by a move: what a person sees, a URL, a stored key (a `localStorage` key, a cookie, a
 table, a column), a file the host serves by its name, an outside call. A move that would need one is a

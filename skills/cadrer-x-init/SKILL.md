@@ -204,10 +204,9 @@ them first, one question per message:
 Each part, secret and chore lands in its section; the setups not chosen go under **Écarté**.
 **Modules**, no code yet: open `../cadrer-x-modules/references/structure.md` and write the layout for
 the chosen stack. A framework with its own way (its folders, its unit of code, where its tests go):
-that way, as it is, and what a module is in it. Only for what it leaves open: `src/modules/<module>/api.<ext>`,
-`src/shared/` with a `shared` row, `tests/modules/`, the migrations folder, inside the framework's own
-`src/` when it has one, never a second. The modules themselves come with the
-features that need them. **An existing repo whose code is not laid out that way**: the map of where it
+that way, as it is, and what a module is in it. Only for what it leaves open: that file's tree,
+with a `shared` row, inside the framework's own `src/` when it has one, never a second. The modules
+themselves come with the features that need them. **An existing repo whose code is not laid out that way**: the map of where it
 is now, then the target layout from the same file, stated, never asked (a static site with no
 framework has its own section there), and under **À faire**: `- [ ] ranger le code en modules :
 /cadrer-x-ranger — avant le développement`.
