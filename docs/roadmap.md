@@ -2,8 +2,7 @@
 
 ## Pour la v2
 
-0. Corriger ce que les essais de la v1 ont montré, dans l'ordre du verdict
-   (`docs/reports/2026-10-06-verdict.md`, sur la branche `skills/session-audit-oct06`).
+0. Corriger ce que les essais de la v1 ont montré, dans l'ordre de leur verdict.
 
 1. Réécrire `docs/vision.md` de cadrer-x sur le Product Vision Board que `cadrer-x-init` produit
    désormais (Vision, Pour qui, Besoins, Produit, Objectifs, Faire ou louer), et le faire valider.
@@ -25,7 +24,6 @@
 
 - Un hook git avant chaque commit qui lance `tools/status_check.py`, si `STATUS.md` grossit malgré
   ses règles pendant les essais.
-- Rendre le dépôt public : la même commande d'installation, avec `curl` au lieu de `gh`.
 - L'installation prend la dernière version publiée (le dernier tag `vX.Y.Z`) et non plus `main` ; une
   option en choisit une autre (`--version v1.0.0`). Relancer la commande passe à la dernière version.
 - Dire dans le README ce que veut dire chaque numéro de `vX.Y.Z` : X change quand un projet commencé

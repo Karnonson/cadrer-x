@@ -1,2 +1,8 @@
 __pycache__/
 *.pyc
+STATUS.md
+docs/reports/
+docs/name.md
+.worktrees/
+.claude/settings.local.json
+docs/fleet.md

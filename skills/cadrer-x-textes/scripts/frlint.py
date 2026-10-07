@@ -6,7 +6,7 @@
 Prints one line per finding (`path:line: rule — the line`) and exits 1, or prints nothing and exits 0.
 Rules: a space before `: ; ! ?` and inside « », no straight quotes around French, a decimal comma, a
 space between thousands, no sentence over 20 words, no mixed tu/vous, known anglicisms. Code spans,
-fenced code, links and front matter are skipped. Ported from fleet's `frlint`; labels
+fenced code, links and front matter are skipped. Ported from an earlier `frlint`; labels
 are French here (`- Titre : …`), so every colon takes its space.
 """
 import re

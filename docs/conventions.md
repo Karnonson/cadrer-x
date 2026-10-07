@@ -2,7 +2,7 @@
 
 2026-10-07. The fixed names every cadrer-x skill writes and reads. A skill finds another skill's
 section by its exact heading, so these names never change once released, and they are never translated per
-person. Later, fleet parses the same names.
+person.
 
 ## Rules
 
@@ -373,7 +373,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | `cadrer-x-debug` | proa-debug | realiser, ranger, any failing test |
 | `cadrer-x-design-system` | design-system; beside it, `direction.md`, the craft of a proposed look, adapted from Anthropic's frontend-design (Apache-2.0) | choisir, realiser |
 | `cadrer-x-modules` | module-borders | choisir, realiser, ranger |
-| `cadrer-x-textes` | french-copy, with fleet's `frlint` ported as `scripts/frlint.py` | choisir, realiser, rendre |
+| `cadrer-x-textes` | french-copy, with an earlier `frlint` ported as `scripts/frlint.py` | choisir, realiser, rendre |
 
 The project's own copy rules live in `{docs}/regles-ecriture.md`; `cadrer-x-textes` reads them before
 its defaults.
@@ -388,16 +388,10 @@ line of its report), and one reviewer at a time runs beside the builders.
 
 ## Install
 
-`install.sh` copies each skill and helper into the project by default: `.claude/skills` and
-`.agents/skills`, committed with the project so everyone on it has the same version. It also merges into
+`install.sh` (`install.ps1` on Windows, same options) copies each skill and helper into the project
+by default: `.claude/skills` and `.agents/skills`, committed with the project so everyone on it has the
+same version. It also merges into
 `.claude/settings.json` the git commands the steps run (`permissions.allow`) and `git push` under
 `ask`; `init` adds the commands of `cadrer-x.yml`, and `realiser` any it finds missing. `--global` puts
 them in `~/.claude/skills` and `~/.agents/skills` instead. `--link` symlinks to the checkout, to try
 changes live; `--remove` takes them out.
-
-## Later, for fleet
-
-Fleet's parsers read the English names today (`claude/scripts/fleetlib/slices.py`, `handoff.py`, `lint.py`,
-`review.py`, `gate.py`) and slice ids as `S01`. When fleet wraps cadrer-x, they switch to the names above
-and to `T01`; and fleet reads the project file as `cadrer-x.yml` where it reads `proa.yml` today. Sailor reports
-(`STATUS:`, `SUMMARY:`, …) are fleet's own and stay out of cadrer-x.

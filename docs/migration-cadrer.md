@@ -56,8 +56,8 @@ cadrer-x reprend la méthode de cadrer, avec trois changements de fond :
 
 ## Migrer un projet
 
-1. **Installer cadrer-x** dans le projet : depuis le dossier du projet, `~/cadrer-x/install.sh` (voir l'installation
-   dans le [README](../README.md#installer)). Retirer les compétences
+1. **Installer cadrer-x** dans le projet : depuis le dossier du projet, la ligne de ton système (voir
+   l'installation dans le [README](../README.md#installer)). Retirer les compétences
    cadrer de `.claude/skills` et `.agents/skills` (ou de `~/.claude/skills`), pour ne pas avoir deux méthodes
    à la fois.
 2. **Lancer `/cadrer-x-init`.** L'étape 1 écrit la vision (dis-lui que `idee.md` du premier build la

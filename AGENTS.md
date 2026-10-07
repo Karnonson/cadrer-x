@@ -8,16 +8,19 @@ live elsewhere.
 
 ## Where things are
 
-- `STATUS.md`: the current goal and where things stand. Read it first; before a session ends, update
-  it if the session changed any of it (its date too), under *Keeping STATUS.md small*.
+- Kept on the owner's machine, never committed (`.gitignore`): `STATUS.md`, `docs/reports/`,
+  `docs/name.md`, `docs/fleet.md`. A fresh clone has none of them.
+- `STATUS.md`: the current goal and where things stand. When it is there, read it first; before a
+  session ends, update it if the session changed any of it (its date too), under *Keeping STATUS.md
+  small*.
 - `skills/cadrer-x-<name>/`: one skill or helper each. A skill: `SKILL.md`, and as needed
   `references/` (read when the skill says), `templates/` (the files it writes), `scripts/lint.py`
   (checks those files), `agents/openai.yaml` (codex). A helper: `aide.md` (see *Writing a skill*).
-- `docs/vision.md`: why cadrer-x exists and for whom. `docs/name.md`: the name and its marketing
-  angle. `docs/roadmap.md`: what comes before and after v2. `docs/conventions.md`: every file name,
-  heading, label and id the skills write and read, and which skill does what. Read the conventions
-  before changing a skill.
-- `install.sh`: installs the skills into a project (`.claude/skills`, `.agents/skills`) or globally.
+- `docs/vision.md`: why cadrer-x exists and for whom. `docs/roadmap.md`: what comes before and after
+  v2. `docs/conventions.md`: every file name, heading, label and id the skills write and read, and
+  which skill does what. Read the conventions before changing a skill.
+- `install.sh` (`install.ps1` on Windows): installs the skills into a project (`.claude/skills`,
+  `.agents/skills`) or globally.
 - `tools/token_estimate.py`: what the skills cost in tokens.
 
 ## Writing a skill
@@ -48,7 +51,8 @@ Every session reads it before working, so it costs context each time. 40 lines a
   one line pointing to it.
 - Its sections are fixed: Goal, Where things are, Trial projects, Next. No new one.
 - Over 40 lines: cut what is done first, then merge lines; never move the excess to another file.
-- `python3 tools/status_check.py` checks the size, the date and the sections.
+- `python3 tools/status_check.py` checks the size, the date and the sections; with no `STATUS.md`,
+  it says so and passes.
 
 ## Checking a change
 

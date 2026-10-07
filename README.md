@@ -12,34 +12,55 @@ titres restent fixes, en français, pour que chaque étape retrouve le travail d
 
 ## Installer
 
-Une commande, depuis le dossier de ton projet. Elle récupère cadrer-x dans `~/cadrer-x` (ou le met à
-jour), puis installe les compétences pour Claude Code, codex ou les deux, selon ce que ton ordinateur
-a. Le dépôt est privé : il faut y avoir accès, et [`gh`](https://cli.github.com) connecté.
+Il te faut d'abord Claude Code ou codex. Ensuite, depuis le dossier de ton projet, une seule ligne.
+
+macOS, Linux (et Git Bash sous Windows) :
 
 ```sh
-gh api repos/Karnonson/cadrer-x/contents/install.sh -H "Accept: application/vnd.github.raw" | bash
+curl -fsSL https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.sh | bash
 ```
 
-Pour un seul des deux : `… | bash -s -- --engine codex`. Relancer la même commande met à jour.
+Windows (PowerShell) :
 
-Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à committer,
-pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise aussi les
-commandes git que les étapes lancent (worktrees, fusions, commits), pour que le développement ne te
-demande pas ton accord à chaque fusion ; `git push` te le demande toujours. `cadrer-x-init` y ajoute les
-commandes du projet (installer, vérifier, lancer).
+```powershell
+irm https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.ps1 | iex
+```
 
-Ailleurs que dans le dossier courant : `~/cadrer-x/install.sh <dossier>`. Pour tous tes projets à la fois :
-`~/cadrer-x/install.sh --global`. Options : `--engine claude` ou `--engine codex` pour un seul des deux,
-`--link` pour suivre ta copie de cadrer-x en direct, `--remove` pour les retirer.
+Elle vérifie que ton ordinateur a git et Python 3 (et Git for Windows sous Windows). S'il en manque,
+elle te dit quoi et comment elle va l'installer, et n'installe rien sans ton oui (`o`). Puis elle
+récupère cadrer-x dans `~/cadrer-x` (sous Windows, `%USERPROFILE%\cadrer-x`) et installe les
+compétences pour Claude Code, codex ou les deux, selon ce que ton ordinateur a. Relancer la même ligne
+met à jour.
+
+Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à
+committer, pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise
+aussi les commandes git que les étapes lancent (worktrees, fusions, commits), pour que le
+développement ne te demande pas ton accord à chaque fusion ; `git push` te le demande toujours.
+`cadrer-x-init` y ajoute les commandes du projet (installer, vérifier, lancer).
+
+Les options sont les mêmes sur les deux systèmes : un `<dossier>` pour installer ailleurs que dans le
+dossier courant, `--global` pour tous tes projets à la fois, `--engine claude` ou `--engine codex` pour
+un seul des deux, `--link` pour suivre ta copie de cadrer-x en direct, `--remove` pour les retirer,
+`--yes` pour répondre oui d'avance. Elles se mettent à la fin :
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.sh | bash -s -- --engine codex
+~/cadrer-x/install.sh --global        # une fois cadrer-x récupéré
+```
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.ps1))) --engine codex
+```
 
 Pour essayer sans toucher un vrai projet, installe-les dans un dossier d'essai, en lien :
 `~/cadrer-x/install.sh --link ~/essais`. Lance tes sessions depuis ce dossier ; une modification des
-compétences dans `~/cadrer-x` s'y voit tout de suite.
+compétences dans `~/cadrer-x` s'y voit tout de suite. Sous Windows, `--link` fait une simple copie :
+relance la ligne pour voir une modification.
 
 Les compétences ne servent que dans le dossier où tu les installes : une session lancée dans un
-sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans le projet
-lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-les pour tous tes projets :
-`~/cadrer-x/install.sh --global`.
+sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans le
+projet lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-les pour tous
+tes projets avec `--global`.
 
 ## Les étapes
 
@@ -163,3 +184,9 @@ uv run tools/token_estimate.py skills chemin/vers/fr/skills  # anglais contre fr
 ```
 
 `--detail o200k` détaille par compétence, `--only o200k` n'en charge qu'un, `--json` donne les chiffres.
+
+## Licence
+
+MIT, voir [`LICENSE`](LICENSE). Sauf `skills/cadrer-x-design-system/direction.md` : adapté de la
+compétence frontend-design d'Anthropic, il reste sous licence Apache-2.0
+([`LICENSE-frontend-design.txt`](skills/cadrer-x-design-system/LICENSE-frontend-design.txt)).

@@ -3,9 +3,11 @@
     python3 tools/status_check.py [STATUS.md]
 
 Prints one line per problem and exits 1, or prints nothing. The rules are in AGENTS.md.
+STATUS.md is local and gitignored: with none (a fresh clone), it says so and exits 0.
 """
 
 import datetime
+import os
 import re
 import sys
 
@@ -35,6 +37,10 @@ def check(path):
 
 
 if __name__ == "__main__":
-    problems = check(sys.argv[1] if len(sys.argv) > 1 else "STATUS.md")
+    path = sys.argv[1] if len(sys.argv) > 1 else "STATUS.md"
+    if not os.path.exists(path):
+        print(f"{path}: none here; it is local and gitignored, so a fresh clone has none")
+        sys.exit(0)
+    problems = check(path)
     print("\n".join(problems), end="\n" if problems else "")
     sys.exit(1 if problems else 0)
