@@ -62,8 +62,9 @@ too: copied byte for byte, never edited.
   class per part it already has. `readme.md`: the tokens, a table of parts (part, classes, component in
   the code), the rules. A product with no styles at all: tokens only, the fewest that make a readable
   page, and ask the person for their brand (colours, a font), one question.
-- **A builder**: the project's tokens and components. The app has no tokens file yet (its first
-  screens): the task whose `Fichiers :` names it writes it, once, from the values of
+- **A builder**: the project's tokens and components. A task whose `Fichiers :` names a tokens file
+  the app does not have yet (the decoupeur decides when) writes it,
+  once, from the values of
   `{feature}/maquette/styles.css`, every token, in the app's own way (its CSS variables, its theme
   file), and copies the fonts of `maquette/fonts/` with their licence; the next tasks use it. Never
   the prototype's file pasted, never its classes, never a design system.

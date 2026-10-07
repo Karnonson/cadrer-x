@@ -68,9 +68,9 @@ Facts are looked up, never asked: what the repo, the code or the docs answer is 
   removed; every task leaves the checks green.
 - **A screen is still a tracer bullet**: the page with its real data and every state its `passation.md`
   section names, not the markup alone. Too big for one task: cut by state or by story, each naming it
-  on `Écrans :`. Every screen is named by at least one task. An app with no tokens file yet: the
-  first task with screens has it, and the fonts' folder, on its `Fichiers :`, and every other task
-  with screens is `Après :` it.
+  on `Écrans :`. Every screen is named by at least one task. An app with no screens yet, and a
+  `passation.md`: the first task with screens has the app's tokens file and its fonts' folder on its
+  `Fichiers :`, and every other task with screens is `Après :` it; else the app's styles stay.
 - **A bug** (`bug : oui` in `decisions.md`): the first task's first box is the report's steps giving
   what should happen, its test written first and seen failing on the code as it is.
 - **`Après :`** names only what a task really stands on: the earlier tasks whose code it cannot be
