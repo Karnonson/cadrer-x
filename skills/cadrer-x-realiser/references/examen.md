@@ -78,15 +78,16 @@ Then the other way round: list each public function, route, page and table the s
 match each to a scenario, `EF<n>` or decision. One matching none is `non demandé` (`À corriger :`,
 removed or asked about), whatever else is wrong with it.
 
-**Would the test fail?** A test that passes whatever the code does proves nothing. For each box, read
-its test: does it assert the spec's own value, at the boundary the scenario names (the last seat, the
-exact hour, the empty list), through the module's entry? For the scenarios that matter most (an `EF<n>`
-that forbids something (« ne doit jamais »), each **À surveiller** line), prove it: in a throwaway
-detached worktree outside the repo (`git worktree add --detach <a temp folder>/relecture-us<n>
-feature/<slug>`), break the one line that makes it true, run that test alone, see whether it fails, then
-`git worktree remove --force` it, never `rm -rf`. Still green on broken code: `Détail :`, but `À
-corriger :` for a security guard or a prohibition (`Bloquant :` if the behaviour it should guard is
-also wrong); no test at all: `À corriger :`.
+**Would the test fail?** A test that passes whatever the code does proves nothing. For each box,
+read its test: does it assert the spec's own value, at the boundary the scenario names (the last
+seat, the exact hour, the empty list), through the module's entry? For the scenarios that matter
+most (an `EF<n>` that forbids something (« ne doit jamais »), each **À surveiller** line), prove it:
+in a throwaway detached worktree outside the repo
+(`git worktree add --detach <a temp folder>/relecture-us<n> feature/<slug>`), break the one line
+that makes it true, run that test alone, see whether it fails, then `git worktree remove --force`
+it, never `rm -rf`. Still green on broken code: `Détail :`, but `À corriger :` for a security guard
+or a prohibition (`Bloquant :` if the behaviour it should guard is also wrong); no test at all:
+`À corriger :`.
 
 A spec's silence is not permission: what a reasonable person expects and the code breaks is a finding,
 the **À surveiller** lines first. A scenario manquant or partiel is `Bloquant :`; the fix round adds
@@ -114,9 +115,9 @@ Each finding quotes its line.
 - **Words**: a name for a thing `{docs}/glossaire.md` names otherwise (« réservation » for
   « inscription »): `Détail :`.
 - **Whose job.** `{docs}/architecture.md`, `{docs}/adr/`, `{docs}/security/`, `CHANGELOG.md` are
-  `/cadrer-x-rendre`'s at ship time: their state is at most `Info :`; a task that edited them is `À
-  corriger :` (another session may edit them too). A need no story asks for (a purge job, a new page)
-  is an `Info :` and a question for the person, never a fix you demand.
+  `/cadrer-x-rendre`'s at ship time: their state is at most `Info :`; a task that edited them is
+  `À corriger :` (another session may edit them too). A need no story asks for (a purge job, a new
+  page) is an `Info :` and a question for the person, never a fix you demand.
 
 ## Screens
 
