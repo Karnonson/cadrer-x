@@ -1,8 +1,7 @@
 # Judging a story's screens
 
-Read when `passation.md` gives the story a screen, on the short path when a box names a page, or for
-a terminal app (`commands.dev` with no `url`). Findings go on the `### Spec` and `### Règles` axes of
-`audit.md`, with the prefixes of `examen.md`.
+Read when realiser names it (its *Reviews* says when). Findings go on the `### Spec` and
+`### Règles` axes of `audit.md`, with the prefixes of `examen.md`.
 
 **The sizes**, given here only: a page at 390 then 1280 wide; a terminal at 80 columns × 24 rows.
 
@@ -33,13 +32,13 @@ a **Nouveauté** of `passation.md`, spacing: `Détail :`. From the code, always,
 screens could not be clicked: each `contenu.md` text in the code (`grep -rn`), each state its code
 path, the project's own components used.
 
-**A terminal app**: `dev.run` (else the README's command) in a terminal of the size above, with a
-temporary home and data folders (never the person's own files). One that waits for keys: left open
-until its ready screen is drawn (a run that quits first proves nothing), then each scenario with the
-keys a person presses. A command that prints and exits: for each scenario, its output at that width,
-its exit status and what it wrote in the temporary folders are the evidence. A crash, a line cut or
-overlapping, a key that does nothing: a finding as above. What it drew or printed: an `Info :` line
-of `### Spec`, as on the short path.
+**A story run in a terminal**: the command its scenarios run (else `dev.run`, else the README's) in
+a terminal of the size above, with a temporary home and data folders (never the person's own files).
+One that waits for keys: left open until its ready screen is drawn (a run that quits first proves
+nothing), then each scenario with the keys a person presses. A command that prints and exits: for
+each scenario, its output at that width, its exit status and what it wrote in the temporary folders
+are the evidence. A crash, a line cut or overlapping, a key that does nothing: a finding as above.
+What it drew or printed: an `Info :` line of `### Spec`, as on the short path.
 
 **The short path** (`voie : courte`, no `passation.md`): the page the box names, at both sizes. Do
 the box's scenario there, check the rest of the page did not move and the console has no error, and

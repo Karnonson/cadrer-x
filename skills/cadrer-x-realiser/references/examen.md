@@ -121,9 +121,8 @@ Each finding quotes its line.
 
 ## Screens
 
-When realiser named `ecrans.md` (a screen in `passation.md`, a page a short path's box names, a
-terminal app): read it whole and follow it. It feeds `Écrans :` in `### Non jugé` for `passation.md`'s
-screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
+When realiser named `ecrans.md`: read it whole and follow it. It feeds `Écrans :` in `### Non jugé`
+for `passation.md`'s screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
 
 ## One prefix per finding
 

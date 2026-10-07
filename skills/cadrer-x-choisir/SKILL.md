@@ -336,10 +336,11 @@ when you close the designer for good.
    too; a spec change that moves a screen goes to the designer.
 2. **The design** (stage `haute fidélité`), once the spec is `validée`: the same designer resumed,
    else a fresh one. Show the address, each screen and its states in one line, then its questions,
-   one per message. With the claude-design tools in your session (the designer has none), offer once
-   to put the same files in a Claude Design project, to see them on another device: on a yes,
-   read `references/claude-design.md` whole and follow it yourself. Each correction goes to the
-   designer, until a clear yes that names what it covers: « Ces mots et ce look : c'est bon ? »
+   one per message. With the claude-design tools in your session and no https `Lien :` in
+   `passation.md`, offer once a Claude Design project of the same files, to see them on another
+   device. On a yes, and later only when they ask, read `references/claude-design.md` whole and
+   follow it yourself. Each correction goes to the designer, until a clear yes that names what it
+   covers: « Ces mots et ce look : c'est bon ? »
 3. **On the yes**, the designer (stage `passation`, with what `claude-design.md` gave for
    `passation.md`) writes `passation.md`. Commit the paths its reports named: `maquette — <Titre>`.
    Close the designer and its server, say in one line that you go on with the tasks, and go back to

@@ -15,9 +15,8 @@ read it whole and follow it. Not there: go on without it.
 ## Every turn
 
 - **One question per message**, the one that changes the most, with your recommendation a plain
-  "oui" accepts. One question has one thing to answer: never two asks joined by "and" or "or".
-  Questions that hang on nothing still open may go out together, numbered, each with its
-  recommendation: they answer in one message.
+  "oui" accepts. Questions that hang on nothing still open may go out together, numbered, each with
+  its recommendation: they answer in one message.
 
 ## The spec
 

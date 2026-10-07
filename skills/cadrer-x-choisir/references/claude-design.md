@@ -1,8 +1,7 @@
 # The same files in Claude Design
 
-Followed by choisir itself on the person's yes; a later round only when they ask. `maquette/` stays
-the source: the builders read it, maybe on an engine with no Claude Design. Each step needs the one
-before.
+Followed by choisir itself when the person says yes or asks. `maquette/` stays the source: the
+builders read it, maybe on an engine with no Claude Design. Each step needs the one before.
 
 1. **The project.** First time: `list_design_systems`, then `create_project` named
    `<repo folder> — <feature folder>` (`carnet — 0001-recherche-notes`), with `design_system_id` only
