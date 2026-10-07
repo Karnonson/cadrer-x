@@ -131,7 +131,7 @@ screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
 | Prefix | When | Blocks |
 |---|---|---|
 | `Bloquant :` | wrong behaviour, a scenario manquant or partiel, someone else's data reachable, a secret, a constitution rule broken, a lowered bar hiding a wrong behaviour | yes |
-| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, a border crossed, a bar lowered during the build, a text not `contenu.md`'s | yes |
+| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, code no scenario asks for, a border crossed, a bar lowered during the build, a text not `contenu.md`'s | yes |
 | `Détail :` | ships as is: style, naming, a design token, a weak test (it exists but would not fail) | no |
 | `Info :` | what you checked and found right, what is someone else's, a question for the person | no |
 | `Corrigé :` | a tour 2 finding the fix round closed | no |

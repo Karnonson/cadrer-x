@@ -159,8 +159,9 @@ silent (the stack of a new project, a doc its content cannot place, a failing ch
 
 ### 2. `cadrer-x.yml`
 
-The commands the repo defines, never invented: the manifest's scripts and the lockfile's manager
-(`pnpm-lock.yaml` → `pnpm install --frozen-lockfile`), pyproject.toml, the Makefile.
+The commands the repo defines, never invented (but the plain server below): the manifest's scripts
+and the lockfile's manager (`pnpm-lock.yaml` → `pnpm install --frozen-lockfile`), pyproject.toml,
+the Makefile.
 
 ```yaml
 name: <repo name>
@@ -179,8 +180,7 @@ the app, `url:` only for pages (plain pages, no dev script: `python3 -m http.ser
 127.0.0.1`). Tell them the checks run after every task, so one that fails today fails every task:
 run each once now, and drop or fix a failing one with them. No code yet: `checks: []`, `dev:` only
 for plain pages, and say the first feature's foundation task fills them. No `envs:`:
-`/cadrer-x-rendre` adds each environment (`url`, `deploy`, `rollback`) the first time it puts the
-product online.
+`/cadrer-x-rendre` adds each environment the first time it puts the product online.
 
 **`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
 `permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` puts there when
