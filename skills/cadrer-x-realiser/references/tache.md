@@ -91,10 +91,12 @@ ticked here; never rewrite an old task. A finding you think is wrong: a question
 
 ## Up to date with main
 
-When realiser's prompt says so: in the feature's own worktree, finish the merge of the main branch it
-started (or start it). Each conflict from both sides' commits and `spec.md`, both sides' behaviour
-kept; the checks green, as *Done means fresh evidence* says; commit. A text or a look the person
-chose that the two sides settle differently: a question.
+When realiser's prompt says so, there is no task: no task worktree, no `Fichiers :` scope, nothing
+to tick. In `.worktrees/feature.<slug>`, finish the merge of the main branch realiser started (or
+start it), each conflict settled from both sides' commits and `spec.md`. Done: both sides' behaviour
+kept, the whole check command green in this run, the merge committed on `feature/<slug>`; report
+`Branche : feature/<slug>, <commit>` and `À jour : <main>`. A text or a look the person chose that
+the two sides settle differently: a question.
 
 ## The report
 

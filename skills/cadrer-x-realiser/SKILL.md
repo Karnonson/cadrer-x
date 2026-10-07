@@ -38,10 +38,11 @@ Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --li
   first message.
 - **State** lives in the files, so a stopped run resumes: tasks `[x]` on the feature branch are built;
   a story with a `validé` section in `audit.md` is done, unless a task of it is still `[ ]` (*The end*,
-  or a package's flaw) or the person typed its `US<n>`: such a task is built, then the story reviewed
-  again; a leftover `tache/<slug>-*` branch is a builder's unmerged work (merged as below if its
+  or a package's flaw), the person typed its `US<n>`, or a catch-up merge or a later task changed
+  one of its tasks' `Fichiers :` (unclear: all): such a task is built, then the story reviewed again
+  (a new tour 1); a leftover `tache/<slug>-*` branch is a builder's unmerged work (merged as below if its
   commit ticks the task, else restarted).
-- **Up to date.** Each run, before any subagent: `git -C <top>/.worktrees/feature.<slug> merge
+- **Catch-up.** Each run, before any subagent: `git -C <top>/.worktrees/feature.<slug> merge
   <main>`, then the whole check command there (`cd`). A conflict, or red: a builder, prompt
   « … to bring `feature/<slug>` up to date with `<main>` … »; its `fait` needs no merge.
 
@@ -77,7 +78,7 @@ tool: the builder reads the file. Its last message is its report.
 ## Merge into the feature branch
 
 A task merge is local and undoable: no yes needed. While a reviewer reads a feature branch, hold
-its task merges until the audit is committed. Each git command names its folder with `-C` (`<top>`:
+its task merges and the catch-up until the audit is committed. Each git command names its folder with `-C` (`<top>`:
 the repo's top); never a task merge or a reset in the main checkout.
 
 1. `git -C <top>/.worktrees/tache.<slug>-t<nn> merge feature/<slug>`, then the whole check command
@@ -137,5 +138,4 @@ built none of the story, reviews it itself: `references/examen.md`, with what *R
 |---|---|
 | "The builder noted a missing text; the review will catch it." | A gap a person would see is a question now. |
 | "Only a text; I'll edit it myself." | A task: *The end*. |
-| "Tour 2 still à corriger; one more round." | Two tours, then the person decides. |
 | "`--ff-only` refused; I'll redo it here." | Step 1 again, `-C` and all. |
