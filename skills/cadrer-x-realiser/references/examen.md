@@ -85,8 +85,9 @@ exact hour, the empty list), through the module's entry? For the scenarios that 
 that forbids something (« ne doit jamais »), each **À surveiller** line), prove it: in a throwaway
 detached worktree outside the repo (`git worktree add --detach <a temp folder>/examiner-us<n>
 feature/<slug>`), break the one line that makes it true, run that test alone, see whether it fails, then
-`git worktree remove --force` it. Still green on broken code: `Détail :` (`Bloquant :` if the
-behaviour it should guard is also wrong); no test at all: `À corriger :`. Never break anything in the
+`git worktree remove --force` it. Still green on broken code: `Détail :`, but `À corriger :` for
+a security guard or a prohibition (`Bloquant :` if the behaviour it should guard is also wrong); no
+test at all: `À corriger :`. Never break anything in the
 feature's own worktree.
 
 A spec's silence is not permission: what a reasonable person expects and the code breaks is a finding,
@@ -104,8 +105,7 @@ Each finding quotes its line.
   read or changed without checking it is the person's own, a role checked only in the page, an error
   showing too much, personal data in a log.
 - **Each risk** of the tasks' `Risques :`: its test exists, asserts the refusal **and** that nothing
-  changed. None: `À corriger :`; one passing without the guard: `Détail :`; the guard missing:
-  `Bloquant :`.
+  changed. None, or one passing without the guard: `À corriger :`; the guard missing: `Bloquant :`.
 - **Constitution**: each `M<n>` the story touches. Broken: `Bloquant :`.
 - **Module borders**: a module reading another's tables, going past its entry, a call the map does not
   list: quote the import or query, the **Modules** line it breaks, and the other module's entry
@@ -131,8 +131,8 @@ screens, else an `Info :` line of `### Spec`. Not named: no `Écrans :` line.
 | Prefix | When | Blocks |
 |---|---|---|
 | `Bloquant :` | wrong behaviour, a scenario manquant or partiel, someone else's data reachable, a secret, a constitution rule broken, a lowered bar hiding a wrong behaviour | yes |
-| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, code no scenario asks for, a border crossed, a bar lowered during the build, a text not `contenu.md`'s | yes |
-| `Détail :` | ships as is: style, naming, a design token, a weak test (it exists but would not fail) | no |
+| `À corriger :` | what else breaks a behaviour, leaks data or breaches a rule: a scenario or a risk with no test at all, a test of a security guard or a prohibition still green without it, code no scenario asks for, a border crossed, a bar lowered during the build, a text not `contenu.md`'s | yes |
+| `Détail :` | ships as is: style, naming, a design token, any other weak test (it exists but would not fail) | no |
 | `Info :` | what you checked and found right, what is someone else's, a question for the person | no |
 | `Corrigé :` | a tour 2 finding the fix round closed | no |
 
