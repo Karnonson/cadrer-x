@@ -345,9 +345,9 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-21 Proa skills became 4 skills, 1 optional check, 1 refactor skill and 6 helpers; `retour` sends feedback. `init` comes first,
-once per project; the next six steps spell CADRER, in order; A and D are references of choisir, E of
-realiser. A skill holding several steps checks which one's file is missing and runs that one. A helper,
+21 Proa skills became 4 skills, 1 optional check, 1 refactor skill and 6 helpers; `retour` sends
+feedback. `init` comes first, once per project; the next six steps spell CADRER, in order; A and D
+are references of choisir, E of realiser. A skill holding several steps checks which one's file is missing and runs that one. A helper,
 `skills/cadrer-x-<name>/aide.md`, is read by path by the skills that need it, never run on its own.
 
 | | Skill | Its steps (Proa skills merged) | Writes |
@@ -366,7 +366,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 |---|---|---|---|
 | — | `cadrer-x-ranger` | Lays out existing code as `cadrer-x-modules/references/structure.md` says, nothing the product does changing: tests and captures of today first, one module per commit, a fresh subagent looks for any change, merged on the person's yes. Offered by `init`; reminded by `choisir` while **À faire** holds it | `docs/rangement.md`, the code moved, **Modules** |
 | — | `cadrer-x-retour` | At the end of each skill run in the main session, read by that skill: with `retours: oui`, a short report of the run (step reached, how it ended, questions asked twice, lint failures, corrections; nothing of the product), shown whole, then a GitHub issue `Retour : <skill> — <section>` on `Karnonson/cadrer-x` (`gh issue create -R`, else a prefilled link). No `retours:`: one consent question. Run by the person, it sends one report on their words | `retours:` in `cadrer-x.yml` |
-| — | `cadrer-x-verifier` | Read-only, in a fresh session or a subagent `choisir` starts, after the spec or after the tasks: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the stage that fixes it (`→ spec` or `→ tâches`). | `verification.md` |
+| — | `cadrer-x-verifier` | Read-only (but `retour`'s `retours:` line), in a fresh session or a subagent `choisir` starts, after the spec or after the tasks: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the stage that fixes it (`→ spec` or `→ tâches`). | `verification.md` |
 
 | Helper (`aide.md`) | Merges | Read by |
 |---|---|---|
@@ -400,9 +400,11 @@ and, only when one is missing or Python 3 has another name, tells Claude so in i
 can't ship permissions, so `init` merges `skills/cadrer-x-init/references/permissions.json` into the
 project's `.claude/settings.json`.
 
-**`install.sh`** (`install.ps1` on Windows, same options), for codex or to commit the skills with the
-project: it copies each skill and helper into the project by default, `.claude/skills` and
+**`install.sh`** (`install.ps1` on Windows, same options), for codex or to commit the skills with
+the project: it copies each skill and helper into the project by default, `.claude/skills` and
 `.agents/skills`, and merges the same `permissions.json` into `.claude/settings.json` (git commands
-under `allow`, `git push` under `ask`); `init` adds the commands of `cadrer-x.yml`, and `realiser` any
-it finds missing. `--global` puts them in `~/.claude/skills` and `~/.agents/skills` instead. `--link`
-symlinks to the checkout, to try changes live; `--remove` takes them out.
+and `retour`'s two `gh` commands under `allow`, `git push` under `ask`); it writes `retour`'s
+`version` file (`git describe --tags`) beside a copied `cadrer-x-retour`; `init` adds the commands
+of `cadrer-x.yml`, and `realiser` any it finds missing. `--global` puts them in `~/.claude/skills`
+and `~/.agents/skills` instead. `--link` symlinks to the checkout, to try changes live; `--remove`
+takes them out.

@@ -209,8 +209,8 @@ Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`
 | Quatre compétences, tokenizer o200k | 4 987 | 5 855 (1,17×) |
 | Médiane de sept tokenizers publics | | 1,26× (de 1,17× à 1,28×) |
 
-Au 2026-10-07, les six compétences et les six aides font environ 29 500 tokens en anglais (o200k ;
-55 500 avec les fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 300 tokens de plus,
+Au 2026-10-08, les sept compétences et les six aides font environ 31 100 tokens en anglais (o200k ;
+57 200 avec les fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 300 tokens de plus,
 payés à chaque étape lancée : une fois par tâche pour l'agent qui la développe, une fois par récit
 pour celui qui le relit. Le tokenizer de Claude n'est pas public : le ratio vient des tokenizers
 publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.

@@ -2,7 +2,7 @@
 
 Skills for Claude Code and codex that take someone who doesn't code from an idea to software online:
 `init`, then Choisir, Affiner, Découper (`choisir`), Réaliser, Examiner (`realiser`), Rendre
-(`rendre`); `ranger` and `verifier` beside them. Free, for a francophone audience.
+(`rendre`); `ranger`, `verifier` and `retour` beside them. Free, for a francophone audience.
 This repository holds the skills only; marketing beyond the name, the course and lead magnets
 live elsewhere.
 

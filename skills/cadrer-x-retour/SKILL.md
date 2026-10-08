@@ -48,7 +48,8 @@ From this conversation only. Under 1,500 characters. These lines, each with a va
 ```
 
 **Version**: the file `version` beside this one; else, this folder being a git checkout, `git -C
-<this folder> describe --tags --always`; else `inconnue`.
+<this folder> describe --tags --always`; else, as a Claude Code plugin (`plugins/cache/` in this
+file's path), the name of the folder holding `skills/`; else `inconnue`.
 
 **Never in it**, because it is public and under their name: the product's or the feature's name,
 the person's words quoted, any file's content, code, a path beyond cadrer-x's own file names, a URL,
