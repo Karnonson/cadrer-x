@@ -114,10 +114,10 @@ tes projets avec `--global`.
 /cadrer-x-retour [mots]        quand tu veux : un court retour aux auteurs de cadrer-x
 ```
 
-À la fin de chaque étape, si tu l'as accepté une fois (`retours: oui` dans `cadrer-x.yml`), un court
-rapport part en ticket GitHub sur le dépôt cadrer-x, sous ton compte : l'étape, jusqu'où elle est
-allée, ce qui a coincé, jamais rien de ton produit. Il t'est montré en entier à chaque fois. Pour
-arrêter, dis-le, ou mets `retours: non`.
+Si tu l'acceptes une fois, chaque étape envoie un court rapport à sa fin. Il est publié sur GitHub,
+sous ton compte, dans le dépôt cadrer-x. Il indique l'étape, où elle s'est arrêtée et ce qui a posé
+problème. Il ne dit rien de ton produit ni de ton code. Tu le vois en entier chaque fois. Pour
+arrêter, dis-le ou écris `retours: non` dans `cadrer-x.yml`.
 
 En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
 `rendre` ; les deux premières finissent en te donnant la commande suivante. Tu peux toujours arrêter
