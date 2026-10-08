@@ -14,8 +14,9 @@ Dans Claude Code, tape cette commande, puis redémarre Claude Code :
 ```
 
 Si ta version de Claude Code ne la connaît pas, tape `/plugin marketplace add Karnonson/cadrer-x`,
-puis `/plugin install cadrer-x@cadrer-x`. Pour mettre à jour : `/plugin marketplace update
-cadrer-x`.
+puis `/plugin install cadrer-x@cadrer-x`. Pour mettre à jour, ouvre `/plugin`, onglet des
+marketplaces, choisis cadrer-x, puis la mise à jour, et tape `/reload-plugins`. Dans ce même onglet,
+tu peux aussi activer la mise à jour automatique.
 
 Pour que toute l'équipe d'un projet ait le plugin, lance ces deux commandes dans le dossier du
 projet, puis ajoute `.claude/settings.json` au dépôt :
