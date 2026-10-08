@@ -17,7 +17,7 @@ person.
 ## Layout
 
 ```
-cadrer-x.yml                      project file: code, install, checks
+cadrer-x.yml                      project file: code, install, checks, retours
 docs/architecture.md              stack, runtime, Modules
 docs/glossaire.md                 the product's and its domain's words; never a synonym
 docs/constitution.md
@@ -286,7 +286,8 @@ docs as `livraison — <Titre> <version>` without asking; then one yes, its summ
 covers the push, the PR from `pr.md` and its merge with a remote, or `git merge --no-ff` without.
 Going online (`references/en-ligne.md`) has its own yes; it commits `livraison — <adresse>` on the
 main branch, and writes the commands that worked into
-`cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`).
+`cadrer-x.yml` → `envs` (`<env>: {url, deploy, rollback}`). `cadrer-x.yml` → `retours: oui | non`
+is the person's one answer to `cadrer-x-retour`'s consent question; absent, it is asked.
 
 ### docs/security/
 
@@ -344,7 +345,7 @@ ADR template: `skills/cadrer-x-rendre/templates/adr.md` (with `**Date** :`, `**F
 
 ## Skills
 
-21 Proa skills became 4 skills, 1 optional check, 1 refactor skill and 6 helpers. `init` comes first,
+21 Proa skills became 4 skills, 1 optional check, 1 refactor skill and 6 helpers; `retour` sends feedback. `init` comes first,
 once per project; the next six steps spell CADRER, in order; A and D are references of choisir, E of
 realiser. A skill holding several steps checks which one's file is missing and runs that one. A helper,
 `skills/cadrer-x-<name>/aide.md`, is read by path by the skills that need it, never run on its own.
@@ -364,6 +365,7 @@ Optional, outside the acronym, like spec-kit's `/analyze`:
 | | Skill | What it does | Writes |
 |---|---|---|---|
 | — | `cadrer-x-ranger` | Lays out existing code as `cadrer-x-modules/references/structure.md` says, nothing the product does changing: tests and captures of today first, one module per commit, a fresh subagent looks for any change, merged on the person's yes. Offered by `init`; reminded by `choisir` while **À faire** holds it | `docs/rangement.md`, the code moved, **Modules** |
+| — | `cadrer-x-retour` | At the end of each skill run in the main session, read by that skill: with `retours: oui`, a short report of the run (step reached, how it ended, questions asked twice, lint failures, corrections; nothing of the product), shown whole, then a GitHub issue `Retour : <skill> — <section>` on `Karnonson/cadrer-x` (`gh issue create -R`, else a prefilled link). No `retours:`: one consent question. Run by the person, it sends one report on their words | `retours:` in `cadrer-x.yml` |
 | — | `cadrer-x-verifier` | Read-only, in a fresh session or a subagent `choisir` starts, after the spec or after the tasks: checks the stories themselves before any code. Each acceptance line can be checked without code; each decision of `decisions.md` lands in a story or under `Pas encore`; once `taches.md` exists, every story has its tasks under `Couverts` and every task points to a story or is `Après :` one; nothing in the spec contradicts `decisions.md` or `docs/constitution.md`. Fixes nothing: each finding names the stage that fixes it (`→ spec` or `→ tâches`). | `verification.md` |
 
 | Helper (`aide.md`) | Merges | Read by |

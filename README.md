@@ -111,7 +111,13 @@ tes projets avec `--global`.
 /cadrer-x-realiser <nom>       tout le développement : chaque tâche test d'abord, chaque récit relu
 /cadrer-x-rendre <nom>         la doc et la version, puis un seul oui pour envoyer et fusionner,
                                puis la mise en ligne, sur son propre oui
+/cadrer-x-retour [mots]        quand tu veux : un court retour aux auteurs de cadrer-x
 ```
+
+À la fin de chaque étape, si tu l'as accepté une fois (`retours: oui` dans `cadrer-x.yml`), un court
+rapport part en ticket GitHub sur le dépôt cadrer-x, sous ton compte : l'étape, jusqu'où elle est
+allée, ce qui a coincé, jamais rien de ton produit. Il t'est montré en entier à chaque fois. Pour
+arrêter, dis-le, ou mets `retours: non`.
 
 En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
 `rendre` ; les deux premières finissent en te donnant la commande suivante. Tu peux toujours arrêter

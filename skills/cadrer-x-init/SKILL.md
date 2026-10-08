@@ -17,6 +17,10 @@ between tool calls too); in French, *tu* or *vous* as they write, *vous* when yo
 never both. File names, headings and labels stay exactly as written here, in every language: the
 later skills find them by these names.
 
+**Retour.** In the main session (never as a subagent), before the message that ends this run (the
+stop, the next command given, or the person stopping): open `../cadrer-x-retour/SKILL.md`, beside
+this skill's folder, → *When*, and follow it. Not there: go on without it.
+
 ## Which step
 
 Read first: the README, the manifest (package.json, pyproject.toml, Makefile…), `cadrer-x.yml` (`docs:`,
@@ -180,13 +184,14 @@ the app, `url:` only for pages (plain pages, no dev script: `python3 -m http.ser
 127.0.0.1`). Tell them the checks run after every task, so one that fails today fails every task:
 run each once now, and drop or fix a failing one with them. No code yet: `checks: []`, `dev:` only
 for plain pages, and say the first feature's foundation task fills them. No `envs:`:
-`/cadrer-x-rendre` adds each environment the first time it puts the product online.
+`/cadrer-x-rendre` adds each environment the first time it puts the product online; `retours:`
+comes from `cadrer-x-retour`.
 
 **`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
 `permissions.allow` as `Bash(<the command>)`, and each rule of `references/permissions.json` missing
-from `permissions.allow` / `permissions.ask` (the git commands the steps run; `git push` stays asked),
-so a build is not a prompt per check or merge. Nothing else; never `git push` in `allow`. Committed
-with the rest.
+from `permissions.allow` / `permissions.ask` (the git commands the steps run, the two `gh` commands
+`cadrer-x-retour` sends with; `git push` stays asked), so a build is not a prompt per check or
+merge. Nothing else; never `git push` in `allow`. Committed with the rest.
 
 ### 3. `{docs}/architecture.md`
 

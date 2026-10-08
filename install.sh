@@ -284,6 +284,8 @@ for engine in $engines; do
     else
       mkdir -p "$target"
       (cd "$skill" && tar --exclude=__pycache__ --exclude="*.pyc" -cf - .) | (cd "$target" && tar -xf -)
+      # A report names the version it came from; a linked skill reads it from the checkout instead.
+      [ "$name" != cadrer-x-retour ] || { git -C "$src" describe --tags --always 2>/dev/null || echo inconnue; } > "$target/version"
     fi
     printf '%-10s%s\n' "$([ "$link" = 1 ] && echo lié || echo copié)" "$target"
   done

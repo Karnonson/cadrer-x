@@ -20,6 +20,10 @@ write, *vous* when unsure, never both. Commit messages, file names and labels st
 yourself (`references/tache.md` by hand or with no subagents, `references/examen.md` in a review
 session): after a summary of this conversation, read it again.
 
+**Retour.** In the main session (never as a subagent), before the message that ends this run (the
+stop, the next command given, or the person stopping): open `../cadrer-x-retour/SKILL.md`, beside
+this skill's folder, → *When*, and follow it. Not there: go on without it.
+
 ## What to build
 
 Read `cadrer-x.yml` (`docs:`, `commands`), `git worktree list`, `git branch --list 'feature/*' 'tache/*'`.

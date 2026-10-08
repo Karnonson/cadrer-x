@@ -20,6 +20,10 @@ commit messages stay as written here.
 **Helpers.** Where this file says *read `cadrer-x-<name>`*, open `../cadrer-x-<name>/aide.md`, beside
 this skill's folder, at that moment; read it whole and follow it. Not there: go on without it.
 
+**Retour.** In the main session (never as a subagent), before the message that ends this run (the
+stop, the next command given, or the person stopping): open `../cadrer-x-retour/SKILL.md`, beside
+this skill's folder, → *When*, and follow it. Not there: go on without it.
+
 ## Where you are
 
 Read first: `cadrer-x.yml` (`docs:`, `commands`), `{docs}/architecture.md` (**Modules**, **À

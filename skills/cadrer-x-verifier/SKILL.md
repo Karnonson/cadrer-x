@@ -19,6 +19,10 @@ French, *tu* or *vous* as they write, *vous* when you can't tell, never both. Fi
 labels and ids stay exactly as written here and in the template, in every language: `choisir` reads
 them by these names.
 
+**Retour.** In the main session (never as a subagent), before the message that ends this run (the
+stop, the next command given, or the person stopping): open `../cadrer-x-retour/SKILL.md`, beside
+this skill's folder, → *When*, and follow it. Not there: go on without it.
+
 ## Which feature, and how far
 
 Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'feature/*'`.

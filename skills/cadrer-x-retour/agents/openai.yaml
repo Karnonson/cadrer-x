@@ -1,0 +1,5 @@
+interface:
+  display_name: "cadrer-x retour"
+  short_description: "Un court rapport sur la session, envoyé en ticket GitHub avec ton accord"
+policy:
+  allow_implicit_invocation: false
