@@ -390,7 +390,9 @@ line of its report), and one reviewer at a time runs beside the builders.
 
 Two ways, the same skills. **The Claude Code plugin**: the repo is both the marketplace and the
 plugin (`.claude-plugin/marketplace.json`, `.claude-plugin/plugin.json`, both named `cadrer-x`; no
-`version`, so each commit on `main` is an update). Its skills answer as `/cadrer-x-<name>` and
+`version`, so each commit on `main` is an update). Installed for the user by default; `--scope project`
+on both `claude plugin marketplace add` and `claude plugin install` writes them into the project's
+`.claude/settings.json`. Its skills answer as `/cadrer-x-<name>` and
 `/cadrer-x:cadrer-x-<name>`. Its `SessionStart` hook (`hooks/check-env.sh`) checks git and Python 3
 and, only when one is missing or Python 3 has another name, tells Claude so in its context. A plugin
 can't ship permissions, so `init` merges `skills/cadrer-x-init/references/permissions.json` into the

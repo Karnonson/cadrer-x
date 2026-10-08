@@ -29,6 +29,17 @@ a git et Python 3 ; s'il en manque, Claude te dit quoi et comment l'installer, e
 ton oui. `cadrer-x-init` autorise dans le projet les commandes git que les étapes lancent ; `git push`
 te sera toujours demandé.
 
+Par défaut, le plugin sert à toi seul, dans tous tes projets. Pour que tout le monde sur un projet
+l'ait aussi, lance depuis le dossier du projet, dans un terminal :
+
+```sh
+claude plugin marketplace add Karnonson/cadrer-x --scope project
+claude plugin install cadrer-x@cadrer-x --scope project
+```
+
+Les deux s'écrivent dans `.claude/settings.json`, à committer : à l'ouverture du projet, Claude Code
+propose le plugin à chacun.
+
 Pour mettre à jour : `/plugin marketplace update cadrer-x`, ou active la mise à jour automatique dans
 `/plugin`, onglet des marketplaces. Tant que le dépôt est privé, il faut y avoir accès et que git soit
 connecté à GitHub (`gh auth login`, puis `gh auth setup-git`).
