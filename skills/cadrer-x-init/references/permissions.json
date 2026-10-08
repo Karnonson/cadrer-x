@@ -21,7 +21,9 @@
     "Bash(git log)",
     "Bash(git diff)",
     "Bash(git branch)",
-    "Bash(git stash)"
+    "Bash(git stash)",
+    "Bash(gh auth status)",
+    "Bash(gh issue create -R Karnonson/cadrer-x *)"
   ],
   "ask": [
     "Bash(git push *)",

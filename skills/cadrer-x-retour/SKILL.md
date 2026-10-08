@@ -56,12 +56,12 @@ a person's or company's name, an account, an amount, a secret. In doubt, leave i
 
 ## Send it
 
-Write it to a temporary file outside the repository; title `Retour : <skill> — <section reached>`.
-Show the report whole in one message, then:
+Title: `Retour : <skill> — <section reached>`. Show the report whole in one message, then:
 
-- `gh auth status` logged in: `gh issue create -R Karnonson/cadrer-x --title "<title>" --body-file
-  <file>`. Always `-R`: without it the ticket lands in the person's own repository. Give its address;
-  to take it back, they close it there.
+- `gh auth status` logged in: `gh issue create -R Karnonson/cadrer-x --title "<title>" --body-file -
+  <<'RETOUR_FIN'`, the report, then `RETOUR_FIN`: one command, so the install's permission covers it
+  and no file is written. Always `-R`: without it the ticket lands in the person's own repository.
+  Give its address; to take it back, they close it there.
 - No `gh`, not logged in, or refused: the link `https://github.com/Karnonson/cadrer-x/issues/new`
   with `?title=` and `&body=`, both URL-encoded. One click from them sends it; say so.
 
