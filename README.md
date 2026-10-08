@@ -1,55 +1,58 @@
 # cadrer-x
 
-Des compétences pour Claude Code et codex. Elles mènent un projet de l'idée à la mise en ligne, une
-étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper (`choisir`), **R**éaliser,
-**E**xaminer (`realiser`), **R**endre (`rendre`). Tu décides aux moments qui comptent.
+cadrer-x est un ensemble de compétences pour Claude Code et codex. Elles mènent un projet de l'idée
+à la mise en ligne, une étape à la fois : `init`, puis **C**hoisir, **A**ffiner, **D**écouper
+(`choisir`), **R**éaliser, **E**xaminer (`realiser`), **R**endre (`rendre`). Tu décides aux moments
+qui comptent.
 
 Chaque étape écrit un fichier que la suivante lit. Une commande enchaîne ses étapes dans la même
-session, sauf si tu l'arrêtes ; d'une commande à l'autre, c'est toi qui lances la suite
-([Les étapes](#les-étapes)). Rien ne part sans ton oui : ni la spec, ni la fusion dans la branche
-principale, ni la mise en ligne. Les étapes te parlent dans ta langue ; les noms de fichiers et les
-titres restent fixes, en français, pour que chaque étape retrouve le travail de la précédente.
+session, sauf si tu l'arrêtes. D'une commande à l'autre, c'est toi qui lances la suite (voir [Les
+étapes](#les-étapes)). Rien ne part sans ton oui : ni la spec (le document qui décrit la
+fonctionnalité), ni la fusion dans la branche principale, ni la mise en ligne. Les étapes te parlent
+dans ta langue. Les noms de fichiers et les titres, eux, restent fixes et en français : chaque étape
+retrouve ainsi le travail de la précédente.
 
 ## Installer
 
 ### Avec Claude Code : le plugin
 
-Le plus simple, sur macOS, Linux et Windows. Dans Claude Code, tape :
+C'est la méthode la plus simple, sur macOS, Linux et Windows. Dans Claude Code, tape :
 
 ```
 /plugin install cadrer-x --marketplace Karnonson/cadrer-x
 ```
 
-Avec une version plus ancienne de Claude Code : `/plugin marketplace add Karnonson/cadrer-x`, puis
-`/plugin install cadrer-x@cadrer-x`. Redémarre ensuite Claude Code.
+Avec une version plus ancienne de Claude Code, tape `/plugin marketplace add Karnonson/cadrer-x`,
+puis `/plugin install cadrer-x@cadrer-x`. Redémarre ensuite Claude Code.
 
-Les étapes servent alors dans tous tes projets : `/cadrer-x-init`, `/cadrer-x-choisir`… (ou leur nom
-complet, `/cadrer-x:cadrer-x-init`). Au début de chaque session, le plugin vérifie que ton ordinateur
-a git et Python 3 ; s'il en manque, Claude te dit quoi et comment l'installer, et n'installe rien sans
-ton oui. `cadrer-x-init` autorise dans le projet les commandes git que les étapes lancent ; `git push`
-te sera toujours demandé.
+Les étapes sont alors disponibles dans tous tes projets : `/cadrer-x-init`, `/cadrer-x-choisir`…
+(ou leur nom complet, `/cadrer-x:cadrer-x-init`). Quand tu ouvres une session, le plugin vérifie
+que Git et Python 3 sont installés sur ton ordinateur. S'il manque l'un des deux, Claude te dit
+lequel et comment l'installer, et il n'installe rien sans ton oui. `cadrer-x-init` autorise dans le
+projet les commandes Git que les étapes lancent, et la commande `gh` qui envoie les retours. Pour
+`git push`, ton accord te sera toujours demandé.
 
-Par défaut, le plugin sert à toi seul, dans tous tes projets. Pour que tout le monde sur un projet
-l'ait aussi, lance depuis le dossier du projet, dans un terminal :
+Par défaut, le plugin ne sert qu'à toi, dans tous tes projets. Pour que toutes les personnes du
+projet l'aient aussi, lance ces commandes dans un terminal, depuis le dossier du projet :
 
 ```sh
 claude plugin marketplace add Karnonson/cadrer-x --scope project
 claude plugin install cadrer-x@cadrer-x --scope project
 ```
 
-Les deux s'écrivent dans `.claude/settings.json`, à committer : à l'ouverture du projet, Claude Code
-propose le plugin à chacun.
+Ces deux commandes inscrivent le plugin dans `.claude/settings.json`, un fichier à inclure dans le
+dépôt. À l'ouverture du projet, Claude Code propose alors le plugin à chaque personne.
 
-Pour mettre à jour : `/plugin marketplace update cadrer-x`, ou active la mise à jour automatique dans
-`/plugin`, onglet des marketplaces. Tant que le dépôt est privé, il faut y avoir accès et que git soit
-connecté à GitHub (`gh auth login`, puis `gh auth setup-git`).
+Pour mettre à jour le plugin, tape `/plugin marketplace update cadrer-x`. Tu peux aussi activer la
+mise à jour automatique dans `/plugin`, onglet des marketplaces.
 
-Le plugin ou les lignes ci-dessous, pas les deux dans le même projet : les étapes apparaîtraient deux
-fois.
+Dans un même projet, choisis le plugin ou l'installation de la section suivante, pas les deux :
+sinon, les étapes apparaîtraient deux fois.
 
 ### Avec codex, ou pour mettre les compétences dans le projet
 
-Il te faut d'abord Claude Code ou codex. Ensuite, depuis le dossier de ton projet, une seule ligne.
+Il te faut d'abord Claude Code ou codex. Ensuite, il suffit de lancer une seule ligne dans un
+terminal, depuis le dossier de ton projet.
 
 macOS, Linux (et Git Bash sous Windows) :
 
@@ -63,22 +66,25 @@ Windows (PowerShell) :
 irm https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.ps1 | iex
 ```
 
-Elle vérifie que ton ordinateur a git et Python 3 (et Git for Windows sous Windows). S'il en manque,
-elle te dit quoi et comment elle va l'installer, et n'installe rien sans ton oui (`o`). Puis elle
-récupère cadrer-x dans `~/cadrer-x` (sous Windows, `%USERPROFILE%\cadrer-x`) et installe les
-compétences pour Claude Code, codex ou les deux, selon ce que ton ordinateur a. Relancer la même ligne
-met à jour.
+Cette ligne vérifie que Git et Python 3 sont installés sur ton ordinateur (et Git for Windows sous
+Windows). S'il en manque un, elle te dit lequel et comment elle va l'installer, et elle n'installe
+rien sans ton oui (`o`). Elle récupère ensuite cadrer-x dans `~/cadrer-x` (sous Windows,
+`%USERPROFILE%\cadrer-x`). Puis elle installe les compétences pour Claude Code, codex ou les deux,
+selon les outils présents sur ton ordinateur. Pour mettre à jour, relance la même ligne.
 
-Les compétences vont dans `.claude/skills` (Claude Code) et `.agents/skills` (codex) du projet : à
-committer, pour que tout le monde sur le projet ait la même version. `.claude/settings.json` autorise
-aussi les commandes git que les étapes lancent (worktrees, fusions, commits), pour que le
-développement ne te demande pas ton accord à chaque fusion ; `git push` te le demande toujours.
-`cadrer-x-init` y ajoute les commandes du projet (installer, vérifier, lancer).
+Les compétences vont dans les dossiers `.claude/skills` (Claude Code) et `.agents/skills` (codex)
+du projet. Inclus-les dans le dépôt : toutes les personnes du projet auront ainsi la même version.
+`.claude/settings.json` autorise aussi les commandes Git que les étapes lancent (fusions, commits),
+et la commande `gh` qui envoie les retours. Pendant le développement, Claude ne te demande donc pas
+ton accord à chaque fusion, mais il te le demande toujours avant `git push`. `cadrer-x-init` y
+ajoute les commandes du projet (installer, vérifier, lancer).
 
-Les options sont les mêmes sur les deux systèmes : un `<dossier>` pour installer ailleurs que dans le
-dossier courant, `--global` pour tous tes projets à la fois, `--engine claude` ou `--engine codex` pour
-un seul des deux, `--link` pour suivre ta copie de cadrer-x en direct, `--remove` pour les retirer,
-`--yes` pour répondre oui d'avance. Elles se mettent à la fin :
+Les options sont les mêmes sur les deux systèmes. Avec un `<dossier>`, l'installation se fait
+ailleurs que dans le dossier où tu te trouves. `--global` installe pour tous tes projets à la fois.
+`--engine claude` ou `--engine codex` installe pour un seul des deux. `--link` crée des liens vers
+ta copie de cadrer-x : tes modifications s'y voient tout de suite. `--remove` retire les
+compétences. `--yes` répond oui d'avance. Les options se placent à la fin de
+la ligne :
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.sh | bash -s -- --engine codex
@@ -89,15 +95,15 @@ curl -fsSL https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.sh 
 & ([scriptblock]::Create((irm https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.ps1))) --engine codex
 ```
 
-Pour essayer sans toucher un vrai projet, installe-les dans un dossier d'essai, en lien :
-`~/cadrer-x/install.sh --link ~/essais`. Lance tes sessions depuis ce dossier ; une modification des
-compétences dans `~/cadrer-x` s'y voit tout de suite. Sous Windows, `--link` fait une simple copie :
-relance la ligne pour voir une modification.
+Pour essayer sans toucher à un vrai projet, installe les compétences sous forme de liens dans un
+dossier d'essai : `~/cadrer-x/install.sh --link ~/essais`. Lance tes sessions depuis ce dossier.
+Toute modification des compétences dans `~/cadrer-x` s'y voit tout de suite. Sous Windows,
+`--link` fait une simple copie : relance la ligne pour voir une modification.
 
-Les compétences ne servent que dans le dossier où tu les installes : une session lancée dans un
-sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans le
-projet lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-les pour tous
-tes projets avec `--global`.
+Les compétences ne fonctionnent que dans le dossier où tu les installes : une session lancée dans
+un sous-dossier ne les voit pas. Pour un projet rangé dans ton dossier d'essai, installe-les dans
+le projet lui-même : `~/cadrer-x/install.sh --link ~/essais/mon-projet`. Sinon, installe-les pour
+tous tes projets avec `--global`.
 
 ## Les étapes
 
@@ -114,44 +120,52 @@ tes projets avec `--global`.
 /cadrer-x-retour [mots]        quand tu veux : un court retour aux auteurs de cadrer-x
 ```
 
-Si tu l'acceptes une fois, chaque étape envoie un court rapport à sa fin. Il est publié sur GitHub,
-sous ton compte, dans le dépôt cadrer-x. Il indique l'étape, où elle s'est arrêtée et ce qui a posé
-problème. Il ne dit rien de ton produit ni de ton code. Tu le vois en entier chaque fois. Pour
-arrêter, dis-le ou écris `retours: non` dans `cadrer-x.yml`.
+Les étapes peuvent aussi envoyer un court rapport aux auteurs de cadrer-x. Si tu l'acceptes (une
+seule fois suffit), chaque étape en envoie un quand elle se termine, ou te donne le lien pour
+l'envoyer. C'est un ticket public sur GitHub, sous ton compte, dans le dépôt cadrer-x : tout le
+monde peut le lire. Il indique l'outil utilisé, l'étape, où elle s'est arrêtée, ce qui a posé
+problème, le nombre de questions et les endroits où tu as corrigé l'agent. Il ne dit rien de ton
+produit ni de ton code. Tu le vois en entier chaque fois. Pour arrêter, dis-le ou écris
+`retours: non` dans `cadrer-x.yml`.
 
-En pratique, trois sessions par fonctionnalité : `choisir` (de l'idée aux tâches), `realiser`, puis
-`rendre` ; les deux premières finissent en te donnant la commande suivante. Tu peux toujours arrêter
-une étape et lancer la commande plus tard. Une étape reprend là où ses fichiers s'arrêtent :
-relance-la, elle sait où elle en est.
+En pratique, une fonctionnalité demande trois sessions : `choisir` (de l'idée aux tâches),
+`realiser`, puis `rendre`. Les deux premières se terminent en te donnant la commande suivante. Tu
+peux toujours arrêter une étape et lancer la commande plus tard. Une étape reprend là où ses
+fichiers s'arrêtent : relance-la, elle sait où elle en est.
 
-`/cadrer-x-realiser <nom>` mène tout le développement depuis une seule session : il confie chaque tâche
-à un agent qui la développe dans son worktree (deux à la fois quand elles ne se touchent pas), la
-fusionne dans la branche de la fonctionnalité quand les vérifs passent, fait relire chaque récit par un
-agent neuf qui ne l'a pas développé (c'est lui qui clique les écrans, la maquette validée à côté ;
-celui qui développe n'ouvre jamais le navigateur), et renvoie ce que la relecture trouve à un agent
-qui le corrige. Il ne s'arrête que pour tes questions et, une fois tout relu, pour une dernière :
-les détails que la relecture a laissés, on les corrige maintenant ou on livre ? Ceux qui attendent,
-`rendre` les note dans `livraison.md`. À la main, si tu préfères :
-`/cadrer-x-realiser T01` (une tâche), `/cadrer-x-realiser <nom> US1` (une relecture, dans une autre
-session).
+`/cadrer-x-realiser <nom>` mène tout le développement depuis une seule session. Elle confie chaque
+tâche à un agent (une autre instance de l'IA, qui travaille pour elle), qui la développe dans son
+worktree, sa propre copie de travail. Jusqu'à deux agents travaillent en même temps, quand leurs
+tâches ne se touchent pas. Quand les vérifications réussissent, elle fusionne la tâche dans la
+branche de la fonctionnalité. Dès qu'un récit (une chose que l'utilisateur du produit veut faire)
+est terminé, elle le fait relire par un agent neuf, qui ne l'a pas développé. C'est cet agent qui
+essaie les écrans, la maquette validée sous les yeux : celui qui développe n'ouvre jamais le
+navigateur. Ce que la relecture trouve est renvoyé à un agent qui le corrige. `/cadrer-x-realiser`
+ne s'arrête que pour te poser ses questions et, une fois tout relu, une dernière : les détails que
+la relecture a laissés, on les corrige maintenant ou on livre? `rendre` note dans `livraison.md`
+les détails laissés pour plus tard. Si tu préfères
+avancer à la main, lance `/cadrer-x-realiser T01` (une tâche) ou `/cadrer-x-realiser <nom> US1`
+(une relecture, dans une autre session).
 
-Un petit changement (un mot, une couleur, un bouton qui se comporte mal) ou un bug passe aussi par
-`/cadrer-x-choisir` : décris-le en une phrase (« le bouton Envoyer ne fait rien »). L'entretien se
-réduit à ce qui manque, l'agent essaie le bug lui-même, et la voie courte saute la maquette et les
-validations en trop. La relecture par un agent neuf, elle, reste.
+Un petit changement (un mot, une couleur, un bouton qui se comporte mal) ou un bogue passe aussi
+par `/cadrer-x-choisir` : décris-le en une phrase (« le bouton Envoyer ne fait rien »). Les
+questions se limitent à ce qui manque, et l'agent essaie de reproduire le bogue lui-même. Ce
+parcours court saute la maquette et les validations inutiles pour un si petit changement. La
+relecture par un agent neuf, elle, reste.
 
-Facultatif : `/cadrer-x-verifier <nom>`, dans une session neuve, un regard à froid avant le code :
-sur la spec seule, ou sur la spec et les tâches. Utile surtout quand `choisir` n'a pas pu lancer son
-second regard (sans sous-agents) : il te le propose alors.
+`/cadrer-x-verifier <nom>` est une étape facultative. Lancée dans une session neuve, elle pose un
+regard à froid avant le code, sur la spec seule ou sur la spec et les tâches. Elle sert surtout
+quand `choisir` n'a pas pu faire relire son travail par un autre agent (certains outils ne le
+permettent pas). `choisir` te la propose alors.
 
-Six aides, de simples fichiers `aide.md`, sont lues par une étape au moment où elle en a besoin :
-`cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`, `cadrer-x-modules`, `cadrer-x-design-system`,
-`cadrer-x-textes`.
+Les étapes lisent aussi six aides, de simples fichiers `aide.md`, au moment où elles en ont
+besoin : `cadrer-x-tdd`, `cadrer-x-securite`, `cadrer-x-debug`, `cadrer-x-modules`,
+`cadrer-x-design-system`, `cadrer-x-textes`.
 
 ## Où vont les fichiers
 
 ```
-cadrer-x.yml                       les commandes : installer, vérifier, lancer
+cadrer-x.yml                       les commandes (installer, vérifier, lancer) et retours:
 docs/vision.md  docs/architecture.md  docs/glossaire.md  docs/constitution.md  docs/adr/
 docs/features/0001-<nom>/
   brief.md  decisions.md  spec.md  a-trancher.md  taches.md
@@ -160,9 +174,11 @@ docs/features/0001-<nom>/
 .worktrees/                        un dossier par branche en cours (feature.<nom>, tache.<nom>-t01)
 ```
 
-Le code suit d'abord le framework : s'il a sa façon de ranger le code (Rails, Django, NestJS…),
-cadrer-x la suit telle quelle. Ce qu'il laisse libre prend la même forme dans chaque projet : un module
-par partie du produit, chacun avec une seule porte d'entrée.
+Le code suit d'abord le framework, c'est-à-dire le cadre de développement du projet. Si le
+framework (Rails, Django, NestJS…) a sa propre façon de ranger le code, cadrer-x la suit telle
+quelle. Ce
+qu'il laisse libre prend la même forme dans chaque projet : un module par partie du produit,
+chacun avec une seule porte d'entrée.
 
 ```
 src/                               un seul, celui du framework quand il en a un (jamais src/src/)
@@ -173,52 +189,57 @@ tests/modules/<module>/            les tests d'un module, par sa porte
 db/migrations/                     un fichier par changement du schéma
 ```
 
-Un projet existant garde sa disposition jusqu'à ce que tu la changes : `cadrer-x-init` la décrit telle
-qu'elle est, écrit celle visée, puis propose `/cadrer-x-ranger`, qui déplace le code un module à la
-fois, après avoir prouvé par des tests et des captures ce que le produit fait aujourd'hui. Le détail :
+Un projet existant garde son organisation jusqu'à ce que tu la changes. `cadrer-x-init` décrit
+l'organisation actuelle, écrit l'organisation visée, puis propose `/cadrer-x-ranger`. Cette commande
+prouve d'abord, par des tests et des captures, ce que le produit fait aujourd'hui. Elle déplace
+ensuite le code un module à la fois. Pour le détail, voir
 [`skills/cadrer-x-modules/references/structure.md`](skills/cadrer-x-modules/references/structure.md).
 
-Une fonctionnalité vit sur `feature/<nom>` ; chaque tâche sur `tache/<nom>-t01`, qui rejoint la
-fonctionnalité dès que ses vérifs passent (c'est local, et ça se défait d'une commande). Seule `rendre`
-fusionne dans la branche principale et pousse, et seulement sur ton oui.
+Une fonctionnalité vit sur la branche `feature/<nom>`, et chaque tâche sur `tache/<nom>-t01`. Une
+tâche rejoint la fonctionnalité dès que ses vérifications réussissent : cette fusion reste sur ton
+ordinateur et s'annule en une commande. Seule l'étape `rendre` fusionne dans la branche principale
+et envoie le code vers le dépôt en ligne, et uniquement avec ton accord.
 
 Les noms, titres et libellés exacts sont dans [`docs/conventions.md`](docs/conventions.md).
 
 ## Feuille de route
 
-Ce qui vient, avant et après la v2 : [`docs/roadmap.md`](docs/roadmap.md).
+Ce qui est prévu avant et après la v2 se trouve dans [`docs/roadmap.md`](docs/roadmap.md).
 
-## Tu viens de cadrer ?
+## Tu utilisais déjà cadrer?
 
-[`docs/migration-cadrer.md`](docs/migration-cadrer.md) : ce qui change, et comment passer un projet de
-`builds/<NN>-<nom>/` à `docs/features/`.
+[`docs/migration-cadrer.md`](docs/migration-cadrer.md) explique ce qui change et comment passer un
+projet de `builds/<NN>-<nom>/` à `docs/features/`.
 
 ## Pourquoi les compétences sont en anglais
 
-Ce que tu lis est en français : les noms des commandes, leurs descriptions, les fichiers que les étapes
-écrivent (`spec.md`, `taches.md`…), leurs titres et leurs libellés. Les étapes te parlent dans ta langue.
+Ce que tu lis est en français : les noms des commandes, leurs descriptions, les fichiers que les
+étapes écrivent (`spec.md`, `taches.md`…), leurs titres et leurs libellés. Les étapes te parlent
+dans ta langue.
 
-Le corps d'une compétence, lui, n'est lu que par l'agent : ce sont ses consignes, chargées à chaque
-fois qu'une étape tourne. Le français coûte plus de tokens pour la même consigne, donc il est en anglais.
+Le corps d'une compétence, lui, n'est lu que par l'agent : ce sont ses consignes, chargées chaque
+fois qu'une étape s'exécute. Pour la même consigne, le français coûte plus de tokens (les jetons,
+ces morceaux de texte que lit le modèle). C'est pourquoi ce corps est en anglais.
 
-Mesuré avec `tools/token_estimate.py` le 2026-10-03, sur quatre compétences (`realiser`, `modules`,
-`tdd`, `debug`) traduites en entier en français :
+La mesure a été faite avec `tools/token_estimate.py` le 3 octobre 2026, sur quatre compétences
+(`realiser`, `modules`, `tdd`, `debug`) traduites en entier en français :
 
 | | Anglais | Français |
 | --- | --- | --- |
 | Quatre compétences, tokenizer o200k | 4 987 | 5 855 (1,17×) |
 | Médiane de sept tokenizers publics | | 1,26× (de 1,17× à 1,28×) |
 
-Au 2026-10-08, les sept compétences et les six aides font environ 31 100 tokens en anglais (o200k ;
-57 200 avec les fichiers qu'elles lisent). En français, ce serait de 5 000 à 8 300 tokens de plus,
-payés à chaque étape lancée : une fois par tâche pour l'agent qui la développe, une fois par récit
-pour celui qui le relit. Le tokenizer de Claude n'est pas public : le ratio vient des tokenizers
-publics, et `ANTHROPIC_API_KEY` ajoute le compte exact de Claude.
+Au 8 octobre 2026, les sept compétences et les six aides font environ 31 100 tokens en anglais, et
+57 200 avec les fichiers qu'elles lisent (avec o200k, un tokenizer public, c'est-à-dire une façon de
+découper le texte en tokens). En français, il en faudrait de 5 300 à 8 700 de plus, payés à chaque
+étape lancée : une fois par tâche pour l'agent qui la développe, et une fois par récit pour celui
+qui le relit. Celui de Claude n'est pas public : le ratio vient donc des tokenizers publics. Avec
+`ANTHROPIC_API_KEY`, l'outil ajoute le nombre exact de tokens selon Claude.
 
 ## Outils
 
-`tools/token_estimate.py` compte ce que les compétences coûtent en tokens, et compare deux versions
-(appariées par nom de dossier, ou `--map EN=FR`). Repris de cadrer.
+`tools/token_estimate.py` compte ce que les compétences coûtent en tokens et compare deux
+versions, appariées par nom de dossier ou avec `--map EN=FR`. Cet outil est repris de cadrer.
 
 ```sh
 uv run tools/token_estimate.py skills                       # les consignes seules
@@ -226,10 +247,12 @@ uv run tools/token_estimate.py skills --files               # avec references/ e
 uv run tools/token_estimate.py skills chemin/vers/fr/skills  # anglais contre français
 ```
 
-`--detail o200k` détaille par compétence, `--only o200k` n'en charge qu'un, `--json` donne les chiffres.
+`--detail o200k` donne le détail par compétence, `--only o200k` ne charge que ce tokenizer et
+`--json` donne les chiffres.
 
 ## Licence
 
-MIT, voir [`LICENSE`](LICENSE). Sauf `skills/cadrer-x-design-system/direction.md` : adapté de la
-compétence frontend-design d'Anthropic, il reste sous licence Apache-2.0
+cadrer-x est sous licence MIT : voir [`LICENSE`](LICENSE). Seule exception :
+`skills/cadrer-x-design-system/direction.md`, adapté de la compétence frontend-design d'Anthropic,
+reste sous licence Apache-2.0
 ([`LICENSE-frontend-design.txt`](skills/cadrer-x-design-system/LICENSE-frontend-design.txt)).

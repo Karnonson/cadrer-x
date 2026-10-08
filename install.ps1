@@ -170,7 +170,7 @@ Options :
   DOSSIER          installer dans ce dossier au lieu du dossier actuel
   --global         installer pour tous tes projets
   --engine claude  seulement pour Claude Code (--engine codex : seulement pour codex)
-  --link           des liens vers %USERPROFILE%\cadrer-x au lieu de copies
+  --link           suivre %USERPROFILE%\cadrer-x ; sous Windows, une simple copie : relance la ligne
   --remove         retirer les skills cadrer-x
   --yes            installer ce qui manque sans poser la question
   --help           afficher cette aide
