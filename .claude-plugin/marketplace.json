@@ -1,0 +1,12 @@
+{
+  "name": "cadrer-x",
+  "description": "Les compétences cadrer-x pour Claude Code.",
+  "owner": { "name": "Karnonson" },
+  "plugins": [
+    {
+      "name": "cadrer-x",
+      "source": ".",
+      "description": "De l'idée à la mise en ligne, une étape à la fois : init, choisir, realiser, rendre. Pour qui ne code pas."
+    }
+  ]
+}

@@ -19,8 +19,9 @@ live elsewhere.
 - `docs/vision.md`: why cadrer-x exists and for whom. `docs/roadmap.md`: what comes before and after
   v2. `docs/conventions.md`: every file name, heading, label and id the skills write and read, and
   which skill does what. Read the conventions before changing a skill.
+- `.claude-plugin/`, `hooks/`: the Claude Code plugin and its marketplace (this repo is both).
 - `install.sh` (`install.ps1` on Windows): installs the skills into a project (`.claude/skills`,
-  `.agents/skills`) or globally.
+  `.agents/skills`) or globally, for codex or to commit them with the project.
 - `tools/token_estimate.py`: what the skills cost in tokens.
 
 ## Writing a skill
@@ -64,6 +65,8 @@ There is no test suite. Before a commit:
   `python3 skills/cadrer-x-choisir/scripts/lint.py taches <dir>/taches.md` (each lint's docstring
   gives its usage).
 - A changed install: `./install.sh --link <scratch dir>` and look at what landed there.
+- A changed plugin or hook: `claude plugin validate .`, and `claude --plugin-dir . plugin details
+  cadrer-x` lists the skills and hooks it loads.
 - Size: `uv run tools/token_estimate.py skills`.
 
 ## Git

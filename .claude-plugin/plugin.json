@@ -1,0 +1,8 @@
+{
+  "name": "cadrer-x",
+  "description": "De l'idée à la mise en ligne, une étape à la fois : init, choisir, realiser, rendre. Pour qui ne code pas.",
+  "author": { "name": "Karnonson" },
+  "homepage": "https://github.com/Karnonson/cadrer-x",
+  "repository": "https://github.com/Karnonson/cadrer-x",
+  "license": "MIT"
+}

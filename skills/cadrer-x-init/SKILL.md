@@ -183,9 +183,10 @@ for plain pages, and say the first feature's foundation task fills them. No `env
 `/cadrer-x-rendre` adds each environment the first time it puts the product online.
 
 **`.claude/settings.json`**: each command of `cadrer-x.yml` (`install`, each check, `dev.run`) in
-`permissions.allow` as `Bash(<the command>)`, beside the git commands `install.sh` puts there when
-cadrer-x is installed in the project (after a global install, say that `./install.sh` run in the
-project allows them), so a build is not a prompt per check. Nothing else; never `git push`. Committed with the rest.
+`permissions.allow` as `Bash(<the command>)`, and each rule of `references/permissions.json` missing
+from `permissions.allow` / `permissions.ask` (the git commands the steps run; `git push` stays asked),
+so a build is not a prompt per check or merge. Nothing else; never `git push` in `allow`. Committed
+with the rest.
 
 ### 3. `{docs}/architecture.md`
 

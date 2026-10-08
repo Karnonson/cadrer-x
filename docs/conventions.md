@@ -388,10 +388,17 @@ line of its report), and one reviewer at a time runs beside the builders.
 
 ## Install
 
-`install.sh` (`install.ps1` on Windows, same options) copies each skill and helper into the project
-by default: `.claude/skills` and `.agents/skills`, committed with the project so everyone on it has the
-same version. It also merges into
-`.claude/settings.json` the git commands the steps run (`permissions.allow`) and `git push` under
-`ask`; `init` adds the commands of `cadrer-x.yml`, and `realiser` any it finds missing. `--global` puts
-them in `~/.claude/skills` and `~/.agents/skills` instead. `--link` symlinks to the checkout, to try
-changes live; `--remove` takes them out.
+Two ways, the same skills. **The Claude Code plugin**: the repo is both the marketplace and the
+plugin (`.claude-plugin/marketplace.json`, `.claude-plugin/plugin.json`, both named `cadrer-x`; no
+`version`, so each commit on `main` is an update). Its skills answer as `/cadrer-x-<name>` and
+`/cadrer-x:cadrer-x-<name>`. Its `SessionStart` hook (`hooks/check-env.sh`) checks git and Python 3
+and, only when one is missing or Python 3 has another name, tells Claude so in its context. A plugin
+can't ship permissions, so `init` merges `skills/cadrer-x-init/references/permissions.json` into the
+project's `.claude/settings.json`.
+
+**`install.sh`** (`install.ps1` on Windows, same options), for codex or to commit the skills with the
+project: it copies each skill and helper into the project by default, `.claude/skills` and
+`.agents/skills`, and merges the same `permissions.json` into `.claude/settings.json` (git commands
+under `allow`, `git push` under `ask`); `init` adds the commands of `cadrer-x.yml`, and `realiser` any
+it finds missing. `--global` puts them in `~/.claude/skills` and `~/.agents/skills` instead. `--link`
+symlinks to the checkout, to try changes live; `--remove` takes them out.

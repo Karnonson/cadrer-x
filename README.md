@@ -12,6 +12,32 @@ titres restent fixes, en français, pour que chaque étape retrouve le travail d
 
 ## Installer
 
+### Avec Claude Code : le plugin
+
+Le plus simple, sur macOS, Linux et Windows. Dans Claude Code, tape :
+
+```
+/plugin install cadrer-x --marketplace Karnonson/cadrer-x
+```
+
+Avec une version plus ancienne de Claude Code : `/plugin marketplace add Karnonson/cadrer-x`, puis
+`/plugin install cadrer-x@cadrer-x`. Redémarre ensuite Claude Code.
+
+Les étapes servent alors dans tous tes projets : `/cadrer-x-init`, `/cadrer-x-choisir`… (ou leur nom
+complet, `/cadrer-x:cadrer-x-init`). Au début de chaque session, le plugin vérifie que ton ordinateur
+a git et Python 3 ; s'il en manque, Claude te dit quoi et comment l'installer, et n'installe rien sans
+ton oui. `cadrer-x-init` autorise dans le projet les commandes git que les étapes lancent ; `git push`
+te sera toujours demandé.
+
+Pour mettre à jour : `/plugin marketplace update cadrer-x`, ou active la mise à jour automatique dans
+`/plugin`, onglet des marketplaces. Tant que le dépôt est privé, il faut y avoir accès et que git soit
+connecté à GitHub (`gh auth login`, puis `gh auth setup-git`).
+
+Le plugin ou les lignes ci-dessous, pas les deux dans le même projet : les étapes apparaîtraient deux
+fois.
+
+### Avec codex, ou pour mettre les compétences dans le projet
+
 Il te faut d'abord Claude Code ou codex. Ensuite, depuis le dossier de ton projet, une seule ligne.
 
 macOS, Linux (et Git Bash sous Windows) :

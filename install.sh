@@ -298,13 +298,12 @@ if [ "$scope" = project ] && [[ " $engines " == *" claude "* ]]; then
   if [ -z "$py" ]; then
     echo "Python 3 introuvable : .claude/settings.json reste tel quel (Claude Code demandera chaque commande git)." >&2
   else
-    "$py" - "$base/.claude/settings.json" "$remove" <<'PY'
+    "$py" - "$base/.claude/settings.json" "$remove" "$src/cadrer-x-init/references/permissions.json" <<'PY'
 import json, sys, pathlib
 path, remove = pathlib.Path(sys.argv[1]), sys.argv[2] == "1"
-allow = [f"Bash(git {c} *)" for c in ("status", "log", "diff", "show", "branch", "worktree", "merge",
-         "merge-base", "add", "commit", "mv", "rm", "grep", "rev-parse", "rev-list", "ls-files", "stash")]
-allow += [f"Bash(git {c})" for c in ("status", "log", "diff", "branch", "stash")]
-ask = ["Bash(git push *)", "Bash(git push)"]
+# The list lives with cadrer-x-init, which merges the same file when the plugin installed cadrer-x.
+rules = json.loads(pathlib.Path(sys.argv[3]).read_text(encoding="utf-8"))
+allow, ask = rules["allow"], rules["ask"]
 data = json.loads(path.read_text(encoding="utf-8")) if path.exists() and path.read_text(encoding="utf-8").strip() else {}
 perms = data.setdefault("permissions", {})
 for key, rules in (("allow", allow), ("ask", ask)):
