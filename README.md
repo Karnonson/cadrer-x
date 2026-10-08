@@ -40,7 +40,7 @@ irm https://raw.githubusercontent.com/Karnonson/cadrer-x/main/install.ps1 | iex
 ```
 
 La commande propose d'installer Git et Python 3 s'ils manquent. Elle place cadrer-x dans
-`~/cadrer-x`, puis les compétences dans `.claude/skills` et `.agents/skills` du projet. Relance-la
+`~/cadrer-x`, puis les skills dans `.claude/skills` et `.agents/skills` du projet. Relance-la
 pour mettre à jour. Les options se mettent à la fin, par exemple `… | bash -s -- --global` :
 `--global` installe pour tous tes projets, `--engine codex` pour codex seulement, `--remove` retire
 cadrer-x. `~/cadrer-x/install.sh --help` donne les autres.
@@ -93,5 +93,5 @@ français, elles coûteraient de 17 à 28 % de jetons (tokens) de plus, à chaq
 ## Licence
 
 MIT ([`LICENSE`](LICENSE)), sauf `skills/cadrer-x-design-system/direction.md`, adapté de la
-compétence frontend-design d'Anthropic, sous licence Apache-2.0
+skill frontend-design d'Anthropic, sous licence Apache-2.0
 ([`LICENSE-frontend-design.txt`](skills/cadrer-x-design-system/LICENSE-frontend-design.txt)).
