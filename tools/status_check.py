@@ -16,20 +16,31 @@ SECTIONS = ["Goal", "Where things are", "Trial projects", "Next"]
 
 
 def check(path):
-    lines = open(path, encoding="utf-8").read().splitlines()
+    try:
+        lines = open(path, encoding="utf-8").read().splitlines()
+    except UnicodeDecodeError:
+        return [f"{path}: not UTF-8"]
+    except OSError as e:
+        return [f"{path}: cannot be read: {e.strerror or e}"]
     out = []
     if len(lines) > MAX_LINES:
         out.append(f"{path}: {len(lines)} lines, {MAX_LINES} at most: cut what is done or lives elsewhere")
-    dates = [m.group(1) for l in lines if (m := re.match(r"^\*\*Updated\*\*: (\S+)$", l))]
+    dates = [m.group(1) for l in lines if (m := re.match(r"^\s*\*\*Updated\*\*:\s*(.*?)\s*$", l))]
     if not dates:
         out.append(f"{path}: no `**Updated**: YYYY-MM-DD` line")
+    elif len(dates) > 1:
+        out.append(f"{path}: {len(dates)} `**Updated**` lines: keep exactly one")
     for d in dates:
-        try:
-            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
-                raise ValueError
-            datetime.date.fromisoformat(d)
-        except ValueError:
+        if not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", d):
             out.append(f"{path}: `{d}` is not a date (YYYY-MM-DD)")
+            continue
+        try:
+            day = datetime.date.fromisoformat(d)
+        except ValueError:
+            out.append(f"{path}: `{d}` is not on the calendar")
+            continue
+        if day > datetime.date.today():
+            out.append(f"{path}: `{d}` is later than today")
     got = [l[3:].strip() for l in lines if l.startswith("## ")]
     if got != SECTIONS:
         out.append(f"{path}: the sections are {', '.join(SECTIONS)}, in that order; found {', '.join(got) or 'none'}")
