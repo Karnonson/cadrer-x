@@ -37,7 +37,7 @@ Read first: `cadrer-x.yml` (`docs:`, `commands`, `envs`), `git worktree list`, `
   and online in the main checkout (`<top>`, the repo's top), clean, on the main branch.
 - `feature/<slug>` not merged into the main branch, and no `{feature}/livraison.md` committed for it:
   **step 1**. Committed, not merged, in this order: the feature branch has commits after it (a task
-  added since): step 1 again, its files updated. Pushed as it is, its pull request open (`gh pr view
+  added since; a `retours —` commit does not count): step 1 again, its files updated. Pushed as it is, its pull request open (`gh pr view
   feature/<slug>`, else `git ls-remote --heads origin feature/<slug>`): with `gh`, its checks passed
   and nothing queued, the yes for its merge alone (*The yes*); else say what it waits on, and wait.
   Else: **the yes**.

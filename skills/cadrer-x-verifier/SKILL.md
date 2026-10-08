@@ -109,7 +109,7 @@ verification {feature}/verification.md` until it prints nothing. Commit it alone
 — <Titre>`. Never push.
 
 In your message: the verdict, each `À reprendre` in one line with the step that fixes it, the count of
-remarks. Then the next step and nothing more:
+remarks. Then the next step and nothing more (but *Retour*'s question):
 
 - `à reprendre`: `/cadrer-x-choisir <slug>`, which folds them in and checks once more.
 - `prête`: `/cadrer-x-choisir <slug>` after a spec-only check; `/cadrer-x-realiser <slug>` after spec et tâches.
