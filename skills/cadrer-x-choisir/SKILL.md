@@ -59,9 +59,8 @@ Search the feature branches too: `git branch --list 'feature/*'`, and each one's
   - no `taches.md`: the tasks: start the decoupeur, *Workers*.
   - `taches.md` not committed: past `voie : courte`'s size, *bigger than it looked* first; then,
     still there, *a half-done stage*: `tâches — <Titre>`.
-  - no task ticked, no `voie : courte`, no `verification.md` of **Portée** `spec et tâches` committed
-    after the last commit of `taches.md` and of `spec.md`, and you can start a subagent: the second
-    look, *Workers*.
+  - no task ticked, no `verification.md` of **Portée** `spec et tâches` committed after the last
+    commits of `taches.md` and `spec.md`: the second look, *Workers*.
   - else: the tasks are ready: the stop, *Workers*.
 - **A revision** runs the stage that changes, then each later stage whose file exists, in order, each
   by its step, reference or worker as above, without asking again: the design only when the change
@@ -352,17 +351,19 @@ task list is technical.
    goes back to it, resumed. A report that they outgrow the short path: *bigger than it looked*; the
    line removed, back to *Which step*, else commit the paths its report named:
    `tâches — <Titre>`.
-2. **The verificateur**, with nothing of yours in its message, unless `voie : courte`, or
-   `cadrer-x-verifier` is not beside this skill's folder; wait for its report. What the files settle
-   goes back to the decoupeur, resumed. What needs a product choice is a question for the person,
-   with the finding's proposal as your recommendation; the spec is yours: their answer goes in
+2. **The verificateur**, with nothing of yours in its message, unless `voie : courte`, no
+   `cadrer-x-verifier` beside this skill's folder, or `verification.md`'s last two commits both say
+   `spec et tâches` and `à reprendre`: never a third look. No subagents: one line offers
+   `/cadrer-x-verifier` in a fresh session instead. Wait for its report. What the files settle goes
+   back to the decoupeur, resumed. What needs a product choice is a question for the person, with
+   the finding's proposal as your recommendation; the spec is yours: their answer goes in
    `a-trancher.md` and in the scenario of `spec.md` (lint `spec` run again), then to the decoupeur.
    Commit what changed: `tâches — <Titre>`; `spec — <Titre> : corrections de la vérification` for
-   the spec. No subagents: say in one line that `/cadrer-x-verifier`, in a fresh session, can check
-   the spec and the tasks first.
+   the spec. After `à reprendre`, this step again, fresh.
 3. **The stop.** Close the workers. One message: what gets built (each story in one line, the number
-   of tasks), what the second look changed, then `/cadrer-x-realiser <slug>`, better in a new
-   session (`/clear`, then the command). Then stop: the build is theirs to start.
+   of tasks), what the second look changed and, still `à reprendre`, its findings, folded in,
+   unchecked; then `/cadrer-x-realiser <slug>`, better in a new session (`/clear`, then the command).
+   Then stop: the build is theirs to start.
 
 ## Red flags
 

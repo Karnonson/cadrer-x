@@ -26,9 +26,9 @@ Read first: `cadrer-x.yml` (`docs:`), `git worktree list`, `git branch --list 'f
 - **The feature.** The argument's number or slug (a near miss with one close feature: that one, said in
   one line), else the feature of the worktree you are in, else the one feature with a validated spec and
   no task built yet; several: ask which, one question.
-- **Launched by choisir** (its prompt says so): you are its fresh pair of eyes. The same work, the
-  same file and commit; ask no one. Your last message is for choisir: the verdict, then each finding
-  whole, as `verification.md` has it. No next step.
+- **Launched by choisir** (its prompt says so): the same work, the same file and commit; ask no
+  one. Your last message is for choisir: the verdict, then each finding whole, as `verification.md`
+  has it. No next step.
 - **Where.** Its worktree `.worktrees/feature.<slug>`, else the checkout on `feature/<slug>`, else `git
   worktree add .worktrees/feature.<slug> feature/<slug>` (`.worktrees/` in `.git/info/exclude` first).
 - **How far.** No `spec.md`, or not `validée`: say `/cadrer-x-choisir <slug>` comes first, and stop. A `taches.md`:
@@ -107,7 +107,7 @@ verification {feature}/verification.md` until it prints nothing. Commit it alone
 In your message: the verdict, each `À reprendre` in one line with the step that fixes it, the count of
 remarks. Then the next step and nothing more:
 
-- `à reprendre`: `/cadrer-x-choisir <slug>`, which folds the findings in without asking again and shows the result; then this check again if they want it, in a new session.
+- `à reprendre`: `/cadrer-x-choisir <slug>`, which folds them in and checks once more.
 - `prête`: `/cadrer-x-choisir <slug>` after a spec-only check; `/cadrer-x-realiser <slug>` after spec et tâches.
 
 ## Red flags
