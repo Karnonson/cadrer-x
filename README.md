@@ -1,10 +1,7 @@
 # cadrer-x
 
-cadrer-x aide une personne qui ne code pas à créer un logiciel avec Claude Code ou codex, de l'idée
-à la mise en ligne. Tu décris ce que tu veux. L'agent pose ses questions, écrit la spec, découpe le
-travail, développe, fait relire chaque partie et met le produit en ligne. Tu décides du produit, il
-s'occupe de la technique. Il te demande ton accord avant de toucher à ta branche principale et
-avant toute mise en ligne.
+cadrer-x est un ensemble de skills pour Claude Code et codex. Elles mènent un projet de l'idée
+à la mise en ligne, une étape à la fois.
 
 ## Installer
 
